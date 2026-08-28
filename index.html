@@ -1,159 +1,2935 @@
-<meta name="robots" content="noindex,nofollow">
-<!-- 티티버거 원페이지 리뉴얼 — 시안 제안 인덱스 (클라이언트 제출용) -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>티티버거 원페이지 리뉴얼 — 시안 제안</title>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 검색 축: 데이터랩 실측상 「수제버거창업」은 「소자본창업」의 1/59이라 브랜드·업종을 앞세우면 유입이 없다.
+     소자본·소형 매장·업종 변경을 앞에 두고 버거는 차별점으로 뒤에 둔다. (GEO설계 §0) -->
+<!-- 2026-08-22: 12無 스펙(8/20 확정)에 맞춰 head 메타 동기화. 교육비 300만원은 부과 항목이라 면제 목록에서 제외,
+     로열티는 24개월 면제, 선착순 10호점. 폐기 카피「개설 비용 0원」→「시공·집기 마진 0원」 -->
+<title>8평 소자본 창업 | 가맹비·보증금 면제, 로열티 24개월 면제 — 티티버거</title>
+<!-- v4 시네마틱 — 기획: 설계기획안/개편기획_시네마틱v4_20260825.md · v3(B안_간판.html) 보존 -->
+<meta name="description" content="8평부터 시작하는 소형 매장 수제버거 창업. 가맹비 500만원·보증금 100만원 면제, 월 로열티 20만원 24개월 면제. 인테리어·간판 자율 시공, 주방집기 직접 구매로 본사가 시공·집기에서 가져가는 마진 0원. 업종 변경 상담 1688-2629.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="8평 소자본 창업 | 시작을 막는 비용, 열두 가지가 없습니다 — 티티버거">
+<meta property="og:description" content="소형 매장 두 가지로 시작합니다. 창업 혜택 12無 — 가맹비·보증금 면제, 로열티 24개월 면제, 간판 교체비·쇼케이스 냉장고 지원. 선착순 10호점까지 창업비용 최대 1,000만원 지원.">
+<meta property="og:image" content="_assets/shot/hero.jpg">
+<meta property="og:site_name" content="티티버거">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E60012">
+<!-- canonical · og:url 은 배포 빌드에서 주입한다. 값 확정: https://ttburger.kr/ (2026-08-12)
+     시안에 박지 않는 이유 — 여기는 디자인 산출물이고 실제 값은 빌드 한 곳에서만 관리한다. GEO설계 §5-6 -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23E60012'/><text x='50' y='72' font-size='56' font-family='sans-serif' font-weight='900' fill='%23fff' text-anchor='middle'>TT</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- 2026-08-20 클라이언트 지시: 둥근 배민체 계열 — 헤드는 주아(Jua), 이름표 도현(Do Hyeon)은 원래 배민 폰트라 유지 -->
+<!-- 디스플레이 타이포(장식 전용): Anton=자이언트/마퀴 · Bebas=레일/링/캡션 · 나눔펜=손글씨 콜아웃. 메뉴명·간판(한글)과 역할 분리 -->
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Do+Hyeon&family=Anton&family=Bebas+Neue&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-  :root{
-    --bg:#1a1512; --panel:#241c17; --panel2:#2e241d; --line:#3d2f24;
-    --cream:#f5ecd9; --cream-d:#c9b89a; --gold:#e7b23c; --red:#c4342b;
-    --font-h:'Black Han Sans',sans-serif;
-    --font-b:'Pretendard',-apple-system,sans-serif;
+/* ══════════════════════════════════════════════════════════════
+   티티버거 창업 랜딩 — B안 「간판」
+   확정 사양: 설계기획안/B안_실행사양_20260811.md
+   · 컬러: 로고(.ai) 실측 #E60012 단색 + 화이트 지배 + 크림 정보구간
+   · 리듬: 임팩트(레드) ↔ 정보(크림/화이트) 교대 — 긴 페이지 가독 유지
+   · 간판은 실사 아닌 그래픽 장치(레드 판 + 흰 테두리 + 볼트 + 하드 섀도우)
+   · 타이포 하드게이트: line-height ≥1.05 / 자간 -0.02em 이내 / faux-bold 0
+     (Black Han Sans·Do Hyeon은 400 단일 웨이트 → weight 합성 금지)
+   ══════════════════════════════════════════════════════════════ */
+
+:root{
+  --red:#E60012;          /* 브랜드 레드 — 로고 실측 */
+  --red-deep:#B8000E;     /* 눌린 면·테두리 */
+  --red-dark:#8E0009;     /* 간판 외곽선 */
+  --cream:#F6F1E7;        /* 정보 구간 */
+  --cream-2:#EFE7D8;
+  --ink:#1A1614;          /* 헤드 + 본문 — 읽는 글은 전부 이 값 (흰 배경 17.97:1) */
+  --ink-2:#5A524C;        /* 의도적 약화 전용 — 취소선·VS 좌열·비활성 도장.
+                             본문에 쓰면 7.65:1 로 떨어져 '흐리다'가 된다.
+                             2026-08-26 실측: 프레디버거·버거리 본문은 순검정 21:1 */
+  --line:#E0D8CA;
+  --white:#fff;
+
+  --ff-sign:'Jua', 'Pretendard', sans-serif;  /* 간판 헤드 — 주아체(배민 계열, 400 단일 웨이트) */
+  --ff-plate:'Do Hyeon', 'Pretendard', sans-serif;       /* 이름표·배지 */
+  --ff-body:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* 모듈러 스케일 (1440 기준) */
+  --fs-h1:clamp(36px, 5.6vw, 80px);
+  --fs-h2:clamp(28px, 4.2vw, 56px);
+  --fs-h3:clamp(21px, 2.4vw, 32px);
+  --fs-h4:clamp(18px, 1.5vw, 22px);
+  --fs-lead:clamp(17px, 1.5vw, 21px);
+  --fs-body:clamp(16.5px, 1.3vw, 19px);
+  --fs-cap:clamp(15px, 1.05vw, 15.5px);
+
+  /* 줄길이 상한 — 한글 글자는 1em 폭이라 em 이 곧 글자수다(ch 는 숫자 0 기준이라 절반).
+     v4.3 에서 --maxw 를 1240→1520 으로 키우며 본문에 상한을 안 걸어 주석이 한 줄 100자가 됐다.
+     레퍼런스 실측: 프레디 21자 · 버거리 47자 */
+  --measure:40em;
+  --measure-narrow:34em;
+
+  /* 섹션 여백 3단 — 균등 여백은 덩어리를 못 만든다. 배치는 아래 '섹션 리듬' 참조 */
+  --pad-tight:clamp(38px, 4.6vw, 68px);
+  --pad-base:clamp(56px, 7vw, 108px);
+  --pad-open:clamp(80px, 10vw, 152px);
+
+  /* 「간판」 물성은 희소 자원 — 히어로 사인보드 · 12無 오퍼 · 최종 CTA 3곳에만.
+     나머지는 여백·타이포·배경차로 구분한다. (루브릭 H2·C2·C3·L1) */
+  --sh-sign:12px 12px 0 rgba(0,0,0,.28);
+  --sh-clip:6px 6px 0 rgba(26,22,20,.16);   /* 클리핑 카드 — 간판(--sh-sign)보다 약하게, 희소성 유지 */
+
+  --gutter:clamp(18px, 4vw, 60px);
+  --maxw:1520px;   /* v4.3 풀와이드: 1440~1580 뷰포트에서 거터만 남는다. 본문 가독은 .lead 60ch 캡이 지킴 */
+
+  /* 내부 콘텐츠 폭 4단 — 배치는 아래 '콘텐츠 폭 변주' 참조.
+     각 단은 취향이 아니라 담는 것에 묶인다(거터 58px 제외한 실제 열 폭, 뷰포트 1440 기준):
+       full  1325px  5열 그리드·마퀴·시네마 — 가로가 곧 콘텐츠
+       wide  1164px  3~4열 그리드
+       mid    944px  2열 구성 (한 열 ≒ 460px)
+       tight  764px  단문·인용·폼 — --measure(40em≒760px) 한 열이 그대로 섹션 열이 된다 */
+  --w-full:var(--maxw);
+  --w-wide:1280px;
+  --w-mid:1060px;
+  --w-tight:880px;
+  --hd-h:74px;            /* JS가 실측으로 갱신 */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--white); color:var(--ink);
+  font-family:var(--ff-body); font-size:var(--fs-body); font-weight:400;
+  line-height:1.68; word-break:keep-all; overflow-wrap:anywhere;
+  /* -webkit-font-smoothing:antialiased 는 두지 않는다 — 맥 전용 관용구이고
+     윈도우 크롬에선 서브픽셀 AA 를 꺼서 획을 얇게 만든다. 레퍼런스 둘 다 auto. */
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,figure{margin:0}
+ul,ol{padding:0; list-style:none}
+button,input,select,textarea{font:inherit; color:inherit}
+/* iOS Safari는 16px 미만 입력 필드에 포커스하면 페이지를 확대한다 — 텍스트 입력은 16px 하한 */
+input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
+
+.wrap{max-width:var(--w-full); margin:0 auto; padding-inline:var(--gutter)}
+.sec{padding-block:var(--pad-base)}
+.sec--cream{background:var(--cream)}
+.sec--red{background:var(--red); color:var(--white)}
+
+/* ── 섹션 리듬 (v4.8b) ──────────────────────────────────────────────
+   개정 전에는 13개 섹션이 전부 101px 균등이라 섹션 간격이 202px 한 값뿐이었다.
+   게다가 인접 섹션의 배경이 전부 다르다(흰→다크→레드→크림…) — 배경이 이미
+   구분을 끝냈는데 균등 여백이 또 얹혀 구분 신호는 이중이고 리듬은 0이었다.
+   (루브릭 L1 '구분은 한 신호로 충분' + W1 '여백은 위계에 따라 차등' 동시 위반)
+
+   서사는 네 덩어리다.
+     A 제품·브랜드   brand → supply(공급) → 조리 루프 밴드 → creed
+     B 오퍼·메뉴     support → menu-burger → menu-side
+     C 전환·운영     why → fourway → types → company → process
+     D 전환(행동)    faq → ctastrip → contact
+   덩어리 경계에만 큰 여백을 쓰고 안쪽은 좁힌다. 큰 여백을 희소하게 만들어야
+   그게 경계로 읽힌다(H2 '강조는 나머지를 죽이기'의 여백판).
+   결과 간격 고유값 4종(68·108·136·260px) — 개정 전 1종(202px). */
+#brand, #support, #faq       {padding-top:var(--pad-open)}     /* 덩어리 시작 */
+#supply, #creed, #menu-burger,
+#menu-side, #why, #fourway,
+#types, #company, #process,
+#review, #contact            {padding-top:var(--pad-tight)}    /* 덩어리 내부 */
+#brand, #supply, #support, #menu-burger,
+#why, #fourway, #types,
+#company, #faq               {padding-bottom:var(--pad-tight)} /* 다음이 같은 덩어리 */
+
+/* ── 콘텐츠 폭 변주 (v4.11) ─────────────────────────────────────────
+   개정 전에는 본문 흐름 섹션 9개가 전부 같은 열(좌 58 → 우 1382, 1325px)이었다.
+   레퍼런스 실측(2026-08-27, 뷰포트 1440):
+     프레디버거  9섹션 → 열 폭 고유값 9종 (247·256·282·735·971·988·1112·1153·1170)
+     버거리     11섹션 → 고유값 11종 (가로 스크롤 4종 제외해도 7종)
+     티티버거   15섹션 → 실질 1종 (1325px×9) + 특수 5
+   양쪽 다 우리보다 폭이 훨씬 자주 바뀐다. '통짜' 인상의 마지막 축이 이것이다.
+
+   폭은 '서사 덩어리'가 아니라 '콘텐츠 밀도'를 따른다 — 여백(--pad-*)이 이미
+   덩어리 경계를 맡고 있어서, 폭까지 같은 기준을 쓰면 신호가 겹치고 변주는 0이 된다
+   (루브릭 L1 '구분은 한 신호로 충분'. v4.8b 에서 배경+여백이 겹쳤던 그 실수의 폭 버전).
+   그래서 두 축은 일부러 어긋나게 배치했다 — 덩어리 안에서 폭이 바뀌고,
+   덩어리가 바뀔 때 폭이 유지되기도 한다.
+
+   폭을 줄일 수 없는 섹션이 둘 있다. 취향이 아니라 구조가 막는다 — 실측으로 확인했다.
+   ⚠️ #faq — 2단 그리드가 minmax(280px,1fr) + gap 88 + 820px 라 콘텐츠 열이 1188px
+      아래로 내려가면 좌측 머리말 칸이 최소폭에 걸려 그리드가 삐져나간다.
+      대신 내부 비대칭(머리말 433 / 아코디언 820)이 이미 변주 역할을 한다.
+   ⚠️ #brand — .ed__fig 의 엣지 블리드(margin-inline -gutter)가 뷰포트 1440 에서
+      좌우 교대로 화면 끝에 **정확히 0px** 로 닿는다(실측: 정방향 우 1440 / 역방향 좌 0).
+      wrap 을 좁히면 거터 상쇄만으로는 화면 끝에 못 닿아 190px 물러나고,
+      블리드가 아니라 어정쩡한 돌출이 된다. vw 로 메우는 길은 v4.3 에서
+      스크롤바 오버플로 때문에 이미 버린 카드다(아래 '엣지 블리드' 주석).
+      → 엣지 블리드는 풀와이드 섹션의 어휘다. 좁힌 섹션은 블리드하지 않는다.
+      (#types 의 .type img 오버행은 화면 끝에서 686px 떨어진 카드 내부 장식이라 무관 — 좁혀도 된다)
+
+   미지정 = full: hero · brand · supply · menu-burger · process · faq · footer */
+#support .wrap, #menu-side .wrap,
+#fourway .wrap, #company .wrap   {max-width:var(--w-wide)}   /* 3~4열 그리드 */
+#why .wrap, #types .wrap,
+.ctastrip__in                    {max-width:var(--w-mid)}    /* 2열 구성 */
+#creed .wrap, #contact .wrap     {max-width:var(--w-tight)}  /* 단문·인용·폼 */
+
+/* 섹션 이름표 — 간판 하부의 작은 아크릴 명패 */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--ff-plate); font-size:var(--fs-cap);
+  letter-spacing:.1em; line-height:1.5;
+  background:none; color:var(--red); padding:0; border-radius:0;
+}
+.eyebrow::before{content:""; width:24px; height:3px; background:currentColor; flex:none}
+.sec--red .eyebrow{background:none; color:var(--white)}
+.sec--cream .eyebrow{color:var(--red-deep)}   /* 크림 위 --red 는 4.27:1 로 미달 */
+
+h2.h2{
+  font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h2);
+  line-height:1.14; letter-spacing:-.015em; margin-top:16px;
+}
+h3.h3{
+  font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3);
+  line-height:1.18; letter-spacing:-.012em;
+}
+.lead{font-size:var(--fs-lead); line-height:1.72; color:var(--ink); margin-top:18px; max-width:var(--measure)}
+/* 레드(#E60012) 위 흰 글씨는 4.80:1 — 반투명으로 낮추면 AA(4.5) 아래로 떨어진다.
+   위계는 알파가 아니라 크기·굵기로만 만든다. (K2 실측 게이트) */
+.sec--red .lead{color:var(--white)}
+.hl{color:var(--red); font-weight:700}
+.sec--red .hl{color:var(--white)}
+/* 크림 위에서는 --red 가 4.27:1 로 AA(4.5) 미달이다(흰 배경에선 4.80:1 로 통과).
+   --fs-lead 는 최소 16px 라 대형 텍스트 예외(18.66px+bold)에도 들지 못한다.
+   --red-deep 으로 내리면 6.13:1. 적용 대상: #why · #company */
+.sec--cream .hl{color:var(--red-deep)}
+
+/* ── 체크무늬 (아메리칸 다이너 톤) ── */
+.checker{
+  height:12px;
+  background:repeating-conic-gradient(var(--red) 0% 25%, var(--white) 0% 50%) 0 0/24px 24px;
+}
+
+/* ── 간판 판: 레드 아크릴 + 흰 테두리 + 볼트 4 + 하드 섀도우 ── */
+.sign{
+  position:relative; background-color:var(--red); color:var(--white);
+  border:5px solid var(--white);
+  box-shadow:0 0 0 4px var(--red-dark), 14px 16px 0 rgba(26,22,20,.22);
+  background-image:
+    radial-gradient(circle 4px at 15px 15px, rgba(255,255,255,.95) 96%, transparent 100%),
+    radial-gradient(circle 4px at calc(100% - 15px) 15px, rgba(255,255,255,.95) 96%, transparent 100%),
+    radial-gradient(circle 4px at 15px calc(100% - 15px), rgba(255,255,255,.95) 96%, transparent 100%),
+    radial-gradient(circle 4px at calc(100% - 15px) calc(100% - 15px), rgba(255,255,255,.95) 96%, transparent 100%);
+  background-repeat:no-repeat;
+}
+.sign::after{ /* 안쪽 각인선 */
+  content:""; position:absolute; inset:12px; border:1px solid rgba(255,255,255,.34);
+  pointer-events:none;
+}
+
+/* ── 버튼 ── */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:var(--ff-plate); font-size:clamp(15px,1.1vw,18px); line-height:1.4;
+  padding:15px 30px; border:3px solid var(--ink); border-radius:3px;
+  background:var(--red); color:var(--white); cursor:pointer; text-decoration:none;
+  box-shadow:5px 5px 0 var(--ink); transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translate(2px,2px); box-shadow:3px 3px 0 var(--ink)}
+.btn:active{transform:translate(5px,5px); box-shadow:0 0 0 var(--ink)}
+.btn--ghost{background:var(--white); color:var(--ink)}
+.btn--wide{width:100%}
+:focus-visible{outline:3px solid #0B63CE; outline-offset:3px}
+
+/* ══ 헤더 + sticky 상담바 ══ */
+.hd{position:sticky; top:0; z-index:60; background:var(--white); border-bottom:2px solid var(--ink)}
+.hd__row{
+  max-width:var(--maxw); margin:0 auto; padding:10px var(--gutter);
+  display:flex; align-items:center; gap:20px;
+}
+/* 터치 타깃 44px 확보 (T3 하드게이트) — 시각 크기는 유지하고 여백으로만 넓힌다 */
+.hd__logo{display:inline-flex; align-items:center; min-height:44px; padding-inline:4px}
+.hd__logo img{height:32px; width:auto}
+.hd__nav{display:flex; gap:clamp(10px,1.5vw,26px); margin-left:auto}
+.hd__nav a{
+  font-family:var(--ff-plate); font-size:15px; text-decoration:none; line-height:1.5;
+  padding:6px 2px; border-bottom:3px solid transparent;
+}
+.hd__nav a:hover{border-bottom-color:var(--red); color:var(--red)}
+.hd__tel{
+  font-family:var(--ff-sign); font-weight:400; font-size:22px; line-height:1.2;
+  color:var(--ink); text-decoration:none; letter-spacing:-.01em; white-space:nowrap; /* 2026-08-20 클라이언트 지시: 블랙 */
+  display:inline-flex; align-items:center; min-height:44px; padding-inline:6px;
+}
+.hd__logo .hd__sym{height:34px; width:auto; margin-right:9px} /* 락업 상단 버거 심볼 크롭 — .hd__logo img 반응형 룰보다 특이도 높게 */
+
+/* 상담바 — 전 구간 고정 (데스크톱) */
+.bar{background:var(--red); border-top:2px solid var(--ink)}
+.bar__in{
+  max-width:var(--maxw); margin:0 auto; padding:11px var(--gutter);
+  display:flex; align-items:center; gap:10px;
+}
+.bar__label{
+  font-family:var(--ff-sign); font-weight:400; color:var(--white); font-size:19px;
+  line-height:1.3; letter-spacing:-.01em; white-space:nowrap;
+  padding-right:14px; margin-right:2px; border-right:2px solid rgba(255,255,255,.38);
+}
+.bar__in--jump{text-decoration:none; cursor:pointer}
+/* 2026-08-22: 입력칸 모사(성함·연락처·희망 지역) 제거 → 제안 문구.
+   눌러도 타이핑이 안 되고 화면만 하단으로 튀어 기만적이었다. 흰 글자/레드 바탕 = 4.80:1 (AA 본문) */
+.bar__msg{
+  flex:1 1 auto; min-width:0; color:var(--white); font-size:16px; line-height:1.4;
+  letter-spacing:-.005em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bar .btn{padding:11px 22px; border-color:var(--ink); background:var(--ink); color:var(--white); box-shadow:4px 4px 0 rgba(0,0,0,.35)}
+.sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+
+/* ══ 01 히어로 — 간판(위) / 쇼윈도(아래) ══ */
+.hero{background:var(--white); position:relative}
+.hero__tile{ /* 화이트 타일 배경 */
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:56px 56px;
+  /* 간판이 첫 화면을 다 먹으면 음식(주인공)이 폴드 아래로 밀린다 — 세로 리듬을 조여 쇼윈도를 걸친다 */
+  padding-block:clamp(26px,3.2vw,44px) clamp(22px,2.8vw,38px);
+}
+.hero__sign{max-width:900px; margin:0 auto; padding:clamp(22px,3vw,38px) clamp(20px,4vw,50px); text-align:center}
+/* 오퍼 띠 — 간판에 덧대는 현수막/스티커. 창업 결정의 핵심 값은 「최대 1,000만원」인데
+   개정 전에는 16.5px 한 줄이라 H1(80px)과 5배 차이로 묻혔다(루브릭 H4: 핵심 값을 정점에).
+   문구는 8/20 확정 카피 그대로 두고 조판만 2단으로 갈라 금액을 간판 서체로 키운다. */
+/* ── 오퍼 띠 상시 모션 (v4.25) ─────────────────────────────────────────
+   대표 지시 — 「선착순 10호점 · 최대 1,000만원」이 계속 움직여 눈에 걸리게.
+   두 겹으로 나눈 이유가 있다.
+     ① 흔들림(badgeBob)은 transform 이라 **진입 팝(5c)과 같은 속성을 쓴다.**
+        GSAP 이 tween 중 transform 을 인라인으로 쥐고 있어 CSS 애니메이션을 그냥 걸면
+        둘이 싸워 튄다. 그래서 5c 의 onComplete 에서 .is-live 를 붙인 뒤에만 돈다.
+     ② 광택(badgeShine)은 레드 칩 안쪽 ::after 라 transform 충돌이 없다 —
+        GSAP 유무·순서와 무관하게 처음부터 돈다. 흰 바탕에선 안 보이니 칩에만 건다.
+   화면 밖이면 spinIO 가 세운다(마퀴·링·롤링과 같은 정책). 모션 감축 선호 시 둘 다 정지. */
+.hero__badge{
+  position:relative;
+  display:inline-flex; align-items:stretch; margin:0 auto 22px; padding:0;
+  background:var(--white); border:3px solid var(--ink); border-radius:999px;
+  overflow:hidden; box-shadow:6px 6px 0 rgba(0,0,0,.30); text-align:left;
+}
+.hero__badge.is-live{animation:badgeBob 2.8s ease-in-out infinite}
+@keyframes badgeBob{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%    {transform:translateY(-5px) rotate(-.9deg)}
+}
+.hero__badge b::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg,
+    transparent 40%, rgba(255,255,255,.62) 47%, rgba(255,255,255,.62) 53%, transparent 60%);
+  transform:translateX(-140%);
+  animation:badgeShine 4.6s ease-in-out infinite;
+}
+@keyframes badgeShine{
+  0%,64%  {transform:translateX(-140%)}
+  86%,100%{transform:translateX(140%)}
+}
+.hero__badge.is-off,
+.hero__badge.is-off b::after{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){
+  .hero__badge.is-live{animation:none}
+  .hero__badge b::after{animation:none; display:none}
+}
+.hero__badge b{
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; background:var(--red); color:var(--white);
+  font-family:var(--ff-plate); font-weight:400; font-size:clamp(15px,1.05vw,16px);
+  line-height:1.3; padding:10px 16px; white-space:nowrap;
+}
+/* 여기는 flex 를 쓰면 안 된다 — 텍스트 노드가 각각 플렉스 항목이 되면서
+   「최대 1,000만원 지원」의 앞뒤 공백이 잘려 글자가 붙어버린다. 글줄로 흘린다. */
+.hero__badge span{
+  display:block; color:var(--ink);
+  font-family:var(--ff-plate); font-size:clamp(15px,1.15vw,18px);
+  line-height:1.9; padding:8px 20px 8px 16px; white-space:nowrap;
+}
+.hero__badge strong{
+  font-family:var(--ff-sign); font-weight:400; color:var(--red-deep);
+  font-size:clamp(21px,1.9vw,29px); line-height:1; letter-spacing:-.012em;
+}
+/* 좁은 화면에선 한 줄로 못 버틴다 — 알약을 풀어 두 단으로 쌓는다 */
+@media (max-width:600px){
+  .hero__badge{flex-direction:column; border-radius:14px; text-align:center}
+  .hero__badge b,.hero__badge span{
+    justify-content:center; white-space:normal; padding:9px 14px;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--cream);font-family:var(--font-b);line-height:1.6;
-    -webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+}
+.hero h1{
+  font-family:var(--ff-sign); font-weight:400; color:var(--white);
+  font-size:var(--fs-h1); line-height:1.1; letter-spacing:-.018em;
+}
+.hero h1 .br{display:block}
+.hero__rule{width:78px; height:5px; background:var(--white); margin:18px auto; border-radius:2px}
+.hero__sub{
+  font-family:var(--ff-plate); color:var(--white);
+  font-size:clamp(15px,1.4vw,21px); line-height:1.6;
+}
+.hero__cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:clamp(20px,2.6vw,32px)}
+.hero__shot{
+  height:clamp(230px,36vw,460px); overflow:hidden;
+  border-top:6px solid var(--ink); border-bottom:6px solid var(--ink);
+}
+.hero__shot img{width:100%; height:100%; object-fit:cover; object-position:center 62%}
 
-  /* 헤더 */
-  header{padding:clamp(48px,7vw,88px) 0 clamp(30px,4vw,48px);text-align:center;border-bottom:1px solid var(--line)}
-  header .eyebrow{font-size:13px;letter-spacing:.28em;color:var(--gold);font-weight:700;margin-bottom:18px}
-  header h1{font-family:var(--font-h);font-weight:400;font-size:clamp(34px,6vw,64px);letter-spacing:-.01em;line-height:1.1}
-  header h1 .hl{color:var(--gold)}
-  header .sub{margin-top:16px;color:var(--cream-d);font-size:clamp(14px,1.6vw,16px)}
+/* ══ 03 마퀴 ══ */
+.mq{background:var(--red); color:var(--white); overflow:hidden; padding:15px 0; border-block:3px solid var(--ink)}
+.mq__track{display:flex; width:max-content; animation:mq 30s linear infinite}
+.mq__track span{
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(19px,2.1vw,29px);
+  line-height:1.3; letter-spacing:-.012em; padding-inline:clamp(16px,2vw,30px); white-space:nowrap;
+}
+.mq__track span::after{content:"●"; font-size:.42em; vertical-align:.42em; margin-left:clamp(16px,2vw,30px); opacity:.8}
+@keyframes mq{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .mq__track{animation:none; width:100%; justify-content:center; flex-wrap:wrap}
+  .mq__track [data-clone]{display:none}
+}
 
-  /* 개요 */
-  .overview{margin:clamp(36px,5vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
-  .ov-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
-  .ov-card .k{font-size:12px;letter-spacing:.04em;color:var(--gold);font-weight:800;margin-bottom:7px}
-  .ov-card .v{font-size:14px;color:var(--cream);font-weight:500}
-  .ov-card .v b{color:var(--cream);font-weight:800}
+/* ══ 03-b 풀블리드 밴드 — 그리드가 길게 이어진 뒤 호흡을 끊는다 (L2) ══ */
+/* ── 조리 루프 밴드 (v4.17) — 구 「매장에서 하는 일은 네 가지입니다」 섹션 대체 ─────
+   대표 판단: 그 섹션은 굳이 필요 없다. 바로 위 #supply 가 이미 「매장에서 반죽하거나
+   패티를 잡을 일이 없습니다」로 같은 말을 하고 있었고, 사진 스트립이 두 번 연달아
+   나오는 구조이기도 했다. 정지 4컷 섹션(1,099px) → 움직이는 3컷 밴드로 바꿔
+   메시지는 남기고 길이는 줄인다.
+   ⚠️ GIF 가 아니라 MP4 루프다 — 같은 3초를 GIF 로 뽑으면 컷당 3~6MB 인데
+   h264 는 64~150KB 다(30~50배). 화질도 GIF 256색보다 낫다. 배포용 GIF 는
+   _assets/video/ 에 따로 뽑아 뒀다(카톡·메일 등 MP4 가 안 도는 경로용). */
+.cookband{
+  width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+  background:var(--ink); line-height:0; overflow:hidden;
+  border-top:3px solid var(--ink); border-bottom:3px solid var(--ink);
+}
+.cookband__cell{position:relative; overflow:hidden}
+.cookband__cell + .cookband__cell{box-shadow:inset 3px 0 0 var(--ink)}
+/* ⚠️ height:auto 가 없으면 <video width/height> 속성이 프레젠테이션 힌트로 먹어
+   aspect-ratio 가 통째로 무시된다(실측: PC 밴드 900px·모바일 2,700px).
+   속성은 CLS 방지용으로 남기고 높이는 CSS 가 잡는다. */
+.cookband video{width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; display:block}
 
-  /* 섹션 타이틀 */
-  .sec-title{display:flex;align-items:baseline;gap:12px;margin:clamp(30px,4vw,44px) 0 20px}
-  .sec-title h2{font-family:var(--font-h);font-weight:400;font-size:clamp(22px,3vw,30px)}
-  .sec-title span{color:var(--cream-d);font-size:13px}
+/* ── 영상 위 타이포 (v4.18) ─────────────────────────────────────────
+   영상만 세 개 나란히 두니 밋밋하다는 대표 지적. 프레임(상하 잉크 경계 + 칸 구분선)과
+   타이포를 얹어 「굽고 · 쌓고 · 내보냅니다」 한 문장이 세 칸에 걸쳐 읽히게 한다.
+   ⚠️ 영상 위 텍스트라 대비가 프레임마다 달라진다 — v4.16 에서 번호를 사진에
+   11px 걸쳤다가 9개 전부 4.5 미만이었던 그 문제다. 여기서는 겹침을 피할 수 없으므로
+   **불투명에 가까운 스크림**으로 배경을 만든다(루브릭: 드롭섀도우 아닌 배경 스크림).
+   하단 92% 잉크까지 올려 영상 밝기와 무관하게 대비를 결정론적으로 고정했다.
+   실측은 _도구/overlay_contrast.py 로 프레임 단위 확인. */
+.cookband__cap{
+  position:absolute; left:0; right:0; bottom:0; z-index:1;
+  padding:clamp(46px,6vw,84px) clamp(16px,2vw,26px) clamp(16px,2vw,24px);
+  background:linear-gradient(180deg,
+    rgba(20,17,16,0) 0%, rgba(20,17,16,.45) 32%, rgba(20,17,16,.86) 66%, rgba(20,17,16,.96) 100%);
+  line-height:1.2; pointer-events:none;
+}
+/* 번호는 레드 '글자'가 아니라 레드 '칩'이다 — 실측에서 레드 글자가 1.07 로 무너졌다.
+   스크림이 옅은 위쪽에 있어 밝은 영상 위에 그대로 얹혔고, 애초에 브랜드 레드는
+   다크 위에서도 3.7:1 이 천장이라 아무리 내려도 4.5 를 못 넘는다.
+   불투명 레드 칩 + 흰 글자로 바꾸면 배경이 영상과 무관해진다(흰/레드 4.80:1).
+   히어로 오퍼 띠의 「선착순 10호점」 칩과 같은 어휘라 새 장치도 아니다. */
+.cookband__no{
+  display:inline-block; font-family:'Bebas Neue', var(--ff-plate);
+  font-size:clamp(15px,1.3vw,19px); line-height:1; letter-spacing:.12em;
+  color:var(--white); background:var(--red);
+  padding:6px 10px 5px; border-radius:2px;
+}
+.cookband__t{
+  display:block; margin-top:8px; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(26px,2.8vw,42px); line-height:1.18; letter-spacing:-.015em;
+  color:var(--white);
+}
+@media (max-width:860px){
+  /* 3열은 390px 에서 칸당 130px 이라 아무것도 안 보인다. 1열로 쌓되
+     비율을 눕혀(16:10) 세 컷 합계가 한 화면 스크롤 안에 들어오게 한다. */
+  .cookband{grid-template-columns:1fr}
+  .cookband video{aspect-ratio:16/10}
+  .cookband__cell + .cookband__cell{box-shadow:inset 0 3px 0 var(--ink)}
+}
 
-  /* 시안 갤러리 */
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
-  @media(max-width:720px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
-    display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease}
-  .card:hover{transform:translateY(-4px);border-color:var(--gold)}
-  .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--panel2);border-bottom:1px solid var(--line)}
-  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .thumb .tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:800;letter-spacing:.04em;
-    padding:5px 12px;border-radius:9999px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
-  .card-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
-  .card-body h3{font-family:var(--font-h);font-weight:400;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.01em}
-  .card-body .tone{margin-top:6px;font-size:13px;color:var(--gold);font-weight:700}
-  .card-body p{margin-top:12px;font-size:13.5px;color:var(--cream-d);line-height:1.6;flex:1}
-  .swatches{display:flex;gap:6px;margin-top:16px}
-  .sw{width:24px;height:24px;border-radius:9999px;border:1px solid rgba(255,255,255,.14)}
-  .open-btn{margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:13px 22px;border-radius:9999px;background:var(--gold);color:#1a1512;font-weight:800;font-size:14px;
-    transition:background .2s ease}
-  .open-btn:hover{background:#ffc75a}
+.band{width:100%; overflow:hidden; background:var(--ink); line-height:0}
+.band img{width:100%; height:clamp(200px,24vw,400px); object-fit:cover; object-position:center}
 
-  /* 하단 */
-  footer{margin:clamp(44px,6vw,72px) 0 60px;padding-top:30px;border-top:1px solid var(--line);
-    display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
-  .doc-link{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:9999px;
-    border:1.5px solid var(--line);color:var(--cream);font-weight:700;font-size:13.5px}
-  .doc-link:hover{border-color:var(--gold);color:var(--gold)}
-  .meta{font-size:12.5px;color:var(--cream-d);text-align:right;line-height:1.7}
-  .note{margin-top:14px;font-size:12px;color:var(--cream-d);opacity:.8}
+/* ══ 04 브랜드 ══ */
+.brand__grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:start; margin-top:clamp(30px,4vw,54px)}
+.brand__cards{display:grid; gap:clamp(24px,2.8vw,36px)}
+.card{background:none; border:0; border-left:3px solid var(--red); box-shadow:none; padding:2px 0 2px clamp(18px,2vw,26px)}
+.card__no{font-family:var(--ff-sign); font-weight:400; font-size:15px; line-height:1.4; color:var(--red); letter-spacing:.02em}
+.card h3{margin-top:6px}
+.card p{margin-top:10px; color:var(--ink); max-width:var(--measure-narrow)}
+.brand__fig{border:0; box-shadow:none; overflow:hidden}
+.brand__fig img{aspect-ratio:4/3; object-fit:cover; width:100%}
+
+/* ── 04-b 브랜드 문장 (정서 축) ──
+   크림 위 강조는 --red 가 아니라 --red-deep 을 쓴다.
+   #E60012 on #F6F1E7 = 4.27:1 로 AA(4.5) 미달이고 #B8000E 는 6.13:1 이다. (K2 실측 게이트)
+   간판체는 400 단일 웨이트라, 기본 굵기 700인 요소에 얹으면 브라우저가 faux-bold 를 합성한다. */
+.creed{margin-top:clamp(40px,5vw,72px); background:var(--cream); border:0; border-left:5px solid var(--red-deep); box-shadow:none; padding:clamp(28px,3.4vw,46px)}
+.creed__line{font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3); line-height:1.34; color:var(--ink); letter-spacing:.01em}
+.creed__line em{font-style:normal; color:var(--red-deep)}
+.creed p+p{margin-top:16px; font-size:var(--fs-lead); line-height:1.72; color:var(--ink); max-width:var(--measure)}
+
+/* ══ 05 창업 지원 — 면제표 ══ */
+.fee{margin-top:clamp(28px,3.6vw,48px); background:var(--white); color:var(--ink); border:4px solid var(--ink); box-shadow:var(--sh-sign)}
+.fee__row{display:grid; grid-template-columns:1.15fr .85fr 132px; align-items:center; gap:12px; padding:16px clamp(16px,2.2vw,28px); border-bottom:1px solid var(--line)}
+.fee__row:last-child{border-bottom:0}
+.fee__row--head{background:var(--ink); color:var(--white); font-family:var(--ff-plate); font-size:var(--fs-cap); letter-spacing:.05em}
+.fee__name{font-family:var(--ff-plate); font-size:clamp(16px,1.3vw,20px); line-height:1.5}
+.fee__price{font-weight:600; color:var(--ink-2)}
+.fee__price s{text-decoration:line-through; text-decoration-color:var(--red); text-decoration-thickness:3px}
+.stamp{
+  justify-self:end; font-family:var(--ff-sign); font-weight:400; font-size:clamp(16px,1.4vw,21px);
+  line-height:1.3; color:var(--red); border:3px solid var(--red); border-radius:5px;
+  padding:5px 14px 6px; transform:rotate(-5deg); letter-spacing:-.01em; white-space:nowrap;
+}
+.stamp--free{color:var(--ink-2); border-color:var(--ink-2); transform:none; font-family:var(--ff-plate); font-size:var(--fs-cap); border-width:2px}
+.fee__total{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:center; gap:10px; padding:20px; background:var(--cream); border-top:4px solid var(--ink)}
+.fee__total b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(22px,2.6vw,36px); line-height:1.2; letter-spacing:-.015em; color:var(--red)}
+/* 쿠폰 느낌의 절취선 — 흰 배경에 흰 대시는 보이지 않는다. 레드로 둬야 테두리가 읽힌다 */
+.limit{margin-top:clamp(26px,3vw,40px); text-align:center; background:var(--white); color:var(--ink); border:3px dashed var(--red); box-shadow:var(--sh-sign); padding:clamp(22px,2.8vw,34px)}
+.limit b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2.4vw,34px); line-height:1.32; letter-spacing:-.015em; display:block; color:var(--red)}
+.limit span{display:block; margin-top:8px; color:var(--ink); max-width:var(--measure)}
+.perks{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+.perk{background:rgba(0,0,0,.22); border:0; border-top:3px solid var(--white); padding:16px 14px; text-align:center; font-family:var(--ff-plate); font-size:clamp(14px,1.15vw,17px); line-height:1.5}
+
+/* ══ 06 VS ══ */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.4vw,34px); margin-top:clamp(30px,4vw,52px); position:relative}
+.vs__col{border:0; padding:clamp(20px,2.4vw,32px) clamp(20px,2.4vw,30px); background:var(--white)}
+.vs__col--them{background:#EDEAE5; color:var(--ink-2)}
+.vs__col--us{box-shadow:none; border-left:5px solid var(--red)}
+.vs__ttl{font-family:var(--ff-sign); font-weight:400; font-size:clamp(19px,1.9vw,26px); line-height:1.25; letter-spacing:-.012em; padding-bottom:14px; border-bottom:3px solid currentColor}
+.vs__col--us .vs__ttl{color:var(--red)}
+.vs__list{margin-top:16px; display:grid; gap:12px}
+.vs__list li{display:flex; gap:10px; align-items:flex-start; line-height:1.6}
+.vs__list li::before{content:"✕"; font-weight:700; flex:none; width:1.2em}
+.vs__col--us .vs__list li::before{content:"✓"; color:var(--red)}
+.vs__mark{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-8deg); z-index:2;
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(22px,2.6vw,34px); line-height:1;
+  background:var(--ink); color:var(--white); padding:12px 16px; border-radius:50%;
+  aspect-ratio:1; display:grid; place-items:center;
+}
+
+/* ══ 07·08 메뉴 ══ */
+.menu{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.6vw,22px); margin-top:clamp(28px,3.6vw,48px)}
+.menu--side{grid-template-columns:repeat(5,1fr)}
+.menu li{background:none; border:0; overflow:hidden}
+.menu img{aspect-ratio:4/3; object-fit:cover; width:100%; background:#F2F2F4}
+.menu__name{
+  font-family:var(--ff-plate); font-size:clamp(15px,1.15vw,17px); line-height:1.45;
+  padding:12px 4px 0; text-align:center; border-top:0;
+}
+/* 대표 메뉴는 채움판 대신 색으로만 — 크림/흰 배경 양쪽에서 AA 통과하는 --red-deep */
+.menu li:first-child .menu__name{background:none; color:var(--red-deep)}
+.note{margin-top:18px; font-size:var(--fs-cap); color:var(--ink); line-height:1.7; max-width:var(--measure)}
+.sec--red .note{color:var(--white)}
+
+/* ── 07-b 국문 메뉴명 (브랜드 컨셉) ──
+   메뉴 이름을 전부 보여준 뒤에 놓는다 — 이름을 읽은 다음에야 "왜 한글인가"가 납득된다.
+   크림 섹션 안이라 블록은 흰 바탕으로 뒤집는다(같은 색이면 블록이 안 보인다). */
+/* ── 입소문 (v4.24) — 롤링 밴드 + 좌측 대형 오버레이 ─────────────────────
+   v4.23 은 9건을 전부 실었지만 **엣지 블리드가 정보를 먹었다**. 실측:
+     카드1 47% · 카드5 47% · 카드6 42% 손실 — 9건 중 3건이 절반 가까이 잘렸다.
+   버거리의 블리드는 '읽을 필요 없는 배경 카드'였기에 성립한 어휘다. 우리 카드는
+   본문이 내용 전부라 같은 어휘를 쓰면 손해다. 롤링으로 바꾸면 모든 카드가
+   화면 한가운데를 온전히 지나가므로 블리드를 유지하면서 손실이 0 이 된다.
+   (레퍼런스: 아임타코야끼 데스크톱_07_고객리뷰 — 리뷰 캡처 카드가 가로로 흐르고
+    양 끝에서 잘린다. 잘려도 곧 지나가니 손실이 아니다.)
+
+   ■ 좌측 대형 오버레이 — 대표 지시.
+     제품컷을 밴드 왼쪽에 얹고 카드가 그 뒤로 지나간다. 부수 효과가 큰데,
+     v4.23 에서 정보를 먹던 **왼쪽 잘림 자리를 제품컷이 대신 덮는다** —
+     잘림이 결함에서 의도로 바뀐다.
+
+   ■ 카드 폭 2종
+     사진 1장 = 1칸, 2장 = 2칸(사이 gap 포함). 사진을 정사각 원본 그대로 두려면
+     2장짜리를 한 칸에 우겨넣을 수 없다(세로로 반토막 나거나 잘린다).
+     결과적으로 롤링에 1칸·2칸 리듬이 생겨 단조로움도 같이 해결된다.
+
+   ⚠️ 무한 루프는 트랙이 정확히 2배여야 -50% 에서 이음매가 안 보인다.
+      그래서 카드 간격을 gap 이 아니라 **margin-right** 로 준다 —
+      gap 은 마지막 카드 뒤에 안 붙어 절반 지점이 어긋난다 — 폐기한 인용 마퀴가
+      gap 대신 padding-right 를 쓰던 것도 같은 이유였다.
+   ⚠️ 배달의민족 로고: 우아한형제들 공식 CI 배포처를 2회 검색했으나 없어(공식 사이트에 프레스킷 없음)
+      타사 상표를 출처 불명 경로로 가져오지 않았다. .bm__mk 가 로고 슬롯이다. */
+#review{position:relative; overflow:hidden; --baemin:#2AC1BC}
+.hot{position:relative}
+.hot__head{position:relative; z-index:2}
+
+/* 「입소문」 대형 헤드 — h2.h2 가 font-size 를 (0,1,1) 로 잡고 있어 선택자를 h2.rvh 로 맞춘다.
+   .rvh 만으로는 (0,1,0) 이라 못 이기고 --fs-h2 상한 56px 로 눌린다(v4.23 실측). */
+h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.005em; margin-top:0}
+.rvsub{
+  margin:clamp(12px,1.5vw,20px) 0 0;
+  font-family:var(--ff-sign); font-weight:400; letter-spacing:-.012em;
+  font-size:clamp(23px,2.5vw,36px); line-height:1.35; color:var(--ink);
+}
+
+.rvroll{
+  --rc-w:clamp(220px, 21.5vw, 330px);      /* 버거리 카드 실측 310 @1440 */
+  --rc-gap:clamp(12px, 2.08vw, 32px);      /* 버거리 간격 실측 30 @1440 */
+  position:relative; margin-top:clamp(30px,4vw,56px);
+}
+.rvroll__vp{overflow:hidden}
+.rvroll__track{
+  display:flex; align-items:stretch; width:max-content;
+  margin:0; padding:0; list-style:none;
+  animation:mq 110s linear infinite;
+}
+/* 읽으려고 멈추는 건 정당한 요구다 — 올리면 선다. 화면 밖이면 spinIO 가 세운다. */
+.rvroll:hover .rvroll__track,
+.rvroll.is-off .rvroll__track{animation-play-state:paused}
+
+/* 좌측 대형 제품컷 — 카드가 이 뒤로 지나간다.
+   top/bottom 을 밴드에 물려 높이를 자동으로 맞춘다(카드 높이가 텍스트에 따라 변하므로
+   고정 종횡비로 두면 밴드와 어긋난다). 하드섀도우로 '앞에 있다'를 만든다. */
+.rvroll__hero{
+  position:absolute; left:0; top:0; bottom:0; z-index:3; margin:0;
+  width:clamp(230px, 31vw, 470px);
+  border:3px solid var(--ink); box-shadow:var(--sh-sign); background:var(--ink);
+}
+.rvroll__hero img{width:100%; height:100%; object-fit:cover; display:block}
+
+.rc{
+  flex:0 0 var(--rc-w); margin-right:var(--rc-gap);
+  display:flex; flex-direction:column;
+  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
+}
+.rc--w2{flex-basis:calc(var(--rc-w) * 2 + var(--rc-gap))}
+
+/* 사진 — 원본 비율(정사각) 그대로. aspect-ratio 로 자르지 않는다.
+   height:auto 필수 — width/height 속성이 presentational hint 로 먼저 박힌다
+   (layout_gate 의 aspect-ratio 체크가 감시한다). */
+.rc__ph{margin:0; display:grid; gap:3px; background:var(--ink)}
+.rc__ph img{width:100%; height:auto; display:block}
+.rc__ph--2{grid-template-columns:1fr 1fr}
+
+.rc__cap{flex:1; padding:clamp(12px,1.3vw,18px) clamp(12px,1.3vw,18px) clamp(14px,1.5vw,20px)}
+.rc__src{
+  display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  margin:0 0 9px; font-family:var(--ff-plate);
+  font-size:var(--fs-cap); line-height:1.45; color:var(--ink-2);
+}
+.rc__st{font-style:normal; color:var(--red); letter-spacing:.04em; flex:none}
+
+/* 배달의민족 출처 — .bm__mk 가 로고 슬롯이다.
+   정식 CI 를 받으면 background 를 지우고 같은 자리에 <img> 를 끼우면 크기·정렬이 그대로 맞는다. */
+.bm{display:inline-flex; align-items:center; gap:6px; color:var(--ink)}
+.bm__mk{width:1.15em; height:1.15em; flex:none; border-radius:5px; background:var(--baemin); display:block}
+
+/* 화면엔 안 보이고 스크린리더만 읽는 텍스트 — 별 아이콘이 aria-hidden 이라
+   별점 값이 소리로 사라지는 걸 메운다. display:none 은 아예 안 읽히므로 clip-path 방식. */
+.u-sr{position:absolute; width:1px; height:1px; margin:-1px; padding:0;
+      overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0}
+.rc__txt{margin:0; font-size:clamp(15px,1.12vw,16.5px); line-height:1.62; color:var(--ink)}
+.rc__txt + .rc__txt{margin-top:9px}
+
+/* 출처 배지 — 크림 위라 흰 바탕 + 잉크 테두리. */
+.srcchip{
+  display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+  padding:6px 14px 7px; background:var(--white);
+  border:1px solid var(--ink); border-radius:3px;
+  font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.35; color:var(--ink);
+}
+.srcchip i{font-style:normal; color:var(--red)}
+
+/* 자동 롤링을 끈 상태(모션최소화·모바일)에서는 손으로 넘길 수 있어야 한다 —
+   안 그러면 화면에 걸린 3장만 보이고 나머지 6장에 도달할 방법이 사라진다.
+   복제분은 숨긴다(스와이프엔 무한루프가 필요 없고, 같은 카드가 두 번 나오면 혼란). */
+/* ⚠️ scroll-snap 은 스크롤포트의 시작 모서리에 카드를 붙인다 — 트랙에 준 좌측 패딩을
+   그대로 먹어 첫 카드가 화면 끝에 딱 붙는다(실측: scrollLeft 를 0 으로 돌려도 18 로 되돌아옴).
+   scroll-padding 으로 스냅 기준선 자체를 거터만큼 안으로 옮겨야 한다. */
+@media (prefers-reduced-motion: reduce){
+  .rvroll__vp{overflow-x:auto; scroll-snap-type:x proximity; scroll-padding-inline:var(--gutter)}
+  .rvroll__track{animation:none; padding-inline:var(--gutter)}
+  .rc{scroll-snap-align:start}
+  .rc[data-clone]{display:none}
+}
+
+/* 모바일 — 좌측 오버레이는 넓은 화면의 어휘다. 폭이 좁으면 카드를 다 덮어 버린다.
+   흐름 안으로 내려 밴드 위 전면 이미지로 쓰고, 롤링은 스와이프로 바꾼다. */
+@media (max-width:860px){
+  .rvroll__hero{
+    position:static; width:auto; height:auto;
+    margin:0 var(--gutter) clamp(16px,3vw,24px);
+  }
+  .rvroll__hero img{height:auto; aspect-ratio:16/10}
+  .rvroll__vp{overflow-x:auto; scroll-snap-type:x proximity;
+              scroll-padding-inline:var(--gutter); -webkit-overflow-scrolling:touch}
+  .rvroll__track{animation:none; padding-inline:var(--gutter)}
+  .rc{scroll-snap-align:start}
+  .rc[data-clone]{display:none}
+}
+
+/* ── 기사 클리핑 (v4.19) — 실제 보도 화면 인용 ─────────────────────────
+   대표 판단으로 텍스트 인용에서 실제 기사 캡처로 올렸다. 저작권 리스크를
+   먼저 보고했고(언론사 저작물 복제·전송), 대표가 진행을 택했다.
+   내가 통제한 것은 범위다 — 기사 전문이 아니라 매체명·제목·리드·날짜까지만
+   잘랐고, 캡처 안에 타사 콘텐츠(연관기사·광고)가 섞이지 않게 요소 기준으로 크롭했다.
+   출처와 날짜는 아래 note 에 명기한다. */
+.clips{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(18px,2.4vw,34px);
+  margin:clamp(28px,3.6vw,46px) 0 0; padding:0; list-style:none;
+}
+.clip{
+  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
+  padding:clamp(12px,1.4vw,18px);
+}
+.clip img{width:100%; height:auto; display:block; border:1px solid var(--line)}
+.clip__src{
+  margin-top:12px; font-family:var(--ff-plate); font-size:var(--fs-cap);
+  line-height:1.5; color:var(--ink);
+}
+.clip__src b{color:var(--red-deep); font-weight:400}
+
+/* ── 한글 메뉴명 일러스트 (v4.19) ────────────────────────────────────
+   리네임 목록을 글자에서 그림으로 올린다. 「네모감자」·「양파링」은 이름 자체가
+   그림이라, 읽는 순간 왜 이 이름을 골랐는지가 설명 없이 전달된다.
+   일러스트는 배경을 --cream 으로 정규화해 크림 섹션에 얹으면 판이 안 보인다. */
+.hnames{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.6vw,24px);
+  margin:clamp(28px,3.6vw,46px) 0 0; padding:0; list-style:none;
+}
+.hname{text-align:center}
+.hname img{width:100%; height:auto; aspect-ratio:1/1; object-fit:contain; display:block}
+.hname__from{
+  display:block; margin-top:6px; font-size:var(--fs-cap); color:var(--ink-2);
+  text-decoration:line-through; text-decoration-thickness:2px;
+}
+.hname__to{
+  display:block; margin-top:4px; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(17px,1.5vw,22px); line-height:1.3; color:var(--ink);
+}
+@media (max-width:860px){
+  .clips{grid-template-columns:1fr}
+  .hnames{grid-template-columns:repeat(2,1fr)}
+}
+
+.hangul{
+  margin-top:clamp(34px,4.2vw,60px); background:var(--cream);
+  border:0; box-shadow:none;
+  padding:clamp(26px,3.2vw,42px);
+}
+.sec--cream .hangul{background:var(--white)}
+.hangul__h{font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3); line-height:1.32; color:var(--ink)}
+.hangul p{margin-top:14px; font-size:var(--fs-body); line-height:1.75; color:var(--ink); max-width:var(--measure-narrow)}
+.sec--cream 
+/* ══ 09 업종 변경 — 전환 체크리스트 ══ */
+.swap{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:clamp(28px,3.6vw,44px)}
+.swap__big{margin-top:8px; font-family:var(--ff-sign); font-weight:400; font-size:clamp(19px,1.9vw,26px); line-height:1.45; color:var(--ink)}
+.fit{margin-top:clamp(24px,3vw,40px)}
+.fit__list{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:0}
+.fit__list li{
+  padding:16px 0 17px 40px; position:relative; background:none;
+  border:0; border-bottom:1px solid var(--line); font-size:var(--fs-body); line-height:1.65; color:var(--ink);
+}
+/* 확폭(--maxw 1520) 뒤 한 줄이 71자까지 늘어났다. 구분선까지 함께 measure 로 끊는다 —
+   40px 은 좌측 체크 마커 폭. */
+.fit__list{max-width:calc(var(--measure) + 40px)}
+.fit__list li:first-child{border-top:1px solid var(--line)}
+.fit__list li::before{
+  content:"✓"; position:absolute; left:8px; top:14px;
+  font-family:var(--ff-sign); font-size:19px; color:var(--red-deep); /* 크림 위 6.13:1 */
+}
+/* ══ 09-b 판매 채널 4WAY ══ */
+/* ── 4WAY (v4.24) — 텍스트 4칸에서 공감형 콘텐츠로 ──────────────────────
+   기존은 채널명 + 두 줄짜리 설명 4칸이었다. 정보는 맞지만 읽는 사람이 자기 얘기로
+   받을 지점이 없다 — 예비창업자가 실제로 하는 걱정이 페이지 어디에도 안 적혀 있었다.
+   그래서 칸마다 **걱정(질문) → 답 → 실제 제품컷** 3단으로 바꾼다.
+
+   ⚠️ v4.25 — 답 4개를 전부 다시 썼다. 승계 원본(터닝테이블_승계콘텐츠.md:71)의 4WAY 카피는
+      「홀, 포장, 배달, 단체 등 여러방면 판매 방식으로 안정적인 매출과 수익화가 가능합니다!」
+      **이 한 줄이 전부**인데, cdd5690c 에서 내가 네 칸 분량의 부연을 지어 붙였고 그게 그대로 남아 있었다.
+      그중 둘은 사실이 아니었다(대표 지적):
+        · 「쓰시던 배달 앱 계정 그대로」 → 배달앱은 매장 단위 입점이라 새로 등록해야 한다
+        · 「버거이기에 받을 수 있는 주문」 → 단체주문은 버거 고유가 아니다(피자·치킨·도시락 다 받는다)
+      v4.24 의 걱정→답 구조가 이걸 '설명'에서 '약속'으로 격상시켜 위험을 키웠다.
+      이제 답은 페이지가 근거를 댈 수 있는 것만 쓴다 — FAQ(평수)·메뉴표(구성)·제품 형태(1인 1개).
+   4열 → 2열로 내려 사진이 실릴 폭을 만든다(#fourway 는 --w-wide 1280 이라 2열이면 620px).
+   ⚠️ 채널 이름표는 --red 바탕 + 흰 글자(4.80:1). 크림 위 --red 텍스트는 4.27:1 로 미달이라
+      글자색이 아니라 바탕색으로 쓴다. */
+.ways{
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:clamp(18px,2.4vw,34px); margin-top:clamp(28px,3.6vw,48px);
+}
+.way{
+  display:flex; flex-direction:column; padding:0;
+  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
+}
+.way__ph{margin:0}
+.way__ph img{width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block}
+.way__body{padding:clamp(16px,1.9vw,26px)}
+.way__ch{
+  display:inline-block; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(19px,1.9vw,26px); line-height:1.3;
+  color:var(--white); background:var(--red); padding:3px 13px 5px;
+}
+/* 걱정 — 읽는 사람의 목소리다. 답(--ink)보다 한 단계 낮춰 둘의 역할을 가른다. */
+.way__q{
+  margin:clamp(13px,1.5vw,19px) 0 0; font-family:var(--ff-plate);
+  font-size:clamp(17px,1.5vw,21px); line-height:1.55; color:var(--ink-2);
+}
+.way__a{margin:10px 0 0; font-size:var(--fs-body); line-height:1.7; color:var(--ink)}
+@media (max-width:860px){ .ways{grid-template-columns:1fr} }
+/* ══ 10-b 상권보호 ══ */
+.terr{margin-top:clamp(34px,4.2vw,58px); background:var(--white); border:0; box-shadow:none; padding:clamp(26px,3.2vw,42px)}
+.terr__h{font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3); line-height:1.32; color:var(--ink)}
+.terr p{margin-top:12px; font-size:var(--fs-lead); line-height:1.72; color:var(--ink); max-width:var(--measure)}
+
+/* ══ 09 창업 3타입 ══ */
+/* 창업 형태 2종(소형 홀 / 극소형 포장전문) — 3열이던 것을 2열로. 카드가 과하게 넓어지지 않게 폭 제한 */
+.types{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(16px,2.4vw,32px); margin-top:clamp(28px,3.6vw,48px); max-width:960px}
+.type{border:0; background:none; box-shadow:none; display:flex; flex-direction:column}
+.type img{aspect-ratio:16/10; object-fit:cover; width:100%; border-bottom:0}
+.type__body{padding:clamp(16px,1.8vw,22px) 0 0; display:flex; flex-direction:column; gap:12px; flex:1}
+.type__ch{font-family:var(--ff-plate); font-size:var(--fs-cap); color:var(--white); background:var(--red); align-self:flex-start; padding:4px 11px; line-height:1.5}
+.type ul{display:grid; gap:9px; margin-top:2px}
+.type ul li{display:flex; gap:9px; line-height:1.6; font-size:var(--fs-body)}
+.type ul li::before{content:"—"; color:var(--red); flex:none}
+
+/* ══ 10 본사 이력 ══ */
+.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.2vw,28px); margin-top:clamp(28px,3.6vw,48px)}
+.fact{background:none; border:0; border-top:3px solid var(--ink); padding:clamp(18px,2vw,24px) 0 0; text-align:left}
+.fact b{display:block; font-family:var(--ff-sign); font-weight:400; font-size:clamp(26px,3vw,42px); line-height:1.2; letter-spacing:-.015em; color:var(--red)}
+.fact span{display:block; margin-top:8px; font-family:var(--ff-plate); line-height:1.55}
+.fact small{display:block; margin-top:6px; font-size:var(--fs-cap); color:var(--ink); line-height:1.7; max-width:var(--measure)}
+
+/* ══ 11 창업 절차 ══ */
+.steps{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(10px,1.4vw,18px); margin-top:clamp(28px,3.6vw,48px); counter-reset:s}
+.step{background:none; border:0; border-top:2px solid var(--line); padding:clamp(14px,1.6vw,18px) 0 0; counter-increment:s; position:relative}
+.step::before{
+  content:counter(s,decimal-leading-zero);
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(26px,2.6vw,36px); line-height:1.15;
+  color:var(--red); letter-spacing:-.01em; display:block;
+}
+.step span{display:block; margin-top:6px; font-family:var(--ff-plate); font-size:clamp(14px,1.05vw,16px); line-height:1.5}
+
+/* ══ 12 FAQ ══ */
+.faq{margin-top:clamp(26px,3.4vw,44px); border-top:3px solid var(--ink)}
+/* v4.22: #faq 가 흰 섹션으로 내려오면서 패널이 배경에 묻혔다 → 크림으로 뒤집는다.
+   (#review 를 크림으로 올리며 흰→크림→흰→레드 로 리듬을 재배치한 결과) */
+.faq details{border-bottom:1px solid var(--line); background:var(--cream)}
+.faq summary{
+  display:flex; gap:14px; align-items:flex-start; cursor:pointer; list-style:none;
+  padding:22px clamp(4px,.8vw,12px); font-family:var(--ff-plate);
+  font-size:clamp(17px,1.45vw,21px); line-height:1.6;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q"; font-family:var(--ff-sign); color:var(--red); flex:none; line-height:1.5}
+.faq summary::after{content:"+"; margin-left:auto; color:var(--red); font-size:1.4em; line-height:1.2; flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq__a{display:flex; gap:14px; padding:0 clamp(14px,1.8vw,24px) 22px; color:var(--ink); line-height:1.75}
+.faq__a::before{content:"A"; font-family:var(--ff-sign); color:var(--ink); flex:none; line-height:1.6}
+
+/* ══ 13 폼 ══ */
+.form{max-width:760px; margin:clamp(28px,3.6vw,48px) auto 0; background:var(--white); color:var(--ink); border:4px solid var(--ink); box-shadow:var(--sh-sign); padding:clamp(24px,3vw,44px)}
+.field{margin-bottom:18px}
+.field label{display:block; font-family:var(--ff-plate); font-size:var(--fs-body); margin-bottom:7px; line-height:1.5}
+.field .req{color:var(--red)}
+.field input,.field textarea{
+  width:100%; padding:13px 14px; border:2px solid var(--ink); border-radius:2px; background:var(--white);
+}
+.field textarea{min-height:118px; resize:vertical; line-height:1.6}
+.pills{display:flex; gap:10px; flex-wrap:wrap}
+.pills input{position:absolute; opacity:0; width:0; height:0}
+.pills label{
+  margin:0; cursor:pointer; padding:11px 20px; border:2px solid var(--ink); border-radius:2px;
+  background:var(--white); font-family:var(--ff-plate); line-height:1.5;
+}
+.pills input:checked + label{background:var(--red); color:var(--white); border-color:var(--ink)}
+.pills input:focus-visible + label{outline:3px solid #0B63CE; outline-offset:3px}
+.agree{display:flex; gap:10px; align-items:flex-start; margin:22px 0; font-size:var(--fs-cap); color:var(--ink); line-height:1.7}
+.agree input{margin-top:3px; flex:none; width:18px; height:18px}
+.agree a{color:var(--red)}
+.formnote{margin-top:16px; font-size:var(--fs-cap); color:var(--ink); text-align:center; line-height:1.7}
+
+/* ══ 푸터 ══ */
+.ft{background:var(--ink); color:rgba(255,255,255,.78); padding-block:clamp(38px,4.4vw,60px) clamp(76px,8vw,60px); font-size:var(--fs-cap); line-height:1.85}
+.ft__top{display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; justify-content:space-between}
+.ft__logo img{height:58px; width:auto}
+.ft__tel{font-family:var(--ff-sign); font-weight:400; font-size:clamp(24px,2.4vw,34px); line-height:1.25; color:var(--white); letter-spacing:-.012em; text-decoration:none; display:inline-flex; align-items:center; min-height:44px}
+.ft dl{display:grid; grid-template-columns:auto 1fr; gap:2px 12px; margin-top:20px; max-width:640px}
+.ft dt{color:rgba(255,255,255,.72)}
+.ft dd{margin:0}
+.ft__copy{margin-top:26px; padding-top:20px; border-top:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.72); max-width:var(--measure)}
+
+/* ══ 개인정보 처리방침 모달 ══ */
+dialog.pp{
+  width:min(720px, calc(100vw - 32px)); max-height:min(82vh, 900px);
+  padding:0; border:4px solid var(--ink); border-radius:2px;
+  box-shadow:14px 14px 0 rgba(0,0,0,.28); color:var(--ink); background:var(--white);
+}
+dialog.pp::backdrop{background:rgba(26,22,20,.62)}
+.pp__hd{
+  position:sticky; top:0; display:flex; align-items:center; gap:12px;
+  padding:16px clamp(16px,2.4vw,28px); background:var(--red); color:var(--white);
+  border-bottom:3px solid var(--ink);
+}
+.pp__hd h2{font-family:var(--ff-sign); font-weight:400; font-size:clamp(18px,1.8vw,24px); line-height:1.25; letter-spacing:-.012em}
+.pp__close{
+  margin-left:auto; min-width:44px; min-height:44px; cursor:pointer;
+  background:var(--white); color:var(--red); border:2px solid var(--ink); border-radius:2px;
+  font-family:var(--ff-plate); font-weight:400; font-size:15px; line-height:1.2;
+}
+.pp__body{padding:clamp(18px,2.4vw,30px); overflow-y:auto; max-height:calc(82vh - 80px)}
+/* Do Hyeon은 400 단일 웨이트 — h3 기본 굵기(700)를 그대로 두면 브라우저가 faux-bold로 합성한다 */
+.pp__body h3{font-family:var(--ff-plate); font-weight:400; font-size:var(--fs-body); margin-top:20px; line-height:1.5}
+.pp__body h3:first-child{margin-top:0}
+.pp__body p,.pp__body li{font-size:var(--fs-cap); line-height:1.8; color:var(--ink); max-width:var(--measure)}
+.pp__body ul{margin-top:6px; display:grid; gap:4px}
+.pp__body li{padding-left:14px; position:relative}
+.pp__body li::before{content:"·"; position:absolute; left:4px}
+.pp__body table{width:100%; border-collapse:collapse; margin-top:8px; font-size:var(--fs-cap)}
+.pp__body th,.pp__body td{border:1px solid var(--line); padding:8px 10px; text-align:left; line-height:1.6}
+.pp__body th{background:var(--cream); font-weight:600; white-space:nowrap}
+
+/* ══ 모바일 하단 고정 CTA ══ */
+.mcta{
+  position:fixed; left:0; right:0; bottom:0; z-index:70; display:none;
+  grid-template-columns:1fr 1.25fr; gap:0; border-top:3px solid var(--ink);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.mcta a{
+  display:flex; align-items:center; justify-content:center; gap:7px; padding:16px 8px;
+  font-family:var(--ff-plate); font-size:16px; line-height:1.4; text-decoration:none;
+}
+.mcta a:first-child{background:var(--ink); color:var(--white)}
+.mcta a:last-child{background:var(--red); color:var(--white)}
+
+/* ══ 앵커 오프셋 ══ */
+:where(section[id]){scroll-margin-top:calc(var(--hd-h) + 8px)}
+
+/* ══ 반응형 ══ */
+@media (max-width:1080px){
+  .hd__nav{display:none}
+  .menu{grid-template-columns:repeat(3,1fr)}
+  .menu--side{grid-template-columns:repeat(4,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .bar{display:none}
+  .swap{grid-template-columns:1fr}
+  .ways{grid-template-columns:repeat(2,1fr)}
+  .mcta{display:grid}
+  .brand__grid{grid-template-columns:1fr}
+  .brand__fig{order:-1}
+  .vs{grid-template-columns:1fr}
+  .vs__mark{position:static; transform:rotate(-8deg); justify-self:center; margin:0 auto}
+  .types{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  .perks{grid-template-columns:1fr}
+  .fee__row{grid-template-columns:1fr auto; row-gap:4px}
+  .fee__price{grid-column:1; font-size:var(--fs-cap)}
+  .stamp{grid-row:1/3; grid-column:2; align-self:center}
+  .fee__row--head{display:none}
+  .hangul{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  /* 320px 에서 nowrap 한 줄이 컨테이너에 0.6px 차이로 겨우 들어간다.
+     Do Hyeon 미로드 시 폴백(Pretendard)이 12.5% 넓어 first paint 에 넘친다(font-display:swap).
+     크기를 낮추고 wrap 을 허용해 폰트 로드 여부와 무관하게 성립시킨다. */
+    .menu,.menu--side{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .hd__logo img{height:36px}
+  .hero__cta .btn{width:100%}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   v4 시네마틱 오버라이드 — 기획: 개편기획_시네마틱v4_20260825.md §7
+   v3 규칙 위에 얹는 레이어. 간판 3곳(히어로·12無·폼) 불변.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --dark:#141110;          /* 시네마 패널 — 잉크보다 한 단계 깊게 */
+  --dark-2:#231D1A;
+  --on-dark:#F4EFE9;       /* 다크 위 본문 — 대비 14.9:1 */
+  --on-dark-2:#C9BFB6;     /* 다크 위 보조 — 대비 9.0:1 */
+}
+
+/* ── 히어로: 풀스크린 시네마 (간판은 그대로) ── */
+.hero{
+  position:relative; overflow:hidden; background:var(--dark);
+  min-height:calc(100svh - var(--hd-h, 74px) - 74px);
+  display:grid; align-items:center;
+}
+.hero__bg{position:absolute; inset:0}
+.hero__bg img{
+  width:100%; height:100%; object-fit:cover; object-position:center 40%;
+  will-change:transform;
+}
+/* K3: 이미지 위 텍스트는 스크림 — 간판 판 자체가 불투명이지만 주변 가독·무드 통일 */
+.hero__bg::after{
+  content:""; position:absolute; inset:0;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.16'/></svg>"),
+    linear-gradient(180deg, rgba(20,17,16,.62) 0%, rgba(20,17,16,.30) 45%, rgba(20,17,16,.66) 100%);
+}
+.hero__stage{position:relative; z-index:1; width:100%; padding-block:clamp(40px,6vh,90px)}
+.hero__sign{max-width:880px; margin-inline:auto}
+/* 네온 각인선 은은한 점멸 — 장식이므로 reduced에서 정지 */
+@media (prefers-reduced-motion: no-preference){
+  .hero__sign::after{animation:neon 3.2s ease-in-out infinite}
+  @keyframes neon{0%,100%{border-color:rgba(255,255,255,.34)} 50%{border-color:rgba(255,255,255,.72)}}
+}
+@media (prefers-reduced-motion: reduce){
+  .mq__track{animation:none !important}
+}
+
+/* ── 다크 섹션 공통 ── */
+.sec--dark{background:var(--dark); color:var(--on-dark)}
+.sec--dark .h2{color:var(--on-dark)}
+.sec--dark .eyebrow{color:var(--on-dark); background:none}
+.sec--dark .lead{color:var(--on-dark-2)}
+.sec--dark .hl{color:var(--white); font-weight:700}
+.sec--dark .note{color:var(--on-dark-2)}
+
+/* 메뉴 쇼케이스(다크) — 이름은 화이트, 대표작만 레드 칩(화이트 글자 4.8:1) */
+.sec--dark .menu__name{color:var(--on-dark)}
+.sec--dark .menu li:first-child .menu__name{
+  background:var(--red); color:var(--white); padding:10px 4px 11px; margin-top:12px;
+}
+.sec--dark .menu li:first-child .menu__name{border-radius:2px}
+.sec--dark .menu img{background:var(--dark-2)}
+/* 한글명판 패널은 다크 안의 크림 섬 — 칩 배경을 흰색으로 되살림 */
+.sec--dark .hangul{background:var(--cream)}
+.sec--dark .hangul 
+/* ── 교차 에디토리얼 (브랜드) ── */
+.ed{display:grid; gap:clamp(40px,5.5vw,84px); margin-top:clamp(34px,4.4vw,60px)}
+.ed__row{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(24px,3.4vw,60px); align-items:center}
+.ed__row--rev{grid-template-columns:1.15fr 1fr}
+.ed__row--rev .ed__txt{order:2}
+.ed__row--rev .ed__fig{order:1}
+.ed__fig{margin:0; overflow:hidden}
+.ed__fig img{width:100%; aspect-ratio:5/4; object-fit:cover}
+
+/* ── 조리 공정 4컷 스트립 (v4.12) ──────────────────────────────────
+   구 `.cine` 단면 오버레이를 대체한다. 그 자리 주석이 8/11부터 「조리 공정 영상
+   수령 시 교체 예정」이었고, 영상 대신 공정 4컷으로 채웠다.
+   컷은 전부 같은 문법(검은 니트릴 장갑·레드 배경·차콜 표면·우측 하드 라이팅)이라
+   네 장이 '한 사람이 순서대로 만드는 장면'으로 묶인다 — 필름 스트립.
+   캡션을 사진 위에 얹지 않고 아래 다크 배경에 두는 이유: 사진이 고대비·고채도라
+   스크림을 아무리 깔아도 K2 대비를 사진마다 보장할 수 없다(루브릭 K2 하드게이트).
+   세로 레일(.vrail)은 뺐다 — 풀블리드 스트립 위에 얹으면 사진과 충돌하고,
+   스트립 자체가 이미 강한 장치라 둘을 겹치면 서로 죽인다. */
+.craft{position:relative; overflow:hidden;
+  --strip-ink:var(--on-dark); --strip-ink-2:var(--on-dark-2); --strip-cut:var(--dark)}
+.craft .h2, .craft .eyebrow{color:var(--on-dark)}
+.craft .lead{color:var(--on-dark-2)}
+/* 공급 섹션은 같은 스트립을 크림 배경에서 쓴다 — 색만 갈아 끼운다 */
+.craft.sec--cream{--strip-ink:var(--ink); --strip-ink-2:var(--ink); --strip-cut:var(--cream)}
+.craft.sec--cream .h2, .craft.sec--cream .eyebrow{color:var(--ink)}
+.craft.sec--cream .lead{color:var(--ink)}
+.craft__strip{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  margin:clamp(34px,4.4vw,60px) 0 0; padding:0; list-style:none;
+}
+.craft__strip--3{grid-template-columns:repeat(3,1fr)}
+.craft__strip--5{grid-template-columns:repeat(5,1fr)}
+.craft__step{position:relative; display:flex; flex-direction:column}
+.craft__fig{margin:0; overflow:hidden; aspect-ratio:3/4; background:var(--dark-2)}
+.craft__fig img{width:100%; height:100%; object-fit:cover; display:block}
+.craft__cap{position:relative; padding:clamp(16px,2vw,26px) clamp(14px,1.6vw,22px) 0}
+
+/* 번호를 디스플레이로 격상 (v4.16) — 개정 전에는 26px 캡션 부속이라 번호가 안 읽혔고,
+   컷 5개가 같은 크기·같은 간격으로 늘어서 컨택트시트처럼 보였다.
+   프레디 con7 은 넘버링이 큰 디스플레이 요소로 서서 사진과 대등하게 붙는다.
+   ⚠️ 초판은 번호를 사진 위로 11px 끌어올려 '경계에 걸치게' 했는데, 그 밴드의
+   실제 픽셀 대비를 재니 **9개 전부 4.5 미만**(1.09~2.95)이었다. 눈에는 멀쩡해
+   보였다 — 숫자의 대부분이 섹션 배경 위에 있어서다. 게이트도 못 잡는다:
+   요소의 배경색은 섹션 색이지 사진 픽셀이 아니다.
+   → 겹침을 0으로 내리고 크기만 유지한다. 디스플레이 위계는 크기가 만들지
+   겹침이 만들지 않는다. 캡션을 사진 아래로 내린 것과 같은 판단이다. */
+.craft__no{
+  display:block; font-family:'Bebas Neue', var(--ff-plate);
+  font-size:clamp(34px,3.4vw,52px); line-height:.82; letter-spacing:.02em;
+  color:var(--red); margin-top:calc(-1 * clamp(14px,1.7vw,24px));
+}
+.craft.sec--cream .craft__no{color:var(--red-deep)}
+.craft__h{margin-top:12px !important}
+
+/* 스트립에 흐름 — 짝수 칸을 내려 라인이 흐르는 리듬을 만든다.
+   균등 그리드는 '순서'를 보여주지 못한다(v4.8b 여백·v4.11 폭에서 걷어낸 그 균등함의 컴포넌트판).
+   모바일에서는 1열/2열이라 오프셋이 의미가 없어 데스크톱에서만 건다. */
+@media (min-width:861px){
+  .craft__strip{align-items:start}
+  .craft__step:nth-child(even){margin-top:clamp(30px,3.4vw,56px)}
+}
+.craft__h{
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(19px,1.7vw,24px);
+  line-height:1.32; color:var(--strip-ink); margin-top:8px;
+}
+.craft__cap p{margin-top:10px; font-size:var(--fs-cap); line-height:1.75; color:var(--strip-ink-2)}
+/* 컷 사이 실선 — 스트립을 필름처럼 끊는다. 마지막 칸 뒤엔 긋지 않는다 */
+.craft__step + .craft__step .craft__fig{box-shadow:inset 3px 0 0 var(--strip-cut)}
+
+/* ── creed 인용 승격 (Meta 센터 쿼트) ── */
+.quote{background:var(--white)}
+.quote .creed{
+  margin:0 auto; max-width:840px; background:none; border:0; padding:0; text-align:center;
+}
+.quote .creed__line{font-size:clamp(30px,4vw,54px); line-height:1.22}
+.quote .creed p+p{margin-inline:auto; margin-top:22px}
+
+/* ── 증거 블록 (프레디 con17 넘버링) ── */
+.sec--dark .facts{grid-template-columns:repeat(3,1fr); counter-reset:ev}
+.sec--dark .fact{border-top:2px solid rgba(244,239,233,.3); counter-increment:ev}
+.sec--dark .fact::before{
+  content:counter(ev,decimal-leading-zero);
+  display:block; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(15px,1.1vw,17px); letter-spacing:.14em; color:var(--on-dark-2); margin-bottom:10px;
+}
+.sec--dark .fact b{color:var(--white)}
+.sec--dark .fact span{color:var(--on-dark)}
+.sec--dark .fact small{color:var(--on-dark-2)}
+.sec--dark .terr{background:var(--dark-2); color:var(--on-dark)}
+.sec--dark .terr__h{color:var(--white)}
+.sec--dark .terr p{color:var(--on-dark-2)}
+
+/* ── 창업형태 — 교차 에디토리얼화 (CSS만으로) ── */
+.types{grid-template-columns:1fr; max-width:none; gap:clamp(40px,5.5vw,84px)}
+.type{display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(24px,3.4vw,60px); align-items:center}
+.type img{aspect-ratio:16/10}
+.type:nth-child(2) img{order:2}
+.type:nth-child(2) .type__body{order:1}
+.type__body{padding:0}
+
+/* ── CTA 스트립 ── */
+.ctastrip{background:var(--red); color:var(--white); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
+.ctastrip__in{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;
+  padding-block:clamp(34px,4.4vw,56px);
+}
+.ctastrip__t{
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2.2vw,30px); line-height:1.34;
+}
+.ctastrip__btns{display:flex; gap:14px; flex-wrap:wrap}
+.btn--ink{background:var(--ink); color:var(--white)}
+.mbr{display:none}
+
+/* ── PC 하단 고정 전환바 ── */
+.dock{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  display:none; align-items:center; justify-content:center; gap:18px;
+  background:var(--ink); color:var(--white); padding:12px var(--gutter);
+  border-top:3px solid var(--red);
+  transform:translateY(110%);
+}
+@media (prefers-reduced-motion: no-preference){ .dock{transition:transform .35s ease} }
+.dock--on{transform:translateY(0)}
+.dock__tel{
+  color:var(--white); text-decoration:none; font-size:16px; line-height:1.4;
+  display:inline-flex; align-items:center; gap:10px; min-height:44px; padding-inline:8px;
+}
+.dock__tel b{font-family:var(--ff-sign); font-weight:400; font-size:22px; letter-spacing:.01em}
+.dock__cta{
+  display:inline-flex; align-items:center; justify-content:center; min-height:44px;
+  background:var(--red); color:var(--white); text-decoration:none;
+  font-family:var(--ff-plate); font-size:16px; padding:0 26px; border-radius:2px;
+}
+@media (min-width:861px){
+  .dock{display:flex}
+  body{padding-bottom:74px}   /* 도크가 푸터 마지막 줄을 가리지 않게 */
+}
+
+/* ── 절차 — 라인 위계 강화(다크 아님, 유지) ── */
+
+/* ── 모바일 v4 보정 ── */
+@media (max-width:860px){
+  .hero{min-height:calc(100svh - var(--hd-h, 64px))}
+  .ed__row, .ed__row--rev{grid-template-columns:1fr}
+  .ed__row--rev .ed__txt{order:1}
+  .ed__row--rev .ed__fig{order:2}
+  .type, .type:nth-child(2){grid-template-columns:1fr}
+  .type:nth-child(2) img{order:1}
+  .type:nth-child(2) .type__body{order:2}
+  .sec--dark .facts{grid-template-columns:1fr}
+  .ctastrip__in{justify-content:center; text-align:center}
+  .mbr{display:inline}
+}
+
+/* ═══════ v4.1 미감 레이어 — 프레디 스크린샷 8장 모티프 (전부 한글 변주) ═══════ */
+
+/* 브랜드 헤더 2컬럼 + 오벌 배지 (163144) */
+.shead{display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:center}
+.ovals{
+  display:grid; grid-template-columns:1fr 1fr; gap:10px 12px; margin:0; padding:0; list-style:none;
+  max-width:360px; justify-self:end; width:100%;
+}
+.ovals li{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:2px;
+  border:3px solid var(--red-deep); border-radius:50%;
+  aspect-ratio:2.05/1; padding:8px 12px;
+  font-family:var(--ff-plate); font-size:clamp(13px,1vw,15px); line-height:1.3; color:var(--red-deep);
+}
+.ovals li small{
+  font-family:'Bebas Neue', var(--ff-body); font-size:13px; letter-spacing:.22em; line-height:1;
+  color:inherit; opacity:.85;
+}
+.ovals li:nth-child(2){transform:rotate(2deg)}
+.ovals li:nth-child(3){transform:rotate(-2deg)}
+.ovals__fill{background:var(--red); border-color:var(--red) !important; color:var(--white) !important}
+
+/* 자이언트 기울임 타이포 (163139 「SPECIAL TASTE」의 한글 변주 — 순수 장식) */
+#brand{position:relative; overflow:hidden}
+#brand .wrap{position:relative; z-index:1}
+/* 두 에디토리얼 행 사이 타이포 밴드 — 절대배치가 아니라 흐름 속 요소 (이미지에 안 가림) */
+.giant{
+  font-family:'Anton', var(--ff-body); font-weight:400; text-transform:uppercase;
+  font-size:clamp(88px,13vw,200px); line-height:.88; letter-spacing:.01em;
+  transform:rotate(-3deg) skewX(-6deg); white-space:nowrap; pointer-events:none; user-select:none;
+  display:flex; align-items:baseline; gap:.28em;
+  margin:calc(-1 * clamp(16px,2.4vw,40px)) 0;
+}
+.giant__a{color:rgba(230,0,18,.16)}
+.giant__b{color:transparent; -webkit-text-stroke:2.5px rgba(230,0,18,.26)}
+
+/* creed — 커브드 링 (163231) + 서클 이미지 (163202) + 브러시 밑줄 */
+#creed{position:relative; overflow:hidden}
+#creed .wrap{position:relative; z-index:1}
+.ring{width:clamp(120px,13vw,168px); margin:0 auto clamp(18px,2.4vw,30px); position:relative}
+.ring svg{width:100%; height:auto; display:block}
+.ring svg text{font-family:'Bebas Neue', var(--ff-plate); font-size:17.5px; letter-spacing:.22em; fill:var(--red)}
+.ring > img{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:38%; height:auto;
+}
+@media (prefers-reduced-motion: no-preference){
+  .ring svg{animation:ringspin 26s linear infinite}
+  @keyframes ringspin{to{transform:rotate(360deg)}}
+}
+.qcircle{
+  position:absolute; z-index:0; margin:0; border-radius:50%; overflow:hidden;
+  width:clamp(220px,24vw,360px); aspect-ratio:1;
+  border:6px solid var(--red); box-shadow:0 0 0 3px var(--white) inset;
+  display:none;
+}
+.qcircle img{width:100%; height:100%; object-fit:cover}
+.qcircle--l{left:calc(-1 * clamp(70px,8vw,120px)); bottom:-8%}
+.qcircle--r{right:calc(-1 * clamp(70px,8vw,120px)); top:-10%}
+@media (min-width:1100px){ .qcircle{display:block} }
+/* 「맛」 브러시 밑줄 — 기울어진 레드 스트로크 */
+.quote .creed__line em{position:relative; display:inline-block}
+.quote .creed__line em::after{
+  content:""; position:absolute; left:-4%; right:-4%; bottom:.02em; height:.14em;
+  background:var(--red); transform:skewX(-18deg) rotate(-1.2deg); opacity:.85; z-index:-1;
+}
+
+/* 상권보호 맵 (163154 — 추상 시가지 + 반경 오버레이, 캡션 바) */
+.terrleg{display:flex; flex-wrap:wrap; gap:18px; margin:clamp(18px,2.4vw,28px) 0 0; padding:0; list-style:none}
+.terrleg li{display:inline-flex; align-items:center; gap:8px; font-family:var(--ff-plate); font-size:var(--fs-cap); color:var(--on-dark); line-height:1.5}
+.terrleg i{width:14px; height:14px; border-radius:50%; flex:none}
+.terrleg__r{background:rgba(230,0,18,.25); border:2.5px solid var(--red)}
+.terrleg__tt{background:var(--red); border:2px solid var(--white)}
+.terrleg__ot{background:none; border:2px dashed #8A8178}
+.terrviz{display:grid; grid-template-columns:1fr 1fr; gap:clamp(18px,2.6vw,36px); margin-top:clamp(16px,2vw,24px)}
+.terrviz figure{margin:0; overflow:hidden; border-radius:5px}
+.terrviz svg{width:100%; height:auto; display:block}
+.terrcap{
+  padding:12px 14px 13px; font-family:var(--ff-plate); font-size:clamp(14px,1.05vw,16px);
+  line-height:1.5; text-align:center;
+}
+.terrcap--them{background:#3A342E; color:var(--on-dark)}
+.terrcap--us{background:var(--red); color:var(--white)}
+
+/* 워드 마퀴 (아웃라인 대형 롤링) — 다크 띠 */
+.wq{background:var(--dark); overflow:hidden; padding-block:clamp(10px,1.6vw,22px); border-top:1px solid rgba(244,239,233,.14)}
+.wq__track{display:inline-flex; white-space:nowrap; will-change:transform}
+.wq__g{display:inline-flex; align-items:baseline; gap:.55em; padding-right:.55em;
+  font-family:'Anton', var(--ff-body); font-weight:400; text-transform:uppercase;
+  font-size:clamp(52px,7vw,100px); line-height:1.1; letter-spacing:.01em;
+}
+.wq__g b{font-weight:400; color:var(--red)}
+.wq__g i{font-style:normal; color:transparent; -webkit-text-stroke:1.5px rgba(244,239,233,.5)}
+@media (prefers-reduced-motion: no-preference){
+  .wq__track{animation:wqroll 30s linear infinite}
+  @keyframes wqroll{to{transform:translateX(-50%)}}
+}
+/* IO 정지 */
+.mq.is-off .mq__track, .wq.is-off .wq__track,
+.rvroll.is-off .rvroll__track{animation-play-state:paused}
+.ring.is-off svg{animation-play-state:paused}
+
+/* 메뉴 다크 모눈 텍스처 (163208의 다크 변주) */
+#menu-burger.sec--dark, #menu-side.sec--dark{
+  background-image:
+    linear-gradient(rgba(244,239,233,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,239,233,.05) 1px, transparent 1px);
+  background-size:56px 56px;
+}
+
+/* 영문 캡션 타이포 (encap) — 섹션 헤드 위 대형 아웃라인 */
+.encap{
+  font-family:'Bebas Neue', var(--ff-body); font-size:clamp(56px,7vw,104px); line-height:.9;
+  letter-spacing:.06em; color:transparent; -webkit-text-stroke:1.5px rgba(244,239,233,.22);
+  margin-bottom:2px; user-select:none;
+}
+
+/* 메뉴 단일 슬라이더 — 카운트 라벨 */
+.mcount{display:grid; gap:3px; border-bottom:1px solid rgba(244,239,233,.25); padding:6px 2px 14px; flex:1 1 auto; margin:0}
+.mcount b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2vw,28px); line-height:1.2; color:var(--white)}
+.mcount span{font-family:'Bebas Neue', var(--ff-body); font-size:14px; letter-spacing:.2em; line-height:1; color:var(--on-dark-2)}
+
+/* 메뉴 카테고리 탭 슬라이더 (163208) */
+.mhead{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-top:clamp(26px,3.4vw,44px); flex-wrap:wrap}
+.mtabs{display:flex; gap:clamp(14px,2vw,32px); border-bottom:1px solid rgba(244,239,233,.25); flex:1 1 auto; overflow-x:auto; scrollbar-width:none}
+.mtab{
+  background:none; border:0; cursor:pointer; padding:6px 2px 14px; text-align:left;
+  display:grid; gap:3px; color:var(--on-dark-2); position:relative; min-height:44px;
+}
+.mtab b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(17px,1.6vw,24px); line-height:1.2; color:inherit; white-space:nowrap}
+.mtab span{font-family:'Bebas Neue', var(--ff-body); font-size:14px; letter-spacing:.2em; line-height:1; color:inherit; opacity:.85}
+.mtab.is-on{color:var(--white)}
+.mtab.is-on::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:4px; background:var(--red)}
+.mnav{display:flex; gap:10px}
+.mnav button{
+  width:46px; height:46px; cursor:pointer; border:2px solid rgba(244,239,233,.5); border-radius:50%;
+  background:none; color:var(--on-dark); font-size:19px; line-height:1;
+}
+.mnav button:hover{border-color:var(--white); color:var(--white)}
+.mpanel{margin-top:clamp(20px,2.6vw,32px)}
+.menu--slide{
+  display:flex; gap:clamp(14px,1.8vw,24px); overflow-x:auto; padding-bottom:10px;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.menu--slide::-webkit-scrollbar{display:none}
+.menu--slide li{flex:0 0 clamp(200px,17vw,250px); scroll-snap-align:start; position:relative}
+
+/* 손글씨 콜아웃 (나눔펜) */
+.hand{font-family:'Nanum Pen Script', cursive; line-height:1.1; pointer-events:none}
+.hand--fee{
+  position:absolute; right:clamp(8px,3vw,40px); top:-16px; transform:rotate(-5deg);
+  font-size:clamp(22px,2vw,29px); color:var(--red-deep);
+}
+.fee__total{position:relative}
+.hand--menu{
+  position:absolute; top:-12px; right:-6px; transform:rotate(6deg);
+  font-size:clamp(21px,1.8vw,26px); color:var(--white);
+  background:var(--red); padding:2px 12px 4px; border-radius:3px;
+}
+
+/* ═══ v4.3 풀와이드 — 엣지 블리드 (vw 불사용: 스크롤바 오버플로 함정 회피) ═══
+   maxw 1520 기준, ≤1580px 뷰포트에서 wrap 가장자리 = 화면 가장자리이므로
+   거터 상쇄(-gutter)만으로 진짜 엣지 블리드가 된다. 초광폭에선 컨테이너에 담긴다(프레디 동일). */
+.ed__row .ed__fig{margin-right:calc(-1 * var(--gutter))}
+.ed__row--rev .ed__fig{margin-right:0; margin-left:calc(-1 * var(--gutter))}
+.type:nth-child(1) img{margin-right:calc(-1 * var(--gutter)); width:calc(100% + var(--gutter))}
+.type:nth-child(2) img{margin-left:calc(-1 * var(--gutter)); width:calc(100% + var(--gutter))}
+/* 메뉴 슬라이더 — 오른쪽 가장자리로 흘러나감 (캐러셀 관습) */
+.mpanel{margin-right:calc(-1 * var(--gutter))}
+.menu--slide{padding-right:var(--gutter)}
+/* FAQ 2단 — 컬럼을 820px 로 좁히자 크림 섹션 우측에 620px 공백이 남았다.
+   가독성을 얻고 균형을 잃은 상태라, 위에 쌓여 있던 머리말(이름표+H2)을 좌측으로
+   옮겨 그 자리를 채운다. 좌측 앵커(A2)는 유지되고 아코디언은 measure 안에 머문다. */
+@media (min-width:1040px){
+  #faq .wrap{
+    display:grid; align-items:start;
+    grid-template-columns:minmax(280px,1fr) minmax(0,820px);
+    /* 행 크기를 명시하지 않으면 두 행에 걸친 아코디언이 1행까지 부풀려
+       H2 가 이름표에서 441px 아래로 떨어진다. 1행=이름표 높이로 못 박는다. */
+    grid-template-rows:auto 1fr;
+    column-gap:clamp(40px,5vw,88px);
+  }
+  #faq .eyebrow{grid-column:1; grid-row:1}
+  #faq .h2{grid-column:1; grid-row:2; margin-top:14px}
+  #faq .faq{grid-column:2; grid-row:1 / span 2; margin-top:0}
+}
+
+/* FAQ — 줄 길이 상한을 컬럼 폭으로 건다 (좌측 앵커 비대칭 유지).
+   1120px 은 답변 59자·질문 53자로 폭주했다. 880px 도 실측 47자라 부족해 820px 로 내렸다.
+   질문은 도현체(라벨용 압축서체)라 문장이 길수록 손해가 크다. */
+.faq{max-width:820px}
+
+/* ═══ v4.3b 탈-AI 무드 — 겹침·하이라이트·부유물 ═══ */
+/* H2 하이라이트 마크 — 락업 변주 (3곳 한정, H2 희소성) */
+.h2 mark{
+  background:var(--red); color:var(--white);
+  padding:.02em .16em .05em; border-radius:3px;
+  display:inline-block; transform:rotate(-1.2deg); line-height:1.15;
+}
+.sec--red .h2 mark{background:var(--white); color:var(--red)}
+
+/* 컷아웃 부유 버거 — 흰 배경 제품컷이 화이트 섹션에서 컷아웃으로 읽힘 */
+/* 진짜 컷아웃 PNG(플러드필 배경 제거) — 어느 배경에서든 부유 가능 */
+.float{position:absolute; pointer-events:none; user-select:none; z-index:0; height:auto}
+.float--a{width:clamp(130px,14vw,210px); top:clamp(48px,7vw,110px); right:clamp(6px,2.6vw,44px); transform:rotate(9deg)}
+.float--b{width:clamp(120px,12vw,180px); bottom:clamp(24px,4vw,64px); right:clamp(30px,5vw,90px); transform:rotate(-8deg)}
+#why{position:relative; overflow:hidden}
+#process{position:relative; overflow:hidden}
+#why .wrap, #process .wrap{position:relative; z-index:1}
+
+/* 워드 마퀴가 밴드 사진 상단을 밟고 지나가게 — 레이어링 */
+.wq{position:relative; z-index:2; margin-bottom:calc(-1 * clamp(22px,3.2vw,48px))}
+
+/* 증거 블록 다크에도 그레인 */
+#company.sec--dark{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.12'/></svg>");
+}
+
+/* 메뉴 후킹 레이아웃 — 대표 버거 히어로 + 오토 롤링 2줄 */
+#menu-burger{position:relative; overflow:hidden}
+#menu-burger .wrap{position:relative}
+.mhero{
+  position:absolute; z-index:2; margin:0; pointer-events:none;
+  top:clamp(-10px,-1vw,0px); right:calc(-1 * clamp(20px,3vw,60px));
+  width:clamp(300px,30vw,470px); transform:rotate(-8deg);
+}
+.mhero img{width:100%; height:auto; filter:drop-shadow(0 22px 34px rgba(0,0,0,.45))}
+.mhero .hand--menu{top:auto; bottom:8%; right:12%; transform:rotate(8deg); font-size:clamp(24px,2vw,30px)}
+@media (prefers-reduced-motion: no-preference){
+  /* 봅은 안쪽 이미지에 건다 — .mhero 의 transform 은 진입 팝(GSAP)이 쓴다.
+     같은 요소에 CSS 애니메이션과 인라인 transform 이 겹치면 CSS 가 이겨 팝이 안 보인다. */
+  .mhero img{animation:mbob 4.2s ease-in-out infinite}
+  @keyframes mbob{0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)}}
+}
+.mrow{margin-top:clamp(26px,3.4vw,44px)}
+.mrow__label{display:flex; align-items:baseline; gap:12px; margin:0 0 14px}
+.mrow__label b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2vw,28px); line-height:1.2; color:var(--white)}
+.mrow__label span{font-family:'Bebas Neue', var(--ff-body); font-size:14px; letter-spacing:.2em; color:var(--on-dark-2)}
+.mrow__clip{overflow-x:auto; scrollbar-width:none; margin-right:calc(-1 * var(--gutter))}
+.mrow__clip::-webkit-scrollbar{display:none}
+.mrow--auto .mrow__clip{overflow:hidden}
+.mline{display:flex; gap:clamp(14px,1.8vw,24px); width:max-content; will-change:transform; padding-right:clamp(14px,1.8vw,24px)}
+.mline li{flex:0 0 clamp(180px,15vw,230px); position:relative}
+.mline li img{transition:transform .25s ease}
+.mline li:hover img{transform:scale(1.05)}
+
+/* 지도 출처 (ODbL) */
+.terrsrc{margin-top:10px; font-size:var(--fs-cap); color:var(--on-dark-2); line-height:1.6}
+
+/* v4.1 모바일 보정 */
+@media (max-width:860px){
+  /* 공정 스트립 — 4열은 칸당 97px 이라 사진도 캡션도 죽는다. 2×2 로 접어
+     읽는 순서(①② / ③④)를 유지한다. 가로 스크롤은 뒤 두 컷이 숨어서 안 쓴다. */
+  .craft__strip{grid-template-columns:repeat(2,1fr)}
+  .craft__strip--3{grid-template-columns:1fr}
+  .craft__strip--3 .craft__step + .craft__step .craft__fig{box-shadow:inset 0 3px 0 var(--strip-cut)}
+  /* 5컷은 모바일에서 2×2+1 로 접으면 마지막 칸이 뜬다 — 가로 스크롤도 뒤 컷이 숨는다.
+     공급 서사는 순서가 곧 내용이라 1열로 쌓아 전부 보이게 한다. */
+  .craft__strip--5{grid-template-columns:1fr}
+  .craft__strip--5 .craft__step + .craft__step .craft__fig{box-shadow:inset 0 3px 0 var(--strip-cut)}
+  .craft__step:nth-child(n+3) .craft__fig{box-shadow:inset 0 3px 0 var(--dark)}
+  .craft__step:nth-child(3) .craft__fig{box-shadow:inset 0 3px 0 var(--dark)}
+  .craft__step:nth-child(4) .craft__fig{box-shadow:inset 3px 0 0 var(--dark), inset 0 3px 0 var(--dark)}
+  .shead{grid-template-columns:1fr}
+  .ovals{max-width:420px}
+  .giant{font-size:clamp(56px,15vw,90px); margin:0}
+  .vrail{display:none}
+  .terrviz{grid-template-columns:1fr; gap:14px}
+  .wq__g i{-webkit-text-stroke-width:1px}
+  .encap{font-size:clamp(44px,12vw,64px)}
+  .mhead{align-items:center}
+  .mtabs{gap:16px; overflow-x:auto; scrollbar-width:none}
+  .menu--slide li{flex-basis:clamp(160px,46vw,210px)}
+  .float{display:none}
+  .wq{margin-bottom:-14px}
+  .mhero{width:clamp(180px,44vw,240px); top:-6px; right:-10px}
+  .mhero .hand--menu{font-size:19px}
+  .mline li{flex-basis:clamp(150px,42vw,190px)}
+}
 </style>
+</head>
+<body>
 
-<div class="wrap">
-  <header>
-    <div class="eyebrow">브랜드 리뉴얼 · 원페이지 시안 제안</div>
-    <h1>티티버거 <span class="hl">TITIBURGER</span></h1>
-    <div class="sub">현 ‘터닝테이블’ → ‘티티버거’ 리브랜딩 · 창업모집 원페이지 스크롤형 · 디자인 시안 4종</div>
-  </header>
+<!-- ══ 헤더 + sticky 상담바 (02) ══ -->
+<header class="hd" id="hd">
+  <div class="hd__row">
+    <!-- 헤더는 워드마크만 — 전체 락업은 44px에서 태그라인이 뭉갠다 (푸터에서 전체 락업 사용) -->
+    <a class="hd__logo" href="#top" aria-label="티티버거 홈"><img class="hd__sym" src="_assets/symbol-red.png" alt="" aria-hidden="true" width="354" height="260"><img src="_assets/wordmark-red.png" alt="티티버거" width="640" height="143"></a>
+    <nav class="hd__nav" aria-label="주요 메뉴">
+      <a href="#support">창업 혜택</a>
+      <a href="#menu-burger">메뉴</a>
+      <a href="#why">업종 변경</a>
+      <a href="#process">창업 절차</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a href="#contact">창업 문의</a>
+    </nav>
+    <a class="hd__tel" href="tel:16882629">1688-2629</a>
+  </div>
+  <!-- 2026-08-20 클라이언트 지시: 헤더 바는 실입력이 아니라 클릭 시 하단 상세 폼으로 이동
+       2026-08-22: 어차피 하단으로 보낼 거면 입력칸을 흉내 낼 이유가 없다 — 같은 자리를 제안 문구로 전환 -->
+  <div class="bar">
+    <a class="bar__in bar__in--jump" href="#contact" aria-label="하단 창업 문의 폼으로 이동">
+      <span class="bar__label">창업 상담</span>
+      <span class="bar__msg">쓰던 매장·설비 그대로 살려 전환 · 8평부터 시작</span>
+      <span class="btn">상담 신청</span>
+    </a>
+  </div>
+</header>
 
-  <section class="overview">
-    <div class="ov-card"><div class="k">목표</div><div class="v">다중페이지 → <b>원페이지 창업문의 전환</b></div></div>
-    <div class="ov-card"><div class="k">구조</div><div class="v">아임타코야끼 <b>검증 리드 시스템 계승</b> + 어드민</div></div>
-    <div class="ov-card"><div class="k">톤 방향</div><div class="v">버거 브랜드 고유 <b>아메리칸 레트로</b> 2 + <b>디자인시스템</b> 2</div></div>
-    <div class="ov-card"><div class="k">운영사</div><div class="v">(주)지에이엠 · 대표 이재훈</div></div>
+<main id="top">
+
+  <!-- ══ 01 히어로 — 시네마틱 다크 배경 + 간판 (v4) ══ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="_assets/shot/hero.jpg" alt="" width="1920" height="1071" fetchpriority="high">
+    </div>
+    <div class="hero__stage">
+      <div class="wrap">
+        <div class="sign hero__sign">
+          <p class="hero__badge"><b>선착순 10호점</b><span>창업비용 최대 <strong>1,000만원</strong> 지원</span></p>
+          <h1 id="hero-h"><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h1>
+          <div class="hero__rule" aria-hidden="true"></div>
+          <p class="hero__sub">8평부터 시작하는 소형 매장 창업.<br>지금 쓰시는 매장 그대로 바꾸셔도 됩니다.</p>
+          <div class="hero__cta">
+            <a class="btn btn--ghost" href="#support">창업 조건 먼저 보기</a>
+            <a class="btn" href="#contact">창업 상담 신청</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="sec-title">
-    <h2>시안 4종</h2>
-    <span>각 카드를 눌러 실제 원페이지를 확인하세요 · 워드마크·수익성 수치는 확정 전 임시안</span>
-  </div>
-
-  <div class="grid">
-    <!-- 안A 빈티지 다이너 -->
-    <div class="card">
-      <a class="thumb" href="시안/안A_빈티지다이너.html">
-        <span class="tag" style="color:#f5ecd9">A · 레트로 다이너</span>
-        <img src="시안/_프리뷰/안A_빈티지다이너_데스크톱.png" alt="안A 빈티지 다이너 시안">
-      </a>
-      <div class="card-body">
-        <h3>빈티지 다이너</h3>
-        <div class="tone">웜 · 친근 · 식욕 (In-N-Out 무드)</div>
-        <p>크림 배경 + 다이너레드·머스타드. 밝고 따뜻한 클래식 수제버거 감성. 소비자 호감·식욕 자극형.</p>
-        <div class="swatches"><span class="sw" style="background:#F5ECD9"></span><span class="sw" style="background:#C4342B"></span><span class="sw" style="background:#E7B23C"></span><span class="sw" style="background:#2B211C"></span></div>
-        <a class="open-btn" href="시안/안A_빈티지다이너.html">원페이지 열기 →</a>
-      </div>
-    </div>
-
-    <!-- 안B 볼드 레트로 -->
-    <div class="card">
-      <a class="thumb" href="시안/안B_볼드레트로.html">
-        <span class="tag" style="color:#F0B21E">B · 볼드 레트로</span>
-        <img src="시안/_프리뷰/안B_볼드레트로_데스크톱.png" alt="안B 볼드 레트로 시안">
-      </a>
-      <div class="card-body">
-        <h3>볼드 레트로</h3>
-        <div class="tone">강렬 · 하이컨트라스트 (Roberta's 무드)</div>
-        <p>차콜 + 머스타드·시그널레드. 굵은 콘덴스드 타이포, 강한 대비. 임팩트·수익성 신뢰감형.</p>
-        <div class="swatches"><span class="sw" style="background:#201D1B"></span><span class="sw" style="background:#F0B21E"></span><span class="sw" style="background:#D6291F"></span><span class="sw" style="background:#F2E9D8"></span></div>
-        <a class="open-btn" href="시안/안B_볼드레트로.html">원페이지 열기 →</a>
-      </div>
-    </div>
-
-    <!-- 안A 헝그리타이거 -->
-    <div class="card">
-      <a class="thumb" href="시안/안A_헝그리타이거.html">
-        <span class="tag" style="color:#faae33">A' · 헝그리타이거</span>
-        <img src="시안/_프리뷰/안A_헝그리타이거_데스크톱.png" alt="안A 헝그리타이거 시안">
-      </a>
-      <div class="card-body">
-        <h3>헝그리타이거</h3>
-        <div class="tone">웜 러스트 + 골드 포스터 (Hungry Tiger 시스템)</div>
-        <p>러스트 브라운 풀블리드 + 골드 포스터 타이포, 점선 디바이더 리듬. 비대칭 2컬럼, 프리미엄·강렬.</p>
-        <div class="swatches"><span class="sw" style="background:#823513"></span><span class="sw" style="background:#faae33"></span><span class="sw" style="background:#402011"></span><span class="sw" style="background:#281006"></span></div>
-        <a class="open-btn" href="시안/안A_헝그리타이거.html">원페이지 열기 →</a>
-      </div>
-    </div>
-
-    <!-- 안B 임파서블 -->
-    <div class="card">
-      <a class="thumb" href="시안/안B_임파서블.html">
-        <span class="tag" style="color:#e10600">B' · 임파서블</span>
-        <img src="시안/_프리뷰/안B_임파서블_데스크톱.png" alt="안B 임파서블 시안">
-      </a>
-      <div class="card-body">
-        <h3>임파서블</h3>
-        <div class="tone">와인 + 블러드레드 펑크 (Impossible 시스템)</div>
-        <p>와인다크 풀블리드 + 초대형 레드 선언 타이포, 마스크컷 플로팅·제품 캐러셀. 수익성 빅넘버 압도형.</p>
-        <div class="swatches"><span class="sw" style="background:#260212"></span><span class="sw" style="background:#e10600"></span><span class="sw" style="background:#4f0423"></span><span class="sw" style="background:#ffc7c6"></span></div>
-        <a class="open-btn" href="시안/안B_임파서블.html">원페이지 열기 →</a>
-      </div>
+  <!-- ══ 03 마퀴 ══ -->
+  <div class="mq" aria-hidden="true">
+    <div class="mq__track">
+      <span>가맹비 500 면제</span><span>보증금 100 면제</span><span>로열티 24개월 면제</span><span>간판 교체비 지원</span><span>쇼케이스 냉장고 지원</span><span>감리비·광고분담비 면제</span><span>무이자 할부 6개월</span><span>8평부터 시작</span><span>선착순 10호점</span>
+      <span data-clone>가맹비 500 면제</span><span data-clone>보증금 100 면제</span><span data-clone>로열티 24개월 면제</span><span data-clone>간판 교체비 지원</span><span data-clone>쇼케이스 냉장고 지원</span><span data-clone>감리비·광고분담비 면제</span><span data-clone>무이자 할부 6개월</span><span data-clone>8평부터 시작</span><span data-clone>선착순 10호점</span>
     </div>
   </div>
 
-  <footer>
-    <a class="doc-link" href="설계기획안/티티버거_원페이지_설계기획안_2026-07-24.md">📄 설계 기획안 (섹션 구조·리드폼·어드민 연동)</a>
-    <div class="meta">
-      티티버거 원페이지 리뉴얼 · 시안 제안<br>
-      제작 이승준 · 2026-07 · (주)지에이엠 제출용
+  <!-- ══ 04 브랜드 ══ -->
+  <section class="sec" id="brand" aria-labelledby="brand-h">
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="eyebrow">브랜드</p>
+          <h2 class="h2" id="brand-h">수제버거는 빵과 패티에서 갈립니다</h2>
+          <p class="lead">토핑은 따라 할 수 있습니다. 번과 패티는 따라 하기 어렵습니다.
+            티티버거가 <span class="hl">빵과 패티</span> 두 가지를 브랜드 이름 아래 그대로 써 둔 이유입니다.</p>
+        </div>
+        <!-- 오벌 배지 클러스터 (163144 문법) — 기확정 카피만 -->
+        <ul class="ovals" aria-label="티티버거 브랜드 특징">
+          <li>100% 소고기 패티<small>100% BEEF</small></li>
+          <li>자체 브리오슈 번<small>BRIOCHE BUN</small></li>
+          <li class="ovals__fill">번·패티 직접 개발<small>SELF-MADE</small></li>
+          <li>한글 간판<small>HANGUL SIGN</small></li>
+        </ul>
+      </div>
+      <div class="ed">
+        <article class="ed__row">
+          <div class="ed__txt card">
+            <p class="card__no">번</p>
+            <h3 class="h3">티티버거가 자체 개발한 브리오슈 번</h3>
+            <p>촉촉하고 쫀득한 결을 내려고 번부터 직접 만들었습니다. 시판 번을 그대로 쓰면 나오지 않는 식감입니다.</p>
+          </div>
+          <figure class="ed__fig">
+            <img src="_assets/shot/styled1.jpg" alt="브리오슈 번 사이로 패티와 치즈가 흐르는 티티버거를 두 손으로 든 모습" loading="lazy" width="1280" height="1177">
+          </figure>
+        </article>
+        <p class="giant" aria-hidden="true"><span class="giant__a">BUN &amp;</span><span class="giant__b">PATTY</span></p>
+        <article class="ed__row ed__row--rev">
+          <div class="ed__txt card">
+            <p class="card__no">패티</p>
+            <h3 class="h3">티티버거가 자체 개발한 100% 소고기 패티</h3>
+            <p>끼워 팔기용 저가 패티가 아니라, 한 끼로 성립하는 두께와 굽기를 기준으로 맞췄습니다.</p>
+          </div>
+          <figure class="ed__fig">
+            <img src="_assets/shot/detail.jpg" alt="브리오슈 번과 소고기 패티의 단면이 드러난 티티버거 클로즈업" loading="lazy" width="1280" height="1280">
+          </figure>
+        </article>
+      </div>
+
     </div>
-  </footer>
-  <p class="note">※ 로고는 실로고 수령 후 교체 예정(현재 워드마크 임시안), 수익성 수치는 검증 후 확정, 창업비용은 공식표(가맹비 500·교육비 300·보증금 100 → 면제) 기준입니다.</p>
+  </section>
+
+  <!-- ══ 04-a 생산·공급 3컷 (v4.13, 대표 지시) — 프레디 con7 문법 차용, 사실은 우리 것만.
+       ⚠️ 프레디 헤드는 「패티 **직접 생산**의 강점」이고 배지가 4개다
+          (100% 소고기·위생적인 생산 환경·직접 유통·맛의 통일성).
+          티티버거는 **OEM 위탁생산**이라 '직접 생산'을 쓸 수 없고,
+          '위생적인 생산 환경'·'직접 유통'·HACCP 은 **확인요청 3차 6·7번이 회신 전**이라
+          한 글자도 쓰지 않았다(기획서 원칙: OEM 스펙은 사실 확인 전 수치·단정 미기재).
+          그래서 배지 클러스터를 통째로 뺐다 — 쓸 수 있는 배지가 3개뿐인데
+          3개는 아래 넘버링과 같은 말이라 신호가 겹친다(루브릭 L1).
+       ⚠️ 아래 03 「같은 규격으로 만들어집니다」는 전용 생산의 자명한 귀결로 썼지만,
+          성형 완료 납품 여부 자체는 확인 항목에 없다 — 회신 시 문구 재검 필요. ══ -->
+  <section class="sec sec--cream craft" id="supply" aria-labelledby="supply2-h">
+    <div class="wrap">
+      <p class="eyebrow">공급</p>
+      <h2 class="h2" id="supply2-h">번과 패티는, 만들어져서 옵니다</h2>
+      <p class="lead">티티버거 전용으로 생산해 본사가 공급합니다.
+        매장에서 반죽하거나 패티를 잡을 일이 없습니다.
+        8평에서도 시작할 수 있는 이유이고, 매장이 달라도 같은 맛이 나오는 이유입니다.</p>
+    </div>
+    <ol class="craft__strip craft__strip--5">
+      <li class="craft__step">
+        <figure class="craft__fig">
+          <img src="_assets/craft/F1_rawblock.jpg" alt="스테인리스 트레이 위에 놓인 냉동 소고기 원물 덩어리" loading="lazy" width="896" height="1200">
+        </figure>
+        <div class="craft__cap">
+          <b class="craft__no">01</b>
+          <h3 class="craft__h">고기부터 정합니다</h3>
+          <p>100% 소고기입니다. 한 끼로 성립하는 두께를 기준으로 맞췄습니다.</p>
+        </div>
+      </li>
+      <li class="craft__step">
+        <figure class="craft__fig">
+          <img src="_assets/craft/F2_grinder.jpg" alt="식품 공장의 스테인리스 분쇄기에서 갈린 소고기가 볼로 떨어지는 장면" loading="lazy" width="896" height="1200">
+        </figure>
+        <div class="craft__cap">
+          <b class="craft__no">02</b>
+          <h3 class="craft__h">전용으로 갈아 냅니다</h3>
+          <p>시판 패티를 가져다 쓰지 않습니다. 티티버거가 자체 개발해 전용으로 생산합니다.</p>
+        </div>
+      </li>
+      <li class="craft__step">
+        <figure class="craft__fig">
+          <img src="_assets/craft/F3_conveyor.jpg" alt="컨베이어 벨트 위에 같은 크기로 성형된 소고기 패티가 줄지어 놓인 장면" loading="lazy" width="896" height="1200">
+        </figure>
+        <div class="craft__cap">
+          <b class="craft__no">03</b>
+          <h3 class="craft__h">같은 규격으로 나옵니다</h3>
+          <p>매장이 달라도, 굽는 사람이 달라도 같은 결과가 나옵니다.</p>
+        </div>
+      </li>
+      <li class="craft__step">
+        <figure class="craft__fig">
+          <img src="_assets/craft/B1_dough.jpg" alt="제빵 공장 발효 랙 위 트레이에 줄지어 놓인 브리오슈 반죽" loading="lazy" width="896" height="1200">
+        </figure>
+        <div class="craft__cap">
+          <b class="craft__no">04</b>
+          <h3 class="craft__h">번도 전용입니다</h3>
+          <p>티티버거가 자체 개발한 브리오슈입니다. 시판 번으로는 이 결과 식감이 나오지 않습니다.</p>
+        </div>
+      </li>
+      <li class="craft__step">
+        <figure class="craft__fig">
+          <img src="_assets/craft/B2_bake.jpg" alt="제빵 공장 오븐 앞 랙에 갓 구워져 나온 브리오슈 번 트레이" loading="lazy" width="896" height="1200">
+        </figure>
+        <div class="craft__cap">
+          <b class="craft__no">05</b>
+          <h3 class="craft__h">구워서 보냅니다</h3>
+          <p>구워진 상태로 매장에 옵니다. 반죽도 발효도 매장 일이 아닙니다.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="wrap">
+      <p class="note">본사 공급 품목은 <strong>번과 패티</strong>입니다.
+        인테리어·간판·주방집기는 본사 시공·공급 품목이 아니며, 자율 시공·직접 구매입니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 04-b 조리 루프 밴드 (v4.17) — 구 매장 4컷 섹션 대체.
+       영상은 이미 확정된 스틸 3장을 각각 i2v 로 돌린 것이다(Kling 2.5 turbo pro).
+       멀티샷 한 번에 뽑으면 주방이 딴 데로 갈 위험이 있어 프레임에 고정했다. ══ -->
+  <div class="cookband" role="img"
+       aria-label="티티버거 매장 조리 공정 영상 — 굽고, 쌓고, 내보냅니다">
+    <div class="cookband__cell">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="_assets/craft/03_griddle.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook1.mp4" type="video/mp4"></video>
+      <div class="cookband__cap" aria-hidden="true">
+        <b class="cookband__no">01</b><span class="cookband__t">굽고</span>
+      </div>
+    </div>
+    <div class="cookband__cell">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="_assets/craft/04_assemble.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook2.mp4" type="video/mp4"></video>
+      <div class="cookband__cap" aria-hidden="true">
+        <b class="cookband__no">02</b><span class="cookband__t">쌓고</span>
+      </div>
+    </div>
+    <div class="cookband__cell">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="_assets/craft/05_pack.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook3.mp4" type="video/mp4"></video>
+      <div class="cookband__cap" aria-hidden="true">
+        <b class="cookband__no">03</b><span class="cookband__t">내보냅니다</span>
+      </div>
+    </div>
+  </div>  <!-- ══ 04-c 브랜드 문장 — 센터 인용 (Meta 모티프, 2026-08-20 클라이언트 지정 주 소구점) ══ -->
+  <section class="sec quote" id="creed" aria-labelledby="creed-h">
+    <!-- 좌우 서클 이미지 걸침 (163202 문법) — 데스크톱 전용 -->
+    <figure class="qcircle qcircle--l" aria-hidden="true"><img src="_assets/shot/set.jpg" alt="" loading="lazy"></figure>
+    <figure class="qcircle qcircle--r" aria-hidden="true"><img src="_assets/shot/styled3.jpg" alt="" loading="lazy"></figure>
+    <div class="wrap">
+      <!-- 커브드 텍스트 링 (163231 「Legend!」 링의 한글 변주) -->
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="ringpath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+          <text><textPath href="#ringpath">TT BURGER · CRAFT BURGER · TT BURGER · CRAFT BURGER ·&#160;</textPath></text>
+        </svg>
+        <img src="_assets/symbol-red.png" alt="" width="354" height="260">
+      </div>
+      <div class="creed">
+        <p class="creed__line" id="creed-h">결국, 본질은 <em>맛</em>입니다.</p>
+        <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.
+          장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.
+          한 번 찾아준 고객이 만족하지 않는다면, 어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
+        <p>그래서 티티버거의 기준은 <strong>오늘 먹고 내일 또 생각나는가</strong>입니다.
+          번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="checker" aria-hidden="true"></div>
+
+  <!-- ══ 05 창업 지원 — 최대 후킹 ══ -->
+  <section class="sec sec--red" id="support" aria-labelledby="support-h">
+    <div class="wrap">
+      <p class="eyebrow">창업 혜택</p>
+      <h2 class="h2" id="support-h">시작을 막는 비용, 열두 가지가 <mark>없습니다</mark></h2>
+      <p class="lead">프랜차이즈는 누구나 쉽게 할 수 있어야 한다고 믿습니다.
+        그래서 선착순 10호점까지, 시작을 막는 비용 열두 가지를 <span class="hl">받지 않거나 대신 부담</span>합니다.</p>
+
+      <!-- 2026-08-20 클라이언트 확정 「12無」 — 로열티는 24개월 면제(25개월차부터 부과), 교육비 300만원은 부과 항목이라 표 밖 고지 -->
+      <div class="fee">
+        <div class="fee__row fee__row--head"><span>항목</span><span>내용</span><span></span></div>
+        <div class="fee__row"><span class="fee__name">가맹비</span><span class="fee__price"><s>500만원</s></span><span class="stamp">면제</span></div>
+        <div class="fee__row"><span class="fee__name">보증금</span><span class="fee__price"><s>100만원</s></span><span class="stamp">면제</span></div>
+        <div class="fee__row"><span class="fee__name">로열티</span><span class="fee__price"><s>월 20만원 × 24개월</s></span><span class="stamp">24개월 면제</span></div>
+        <div class="fee__row"><span class="fee__name">재가맹비</span><span class="fee__price">계약 갱신 시</span><span class="stamp">면제</span></div>
+        <div class="fee__row"><span class="fee__name">감리비</span><span class="fee__price">시공 감리</span><span class="stamp">면제</span></div>
+        <div class="fee__row"><span class="fee__name">광고분담비</span><span class="fee__price">본사 광고 분담</span><span class="stamp">면제</span></div>
+        <div class="fee__row"><span class="fee__name">간판 교체비</span><span class="fee__price">A급 상권 기준</span><span class="stamp stamp--free">지원</span></div>
+        <div class="fee__row"><span class="fee__name">쇼케이스 냉장고 · 음료 초도물량</span><span class="fee__price">오픈 세팅</span><span class="stamp stamp--free">지원</span></div>
+        <div class="fee__row"><span class="fee__name">오픈 현장지원</span><span class="fee__price">본사 인력</span><span class="stamp stamp--free">지원</span></div>
+        <div class="fee__row"><span class="fee__name">창업비용 할부</span><span class="fee__price">무이자 6개월 · 12개월까지 유이자</span><span class="stamp stamp--free">할부</span></div>
+        <div class="fee__row"><span class="fee__name">고정비용</span><span class="fee__price">전 항목</span><span class="stamp stamp--free">할부 가능</span></div>
+        <div class="fee__row"><span class="fee__name">월세 · 공과금</span><span class="fee__price">대납 처리 시</span><span class="stamp stamp--free">무수수료 · 무이자</span></div>
+        <p class="fee__total">시작을 막는 비용 <b>12無</b><span class="hand hand--fee" aria-hidden="true">열두 가지, 전부!</span></p>
+      </div>
+
+      <div class="limit">
+        <b>선착순 10호점까지 창업비용 최대 1,000만원 지원</b>
+        <span>12無와 함께, 지금 여는 매장에만 적용되는 조건입니다.</span>
+      </div>
+
+      <ul class="perks">
+        <li class="perk">첫 달 당근 광고 지원</li>
+        <li class="perk">원자재 지원</li>
+        <li class="perk">오픈 이벤트 지원</li>
+      </ul>
+      <p class="note">※ 교육비 300만원은 정상 부과되며, 로열티는 25개월차부터 월 20만원이 부과됩니다.
+        인테리어·간판·주방집기는 본사 시공·공급 품목이 아니며(자율 시공·직접 구매), 원하시는 경우 본사 협력업체를 안내해 드립니다.
+        별도 공사(가구·소방·철거·전기 증설·냉난방기·덕트·외부 공사·POS 등)는 점포 상황에 따라 별도입니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 07 메뉴 쇼케이스 — 카테고리 탭 슬라이더 (프레디 163208 문법) ══ -->
+  <section class="sec sec--dark" id="menu-burger" aria-labelledby="mb-h">
+    <div class="wrap">
+      <p class="encap" aria-hidden="true">MENU</p>
+      <p class="eyebrow">메뉴</p>
+      <h2 class="h2" id="mb-h">조리 동선은 같고, 라인업은 <mark>넓습니다</mark></h2>
+      <p class="lead">브리오슈 번과 전용 패티 위에 조합만 바꿔 올립니다.
+        버거 한 종만 파는 매장과 객단가가 갈리는 자리 — 홀·포장·배달 어느 채널에서도 함께 나갑니다.</p>
+
+      <!-- 후킹 장치: 대형 컷아웃 대표 버거(헤더 우측 부유) + 버거/사이드 역방향 오토 롤링 2줄 (호버 시 정지) -->
+      <figure class="mhero" aria-hidden="true">
+        <img src="_assets/menu/cutout_titi.png" alt="" loading="lazy" width="760" height="506">
+        <span class="hand hand--menu">대표 메뉴!</span>
+      </figure>
+
+      <div class="mrow" data-mdir="l">
+        <p class="mrow__label"><b>버거</b><span>BURGER · 11</span></p>
+        <div class="mrow__clip">
+          <ul class="menu mline">
+            <li><img src="_assets/menu/titi.jpg" alt="티티버거" loading="lazy"><p class="menu__name">티티버거</p></li>
+            <li><img src="_assets/menu/choigo.jpg" alt="최고티버거" loading="lazy"><p class="menu__name">최고티버거</p></li>
+            <li><img src="_assets/menu/fullcheese.jpg" alt="가득치즈버거" loading="lazy"><p class="menu__name">가득치즈버거</p></li>
+            <li><img src="_assets/menu/baconcheese.jpg" alt="베이컨치즈버거" loading="lazy"><p class="menu__name">베이컨치즈버거</p></li>
+            <li><img src="_assets/menu/cheese.jpg" alt="치즈버거" loading="lazy"><p class="menu__name">치즈버거</p></li>
+            <li><img src="_assets/menu/bulgogi.jpg" alt="불고기버거" loading="lazy"><p class="menu__name">불고기버거</p></li>
+            <li><img src="_assets/menu/dblbulgogi.jpg" alt="두배불고기버거" loading="lazy"><p class="menu__name">두배불고기버거</p></li>
+            <li><img src="_assets/menu/eggbulgogi.jpg" alt="계란불고기버거" loading="lazy"><p class="menu__name">계란불고기버거</p></li>
+            <li><img src="_assets/menu/shrimpbeef.jpg" alt="새우고기버거" loading="lazy"><p class="menu__name">새우고기버거</p></li>
+            <li><img src="_assets/menu/shrimp.jpg" alt="통살새우버거" loading="lazy"><p class="menu__name">통살새우버거</p></li>
+            <li><img src="_assets/menu/chicken.jpg" alt="통살치킨버거" loading="lazy"><p class="menu__name">통살치킨버거</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mrow" data-mdir="r">
+        <p class="mrow__label"><b>사이드 · 치킨</b><span>SIDE &amp; CHICKEN · 13</span></p>
+        <div class="mrow__clip">
+          <ul class="menu mline">
+            <li><img src="_assets/menu/fried.jpg" alt="후라이드 치킨" loading="lazy"><p class="menu__name">후라이드 치킨</p></li>
+            <li><img src="_assets/menu/pooring.jpg" alt="뿌우링 치킨" loading="lazy"><p class="menu__name">뿌우링 치킨</p></li>
+            <li><img src="_assets/menu/gochumayo.jpg" alt="고추마요 치킨" loading="lazy"><p class="menu__name">고추마요 치킨</p></li>
+            <li><img src="_assets/menu/chipotle.jpg" alt="매콤치폴레 치킨" loading="lazy"><p class="menu__name">매콤치폴레 치킨</p></li>
+            <li><img src="_assets/menu/nugget.jpg" alt="치킨너겟" loading="lazy"><p class="menu__name">치킨너겟</p></li>
+            <li><img src="_assets/menu/fries.jpg" alt="감자튀김" loading="lazy"><p class="menu__name">감자튀김</p></li>
+            <li><img src="_assets/menu/sqfries.jpg" alt="네모감자" loading="lazy"><p class="menu__name">네모감자</p></li>
+            <li><img src="_assets/menu/poorfries.jpg" alt="뿌우링 감자튀김" loading="lazy"><p class="menu__name">뿌우링 감자튀김</p></li>
+            <li><img src="_assets/menu/sourfries.jpg" alt="샤워 감자튀김" loading="lazy"><p class="menu__name">샤워 감자튀김</p></li>
+            <li><img src="_assets/menu/onionring.jpg" alt="양파링" loading="lazy"><p class="menu__name">양파링</p></li>
+            <li><img src="_assets/menu/cheesestick.jpg" alt="치즈스틱" loading="lazy"><p class="menu__name">치즈스틱</p></li>
+            <li><img src="_assets/menu/poorstick.jpg" alt="뿌우링 치즈스틱" loading="lazy"><p class="menu__name">뿌우링 치즈스틱</p></li>
+            <li><img src="_assets/menu/crableg.jpg" alt="대게타리튀김" loading="lazy"><p class="menu__name">대게타리튀김</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">※ 메뉴 구성과 판매 가격은 점포 형태에 따라 달라질 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 08 한글 메뉴명 (브랜드 컨셉 — 메뉴명·간판만 한글 고정) ══ -->
+  <section class="sec sec--cream" id="menu-side" aria-labelledby="ms-h">
+    <div class="wrap">
+      <p class="eyebrow">메뉴 이름</p>
+      <h2 class="h2" id="ms-h">촌스러운 게 아니라, 지금 통하는 코드입니다</h2>
+      <p class="lead">한글 이름이 촌스럽지 않을까 — 그렇게 보실 수 있습니다.
+        그런데 지금 한국식 이름을 간판에 올리는 쪽은 글로벌 브랜드입니다.</p>
+
+      <!-- 시장 신호 — 실제 보도 클리핑 2건. 범위는 매체명·제목·리드·날짜까지. -->
+      <ul class="clips" aria-label="한국식 이름을 앞세운 글로벌 버거 브랜드 보도">
+        <li class="clip">
+          <img src="_assets/news/clip_sedaily_burgerking.jpg"
+               alt="서울경제 기사 헤드 — 패스트푸드 넘어 미식으로, 버거킹 와퍼 코스·플래그십으로 1조 시대 연다. 리드에 성수 세계 최초 플래그십, 시그니처 버거 전용 콘텐츠 강화가 적혀 있다"
+               loading="lazy" width="1200" height="311">
+          <p class="clip__src"><b>서울경제</b> · 2026.08.27 — 성수 플래그십 전용 시그니처 3종 중 하나가 「K-큐브 갈비 버거」</p>
+        </li>
+        <li class="clip">
+          <img src="_assets/news/clip_seoulfn_kfc.jpg"
+               alt="서울파이낸스 기사 헤드 — 르포, 북촌 달군 바삭한 집들이, KFC의 색다른 브랜드 실험"
+               loading="lazy" width="1200" height="227">
+          <p class="clip__src"><b>서울파이낸스</b> · 2026.06.05 — KFC 북촌 한옥마을 팝업 「켄터키 할아버지의 바삭한 집들이」</p>
+        </li>
+      </ul>
+
+      <!-- 한글 메뉴명 — 이름이 곧 그림이 되는 것들. 리네임 목록을 글자에서 그림으로 올렸다. -->
+      <ul class="hnames" aria-label="흔히 쓰는 외래어 메뉴명을 한글 이름으로 바꾼 예">
+        <li class="hname">
+          <img src="_assets/illust/illust_nemogamja.png" alt="네모난 해시브라운 감자 두 조각 일러스트" loading="lazy" width="640" height="640">
+          <span class="hname__from">해쉬브라운</span><span class="hname__to">네모감자</span>
+        </li>
+        <li class="hname">
+          <img src="_assets/illust/illust_yangparing.png" alt="튀긴 양파링 세 개 일러스트" loading="lazy" width="640" height="640">
+          <span class="hname__from">어니언링</span><span class="hname__to">양파링</span>
+        </li>
+        <li class="hname">
+          <img src="_assets/illust/illust_dubae.png" alt="패티 두 장이 쌓인 버거 일러스트" loading="lazy" width="640" height="640">
+          <span class="hname__from">더블불고기</span><span class="hname__to">두배불고기버거</span>
+        </li>
+        <li class="hname">
+          <img src="_assets/illust/illust_gyeran.png" alt="불고기 패티 위에 계란프라이가 얹힌 일러스트" loading="lazy" width="640" height="640">
+          <span class="hname__from">에그불고기</span><span class="hname__to">계란불고기버거</span>
+        </li>
+      </ul>
+
+      <div class="hangul">
+        <div>
+          <h3 class="hangul__h">간판도 메뉴도, 한글입니다</h3>
+          <p>수제버거라고 해서 외국식 간판과 외국어 메뉴명을 따라가지 않았습니다.
+            누구나 한 번에 읽고, 한 번에 말할 수 있는 이름을 골랐습니다.
+            버거집에서 만나는 한글 이름은 한 번 피식 하게 만들고, 그래서 기억에 남습니다.
+            발걸음을 멈추게 하는 간판, 그리고 손님이 다시 말하게 되는 이름입니다.</p>
+        </div>
+      </div>
+      <p class="note">위 보도 인용은 각 매체의 공개 기사이며 저작권은 해당 언론사에 있습니다(2026년 8월 27일 확인).
+        티티버거와 제휴·연관이 없는 타사 사례이며, 시장 흐름을 보여 드리기 위한 참고입니다.</p>
+    </div>
+  </section>
+
+  <!-- 워드 마퀴 — 메뉴 쇼케이스 마감 띠 (아웃라인 대형 타이포 롤링) -->
+  <div class="wq" aria-hidden="true">
+    <div class="wq__track">
+      <span class="wq__g"><b>REAL CRAFT BURGER</b><i>TT BURGER</i><b>REAL BUN &amp; PATTY</b><i>TT BURGER</i></span>
+      <span class="wq__g"><b>REAL CRAFT BURGER</b><i>TT BURGER</i><b>REAL BUN &amp; PATTY</b><i>TT BURGER</i></span>
+    </div>
+  </div>
+
+  <!-- 풀블리드 밴드 B — 메뉴 그리드 35종을 닫는다 (L2) -->
+  <div class="band">
+    <img src="_assets/shot/band.jpg" alt="티티버거 세트 라인업 — 버거·사이드·음료" loading="lazy" width="1920" height="1072">
+  </div>
+
+  <!-- ══ 09 업종 변경 — 여기서부터 타겟을 좁힌다 (2026-08-20 구조: 넓게→좁게, 메뉴 뒤 배치) ══ -->
+  <section class="sec" id="why" aria-labelledby="why-h">
+    <img class="float float--a" src="_assets/menu/cutout_cheese.png" alt="" aria-hidden="true" loading="lazy" width="760" height="506">
+    <div class="wrap">
+      <p class="eyebrow">업종 변경</p>
+      <h2 class="h2" id="why-h">쓰던 매장, <mark>그대로</mark> 쓰셔도 됩니다</h2>
+      <p class="lead">업종 변경을 고민하는 분들은 이미 매장과 집기를 가지고 계십니다.
+        자율 시공은 혜택이기 이전에, <span class="hl">가진 것을 버리지 않아도 된다</span>는 뜻입니다.</p>
+
+      <div class="swap">
+        <article class="card">
+          <p class="card__no">바뀌는 것</p>
+          <p class="swap__big">간판, 메뉴판,<br>그리고 저녁 매출</p>
+        </article>
+        <article class="card">
+          <p class="card__no">안 바뀌는 것</p>
+          <p class="swap__big">평수, 바테이블, 주방 동선,<br>포장 창구, 배달 앱 계정</p>
+        </article>
+      </div>
+
+      <div class="fit">
+        <h3 class="h3">이런 매장이면 그대로 됩니다</h3>
+        <ul class="fit__list">
+          <li>8평 이상, 바테이블이나 좌석 몇 개 있는 매장</li>
+          <li>철판 · 그리들 중심의 소형 주방 — 버거는 큰 주방이 필요 없습니다</li>
+          <li>포장 · 배달 위주로 운영해 온 매장 — 그 인프라가 그대로 자산이 됩니다</li>
+          <li>아침 · 점심에 몰리고 저녁이 비는 매장 — <strong>저녁이 비어 있다는 건, 채울 자리가 있다는 뜻입니다</strong></li>
+        </ul>
+      </div>
+
+      <div class="vs">
+        <div class="vs__col vs__col--them">
+          <h3 class="vs__ttl">일반적인 프랜차이즈</h3>
+          <ul class="vs__list">
+            <li>본사가 지정한 업체로 인테리어 시공</li>
+            <li>주방집기도 본사를 통해 공급</li>
+            <li>가맹비 · 보증금 납부</li>
+            <li>첫 달부터 로열티 납부</li>
+            <li>쓰던 시설을 철거하고 다시 시작</li>
+          </ul>
+        </div>
+        <span class="vs__mark" aria-hidden="true">VS</span>
+        <div class="vs__col vs__col--us">
+          <h3 class="vs__ttl">티티버거</h3>
+          <ul class="vs__list">
+            <li>인테리어 · 간판 자율 시공</li>
+            <li>주방집기 직접 구매</li>
+            <li>가맹비 · 보증금 면제</li>
+            <li>로열티 24개월 면제</li>
+            <li>쓰던 시설을 살려 전환 가능</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">※ 좌측은 특정 브랜드가 아니라, 본사 시공·공급을 전제로 하는 일반적인 가맹 구조를 가리킵니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 09-b 판매 채널 4WAY ══ -->
+  <section class="sec sec--cream" id="fourway" aria-labelledby="fw-h">
+    <div class="wrap">
+      <p class="eyebrow">판매 채널 — 4WAY</p>
+      <h2 class="h2" id="fw-h">아침 장사가 아니라, 하루 장사입니다</h2>
+      <p class="lead">버거는 점심과 저녁에 다 팔리는 메뉴입니다. 한 매장이 <span class="hl">네 갈래</span>로 팝니다.</p>
+      <!-- v4.24: 채널명+설명 4칸 → 걱정(질문)·답·제품컷 3단 2열.
+           답은 기존 승인 카피 그대로, 질문만 새로 얹었다. -->
+      <div class="ways">
+        <article class="way">
+          <figure class="way__ph">
+            <img src="_assets/shot/hero.jpg" width="1920" height="1072" loading="lazy" decoding="async"
+                 alt="트레이에 담긴 티티버거 세 종류와 감자튀김">
+          </figure>
+          <div class="way__body">
+            <b class="way__ch">홀</b>
+            <p class="way__q">좌석이 몇 개 없는데 홀 장사가 될까요?</p>
+            <p class="way__a">10평부터 홀을 갖춥니다. 큰 평수를 요구하지 않습니다.</p>
+          </div>
+        </article>
+
+        <article class="way">
+          <figure class="way__ph">
+            <img src="_assets/shot/setfront.jpg" width="1280" height="1280" loading="lazy" decoding="async"
+                 alt="티티버거 포장 봉투와 버거·감자튀김·음료로 구성한 포장 세트">
+          </figure>
+          <div class="way__body">
+            <b class="way__ch">포장</b>
+            <p class="way__q">홀 없이 포장만 해도 되나요?</p>
+            <p class="way__a">됩니다. 10평 미만은 포장 전문으로 운영합니다.</p>
+          </div>
+        </article>
+
+        <article class="way">
+          <figure class="way__ph">
+            <img src="_assets/shot/band.jpg" width="1920" height="1072" loading="lazy" decoding="async"
+                 alt="포장 봉투와 버거·감자튀김·음료를 함께 놓은 배달 구성">
+          </figure>
+          <div class="way__body">
+            <b class="way__ch">배달</b>
+            <p class="way__q">배달 앱은 새로 등록해야 하나요?</p>
+            <p class="way__a">네, 매장 단위라 새로 등록합니다. 메뉴는 버거 · 치킨 · 사이드로 구성이 달라집니다.</p>
+          </div>
+        </article>
+
+        <article class="way">
+          <figure class="way__ph">
+            <img src="_assets/shot/group.jpg" width="1280" height="1280" loading="lazy" decoding="async"
+                 alt="버거 세 종류와 치킨·감자튀김·치즈스틱을 함께 차린 여럿이 나눠 먹는 구성">
+          </figure>
+          <div class="way__body">
+            <b class="way__ch">단체</b>
+            <p class="way__q">단체 주문도 받을 수 있나요?</p>
+            <p class="way__a">오피스 단체주문과 행사. 1인 1개로 떨어져 배분이 간단합니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 10 창업 형태 ══ -->
+  <section class="sec" id="types" aria-labelledby="types-h">
+    <div class="wrap">
+      <p class="eyebrow">창업 형태</p>
+      <h2 class="h2" id="types-h">8평이면 시작합니다</h2>
+      <p class="lead">큰 평수를 요구하지 않습니다. <span class="hl">소형 매장 두 가지</span> 중에서 고르시면 됩니다.
+        지금 쓰시는 매장을 그대로 바꾸는 경우가 많습니다.</p>
+      <div class="types">
+        <article class="type">
+          <img src="_assets/shot/group.jpg" alt="여러 종류의 버거와 사이드가 함께 차려진 모습" loading="lazy">
+          <div class="type__body">
+            <span class="type__ch">홀 · 포장 · 배달</span>
+            <h3 class="h3">10평대 소형 홀 매장</h3>
+            <ul>
+              <li>권장 10~20평</li>
+              <li>홀 손님을 받아 배달 수수료가 없는 매출이 함께 생깁니다</li>
+              <li>간판을 걸고 상권 안에서 브랜드를 알립니다</li>
+            </ul>
+          </div>
+        </article>
+        <article class="type">
+          <img src="_assets/shot/setfront.jpg" alt="포장 세트로 구성된 버거와 사이드" loading="lazy">
+          <div class="type__body">
+            <span class="type__ch">포장 · 배달</span>
+            <h3 class="h3">10평 미만 극소형 포장전문</h3>
+            <ul>
+              <li>최소 8평부터</li>
+              <li>투자비와 인건비를 가장 크게 줄입니다</li>
+              <li>홀 관리 부담 없이 조리와 포장에 집중합니다</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="note">※ 배달만 하는 배달 전용 매장과 샵인샵 형태는 모집하지 않습니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 10 본사 이력 ══ -->
+  <section class="sec sec--dark" id="company" aria-labelledby="co-h">
+    <div class="wrap">
+      <p class="eyebrow">운영사</p>
+      <h2 class="h2" id="co-h">처음 해 보는 본사가 아닙니다</h2>
+      <p class="lead">업종을 바꾸실 때 가장 불안한 건 메뉴가 아니라 본사입니다.
+        티티버거를 운영하는 <span class="hl">㈜지에이엠</span>은 2023년부터 수제버거 프랜차이즈를 운영해 왔습니다.</p>
+      <div class="facts">
+        <div class="fact">
+          <b>2023</b>
+          <span>수제버거 프랜차이즈 운영 시작</span>
+          <small>㈜지에이엠 · 대표 이재훈</small>
+        </div>
+        <div class="fact">
+          <b>자매 브랜드</b>
+          <span>아임타코야끼 운영</span>
+          <small>같은 회사가 운영하는 또 하나의 외식 프랜차이즈</small>
+        </div>
+        <div class="fact">
+          <b>마진 0원</b>
+          <span>본사가 시공·집기에서 가져가는 돈</span>
+          <small>인테리어·간판·주방집기를 본사가 공급하지 않습니다</small>
+        </div>
+      </div>
+
+      <!-- 상권보호 — 구체 기준(반경/행정동)은 클라이언트 확인 후 기입 (정보공개서와 일치 필수) -->
+      <div class="terr">
+        <h3 class="terr__h">한 상권, 한 매장</h3>
+        <p>가맹점 사이 거리를 기준으로 신규 출점을 제한합니다.
+          본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.
+          구체 기준은 가맹 계약서와 정보공개서에 명시됩니다.</p>
+        <ul class="terrleg" aria-label="지도 범례">
+          <li><i class="terrleg__r"></i>보호 반경</li>
+          <li><i class="terrleg__tt"></i>티티버거 매장</li>
+          <li><i class="terrleg__ot"></i>타 매장 출점</li>
+        </ul>
+        <div class="terrviz">
+          <!-- 지도: OSM 타일 캡처(_assets/shot/map.jpg, 채도 다운) — ODbL: 하단 출처 표기. 두 패널 같은 동네 = 같은 지역에 대한 두 정책 비교 -->
+          <figure role="img" aria-label="일반적인 출점 — 한 동네에 같은 브랜드가 겹쳐 들어와 상권이 겹치는 구조">
+            <svg viewBox="0 0 440 300" aria-hidden="true">
+              <image href="_assets/shot/map.jpg" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid slice"/>
+              <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
+              <circle cx="150" cy="128" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
+              <circle cx="252" cy="182" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
+              <circle cx="286" cy="98"  r="64" fill="rgba(26,22,20,.10)" stroke="#8A8178" stroke-width="2.5" stroke-dasharray="7 6"/>
+              <g font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+                <circle cx="150" cy="128" r="15" fill="#5A524C"/><text x="150" y="133" fill="#fff">A</text>
+                <circle cx="252" cy="182" r="15" fill="#5A524C"/><text x="252" y="187" fill="#fff">A</text>
+                <circle cx="286" cy="98"  r="15" fill="#8A8178"/><text x="286" y="103" fill="#fff">B</text>
+              </g>
+            </svg>
+            <figcaption class="terrcap terrcap--them">일반적인 출점 — 한 동네에 겹쳐 들어옵니다</figcaption>
+          </figure>
+          <figure role="img" aria-label="티티버거 — 보호 반경 안에 한 매장만, 타 출점은 반경 밖">
+            <svg viewBox="0 0 440 300" aria-hidden="true">
+              <image href="_assets/shot/map.jpg" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid slice"/>
+              <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
+              <circle cx="220" cy="150" r="112" fill="rgba(230,0,18,.15)" stroke="#E60012" stroke-width="3.5"/>
+              <circle cx="220" cy="150" r="112" fill="none" stroke="#E60012" stroke-width="1" stroke-dasharray="3 7" opacity=".7">
+              </circle>
+              <g font-family="sans-serif" text-anchor="middle">
+                <circle cx="220" cy="150" r="19" fill="#E60012"/>
+                <circle cx="220" cy="150" r="19" fill="none" stroke="#fff" stroke-width="2.5"/>
+                <text x="220" y="156" fill="#fff" font-size="15" font-weight="800">TT</text>
+              </g>
+              <g opacity=".55">
+                <circle cx="52"  cy="52"  r="9" fill="none" stroke="#8A8178" stroke-width="2" stroke-dasharray="4 4"/>
+                <circle cx="396" cy="252" r="9" fill="none" stroke="#8A8178" stroke-width="2" stroke-dasharray="4 4"/>
+              </g>
+            </svg>
+            <figcaption class="terrcap terrcap--us">티티버거 — 한 상권, 한 매장</figcaption>
+          </figure>
+        </div>
+        <p class="terrsrc">지도 © OpenStreetMap contributors · 반경은 예시이며 실제 기준은 정보공개서를 따릅니다</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 11 창업 절차 ══ -->
+  <section class="sec" id="process" aria-labelledby="pr-h">
+    <img class="float float--b" src="_assets/menu/cutout_bulgogi.png" alt="" aria-hidden="true" loading="lazy" width="760" height="506">
+    <div class="wrap">
+      <p class="eyebrow">창업 절차</p>
+      <h2 class="h2" id="pr-h">상담부터 오픈까지 열 단계</h2>
+      <p class="lead">각 단계에서 무엇을 하는지 미리 알고 시작하시는 편이 낫습니다. 소요 기간은 점포 상황과 인허가 일정에 따라 달라집니다.</p>
+      <ol class="steps">
+        <li class="step"><span>가맹 상담</span></li>
+        <li class="step"><span>상권 분석 및 현장 미팅</span></li>
+        <li class="step"><span>점포 선정</span></li>
+        <li class="step"><span>가맹 · 점포 계약</span></li>
+        <li class="step"><span>인테리어 시공</span></li>
+        <li class="step"><span>인허가 업무</span></li>
+        <li class="step"><span>오픈 일정 확인</span></li>
+        <li class="step"><span>본사 교육</span></li>
+        <li class="step"><span>집기 세팅 및 초도물품 입고</span></li>
+        <li class="step"><span>오픈</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══ 11-b 입소문 (v4.24) — 롤링 밴드 + 좌측 대형 오버레이.
+       v4.23 은 엣지 블리드가 카드 3장을 42~47% 먹었다(실측). 롤링으로 바꿔 손실 0.
+       좌측 제품컷이 왼쪽 잘림 자리를 덮어 잘림이 결함에서 의도로 바뀐다.
+       뒤 9장은 무한루프용 복제라 data-clone + aria-hidden — 낭독·스와이프에서 제외된다. ══ -->
+  <section class="sec sec--cream" id="review" aria-labelledby="rv-h">
+    <div class="hot">
+      <div class="wrap hot__head">
+        <h2 class="h2 rvh" id="rv-h">입소문</h2>
+        <p class="rvsub">팔리는 물건인지는, 손님이 답합니다</p>
+        <p class="lead">배달앱에 실제로 올라온 리뷰입니다. 사진은 손님이 직접 찍어 올린 것이고, 글은 원문 그대로입니다.</p>
+        <p class="srcchip"><i aria-hidden="true">★</i>배달의민족 실제 리뷰 9건 · 2026년 8월 24일 수집</p>
+      </div>
+
+      <div class="rvroll">
+        <figure class="rvroll__hero">
+          <img src="_assets/shot/styled3.jpg" width="1280" height="1280" loading="lazy" decoding="async"
+               alt="티티버거 대표 제품 — 패티와 치즈, 베이컨을 두 단으로 쌓은 버거">
+        </figure>
+        <div class="rvroll__vp">
+          <ul class="rvroll__track" aria-label="배달의민족에 등록된 실제 고객 리뷰 9건">
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r02_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 종이봉투를 펼친 위에 놓인 버거와 감자튀김">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 지난 달</p>
+            <p class="rc__txt">수제버거 메이커 버거 왠만한곳 다먹어봤는데.. 탑이네요.. 육즙팡팡이유가 있네요!</p>
+            <p class="rc__txt">햄버거 일케 따땃하게 매장에서 바로 나온것마냥 먹은거 처음입니다.자주 먹을께요</p>
+          </div>
+        </li>
+        <li class="rc rc--w2">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r09_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 버거와 감자튀김·치킨을 접시에 차리고 콜라를 곁들인 상">
+            <img src="_assets/review/rp_r09_2.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 양상추와 패티가 두껍게 쌓인 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 지난 주 · 픽업</p>
+            <p class="rc__txt">퍽퍽한 고기패티를 과한 소스로 감추려는게 수제버거를 안좋아하는 이유 중 하나인데요, 여기 버거는 겉보기에는 그래보이지만 막상 먹어보니 퍽퍽하다는 느낌은 거의 못 받았어요.</p>
+            <p class="rc__txt">…픽업하느라 잠깐이었지만 매장 방문했는데 매장도 정말 깔끔하고요. 다음에 다른 버거도 먹어보려고요.</p>
+          </div>
+        </li>
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r06_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 종이봉투 안에 담긴 베이컨치즈버거">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 4개월 전</p>
+            <p class="rc__txt">와 진짜 인생 육즙패티입니다.. 입에서 육즙이 진짜 미칩니다 단품하나에 오만가지 맛이 납니다..</p>
+            <p class="rc__txt">베이컨이랑 치즈 추가하세요 구라가 아니라 패티 진짜 미칩니다</p>
+          </div>
+        </li>
+        <li class="rc rc--w2">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r08_1.jpg" width="402" height="402" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 감자튀김과 치킨너겟, 버거를 함께 담은 포장">
+            <img src="_assets/review/rp_r08_2.jpg" width="402" height="402" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 포장 용기에 나란히 담긴 버거 두 개와 감자튀김">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 그제 · 가게배달</p>
+            <p class="rc__txt">야채도 신선하고 패티가 육즙이느껴지고 맛있어요</p>
+            <p class="rc__txt">너무잘먹었습니다 어제처음먹고 오늘은 매장가서 포장까지 해온건 안비밀 입니다 번창하십쇼</p>
+          </div>
+        </li>
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r05_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 계란과 패티가 겹겹이 쌓인 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 3개월 전</p>
+            <p class="rc__txt">진짜 미쳤다 라는 말밖에는 뭐 쓸게없네요 패티가 진짜 와 고기맛이 엄청 나요 특히 계란이불 너무너무 맛있고 폭신한데 이거 더 추가하고싶을정도…</p>
+          </div>
+        </li>
+        <li class="rc rc--w2">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r03_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 치즈감자와 튀김, 버거를 함께 차린 상">
+            <img src="_assets/review/rp_r03_2.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 두툼한 튀김과 치즈가 올라간 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 그제</p>
+            <p class="rc__txt">빵이 완전 부드러운게 신기해요 ㅋㅋ</p>
+            <p class="rc__txt">대게튀김 강추 써있어서 주문해봤는데 진짜게살이네요 꿀맛!</p>
+          </div>
+        </li>
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r01_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 꽃무늬 상 위에 놓인 버거 두 개와 음료 캔">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 2개월 전</p>
+            <p class="rc__txt">패티랑 빵이 맛있어서 계속 주문하게 되네요 맛있어요</p>
+          </div>
+        </li>
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r04_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 포장 용기에 나란히 담긴 버거 두 개">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 5개월 전</p>
+            <p class="rc__txt">맛있어서 어제 오늘 연속으로 시킵니다.</p>
+            <p class="rc__txt">빵 맛있는 햄버거없는데 정말 맛있고 패티 맛있어요 햄버거 싫어하는 애들도 완전 좋아해요</p>
+          </div>
+        </li>
+        <li class="rc">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r10_1.jpg" width="395" height="395" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 어니언링과 소스를 뿌린 감자튀김, 버거를 함께 차린 상">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 이번 달</p>
+            <p class="rc__txt">사장님~~~ 샤워감자튀김 사이즈 이거 맞아요? 너무감동적인데요♡ㅜㅜ</p>
+            <p class="rc__txt">정말맛있게 잘먹었어요~포크 챙겨주신거 감사해요 사장님~ 오래장사해주세용~ 담엔 치킨먹어볼께요~</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r02_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 종이봉투를 펼친 위에 놓인 버거와 감자튀김">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 지난 달</p>
+            <p class="rc__txt">수제버거 메이커 버거 왠만한곳 다먹어봤는데.. 탑이네요.. 육즙팡팡이유가 있네요!</p>
+            <p class="rc__txt">햄버거 일케 따땃하게 매장에서 바로 나온것마냥 먹은거 처음입니다.자주 먹을께요</p>
+          </div>
+        </li>
+        <li class="rc rc--w2" data-clone aria-hidden="true">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r09_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 버거와 감자튀김·치킨을 접시에 차리고 콜라를 곁들인 상">
+            <img src="_assets/review/rp_r09_2.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 양상추와 패티가 두껍게 쌓인 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 지난 주 · 픽업</p>
+            <p class="rc__txt">퍽퍽한 고기패티를 과한 소스로 감추려는게 수제버거를 안좋아하는 이유 중 하나인데요, 여기 버거는 겉보기에는 그래보이지만 막상 먹어보니 퍽퍽하다는 느낌은 거의 못 받았어요.</p>
+            <p class="rc__txt">…픽업하느라 잠깐이었지만 매장 방문했는데 매장도 정말 깔끔하고요. 다음에 다른 버거도 먹어보려고요.</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r06_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 종이봉투 안에 담긴 베이컨치즈버거">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 4개월 전</p>
+            <p class="rc__txt">와 진짜 인생 육즙패티입니다.. 입에서 육즙이 진짜 미칩니다 단품하나에 오만가지 맛이 납니다..</p>
+            <p class="rc__txt">베이컨이랑 치즈 추가하세요 구라가 아니라 패티 진짜 미칩니다</p>
+          </div>
+        </li>
+        <li class="rc rc--w2" data-clone aria-hidden="true">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r08_1.jpg" width="402" height="402" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 감자튀김과 치킨너겟, 버거를 함께 담은 포장">
+            <img src="_assets/review/rp_r08_2.jpg" width="402" height="402" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 포장 용기에 나란히 담긴 버거 두 개와 감자튀김">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 그제 · 가게배달</p>
+            <p class="rc__txt">야채도 신선하고 패티가 육즙이느껴지고 맛있어요</p>
+            <p class="rc__txt">너무잘먹었습니다 어제처음먹고 오늘은 매장가서 포장까지 해온건 안비밀 입니다 번창하십쇼</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r05_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 계란과 패티가 겹겹이 쌓인 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 3개월 전</p>
+            <p class="rc__txt">진짜 미쳤다 라는 말밖에는 뭐 쓸게없네요 패티가 진짜 와 고기맛이 엄청 나요 특히 계란이불 너무너무 맛있고 폭신한데 이거 더 추가하고싶을정도…</p>
+          </div>
+        </li>
+        <li class="rc rc--w2" data-clone aria-hidden="true">
+          <figure class="rc__ph rc__ph--2">
+            <img src="_assets/review/rp_r03_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 치즈감자와 튀김, 버거를 함께 차린 상">
+            <img src="_assets/review/rp_r03_2.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 두툼한 튀김과 치즈가 올라간 버거 클로즈업">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 그제</p>
+            <p class="rc__txt">빵이 완전 부드러운게 신기해요 ㅋㅋ</p>
+            <p class="rc__txt">대게튀김 강추 써있어서 주문해봤는데 진짜게살이네요 꿀맛!</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r01_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 꽃무늬 상 위에 놓인 버거 두 개와 음료 캔">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 2개월 전</p>
+            <p class="rc__txt">패티랑 빵이 맛있어서 계속 주문하게 되네요 맛있어요</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r04_1.jpg" width="394" height="394" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 포장 용기에 나란히 담긴 버거 두 개">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 5개월 전</p>
+            <p class="rc__txt">맛있어서 어제 오늘 연속으로 시킵니다.</p>
+            <p class="rc__txt">빵 맛있는 햄버거없는데 정말 맛있고 패티 맛있어요 햄버거 싫어하는 애들도 완전 좋아해요</p>
+          </div>
+        </li>
+        <li class="rc" data-clone aria-hidden="true">
+          <figure class="rc__ph">
+            <img src="_assets/review/rp_r10_1.jpg" width="395" height="395" loading="lazy" decoding="async"
+                 alt="손님이 올린 사진 — 어니언링과 소스를 뿌린 감자튀김, 버거를 함께 차린 상">
+          </figure>
+          <div class="rc__cap">
+            <p class="rc__src"><i class="rc__st" aria-hidden="true">★★★★★</i><span class="u-sr">별점 5점 · </span><span class="bm"><i class="bm__mk" aria-hidden="true"></i>배달의민족</span>· 이번 달</p>
+            <p class="rc__txt">사장님~~~ 샤워감자튀김 사이즈 이거 맞아요? 너무감동적인데요♡ㅜㅜ</p>
+            <p class="rc__txt">정말맛있게 잘먹었어요~포크 챙겨주신거 감사해요 사장님~ 오래장사해주세용~ 담엔 치킨먹어볼께요~</p>
+          </div>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <p class="note">배달의민족에 실제로 등록된 리뷰 9건입니다(2026년 8월 24일 수집).
+        사진은 손님이 직접 올린 것을 원본 비율 그대로 실었고, 글은 원문 그대로이며 길이 때문에 줄인 곳은 &hellip; 로 표시했습니다.
+        작성자는 각각 리뷰 76~778건을 쓴 이용자입니다. 작성자 보호를 위해 프로필과 닉네임은 싣지 않았습니다.
+        수집한 10건 중 리뷰 작성 대가가 언급된 1건은 제외했습니다. 원본 캡처는 별도 보관하고 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 12 FAQ ══ -->
+  <section class="sec" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <p class="eyebrow">자주 묻는 질문</p>
+      <h2 class="h2" id="faq-h">묻기 전에 답해 둡니다</h2>
+      <div class="faq">
+        <details open>
+          <summary>몇 평부터 창업할 수 있나요?</summary>
+          <p class="faq__a">최소 8평부터 가능합니다. 10평 미만은 극소형 포장전문 매장으로, 10~20평은 홀을 갖춘 소형 매장으로 운영합니다. 큰 평수를 요구하지 않습니다.</p>
+        </details>
+        <details>
+          <summary>가맹비 · 보증금 · 로열티가 정말 면제인가요?</summary>
+          <p class="faq__a">가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티 월 20만원은 24개월간 면제되고 25개월차부터 부과됩니다. 교육비 300만원은 부과됩니다. 여기에 재가맹비·감리비·광고분담비 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량 지원, 창업비용 무이자 할부(6개월)까지 — 시작을 막는 비용 열두 가지를 덜어냅니다.</p>
+        </details>
+        <details>
+          <summary>소자본으로도 시작할 수 있나요?</summary>
+          <p class="faq__a">10평 미만 극소형 포장전문 매장이 그 목적으로 만들어진 형태입니다. 홀을 두지 않아 투자비와 인건비를 가장 크게 줄일 수 있고, 가맹비·보증금 면제에 로열티도 24개월간 면제되며 인테리어와 주방집기는 본사를 거치지 않고 직접 하십니다. 창업비용은 무이자 6개월 할부로 나눌 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?</summary>
+          <p class="faq__a">가능합니다. 인테리어와 간판을 본사가 시공하지 않기 때문에 지금 쓰시는 시설을 살려 전환하실 수 있습니다. 어느 정도까지 살릴 수 있는지는 상권 분석과 현장 미팅에서 함께 확인합니다.</p>
+        </details>
+        <details>
+          <summary>지금 쓰는 주방 설비를 그대로 쓸 수 있나요?</summary>
+          <p class="faq__a">대부분 그대로 사용합니다. 철판·그리들 중심의 소형 주방이면 버거 조리에 필요한 추가 장비가 많지 않습니다. 필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 맞춰 안내드립니다.</p>
+        </details>
+        <details>
+          <summary>아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?</summary>
+          <p class="faq__a">버거는 점심과 저녁에 함께 팔리는 메뉴라 저녁 시간대 판매가 가능해집니다. 홀 · 포장 · 배달 · 단체 네 갈래로 판매하며, 쓰시던 배달 앱 계정과 포장 창구는 그대로 씁니다.</p>
+        </details>
+        <details>
+          <summary>인테리어와 주방집기는 본사가 시공 · 공급하나요?</summary>
+          <p class="faq__a">아닙니다. 인테리어와 간판은 자율 시공, 주방집기는 직접 구매입니다. 본사가 시공·공급 마진을 가져가지 않습니다. 원하시면 본사 협력업체를 안내해 드립니다.</p>
+        </details>
+        <details>
+          <summary>배달만 하는 매장으로 시작해도 되나요?</summary>
+          <p class="faq__a">배달 전용 매장은 모집하지 않습니다. 포장과 배달을 함께 하는 극소형 포장전문 매장, 또는 홀을 갖춘 소형 매장 두 가지로만 운영합니다. 샵인샵 형태도 받지 않습니다.</p>
+        </details>
+        <details>
+          <summary>선착순 10호점 혜택은 어떤 내용인가요?</summary>
+          <p class="faq__a">선착순 10호점까지 창업비용을 최대 1,000만원 지원하고, 창업 혜택 12無가 적용됩니다 — 가맹비·보증금·재가맹비·감리비·광고분담비 면제, 로열티 24개월 면제, 간판 교체비(A급 상권 기준)·쇼케이스 냉장고·음료 초도물량·오픈 현장지원, 창업비용 무이자 할부까지. 여기에 첫 달 당근 광고 지원, 원자재 지원, 오픈 이벤트 지원이 함께 제공됩니다.</p>
+        </details>
+        <details>
+          <summary>본사에서 반드시 사야 하는 물품이 있나요?</summary>
+          <p class="faq__a">인테리어·간판·주방집기는 본사 공급 품목이 아닙니다. 직접 시공하고 직접 구매하십니다. 다만 버거의 맛을 좌우하는 번과 패티는 티티버거가 자체 개발한 것이라 본사에서 공급합니다.</p>
+        </details>
+        <details>
+          <summary>상담은 어떻게 신청하나요?</summary>
+          <p class="faq__a">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 담당자가 연락드립니다. 페이지 상단·하단의 「창업 상담 신청」 버튼을 누르면 폼으로 바로 이동합니다. 전화 1688-2629로도 상담하실 수 있습니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 12-b CTA 스트립 (신설 v4) ══ -->
+  <section class="ctastrip" aria-label="창업 상담 바로가기">
+    <div class="wrap ctastrip__in">
+      <p class="ctastrip__t">지역과 점포 상황만 알려 주십시오.<br class="mbr">어떤 형태가 맞는지부터 정리해 드립니다.</p>
+      <div class="ctastrip__btns">
+        <a class="btn btn--ghost" href="tel:16882629">전화 1688-2629</a>
+        <a class="btn btn--ink" href="#contact">창업 상담 신청</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 13 상담 폼 ══ -->
+  <section class="sec sec--red" id="contact" aria-labelledby="ct-h">
+    <div class="wrap">
+      <p class="eyebrow">창업 문의</p>
+      <h2 class="h2" id="ct-h">조건부터 확인해 보십시오</h2>
+      <p class="lead">지역과 점포 상황을 알려 주시면, 어떤 형태가 맞는지부터 정리해 드립니다.</p>
+
+      <form class="form" data-lead="full" novalidate>
+        <div class="field">
+          <label for="f-name">성함 <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-tel">연락처 <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-tel" name="phone" type="tel" inputmode="numeric" maxlength="13" required autocomplete="tel" placeholder="010-0000-0000">
+        </div>
+        <div class="field">
+          <label for="f-area">창업 희망 지역 <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-area" name="area" type="text" required placeholder="시 · 군 · 구까지 적어 주세요">
+        </div>
+        <fieldset class="field" style="border:0;padding:0;margin-inline:0">
+          <legend style="font-family:var(--ff-plate);margin-bottom:7px">창업 형태 <span class="req" aria-hidden="true">*</span></legend>
+          <div class="pills">
+            <input id="t-new" type="radio" name="type" value="신규" checked><label for="t-new">신규 창업</label>
+            <input id="t-change" type="radio" name="type" value="업종변경"><label for="t-change">업종 변경</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-msg">문의 내용</label>
+          <textarea id="f-msg" name="message" placeholder="점포 평수, 현재 업종, 오픈 희망 시기 등을 적어 주시면 상담이 빨라집니다."></textarea>
+        </div>
+        <label class="agree">
+          <input type="checkbox" name="agree" required>
+          <span>개인정보 수집 · 이용에 동의합니다. 수집 항목은 성함 · 연락처 · 창업 희망 지역 · 창업 형태 · 문의 내용이며(접속 정보는 자동 수집), 창업 상담 목적으로만 이용하고 상담 종료일로부터 1년 후 파기합니다. <a href="#privacy">전문 보기</a></span>
+        </label>
+        <input type="hidden" name="adCode" value="">
+        <input type="hidden" name="flow" value="">
+        <button class="btn btn--wide" type="submit">창업 상담 신청하기</button>
+        <p class="formnote">접수 후 담당자가 순차적으로 연락드립니다. 급하시면 1688-2629로 전화 주십시오.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__top">
+      <div>
+        <p class="ft__logo"><img src="_assets/logo-white.png" alt="티티버거" width="900" height="830" loading="lazy"></p>
+      </div>
+      <a class="ft__tel" href="tel:16882629">창업 문의 1688-2629</a>
+    </div>
+    <dl>
+      <dt>법인명</dt><dd>주식회사 지에이엠</dd>
+      <dt>대표자</dt><dd>이재훈</dd>
+      <dt>사업자등록번호</dt><dd>388-81-02682</dd>
+      <dt>주소</dt><dd>경기도 화성시 동탄대로 635 SH타임스퀘어 1차 1109호</dd>
+      <dt>대표전화</dt><dd>1688-2629</dd>
+      <dt>이메일</dt><dd>gggam4@gmail.com</dd>
+    </dl>
+    <p class="ft__copy">본 페이지의 창업 조건은 안내 목적이며, 가맹 계약의 구체적 조건은 정보공개서와 가맹계약서를 따릅니다.<br>
+      Copyright © 티티버거. All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="mcta" aria-label="상담 바로가기">
+  <a href="tel:16882629">전화 상담</a>
+  <a href="#contact">창업 상담 신청</a>
+</nav>
+
+<!-- 개인정보 처리방침 — 개인정보보호법 §30 기재사항. 리드폼이 개인정보를 수집하므로 공개는 법정 의무다 -->
+<dialog class="pp" id="privacy" aria-labelledby="pp-title">
+  <div class="pp__hd">
+    <h2 id="pp-title">개인정보 수집 · 이용 동의</h2>
+    <button class="pp__close" type="button" data-pp-close>닫기</button>
+  </div>
+  <div class="pp__body">
+    <h3>1. 수집하는 개인정보 항목</h3>
+    <table>
+      <tr><th>필수</th><td>성함, 연락처, 창업 희망 지역, 창업 형태, 문의 내용</td></tr>
+      <tr><th>자동 수집</th><td>접속 IP, 유입 경로, 광고 코드, 접수 일시</td></tr>
+    </table>
+    <h3>2. 수집 · 이용 목적</h3>
+    <ul>
+      <li>가맹 창업 상담 및 안내</li>
+      <li>상담 진행 상황 관리와 담당자 배정</li>
+      <li>유입 경로별 상담 통계 분석</li>
+    </ul>
+    <h3>3. 보유 및 이용 기간</h3>
+    <p>상담 종료일로부터 <strong>1년간</strong> 보관 후 지체 없이 파기합니다. 다만 관계 법령에 따라 보존할 필요가 있는 경우 해당 기간 동안 보관합니다.</p>
+    <h3>4. 제3자 제공 및 처리 위탁</h3>
+    <!-- 2026-08-12: 알림톡·SMS 폐기 → Gmail 연동 단독. 이 조항은 법적 고지라 실제 처리와 일치해야 한다.
+         문자·알림톡 대행사는 이제 개입하지 않으며, 알림 메일 발송에 이메일 서비스가 이용된다.
+         ⚠️ 최종 문구는 개인정보 처리자인 ㈜지에이엠 확인 필요. -->
+    <p>수집한 개인정보를 제3자에게 제공하지 않습니다. 상담 알림 메일 발송을 위해 이메일 서비스(Google LLC)를 이용하며, 이 경우에도 발송 목적 외로는 이용하지 않습니다.</p>
+    <h3>5. 파기 절차 및 방법</h3>
+    <p>보유 기간이 지난 정보는 전자적 파일 형태의 경우 복구가 불가능한 방법으로 삭제하고, 출력물은 분쇄하거나 소각합니다.</p>
+    <h3>6. 정보주체의 권리</h3>
+    <p>언제든지 개인정보의 열람 · 정정 · 삭제 · 처리정지를 요구하실 수 있습니다. 아래 연락처로 요청하시면 지체 없이 조치합니다.</p>
+    <h3>7. 동의를 거부할 권리</h3>
+    <p>개인정보 수집 · 이용 동의를 거부하실 수 있습니다. 다만 필수 항목에 동의하지 않으시면 창업 상담 접수가 제한됩니다.</p>
+    <h3>8. 안전성 확보 조치</h3>
+    <p>개인정보 접근 권한을 최소한의 담당자로 제한하고, 접근 기록을 보관하며, 전송 구간을 암호화합니다.</p>
+    <h3>9. 개인정보 보호책임자</h3>
+    <table>
+      <tr><th>책임자</th><td>주식회사 지에이엠 대표 이재훈</td></tr>
+      <tr><th>연락처</th><td>1688-2629 / gggam4@gmail.com</td></tr>
+      <tr><th>주소</th><td>경기도 화성시 동탄대로 635 SH타임스퀘어 1차 1109호</td></tr>
+    </table>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+
+  /* 헤더 실측 높이 → 앵커 스크롤 오프셋 */
+  var hd = document.getElementById('hd');
+  function syncHeader(){
+    document.documentElement.style.setProperty('--hd-h', hd.offsetHeight + 'px');
+  }
+  syncHeader();
+  window.addEventListener('resize', syncHeader);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncHeader);
+
+  /* 연락처 자동 하이픈 */
+  document.querySelectorAll('input[type=tel]').forEach(function(el){
+    el.addEventListener('input', function(){
+      var d = el.value.replace(/\D/g,'').slice(0,11);
+      el.value = d.length < 4 ? d
+        : d.length < 8 ? d.slice(0,3)+'-'+d.slice(3)
+        : d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);
+    });
+  });
+
+  /* 유입 추적 — 광고코드·유입경로를 히든 필드에 실어 어드민에서 소스별 집계 */
+  var qs = new URLSearchParams(location.search);
+  var adCode = qs.get('adCode') || qs.get('utm_campaign') || '';
+  var flow = document.referrer ? new URL(document.referrer).hostname : '직접유입';
+  document.querySelectorAll('input[name=adCode]').forEach(function(el){ el.value = adCode; });
+  document.querySelectorAll('input[name=flow]').forEach(function(el){ el.value = flow; });
+
+  /* 개인정보 처리방침 모달 — 폼의 '전문 보기'가 여는 대상 */
+  var pp = document.getElementById('privacy');
+  document.querySelectorAll('a[href="#privacy"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      if (pp.showModal) pp.showModal(); else pp.setAttribute('open', '');
+    });
+  });
+  pp.querySelectorAll('[data-pp-close]').forEach(function(b){
+    b.addEventListener('click', function(){ pp.close(); });
+  });
+  /* 배경 클릭으로 닫기 — dialog는 backdrop 클릭도 자기 자신이 타깃이 된다 */
+  pp.addEventListener('click', function(e){ if (e.target === pp) pp.close(); });
+
+  /* 폼 — 시안 단계에서는 전송하지 않고 검증만 수행 */
+  document.querySelectorAll('form[data-lead]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = null;
+      form.querySelectorAll('[required]').forEach(function(el){
+        var empty = el.type === 'checkbox' ? !el.checked : !el.value.trim();
+        if (empty && !bad) bad = el;
+      });
+      if (bad){
+        bad.focus();
+        alert('필수 항목을 입력해 주세요.');
+        return;
+      }
+      alert('시안 단계입니다. 실제 접수는 어드민 연동 후 동작합니다.\n\n유입경로: ' + flow + (adCode ? ' / 광고코드: ' + adCode : ''));
+    });
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"#org",
+      "name":"티티버거",
+      "legalName":"주식회사 지에이엠",
+      "telephone":"1688-2629",
+      "email":"gggam4@gmail.com",
+      "description":"빵과 패티가 맛있는 진짜 수제버거. 수제버거 프랜차이즈 창업 점주 모집.",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"동탄대로 635 SH타임스퀘어 1차 1109호",
+        "addressLocality":"화성시",
+        "addressRegion":"경기도",
+        "addressCountry":"KR"
+      },
+      "contactPoint":{
+        "@type":"ContactPoint",
+        "telephone":"+82-1688-2629",
+        "contactType":"창업 상담",
+        "areaServed":"KR",
+        "availableLanguage":"Korean"
+      }
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"몇 평부터 창업할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"최소 8평부터 가능합니다. 10평 미만은 극소형 포장전문 매장으로, 10~20평은 홀을 갖춘 소형 매장으로 운영합니다."}},
+        {"@type":"Question","name":"가맹비 · 보증금 · 로열티가 정말 면제인가요?","acceptedAnswer":{"@type":"Answer","text":"가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티 월 20만원은 24개월간 면제되고 25개월차부터 부과됩니다. 교육비 300만원은 부과됩니다. 재가맹비·감리비·광고분담비 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량 지원, 창업비용 무이자 할부까지 열두 가지를 덜어냅니다."}},
+        {"@type":"Question","name":"소자본으로도 시작할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"10평 미만 극소형 포장전문 매장이 그 목적으로 만들어진 형태입니다. 홀을 두지 않아 투자비와 인건비를 가장 크게 줄일 수 있고, 창업비용은 무이자 6개월 할부로 나눌 수 있습니다."}},
+        {"@type":"Question","name":"지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 인테리어와 간판을 본사가 시공하지 않기 때문에 지금 쓰는 시설을 살려 전환할 수 있습니다."}},
+        {"@type":"Question","name":"지금 쓰는 주방 설비를 그대로 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"대부분 그대로 사용합니다. 철판·그리들 중심의 소형 주방이면 버거 조리에 필요한 추가 장비가 많지 않습니다. 필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 맞춰 안내합니다."}},
+        {"@type":"Question","name":"아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?","acceptedAnswer":{"@type":"Answer","text":"버거는 점심과 저녁에 함께 팔리는 메뉴라 저녁 시간대 판매가 가능해집니다. 홀·포장·배달·단체 네 갈래로 판매하며, 쓰던 배달 앱 계정과 포장 창구는 그대로 씁니다."}},
+        {"@type":"Question","name":"인테리어와 주방집기는 본사가 시공 · 공급하나요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 인테리어와 간판은 자율 시공, 주방집기는 직접 구매입니다. 본사가 시공·공급 마진을 가져가지 않습니다."}},
+        {"@type":"Question","name":"배달만 하는 매장으로 시작해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"배달 전용 매장은 모집하지 않습니다. 포장과 배달을 함께 하는 극소형 포장전문 매장, 또는 홀을 갖춘 소형 매장 두 가지로만 운영합니다. 샵인샵 형태도 받지 않습니다."}},
+        {"@type":"Question","name":"선착순 10호점 혜택은 어떤 내용인가요?","acceptedAnswer":{"@type":"Answer","text":"선착순 10호점까지 창업비용을 최대 1,000만원 지원하고 창업 혜택 12無가 적용됩니다. 가맹비·보증금·재가맹비·감리비·광고분담비 면제, 로열티 24개월 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원, 창업비용 무이자 할부입니다. 첫 달 당근 광고 지원, 원자재 지원, 오픈 이벤트 지원이 함께 제공됩니다."}},
+        {"@type":"Question","name":"본사에서 반드시 사야 하는 물품이 있나요?","acceptedAnswer":{"@type":"Answer","text":"인테리어·간판·주방집기는 본사 공급 품목이 아닙니다. 직접 시공하고 직접 구매합니다. 다만 버거의 맛을 좌우하는 번과 패티는 티티버거가 자체 개발한 것이라 본사에서 공급합니다."}},
+        {"@type":"Question","name":"상담은 어떻게 신청하나요?","acceptedAnswer":{"@type":"Answer","text":"아래 창업 문의 폼에 성함, 연락처, 창업 희망 지역, 창업 형태를 남기면 담당자가 연락합니다. 전화 1688-2629로도 상담할 수 있습니다."}}
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ v4: PC 하단 고정 전환바 (프레디 contact_fixed 모티프 · 모바일은 기존 .mcta) ══ -->
+<div class="dock" id="dock" role="complementary" aria-label="창업 상담 바로가기">
+  <a class="dock__tel" href="tel:16882629">창업 문의 <b>1688-2629</b></a>
+  <a class="dock__cta" href="#contact">창업 상담 신청</a>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script>
+/* ══ v4 모션 시스템 ══
+   원칙(개편기획 §4): reduced-motion 전면 무효 · 기본은 opacity+translate
+   2026-08-26 개정 — 대표 지시로 scale 팝을 확대. 「1곳 예외」에서 **목록제**로 바꾼다:
+     면제 스탬프 · 부유 컷아웃 버거 2 · 메뉴 헤더 버거 · 지원 표식 · 혜택 칩 · 히어로 오퍼 띠.
+     그 외 요소에 scale 을 새로 붙이려면 5b 주석의 목록부터 고칠 것(무한 확장 방지).
+   · 스크럽 3 상한(히어로 줌·메뉴 진입·밴드 패럴랙스) · FAQ/절차 상세/고지 무모션 · CLS 0 */
+(function () {
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 고정 전환바 — 모션 아님(기능): reduced에서도 동작 */
+  var dock = document.getElementById('dock');
+  var onScrollDock = function () {
+    if (scrollY > 560) dock.classList.add('dock--on');
+    else dock.classList.remove('dock--on');
+  };
+  addEventListener('scroll', onScrollDock, { passive: true }); onScrollDock();
+
+  /* 메뉴 카테고리 탭 슬라이더 — 기능이므로 reduced에서도 동작 */
+  var tabs = [].slice.call(document.querySelectorAll('.mtab'));
+  function actList() { var p = document.querySelector('.mpanel:not([hidden]) .menu'); return p || null; }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) {
+        x.classList.toggle('is-on', x === t);
+        x.setAttribute('aria-selected', x === t ? 'true' : 'false');
+      });
+      document.querySelectorAll('.mpanel').forEach(function (pn) {
+        pn.hidden = (pn.id !== t.getAttribute('aria-controls'));
+      });
+      var ul = actList();
+      if (ul) {
+        ul.scrollLeft = 0;
+        /* 숨겨져 있어 리빌이 못 돈 타일 강제 표시 */
+        if (window.gsap) gsap.set(ul.querySelectorAll('li'), { autoAlpha: 1, y: 0 });
+      }
+    });
+  });
+  var mnav = document.querySelector('.mnav');
+  if (mnav) mnav.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var ul = actList(); if (!ul) return;
+    var d = (b.classList.contains('mnext') ? 1 : -1) * Math.round(ul.clientWidth * .8);
+    ul.scrollBy({ left: d, behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  if (reduced) return;                     /* ← 이 아래는 전부 장식 모션 */
+
+  addEventListener('load', function () {
+    if (!window.gsap || !window.ScrollTrigger) return;   /* CDN 실패 = 정적 폴백(전부 보임) */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* 1) 진입 리빌 — 보임 우선(FOUC 없음): JS가 도달한 뒤에만 숨긴다 */
+    /* 방향 리빌 — 쌍 컴포넌트는 좌/우 반대편에서 진입 (버거리 fadeInLeft/Right 문법).
+       진폭 90~110px + power3 감속. 그리드·단일 요소는 기존 y:26 라이즈 유지. */
+    var groups = [
+      /* 섹션 머리말(.eyebrow/.h2/.lead)은 5e 계단이 맡는다 — 셋을 따로 그룹으로 두면
+         각자 자기 위치에서 발화해 계단이 안 생긴다 */
+      { sel: '.ed__row:not(.ed__row--rev) .ed__txt', x: -110 },
+      { sel: '.ed__row:not(.ed__row--rev) .ed__fig', x: 110 },
+      { sel: '.ed__row--rev .ed__txt', x: 110 },
+      { sel: '.ed__row--rev .ed__fig', x: -110 },
+      { sel: '.creed__line' }, { sel: '.creed p' },
+      { sel: '#support .limit' },   /* .fee__row 는 5d 순차, .perk 는 5b 팝이 맡는다 */
+      { sel: '.hangul' }, { sel: '.clip', x: 90 }, { sel: '.hname' },
+      { sel: '#why .swap .card:nth-child(1)', x: -110 },
+      { sel: '#why .swap .card:nth-child(2)', x: 110 },
+      /* .fit__list li 는 5d 순차로 이관 */
+      { sel: '.vs__col--them', x: -110 }, { sel: '.vs__col--us', x: 110 },
+      { sel: '.way' },
+      { sel: '.type:nth-child(1) img', x: 110 }, { sel: '.type:nth-child(1) .type__body', x: -110 },
+      { sel: '.type:nth-child(2) img', x: -110 }, { sel: '.type:nth-child(2) .type__body', x: 110 },
+      { sel: '.fact' }, { sel: '.terr__h' }, { sel: '.terr > p' },
+      { sel: '.terrviz figure:nth-child(1)', x: -90 },
+      { sel: '.terrviz figure:nth-child(2)', x: 90 },
+      { sel: '.step' },
+      { sel: '.ctastrip__t', x: -90 }, { sel: '.ctastrip__btns', x: 90 },
+      { sel: '.form' },
+      { sel: '.ovals li', x: 90 }, { sel: '.ring' }
+    ];
+    groups.forEach(function (g) {
+      var els = gsap.utils.toArray(g.sel);
+      if (!els.length) return;
+      var fx = g.x || 0;
+      gsap.set(els, { autoAlpha: 0, x: fx, y: fx ? 0 : 26 });
+      ScrollTrigger.batch(els, {
+        start: 'top 88%', once: true,
+        onEnter: function (batch) {
+          gsap.to(batch, {
+            autoAlpha: 1, x: 0, y: 0,
+            duration: fx ? .85 : .65,
+            ease: fx ? 'power3.out' : 'power2.out',
+            stagger: .08, overwrite: true
+          });
+        }
+      });
+    });
+    /* 이미 뷰포트 안(첫 화면)인 것 즉시 표시 */
+    ScrollTrigger.refresh();
+
+    /* 2) 히어로 — 켄번스 스크럽(줌) + 간판 계단 리빌 */
+    gsap.fromTo('.hero__bg img', { scale: 1.14 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+    /* 오퍼 띠(.hero__badge)는 이 계단에서 뺀다 — 5c 의 팝이 따로 맡는다.
+       둘 다 걸면 같은 요소에 트윈이 겹쳐 어느 쪽도 제대로 안 보인다. */
+    gsap.from(['.hero__sign h1', '.hero__rule', '.hero__sub', '.hero__cta'], {
+      autoAlpha: 0, y: 30, duration: .7, ease: 'power2.out', stagger: .12, delay: .15
+    });
+
+    /* 3) 메뉴 로우 진입 스크럽 */
+    gsap.from('.mrow', {
+      y: 70, ease: 'none',
+      scrollTrigger: { trigger: '#menu-burger', start: 'top 95%', end: 'top 35%', scrub: 1 }
+    });
+
+    /* 3b) 메뉴 오토 마퀴 — 버거 ←, 사이드 → (호버 시 감속 정지) */
+    document.querySelectorAll('.mrow').forEach(function (row) {
+      var ul = row.querySelector('.mline');
+      if (!ul) return;
+      ul.innerHTML = ul.innerHTML + ul.innerHTML.replace(/<li/g, '<li aria-hidden="true"');
+      row.classList.add('mrow--auto');
+      var toRight = row.getAttribute('data-mdir') === 'r';
+      gsap.set(ul, { xPercent: toRight ? -50 : 0 });
+      var tw = gsap.to(ul, { xPercent: toRight ? 0 : -50, duration: 44, ease: 'none', repeat: -1 });
+      row.addEventListener('mouseenter', function () { gsap.to(tw, { timeScale: 0, duration: .45 }); });
+      row.addEventListener('mouseleave', function () { gsap.to(tw, { timeScale: 1, duration: .45 }); });
+    });
+
+    /* 4) 밴드 패럴랙스 스크럽 */
+    gsap.utils.toArray('.band img').forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -10 }, {
+        yPercent: 10, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      });
+    });
+
+    /* 계단 시퀀스의 방아쇠.
+       그린스케이프 원본은 IntersectionObserver(threshold .12 · rootMargin -40px)였다.
+       여기서는 ScrollTrigger.batch 를 쓴다 — 이 페이지의 다른 리빌이 전부 batch 이고,
+       무엇보다 batch 는 스크롤이 크게 튀어도(앵커 이동·리로드 위치 복원·빠른 휠)
+       '이미 지나친 트리거'를 따라잡아 발화한다.
+       ScrollTrigger.create({onEnter}) 은 그 점프에서 콜백을 건너뛰어 요소가 숨은 채
+       남는다(2026-08-26 실측: 머리말·12無 표·체크리스트 116개가 갇혔다).
+       구조는 원본 그대로 — '컨테이너가 들어오면 자식이 계단식으로 뜬다'. */
+    function whenInView(el, run) {
+      ScrollTrigger.batch([el], { start: 'top 86%', once: true, onEnter: run });
+    }
+
+    /* 5) 12無 표 — 이 페이지의 핵심 오퍼. 한 시퀀스로 묶어 계단식으로 연다.
+       행 13개가 세로 854px 에 걸쳐 있어(뷰포트 900px) 요소 단위 batch 로는
+       행마다 따로 발화하고 계단이 안 생겼다(2026-08-26 실측).
+       도장(.stamp)은 행 안에 있으므로 같은 시퀀스에 태워야 순서가 맞는다 —
+       따로 두면 행은 떴는데 도장 칸이 한참 비어 있다가 나중에 찍힌다.
+         ① 행이 아래에서 계단식으로 올라오고(expo.out — 그린스케이프 이징)
+         ② 행이 다 서기 직전부터 도장이 쾅쾅 찍힌다(back.out) */
+    var feeBox = document.querySelector('#support .fee');
+    if (feeBox) {
+      var feeRows = gsap.utils.toArray(feeBox.querySelectorAll('.fee__row'));
+      /* 면제(레드 도장)는 기울여 찍고, 지원/할부는 CSS 가 transform:none 로 세워 둔 표식이라
+         기울이지 않는다 — 톤 차이가 곧 '면제 vs 지원'의 구분이다. */
+      var stampSeal = gsap.utils.toArray(feeBox.querySelectorAll('.stamp:not(.stamp--free)'));
+      var stampFlat = gsap.utils.toArray(feeBox.querySelectorAll('.stamp--free'));
+      gsap.set(feeRows, { autoAlpha: 0, y: 34 });
+      gsap.set(stampSeal, { scale: .4, rotation: -16, autoAlpha: 0, transformOrigin: '50% 50%' });
+      gsap.set(stampFlat, { scale: .62, autoAlpha: 0, transformOrigin: '50% 50%' });
+      whenInView(feeBox, function () {
+          gsap.timeline()
+            .to(feeRows, { autoAlpha: 1, y: 0, duration: .8, ease: 'expo.out',
+                           stagger: .07, overwrite: true })
+            .to(stampSeal, { scale: 1, rotation: -5, autoAlpha: 1, duration: .5,
+                             ease: 'back.out(2.2)', stagger: .08, overwrite: true }, '-=0.55')
+            .to(stampFlat, { scale: 1, autoAlpha: 1, duration: .45,
+                             ease: 'back.out(2.0)', stagger: .07, overwrite: true }, '-=0.32');
+      });
+    }
+
+    /* 5b) 오브젝트 팝 — 스크롤에 맞춰 '튀어나오는' 등장 (2026-08-26 대표 지시).
+       도장 쾅과 같은 어휘(scale + back.out)를 쓴다. 새 문법을 만들면 페이지에
+       등장 방식이 세 가지가 되어 오히려 산만해진다.
+       scale 은 시선을 강하게 끌어 남발하면 위계가 무너진다(H2: 강조는 희소 자원).
+       그래서 대상을 **물성 있는 오브젝트(버거 컷아웃)와 혜택 표식**으로 한정하고
+       목록을 여기에 못 박는다 — 늘릴 때는 이 주석도 함께 고칠 것.
+         · 부유 컷아웃 버거 2 (#why, #process)   · 메뉴 헤더 대형 버거   · 혜택 칩 3
+         (12無 표의 면제·지원 표식은 5)의 표 시퀀스가 맡는다 — 행 안에 있어 순서를 같이 가야 한다)
+       회전은 상대값('-=N')이라 각 요소의 CSS 기울기를 그대로 목적지로 삼는다.
+       ⚠️ 1)의 리빌 그룹과 같은 요소를 겹쳐 등록하면 안 된다. gsap.from 은 '현재값'을
+          목적지로 삼는데, 리빌이 먼저 autoAlpha:0 을 박아 두면 0→0 이 되어 영영 안 보인다
+          (2026-08-26 .perk 3개가 이 경로로 사라졌다). */
+    [
+      { sel: '.float',                    from: { scale: .55, y: 46, rotation: '-=12' }, dur: .72, ease: 'back.out(1.8)', stagger: 0,   start: 'top 92%' },
+      { sel: '.mhero',                    from: { scale: .58, y: 40, rotation: '-=14' }, dur: .74, ease: 'back.out(1.9)', stagger: 0,   start: 'top 88%' },
+      { sel: '#support .perk',            from: { scale: .7,  y: 24 },                   dur: .52, ease: 'back.out(1.7)', stagger: .1,  start: 'top 90%' }
+    ].forEach(function (g) {
+      var els = gsap.utils.toArray(g.sel);
+      if (!els.length) return;
+      ScrollTrigger.batch(els, {
+        start: g.start, once: true,
+        onEnter: function (batch) {
+          gsap.from(batch, Object.assign({}, g.from, {
+            autoAlpha: 0, duration: g.dur, ease: g.ease,
+            stagger: g.stagger, overwrite: true, clearProps: 'scale'
+          }));
+        }
+      });
+    });
+
+    /* 5d) 순차 등장 — 그린스케이프(클라이언트/조경업체/landscaping-website) gs-reveal 이식.
+       원본은 CSS transition + IntersectionObserver 였고, 요소마다 마크업에
+       `--reveal-delay: 0.15s` 를 손으로 박아 계단을 만들었다(threshold .12, 1회 관찰).
+       여기는 페이지 전체가 GSAP 라 엔진은 GSAP 를 쓰되 **구조**를 그대로 가져온다 —
+       '컨테이너가 화면에 들어오면 자식이 계단식으로 뜬다'.
+
+       왜 필요했나: 요소 단위 batch 는 '같이 들어온 것'만 묶어 stagger 를 준다.
+       12無 표는 13행이 세로 854px 에 걸쳐 있어(뷰포트 900px) 행마다 따로 발화했고
+       계단이 아예 생기지 않았다(2026-08-26 실측). 이 페이지의 핵심 오퍼가 툭툭 떴다는 뜻.
+       반대로 .step(10개·108px)·.way·.ovals 는 이미 한 묶음이라 건드리지 않는다.
+
+       이징은 원본 cubic-bezier(0.16,1,0.3,1)/0.8s 에 대응하는 expo.out/0.8s. */
+    [
+      { box: '#why .fit__list', child: 'li', stagger: .09, y: 28 },
+      /* 공정 4컷 — 좌→우로 한 칸씩. 컷이 '순서'를 뜻하므로 동시에 뜨면 순서가 안 읽힌다.
+         .craft__step 은 5a 방향 리빌·5b 팝 어디에도 등록하지 않는다(이중 등록 = 영영 안 보임 사고). */
+      { box: '.craft__strip', child: '.craft__step', stagger: .12, y: 34 }
+    ].forEach(function (g) {
+      /* ⚠️ querySelector 는 첫 매치만 잡는다. v4.13 에서 공정 스트립이 둘이 되면서
+         뒤엣것이 통째로 등록에서 빠졌다 — 리빌 없이 처음부터 떠 있게 된다.
+         (v4.17 에서 스트립은 다시 #supply 하나가 됐지만 가정은 되돌리지 않는다 —
+          '컨테이너가 하나뿐'이라는 전제를 코드에 남기지 않는다.) */
+      gsap.utils.toArray(g.box).forEach(function (box) {
+        var kids = gsap.utils.toArray(box.querySelectorAll(g.child));
+        if (!kids.length) return;
+        gsap.set(kids, { autoAlpha: 0, y: g.y });
+        whenInView(box, function () {
+          gsap.to(kids, {
+            autoAlpha: 1, y: 0, duration: .8, ease: 'expo.out',
+            stagger: g.stagger, overwrite: true
+          });
+        });
+      });
+    });
+
+    /* 5e) 섹션 머리말 계단 — 이름표 → H2 → 리드가 한 박자씩 (그린스케이프 문법).
+       셋을 각각 별도 그룹으로 두면 서로 150px 쯤 떨어져 있어 각자 자기 위치에서 발화하고
+       계단이 안 생긴다. 머리말의 첫 요소를 트리거로 삼아 셋을 한 시퀀스로 연다. */
+    gsap.utils.toArray('section.sec').forEach(function (sec) {
+      var head = ['.eyebrow', '.h2', '.rvsub', '.lead']
+        .map(function (s) { return sec.querySelector(s); })
+        .filter(Boolean);
+      if (!head.length) return;   /* 한 줄뿐이어도 리빌은 준다 — 안 그러면 그 섹션만 등장이 빠진다 */
+      gsap.set(head, { autoAlpha: 0, y: 26 });
+      whenInView(head[0], function () {
+        gsap.to(head, { autoAlpha: 1, y: 0, duration: .8, ease: 'expo.out',
+                        stagger: .13, overwrite: true });
+      });
+    });
+
+    /* 5c) 히어로 오퍼 띠 — 간판이 선 뒤에 쾅 찍힌다(계단 리빌 뒤 순서) */
+    gsap.from('.hero__badge', {
+      scale: .72, rotation: -3, autoAlpha: 0, transformOrigin: '50% 50%',
+      duration: .55, ease: 'back.out(2.1)', delay: .78, clearProps: 'scale,rotate',
+      /* clearProps 로 인라인 transform 이 걷힌 **뒤에** 상시 흔들림을 넘긴다.
+         tween 중에 CSS 애니메이션이 돌면 GSAP 이 매 프레임 덮어써 튄다. */
+      onComplete: function () {
+        var el = document.querySelector('.hero__badge');
+        if (el) el.classList.add('is-live');
+      }
+    });
+
+    /* (단면 미디어 스크럽은 모션 예산 3 상한으로 제외 — 스크림·리빌만) */
+
+    /* 조리 루프 — 모션 감축 선호 시 정지(poster 노출). CSS 로는 video 를 못 멈춘다.
+       뷰포트 밖에서도 세워 배터리를 아낀다(마퀴·링과 같은 정책). */
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var cooks = gsap.utils.toArray('.cookband video');
+    function syncCooks() {
+      cooks.forEach(function (v) {
+        if (reduce.matches) { v.pause(); v.currentTime = 0; }
+      });
+    }
+    syncCooks();
+    if (reduce.addEventListener) reduce.addEventListener('change', syncCooks);
+    if (cooks.length) {
+      var cookIO = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          var v = e.target;
+          if (reduce.matches) { v.pause(); return; }
+          if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); }
+          else v.pause();
+        });
+      }, { rootMargin: '120px' });
+      cooks.forEach(function (v) { cookIO.observe(v); });
+    }
+
+    /* 마퀴·링 뷰포트 밖 정지 (성능) */
+    var spinIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('is-off', !e.isIntersecting); });
+    }, { rootMargin: '80px' });
+    document.querySelectorAll('.mq, .wq, .ring, .rvroll, .hero__badge').forEach(function (el) { spinIO.observe(el); });
+
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<meta name="robots" content="noindex,nofollow">
+<!-- 티티버거 원페이지 리뉴얼 — 시안 제안 인덱스 (클라이언트 제출용) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>티티버거 원페이지 리뉴얼 — 시안 제안</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+  :root{
+    --bg:#1a1512; --panel:#241c17; --panel2:#2e241d; --line:#3d2f24;
+    --cream:#f5ecd9; --cream-d:#c9b89a; --gold:#e7b23c; --red:#c4342b;
+    --font-h:'Black Han Sans',sans-serif;
+    --font-b:'Pretendard',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--cream);font-family:var(--font-b);line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+
+  /* 헤더 */
+  header{padding:clamp(48px,7vw,88px) 0 clamp(30px,4vw,48px);text-align:center;border-bottom:1px solid var(--line)}
+  header .eyebrow{font-size:13px;letter-spacing:.28em;color:var(--gold);font-weight:700;margin-bottom:18px}
+  header h1{font-family:var(--font-h);font-weight:400;font-size:clamp(34px,6vw,64px);letter-spacing:-.01em;line-height:1.1}
+  header h1 .hl{color:var(--gold)}
+  header .sub{margin-top:16px;color:var(--cream-d);font-size:clamp(14px,1.6vw,16px)}
+
+  /* 개요 */
+  .overview{margin:clamp(36px,5vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .ov-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .ov-card .k{font-size:12px;letter-spacing:.04em;color:var(--gold);font-weight:800;margin-bottom:7px}
+  .ov-card .v{font-size:14px;color:var(--cream);font-weight:500}
+  .ov-card .v b{color:var(--cream);font-weight:800}
+
+  /* 섹션 타이틀 */
+  .sec-title{display:flex;align-items:baseline;gap:12px;margin:clamp(30px,4vw,44px) 0 20px}
+  .sec-title h2{font-family:var(--font-h);font-weight:400;font-size:clamp(22px,3vw,30px)}
+  .sec-title span{color:var(--cream-d);font-size:13px}
+
+  /* 시안 갤러리 */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease}
+  .card:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .thumb .tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:800;letter-spacing:.04em;
+    padding:5px 12px;border-radius:9999px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+  .card-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+  .card-body h3{font-family:var(--font-h);font-weight:400;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.01em}
+  .card-body .tone{margin-top:6px;font-size:13px;color:var(--gold);font-weight:700}
+  .card-body p{margin-top:12px;font-size:13.5px;color:var(--cream-d);line-height:1.6;flex:1}
+  .swatches{display:flex;gap:6px;margin-top:16px}
+  .sw{width:24px;height:24px;border-radius:9999px;border:1px solid rgba(255,255,255,.14)}
+  .open-btn{margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 22px;border-radius:9999px;background:var(--gold);color:#1a1512;font-weight:800;font-size:14px;
+    transition:background .2s ease}
+  .open-btn:hover{background:#ffc75a}
+
+  /* 하단 */
+  footer{margin:clamp(44px,6vw,72px) 0 60px;padding-top:30px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  .doc-link{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:9999px;
+    border:1.5px solid var(--line);color:var(--cream);font-weight:700;font-size:13.5px}
+  .doc-link:hover{border-color:var(--gold);color:var(--gold)}
+  .meta{font-size:12.5px;color:var(--cream-d);text-align:right;line-height:1.7}
+  .note{margin-top:14px;font-size:12px;color:var(--cream-d);opacity:.8}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">브랜드 리뉴얼 · 원페이지 시안 제안</div>
+    <h1>티티버거 <span class="hl">TITIBURGER</span></h1>
+    <div class="sub">현 ‘터닝테이블’ → ‘티티버거’ 리브랜딩 · 창업모집 원페이지 스크롤형 · 디자인 시안 4종</div>
+  </header>
+
+  <section class="overview">
+    <div class="ov-card"><div class="k">목표</div><div class="v">다중페이지 → <b>원페이지 창업문의 전환</b></div></div>
+    <div class="ov-card"><div class="k">구조</div><div class="v">아임타코야끼 <b>검증 리드 시스템 계승</b> + 어드민</div></div>
+    <div class="ov-card"><div class="k">톤 방향</div><div class="v">버거 브랜드 고유 <b>아메리칸 레트로</b> 2 + <b>디자인시스템</b> 2</div></div>
+    <div class="ov-card"><div class="k">운영사</div><div class="v">(주)지에이엠 · 대표 이재훈</div></div>
+  </section>
+
+  <div class="sec-title">
+    <h2>시안 4종</h2>
+    <span>각 카드를 눌러 실제 원페이지를 확인하세요 · 워드마크·수익성 수치는 확정 전 임시안</span>
+  </div>
+
+  <div class="grid">
+    <!-- 안A 빈티지 다이너 -->
+    <div class="card">
+      <a class="thumb" href="시안/안A_빈티지다이너.html">
+        <span class="tag" style="color:#f5ecd9">A · 레트로 다이너</span>
+        <img src="시안/_프리뷰/안A_빈티지다이너_데스크톱.png" alt="안A 빈티지 다이너 시안">
+      </a>
+      <div class="card-body">
+        <h3>빈티지 다이너</h3>
+        <div class="tone">웜 · 친근 · 식욕 (In-N-Out 무드)</div>
+        <p>크림 배경 + 다이너레드·머스타드. 밝고 따뜻한 클래식 수제버거 감성. 소비자 호감·식욕 자극형.</p>
+        <div class="swatches"><span class="sw" style="background:#F5ECD9"></span><span class="sw" style="background:#C4342B"></span><span class="sw" style="background:#E7B23C"></span><span class="sw" style="background:#2B211C"></span></div>
+        <a class="open-btn" href="시안/안A_빈티지다이너.html">원페이지 열기 →</a>
+      </div>
+    </div>
+
+    <!-- 안B 볼드 레트로 -->
+    <div class="card">
+      <a class="thumb" href="시안/안B_볼드레트로.html">
+        <span class="tag" style="color:#F0B21E">B · 볼드 레트로</span>
+        <img src="시안/_프리뷰/안B_볼드레트로_데스크톱.png" alt="안B 볼드 레트로 시안">
+      </a>
+      <div class="card-body">
+        <h3>볼드 레트로</h3>
+        <div class="tone">강렬 · 하이컨트라스트 (Roberta's 무드)</div>
+        <p>차콜 + 머스타드·시그널레드. 굵은 콘덴스드 타이포, 강한 대비. 임팩트·수익성 신뢰감형.</p>
+        <div class="swatches"><span class="sw" style="background:#201D1B"></span><span class="sw" style="background:#F0B21E"></span><span class="sw" style="background:#D6291F"></span><span class="sw" style="background:#F2E9D8"></span></div>
+        <a class="open-btn" href="시안/안B_볼드레트로.html">원페이지 열기 →</a>
+      </div>
+    </div>
+
+    <!-- 안A 헝그리타이거 -->
+    <div class="card">
+      <a class="thumb" href="시안/안A_헝그리타이거.html">
+        <span class="tag" style="color:#faae33">A' · 헝그리타이거</span>
+        <img src="시안/_프리뷰/안A_헝그리타이거_데스크톱.png" alt="안A 헝그리타이거 시안">
+      </a>
+      <div class="card-body">
+        <h3>헝그리타이거</h3>
+        <div class="tone">웜 러스트 + 골드 포스터 (Hungry Tiger 시스템)</div>
+        <p>러스트 브라운 풀블리드 + 골드 포스터 타이포, 점선 디바이더 리듬. 비대칭 2컬럼, 프리미엄·강렬.</p>
+        <div class="swatches"><span class="sw" style="background:#823513"></span><span class="sw" style="background:#faae33"></span><span class="sw" style="background:#402011"></span><span class="sw" style="background:#281006"></span></div>
+        <a class="open-btn" href="시안/안A_헝그리타이거.html">원페이지 열기 →</a>
+      </div>
+    </div>
+
+    <!-- 안B 임파서블 -->
+    <div class="card">
+      <a class="thumb" href="시안/안B_임파서블.html">
+        <span class="tag" style="color:#e10600">B' · 임파서블</span>
+        <img src="시안/_프리뷰/안B_임파서블_데스크톱.png" alt="안B 임파서블 시안">
+      </a>
+      <div class="card-body">
+        <h3>임파서블</h3>
+        <div class="tone">와인 + 블러드레드 펑크 (Impossible 시스템)</div>
+        <p>와인다크 풀블리드 + 초대형 레드 선언 타이포, 마스크컷 플로팅·제품 캐러셀. 수익성 빅넘버 압도형.</p>
+        <div class="swatches"><span class="sw" style="background:#260212"></span><span class="sw" style="background:#e10600"></span><span class="sw" style="background:#4f0423"></span><span class="sw" style="background:#ffc7c6"></span></div>
+        <a class="open-btn" href="시안/안B_임파서블.html">원페이지 열기 →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a class="doc-link" href="설계기획안/티티버거_원페이지_설계기획안_2026-07-24.md">📄 설계 기획안 (섹션 구조·리드폼·어드민 연동)</a>
+    <div class="meta">
+      티티버거 원페이지 리뉴얼 · 시안 제안<br>
+      제작 이승준 · 2026-07 · (주)지에이엠 제출용
+    </div>
+  </footer>
+  <p class="note">※ 로고는 실로고 수령 후 교체 예정(현재 워드마크 임시안), 수익성 수치는 검증 후 확정, 창업비용은 공식표(가맹비 500·교육비 300·보증금 100 → 면제) 기준입니다.</p>
+</div>
