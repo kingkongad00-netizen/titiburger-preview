@@ -475,10 +475,141 @@ h3.h3{
    크림 위 강조는 --red 가 아니라 --red-deep 을 쓴다.
    #E60012 on #F6F1E7 = 4.27:1 로 AA(4.5) 미달이고 #B8000E 는 6.13:1 이다. (K2 실측 게이트)
    간판체는 400 단일 웨이트라, 기본 굵기 700인 요소에 얹으면 브라우저가 faux-bold 를 합성한다. */
-.creed{margin-top:clamp(40px,5vw,72px); background:var(--cream); border:0; border-left:5px solid var(--red-deep); box-shadow:none; padding:clamp(28px,3.4vw,46px)}
-.creed__line{font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3); line-height:1.34; color:var(--ink); letter-spacing:.01em}
-.creed__line em{font-style:normal; color:var(--red-deep)}
-.creed p+p{margin-top:16px; font-size:var(--fs-lead); line-height:1.72; color:var(--ink); max-width:var(--measure)}
+/* ── 본질은 맛 (v4.30) — 대표 후킹 섹션 ────────────────────────────────
+   대표 지시: 「결국, 본질은 맛입니다」를 랜딩의 대표 후킹으로 올린다. 순서는 그대로(4번째),
+   레이아웃만 크게. 레퍼런스는 프레디버거 히어로 하단 섹션
+   (전체 스크린샷/스크린샷 2026-08-28 190941.png).
+
+   ■ 프레디 문법 — 하나의 긴 후킹 섹션을 만드는 장치 6개
+     ① 레드 풀블리드 + 얇은 세로 헤어라인 (바탕에 격자 결)
+     ② 상단 중앙 브랜드 마크
+     ③ 화면을 가르는 **거대 흰 돔** — 아래에서 솟아오른 반원
+     ④ 돔 위 회전 커브드 텍스트 + 대형 제품 누끼
+     ⑤ 제품을 사이에 두고 **좌우로 갈라 놓은 대형 카피**
+     ⑥ 가장자리에 흩뿌린 고객 목소리 칩
+
+   ■ 우리 값으로 옮기며 정한 것
+     · 이 섹션은 원래 655px(문서의 3.1%)로 페이지에서 가장 작았다 — 조용한 인용 간지였다.
+       대표 후킹이 되려면 격이 바뀌어야 해서 골격을 다시 짰다.
+     · 카피는 손대지 않았다. 「마케팅은 한 번 찾아오게 만드는 것까지」·「오늘 먹고 내일 또
+       생각나는가」는 이 브랜드의 한 문장이라 그대로 두고 **배치만** 프레디식으로 갈랐다 —
+       「결국, 본질은」(좌) / 「맛입니다」(우), 그 사이에 버거.
+     · 칩 5개는 **지어낸 문구가 아니라** #review 에 원문·출처가 실린 배달의민족 실제 리뷰에서
+       그대로 옮긴 것이다. 4WAY 에서 부연을 지어내 사고가 났던 전례가 있어 출처를 명기한다.
+     · 링(.ring)과 좌우 원형 사진(.qcircle)은 이미 이 섹션에 있던 장치다. 링은 돔 위로 올려
+       살리고, 원형 사진은 돔과 역할이 겹쳐 폐기했다.
+
+   ⚠️ 대비 — 레드 바탕 위 --ink 는 3.72:1 로 미달이다. 그래서 큰 글자는 전부 **흰 돔 위**에
+      올려 --ink(17.97:1)·--red-deep(6.13:1)을 쓰고, 레드 바탕에는 흰 글자(4.80:1)만 둔다.
+   ⚠️ 뒤 #support 가 레드라 인접 동일 명도다. 열폭 신호로 갈린다 —
+      #creed .wrap 은 --w-tight(880), #support 는 --w-wide(1280). 이 차이를 없애면 게이트가 깨진다. */
+#creed{
+  position:relative; overflow:hidden;
+  background:var(--red); color:var(--white);
+  padding-block:clamp(56px,7vw,104px) 0;
+}
+/* ① 세로 헤어라인 — 프레디 바탕의 격자 결 */
+#creed::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:repeating-linear-gradient(90deg,
+    rgba(255,255,255,.16) 0 1px, transparent 1px clamp(90px,9vw,150px));
+}
+/* ② 상단 브랜드 마크 */
+.creedmark{margin:0 auto clamp(30px,4vw,58px); position:relative; z-index:2; text-align:center}
+.creedmark img{width:clamp(190px,20vw,300px); height:auto; margin:0 auto; opacity:.96}
+
+/* ③ 거대 흰 돔 — 아래에서 솟는 반원. 프레디는 폭 69.5%(1230/1769)다. */
+.dome{
+  position:relative; z-index:1;
+  /* 폭 68vw — 프레디는 69.5%(1230/1769)다. 양옆 여백이 칩 자리가 되므로 이 값을 줄이면
+     칩이 돔 위로 올라타 흰 바탕에 붉은 카드가 얹히는 꼴이 된다. */
+  width:min(1040px, 68vw); margin-inline:auto;
+  background:var(--white);
+  /* ⚠️ color 를 되돌리는 게 필수다. #creed 가 color:var(--white) 라 돔 안까지 흰색이 상속되는데,
+     링의 SVG <text> 는 fill:var(--red) 로 그려지면서도 **computed color 는 흰색**이라
+     대비 검사가 흰 돔 위 1:1 로 잡는다(실측). 돔 안쪽 기본색을 잉크로 못 박는다. */
+  color:var(--ink);
+  border-radius:50% 50% 0 0 / clamp(150px,21vw,330px) clamp(150px,21vw,330px) 0 0;
+  padding:clamp(30px,4vw,58px) clamp(20px,3vw,44px) clamp(44px,5.4vw,80px);
+  text-align:center;
+}
+/* ④ 회전 링 — 돔 어깨에 얹는다 */
+.dome .ring{margin-inline:auto; margin-bottom:clamp(10px,1.4vw,18px)}
+.creedhook{
+  margin:0 0 clamp(6px,1vw,12px); font-family:var(--ff-plate);
+  font-size:clamp(15px,1.4vw,20px); line-height:1.5; color:var(--red-deep);
+}
+/* ⑤ 제품을 사이에 두고 좌우로 갈린 대형 카피.
+   그리드로 3칸을 잡아 좌/버거/우 를 한 줄에 세운다 — 프레디의 핵심 장치다. */
+.creedsplit{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+  gap:clamp(6px,1.2vw,20px); margin:0 auto;
+}
+.creedsplit b{
+  font-family:var(--ff-sign); font-weight:400; letter-spacing:-.015em;
+  font-size:clamp(26px,4.4vw,64px); line-height:1.16; color:var(--ink);
+}
+.creedsplit b:first-of-type{text-align:right}
+.creedsplit b:last-of-type{text-align:left}
+.creedsplit em{font-style:normal; color:var(--red-deep)}
+.creedcut{width:clamp(170px,31vw,470px); height:auto; display:block; margin:0}
+
+.creed{
+  margin:clamp(24px,3.2vw,44px) auto 0; background:none; border:0; box-shadow:none;
+  padding:0; max-width:var(--measure); text-align:left;
+}
+.creed p{font-size:var(--fs-lead); line-height:1.72; color:var(--ink)}
+.creed p+p{margin-top:16px}
+
+/* ⑥ 고객 목소리 칩 — 프레디는 좌 2·우 3 으로 가장자리에 흩뿌린다.
+   레드 바탕 위라 흰 테두리 + 흰 글자로 세운다(4.80:1). */
+/* ⚠️ 처음엔 grid 2열 + column-gap:78vw 로 좌우를 벌렸는데, 남는 컬럼 폭이 130px 로 눌려
+   제목까지 두 줄로 접혔다(실측). 칩은 돔 옆 여백에 놓이는 물건이라 그 여백을 직접
+   좌표로 지정하는 게 맞다 — 절대배치로 바꾼다. 프레디대로 좌 2 · 우 3.
+   배경은 반투명이 아니라 solid --red 다. 돔에 조금이라도 겹치면 반투명은 분홍으로 뜬다. */
+.vchips{position:absolute; inset:0; z-index:3; margin:0; padding:0; list-style:none; pointer-events:none}
+.vchip{
+  position:absolute; width:clamp(140px,14.5vw,235px);
+  border:2px solid var(--white); background:var(--red);
+  padding:clamp(9px,1.1vw,15px) clamp(11px,1.3vw,18px);
+}
+.vchip:nth-child(1){left:clamp(8px,1.8vw,34px);  top:clamp(150px,17vw,268px)}
+.vchip:nth-child(3){left:clamp(8px,1.8vw,34px);  top:clamp(268px,30vw,470px)}
+.vchip:nth-child(2){right:clamp(8px,1.8vw,34px); top:clamp(150px,17vw,268px)}
+.vchip:nth-child(4){right:clamp(8px,1.8vw,34px); top:clamp(268px,30vw,470px)}
+.vchip:nth-child(5){right:clamp(8px,1.8vw,34px); top:clamp(386px,43vw,672px)}
+.vchip b{
+  display:block; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(15px,1.5vw,22px); line-height:1.3; color:var(--white);
+}
+.vchip span{
+  display:block; margin-top:5px; font-size:clamp(13.5px,1.05vw,15px);
+  line-height:1.5; color:var(--white);
+}
+.vsrc{
+  position:relative; z-index:2; margin:clamp(20px,2.6vw,34px) auto 0;
+  max-width:var(--measure-narrow);   /* 한 줄 95자로 흘러 줄길이 상한(45자)을 넘겼다 */
+  text-align:center; font-family:var(--ff-plate);
+  font-size:var(--fs-cap); line-height:1.6; color:var(--white);
+}
+
+/* 모바일 — 좌우로 가르는 배치도, 가장자리 칩도 넓은 화면의 어휘다.
+   돔은 남기되 카피는 한 줄로 세우고 칩은 돔 아래 2열로 내린다. */
+@media (max-width:860px){
+  .dome{width:auto; margin-inline:var(--gutter);
+        border-radius:clamp(70px,22vw,120px) clamp(70px,22vw,120px) 0 0 / clamp(60px,16vw,100px) clamp(60px,16vw,100px) 0 0}
+  .creedsplit{grid-template-columns:1fr; gap:clamp(8px,2vw,14px)}
+  .creedsplit b:first-of-type,
+  .creedsplit b:last-of-type{text-align:center}
+  .creedcut{width:min(72vw,340px); margin-inline:auto}
+  .creed{text-align:left}
+  .vchips{
+    position:static; padding:clamp(18px,4vw,26px) var(--gutter) 0;
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,2.4vw,16px);
+  }
+  .vchip{position:static; width:auto}
+  .vchip:last-child{grid-column:1 / -1}
+}
 
 /* ══ 05 창업 지원 — 면제표 ══ */
 .fee{margin-top:clamp(28px,3.6vw,48px); background:var(--white); color:var(--ink); border:4px solid var(--ink); box-shadow:var(--sh-sign)}
@@ -1069,14 +1200,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 /* 컷 사이 실선 — 스트립을 필름처럼 끊는다. 마지막 칸 뒤엔 긋지 않는다 */
 .craft__step + .craft__step .craft__fig{box-shadow:inset 3px 0 0 var(--strip-cut)}
 
-/* ── creed 인용 승격 (Meta 센터 쿼트) ── */
-.quote{background:var(--white)}
-.quote .creed{
-  margin:0 auto; max-width:840px; background:none; border:0; padding:0; text-align:center;
-}
-.quote .creed__line{font-size:clamp(30px,4vw,54px); line-height:1.22}
-.quote .creed p+p{margin-inline:auto; margin-top:22px}
-
 /* ── 증거 블록 (프레디 con17 넘버링) ── */
 .sec--dark .facts{grid-template-columns:repeat(3,1fr); counter-reset:ev}
 .sec--dark .fact{border-top:2px solid rgba(244,239,233,.3); counter-increment:ev}
@@ -1190,10 +1313,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .giant__a{color:rgba(230,0,18,.16)}
 .giant__b{color:transparent; -webkit-text-stroke:2.5px rgba(230,0,18,.26)}
 
-/* creed — 커브드 링 (163231) + 서클 이미지 (163202) + 브러시 밑줄 */
-#creed{position:relative; overflow:hidden}
-#creed .wrap{position:relative; z-index:1}
-.ring{width:clamp(120px,13vw,168px); margin:0 auto clamp(18px,2.4vw,30px); position:relative}
+/* creed — 커브드 링 + 브러시 밑줄. 서클 이미지는 v4.30 에서 폐기(거대 흰 돔이 대체). */
+.ring{width:clamp(140px,14vw,190px); margin:0 auto clamp(18px,2.4vw,30px); position:relative}
 .ring svg{width:100%; height:auto; display:block}
 .ring svg text{font-family:'Bebas Neue', var(--ff-plate); font-size:17.5px; letter-spacing:.22em; fill:var(--red)}
 .ring > img{
@@ -1203,19 +1324,9 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .ring svg{animation:ringspin 26s linear infinite}
   @keyframes ringspin{to{transform:rotate(360deg)}}
 }
-.qcircle{
-  position:absolute; z-index:0; margin:0; border-radius:50%; overflow:hidden;
-  width:clamp(220px,24vw,360px); aspect-ratio:1;
-  border:6px solid var(--red); box-shadow:0 0 0 3px var(--white) inset;
-  display:none;
-}
-.qcircle img{width:100%; height:100%; object-fit:cover}
-.qcircle--l{left:calc(-1 * clamp(70px,8vw,120px)); bottom:-8%}
-.qcircle--r{right:calc(-1 * clamp(70px,8vw,120px)); top:-10%}
-@media (min-width:1100px){ .qcircle{display:block} }
-/* 「맛」 브러시 밑줄 — 기울어진 레드 스트로크 */
-.quote .creed__line em{position:relative; display:inline-block}
-.quote .creed__line em::after{
+/* 「맛」 브러시 밑줄 — v4.30 에서 대상이 .creedsplit em 으로 옮겨졌다. */
+.creedsplit em{position:relative; display:inline-block}
+.creedsplit em::after{
   content:""; position:absolute; left:-4%; right:-4%; bottom:.02em; height:.14em;
   background:var(--red); transform:skewX(-18deg) rotate(-1.2deg); opacity:.85; z-index:-1;
 }
@@ -1643,13 +1754,23 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
         <b class="cookband__no">03</b><span class="cookband__t">내보냅니다</span>
       </div>
     </div>
-  </div>  <!-- ══ 04-c 브랜드 문장 — 센터 인용 (Meta 모티프, 2026-08-20 클라이언트 지정 주 소구점) ══ -->
-  <section class="sec quote" id="creed" aria-labelledby="creed-h">
-    <!-- 좌우 서클 이미지 걸침 (163202 문법) — 데스크톱 전용 -->
-    <figure class="qcircle qcircle--l" aria-hidden="true"><img src="_assets/shot/set.jpg" alt="" loading="lazy"></figure>
-    <figure class="qcircle qcircle--r" aria-hidden="true"><img src="_assets/shot/styled3.jpg" alt="" loading="lazy"></figure>
-    <div class="wrap">
-      <!-- 커브드 텍스트 링 (163231 「Legend!」 링의 한글 변주) -->
+  </div>  <!-- ══ 04-b 본질은 맛 (v4.30) — 랜딩 대표 후킹 섹션.
+       레퍼런스: 프레디버거 히어로 하단(전체 스크린샷/스크린샷 2026-08-28 190941.png).
+       레드 풀블리드 + 거대 흰 돔 + 회전 링 + 대형 누끼 + 좌우로 가른 카피 + 가장자리 목소리 칩.
+       칩 5개는 지어낸 문구가 아니라 #review 에 원문·출처가 실린 배달의민족 실제 리뷰 발췌다. ══ -->
+  <section class="sec" id="creed" aria-labelledby="creed-h">
+    <p class="creedmark"><img src="_assets/wordmark-white.png" alt="" aria-hidden="true"
+         width="1200" height="360" loading="lazy" decoding="async"></p>
+
+    <ul class="vchips" aria-label="배달의민족 리뷰에서 옮긴 손님 목소리 5건">
+      <li class="vchip"><b>탑이네요</b><span>왠만한곳 다먹어봤는데.. 탑이네요</span></li>
+      <li class="vchip"><b>인생 육즙패티</b><span>입에서 육즙이 진짜 미칩니다</span></li>
+      <li class="vchip"><b>매일 생각나요</b><span>맛있어서 어제 오늘 연속으로 시킵니다</span></li>
+      <li class="vchip"><b>빵이 다릅니다</b><span>빵이 완전 부드러운게 신기해요</span></li>
+      <li class="vchip"><b>매장까지 갔어요</b><span>오늘은 매장가서 포장까지 해온건 안비밀</span></li>
+    </ul>
+
+    <div class="dome">
       <div class="ring" aria-hidden="true">
         <svg viewBox="0 0 200 200">
           <defs><path id="ringpath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
@@ -1657,8 +1778,17 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
         </svg>
         <img src="_assets/symbol-red.png" alt="" width="354" height="260">
       </div>
+
+      <p class="creedhook">오늘 먹고 내일 또 생각나는가</p>
+
+      <div class="creedsplit">
+        <b>결국,<br>본질은</b>
+        <img class="creedcut" src="_assets/menu/cutout_titi.png" alt="" aria-hidden="true"
+             width="760" height="506" loading="lazy" decoding="async">
+        <b id="creed-h"><em>맛</em>입니다</b>
+      </div>
+
       <div class="creed">
-        <p class="creed__line" id="creed-h">결국, 본질은 <em>맛</em>입니다.</p>
         <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.
           장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.
           한 번 찾아준 고객이 만족하지 않는다면, 어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
@@ -1666,6 +1796,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
           번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
       </div>
     </div>
+
+    <p class="vsrc">위 다섯 문장은 배달의민족에 실제로 등록된 리뷰에서 옮긴 것입니다. 원문과 출처는 아래 「입소문」에 있습니다.</p>
   </section>
 
   <div class="checker" aria-hidden="true"></div>
@@ -2682,7 +2814,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       { sel: '.ed__row:not(.ed__row--rev) .ed__fig', x: 110 },
       { sel: '.ed__row--rev .ed__txt', x: 110 },
       { sel: '.ed__row--rev .ed__fig', x: -110 },
-      { sel: '.creed__line' }, { sel: '.creed p' },
+      { sel: '.creedsplit b' }, { sel: '.creed p' }, { sel: '.vchip', x: 70 },
       { sel: '#support .limit' },   /* .fee__row 는 5d 순차, .perk 는 5b 팝이 맡는다 */
       { sel: '.hangul' }, { sel: '.clip', x: 90 }, { sel: '.hname' },
       { sel: '#why .swap .card:nth-child(1)', x: -110 },
