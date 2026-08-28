@@ -192,6 +192,11 @@ h2.h2{
   font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h2);
   line-height:1.14; letter-spacing:-.015em; margin-top:16px;
 }
+/* 모바일에서 H2 는 대부분 두 줄로 접힌다(실측 390px: 13개 중 4개가 2줄).
+   1.14 는 한 줄일 때 쓰는 값이라 두 줄이 되면 위아래 획이 붙는다 —
+   typo_gate 의 헤드 행간 1.30 하한이 이 상황을 잡으라고 있는 기준이다.
+   PC(1440)에서는 폭이 넓어 대부분 한 줄이라 1.14 를 그대로 둔다. */
+@media (max-width:860px){ h2.h2{line-height:1.32} }
 h3.h3{
   font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3);
   line-height:1.18; letter-spacing:-.012em;
@@ -1763,7 +1768,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   <section class="sec sec--cream" id="menu-side" aria-labelledby="ms-h">
     <div class="wrap">
       <p class="eyebrow">메뉴 이름</p>
-      <h2 class="h2" id="ms-h">촌스러운 게 아니라, 지금 통하는 코드입니다</h2>
+      <h2 class="h2" id="ms-h">촌스러운 게 아니라, 지금 글로벌 트렌드입니다</h2>
       <p class="lead">한글 이름이 촌스럽지 않을까 — 그렇게 보실 수 있습니다.
         그런데 지금 한국식 이름을 간판에 올리는 쪽은 글로벌 브랜드입니다.</p>
 
@@ -2734,7 +2739,17 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       scrollTrigger: { trigger: '#menu-burger', start: 'top 95%', end: 'top 35%', scrub: 1 }
     });
 
-    /* 3b) 메뉴 오토 마퀴 — 버거 ←, 사이드 → (호버 시 감속 정지) */
+    /* 3b) 메뉴 오토 마퀴 — 버거 ←, 사이드 → (역방향 교차, 호버 시 감속 정지)
+
+       ⚠️ duration 을 두 줄에 똑같이 박으면 안 된다. xPercent:-50 은 **자기 폭**의 절반이라
+          품목 수가 다르면 이동 거리가 다르고, 같은 시간이면 속도가 갈린다.
+          실측(@1440): 버거 11종 한 세트 2,640px → 60px/s · 사이드 13종 3,120px → 71px/s.
+          13/11 = 1.182, 정확히 18.3% 차이로 두 줄이 서로 밀린다("따로 논다").
+          거리를 재서 속도로 나눈다 — 방향은 그대로 두고 속도만 맞춘다(대표 결정).
+       ⚠️ 폭은 clamp(...vw) 라 리사이즈에서 바뀐다. 그때 duration 을 다시 잡지 않으면
+          창 크기에 따라 속도가 또 갈린다. tw.duration() 은 진행률을 보존하며 갱신된다. */
+    var MENU_SPEED = 60;   /* px/s — 두 줄 공통 */
+    var mrows = [];
     document.querySelectorAll('.mrow').forEach(function (row) {
       var ul = row.querySelector('.mline');
       if (!ul) return;
@@ -2742,10 +2757,21 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       row.classList.add('mrow--auto');
       var toRight = row.getAttribute('data-mdir') === 'r';
       gsap.set(ul, { xPercent: toRight ? -50 : 0 });
-      var tw = gsap.to(ul, { xPercent: toRight ? 0 : -50, duration: 44, ease: 'none', repeat: -1 });
+      /* offsetWidth 는 레이아웃 폭이라 진행 중인 translate 에 영향받지 않는다.
+         li 폭이 flex-basis 고정이라 이미지 로드 전에도 값이 확정된다. */
+      var dur = (ul.offsetWidth / 2) / MENU_SPEED;
+      var tw = gsap.to(ul, { xPercent: toRight ? 0 : -50, duration: dur, ease: 'none', repeat: -1 });
+      mrows.push({ ul: ul, tw: tw });
       row.addEventListener('mouseenter', function () { gsap.to(tw, { timeScale: 0, duration: .45 }); });
       row.addEventListener('mouseleave', function () { gsap.to(tw, { timeScale: 1, duration: .45 }); });
     });
+    function syncMenuSpeed() {
+      mrows.forEach(function (r) {
+        var d = (r.ul.offsetWidth / 2) / MENU_SPEED;
+        if (d > 0 && Math.abs(r.tw.duration() - d) > 0.5) r.tw.duration(d);
+      });
+    }
+    window.addEventListener('resize', syncMenuSpeed);
 
     /* 4) 밴드 패럴랙스 스크럽 */
     gsap.utils.toArray('.band img').forEach(function (img) {
