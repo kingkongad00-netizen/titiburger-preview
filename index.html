@@ -1861,7 +1861,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
           <li>8평 이상, 바테이블이나 좌석 몇 개 있는 매장</li>
           <li>철판 · 그리들 중심의 소형 주방 — 버거는 큰 주방이 필요 없습니다</li>
           <li>포장 · 배달 위주로 운영해 온 매장 — 그 인프라가 그대로 자산이 됩니다</li>
-          <li>아침 · 점심에 몰리고 저녁이 비는 매장 — <strong>저녁이 비어 있다는 건, 채울 자리가 있다는 뜻입니다</strong></li>
         </ul>
       </div>
 
@@ -2748,8 +2747,21 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
           거리를 재서 속도로 나눈다 — 방향은 그대로 두고 속도만 맞춘다(대표 결정).
        ⚠️ 폭은 clamp(...vw) 라 리사이즈에서 바뀐다. 그때 duration 을 다시 잡지 않으면
           창 크기에 따라 속도가 또 갈린다. tw.duration() 은 진행률을 보존하며 갱신된다. */
-    var MENU_SPEED = 60;   /* px/s — 두 줄 공통 */
+    var MENU_SPEED = 60;   /* px/s — 두 줄 공통. 체감이 빠르면 이 숫자 하나만 내리면 된다. */
     var mrows = [];
+    /* offsetWidth 는 레이아웃 폭이라 진행 중인 translate 에 안 흔들리고,
+       li 가 flex-basis 고정이라 이미지 로드 전에도 값이 확정된다.
+
+       ⚠️ 하한(200px)이 왜 필요한가 — 폭을 못 재면(배경 탭·리플로 도중·조상이 잠깐 0폭)
+          offsetWidth 가 0 이나 아주 작은 값으로 돌아온다. 그대로 나누면 duration 이
+          0 에 수렴해 그 줄만 **미친 속도로 돈다.** 'd > 0' 만으로는 이걸 못 막는다
+          (작은 양수는 통과한다). 못 잰 회차는 아예 갱신하지 않는 게 맞다.
+       ⚠️ 상한/하한(8~400s)은 폭 측정이 엉뚱해도 화면이 튀지 않게 하는 마지막 방어선. */
+    function menuDur(ul) {
+      var half = ul.offsetWidth / 2;
+      if (!(half > 200)) return 0;                      /* 못 쟀다 — 갱신 포기 */
+      return Math.min(400, Math.max(8, half / MENU_SPEED));
+    }
     document.querySelectorAll('.mrow').forEach(function (row) {
       var ul = row.querySelector('.mline');
       if (!ul) return;
@@ -2757,9 +2769,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       row.classList.add('mrow--auto');
       var toRight = row.getAttribute('data-mdir') === 'r';
       gsap.set(ul, { xPercent: toRight ? -50 : 0 });
-      /* offsetWidth 는 레이아웃 폭이라 진행 중인 translate 에 영향받지 않는다.
-         li 폭이 flex-basis 고정이라 이미지 로드 전에도 값이 확정된다. */
-      var dur = (ul.offsetWidth / 2) / MENU_SPEED;
+      var dur = menuDur(ul) || 44;
       var tw = gsap.to(ul, { xPercent: toRight ? 0 : -50, duration: dur, ease: 'none', repeat: -1 });
       mrows.push({ ul: ul, tw: tw });
       row.addEventListener('mouseenter', function () { gsap.to(tw, { timeScale: 0, duration: .45 }); });
@@ -2767,11 +2777,17 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
     });
     function syncMenuSpeed() {
       mrows.forEach(function (r) {
-        var d = (r.ul.offsetWidth / 2) / MENU_SPEED;
-        if (d > 0 && Math.abs(r.tw.duration() - d) > 0.5) r.tw.duration(d);
+        var d = menuDur(r.ul);
+        if (d && Math.abs(r.tw.duration() - d) > 0.5) r.tw.duration(d);
       });
     }
-    window.addEventListener('resize', syncMenuSpeed);
+    /* 모바일은 주소창이 접히고 펴질 때마다 resize 가 쏟아진다.
+       매번 재면 리플로 중간값을 물기 쉬우니 한 프레임 뒤 한 번만 잰다. */
+    var menuSyncPend = 0;
+    window.addEventListener('resize', function () {
+      if (menuSyncPend) return;
+      menuSyncPend = requestAnimationFrame(function () { menuSyncPend = 0; syncMenuSpeed(); });
+    });
 
     /* 4) 밴드 패럴랙스 스크럽 */
     gsap.utils.toArray('.band img').forEach(function (img) {
