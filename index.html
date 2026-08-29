@@ -576,8 +576,10 @@ h3.h3{
 .domearc{position:absolute; left:0; top:0; width:100%; height:auto; display:block;
   z-index:2; pointer-events:none}
 .domearc text{
-  font-family:'Anton', var(--ff-body); font-size:52px; letter-spacing:.10em;
-  fill:none; stroke:var(--red); stroke-width:1.6; opacity:.55;
+/* v4.46 — 대표 지시로 안쪽으로 당기고(반지름 490→428) 키웠다(52→70px).
+   테두리에 붙어 있을 때보다 흰 바탕을 실제로 채워 배경 밀도가 올라간다. */
+  font-family:'Anton', var(--ff-body); font-size:70px; letter-spacing:.08em;
+  fill:none; stroke:var(--red); stroke-width:1.9; opacity:.5;
 }
 
 /* ④ 회전 링 — 돔 어깨에 얹는다 */
@@ -2193,8 +2195,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
               원(r 490)과 돔(타원 rx 489·ry 302)은 옆으로 갈수록 벌어지는데,
               그 어긋남이 오히려 테두리에 얹힌 스티커처럼 읽혀 살려 둔다. -->
       <svg class="domearc" viewBox="0 0 1000 310" aria-hidden="true" focusable="false">
-        <defs><path id="domearcpath" d="M 500,512 m -490,0 a 490,490 0 1,1 980,0 a 490,490 0 1,1 -980,0"/></defs>
-        <text><textPath href="#domearcpath" startOffset="13%">REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER</textPath></text>
+        <defs><path id="domearcpath" d="M 500,498 m -428,0 a 428,428 0 1,1 856,0 a 428,428 0 1,1 -856,0"/></defs>
+        <text><textPath href="#domearcpath" startOffset="12%">REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER</textPath></text>
       </svg>
 
       <div class="ring" aria-hidden="true">
