@@ -850,58 +850,109 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
   .rvroll__track{animation-duration:75s}
 }
 
-/* ── 기사 클리핑 (v4.19) — 실제 보도 화면 인용 ─────────────────────────
-   대표 판단으로 텍스트 인용에서 실제 기사 캡처로 올렸다. 저작권 리스크를
-   먼저 보고했고(언론사 저작물 복제·전송), 대표가 진행을 택했다.
-   내가 통제한 것은 범위다 — 기사 전문이 아니라 매체명·제목·리드·날짜까지만
-   잘랐고, 캡처 안에 타사 콘텐츠(연관기사·광고)가 섞이지 않게 요소 기준으로 크롭했다.
-   출처와 날짜는 아래 note 에 명기한다. */
-.clips{
-  display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(18px,2.4vw,34px);
-  margin:clamp(28px,3.6vw,46px) 0 0; padding:0; list-style:none;
-}
-.clip{
-  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
-  padding:clamp(12px,1.4vw,18px);
-}
-.clip img{width:100%; height:auto; display:block; border:1px solid var(--line)}
-.clip__src{
-  margin-top:12px; font-family:var(--ff-plate); font-size:var(--fs-cap);
-  line-height:1.5; color:var(--ink);
-}
-.clip__src b{color:var(--red-deep); font-weight:400}
+/* ── 시장 신호 (v4.33) — 글로벌 브랜드가 붙인 한국어 이름 2건 ────────────
+   저작권 범위는 v4.19 판단을 그대로 잇는다. 대표가 텍스트 인용 대신 실제 지면
+   캡처를 택했고, 내가 통제한 건 범위다 — 기사 전문이 아니라 매체명·제목·리드·
+   날짜까지만 자르고, 캡처 안에 타사 콘텐츠(연관기사·광고)가 안 섞이게 크롭했다.
 
-/* ── 한글 메뉴명 일러스트 (v4.19) ────────────────────────────────────
-   리네임 목록을 글자에서 그림으로 올린다. 「네모감자」·「양파링」은 이름 자체가
-   그림이라, 읽는 순간 왜 이 이름을 골랐는지가 설명 없이 전달된다.
-   일러스트는 배경을 --cream 으로 정규화해 크림 섹션에 얹으면 판이 안 보인다. */
+   v4.33 에서 두 가지를 고쳤다.
+   ⚠️ ① 판독 불가 — 원본이 1200px 인데 2열이라 522px 로 눌렸다. 지면 본문 글자가
+        약 5px 로 뭉개져, 이 섹션의 **근거가 근거로 작동하지 않았다**.
+        한 행에 한 건씩 눕혀 지면에 약 800px 을 준다(0.67배 — 부제까지 읽힌다).
+   ⚠️ ② 근거와 캡션 불일치 — 서울경제 지면에는 「성수 플래그십·코스 다이닝·매출 전망」만
+        있고 「K큐브 갈비 버거」가 없는데, 캡션이 그 지면을 근거인 양 달고 있었다.
+        메뉴명 출처(비즈니스포스트 2026.08.26)를 따로 명기하고, 지면 캡션에는
+        그 지면의 실제 헤드라인만 옮긴다. 4WAY·평수와 같은 유형의 사고였다.
+
+   ⚠️ 한국어 이름 그 자체가 증거다. 그래서 이름을 좌측에 크게 세우고 지면은 뒷받침으로 둔다. */
+.signal{
+  display:grid; gap:clamp(16px,2.2vw,30px);
+  margin:clamp(26px,3.4vw,44px) 0 0; padding:0; list-style:none;
+}
+.sig{
+  display:grid; grid-template-columns:minmax(240px,320px) 1fr;
+  gap:clamp(18px,2.4vw,34px); align-items:start;
+  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
+  padding:clamp(16px,2vw,26px);
+}
+.sig__brand{
+  margin:0; width:max-content; max-width:100%;
+  font-family:var(--ff-plate); font-size:var(--fs-cap); letter-spacing:.1em;
+  line-height:1.6; color:var(--white); background:var(--ink); padding:4px 11px;
+}
+.sig__name{
+  margin:clamp(10px,1.2vw,15px) 0 0; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(24px,2.9vw,42px); line-height:1.2; letter-spacing:-.015em;
+  color:var(--red-deep);
+}
+.sig__desc{margin:10px 0 0; font-size:var(--fs-cap); line-height:1.65; color:var(--ink)}
+/* ⚠️ --ink-2 는 흰 바탕에서 7.65:1 이라 밝은 배경 하한 10:1 에 미달한다
+   (그 토큰은 취소선·비활성 도장 같은 '의도적 약화' 전용이다). 출처는 읽혀야 하므로 --ink. */
+.sig__src{margin:10px 0 0; font-family:var(--ff-plate); font-size:var(--fs-cap);
+  line-height:1.6; color:var(--ink)}
+.sig__clip{margin:0}
+.sig__clip img{width:100%; height:auto; display:block; border:1px solid var(--line)}
+/* 지면 헤드라인을 그대로 옮기므로 한 줄이 50자까지 간다(상한 45자).
+   글자를 줄이면 인용이 아니게 되므로, 폭을 끊어 두 줄로 접는다. */
+.sig__clip figcaption{
+  margin-top:9px; font-family:var(--ff-plate); font-size:var(--fs-cap);
+  line-height:1.6; color:var(--ink); max-width:38em;
+}
+
+/* ── 우리 이름 (v4.33) — 「그들도 한다」 다음에 오는 「우리는 처음부터」 ──────
+   v4.19 구조에서 두 가지가 안 됐다.
+   ① 일러스트 4개가 크림 위에 프레임 없이 떠 있어, 굵은 외곽선 만화체가 이 페이지의
+      사진 기반 톤과 겉돌았다. 카드에 앉히면 '떠 있음'이 '진열됨'이 된다.
+   ② 「해쉬브라운」(작게 위) / 「네모감자」(크게 아래)가 전환 기호 없이 두 줄로만 놓여
+      **'바꿨다'는 관계가 안 읽혔다**. 취소선 색을 레드로 올리고 아래 화살표를 세워
+      from→to 를 못 박는다(화살표는 CSS 삼각형 — 자산을 늘리지 않는다).
+   위 시장 신호 2건과 이 4장을 한 판(.ours) 안에 묶어, 「글로벌이 지금 하는 일」과
+   「티티버거가 처음부터 한 일」이 한 덩어리로 읽히게 한다. */
+.ours{
+  margin-top:clamp(30px,4vw,52px);
+  background:var(--white); border:3px solid var(--ink); box-shadow:var(--sh-clip);
+  padding:clamp(20px,2.6vw,34px);
+}
+.ours__head{
+  display:grid; grid-template-columns:minmax(230px,1fr) 1.45fr;
+  gap:clamp(16px,2.4vw,36px); align-items:start;
+  border-bottom:3px solid var(--ink); padding-bottom:clamp(16px,2vw,24px);
+}
+.ours__h{
+  margin:0; font-family:var(--ff-sign); font-weight:400;
+  font-size:var(--fs-h3); line-height:1.32; color:var(--ink);
+}
+.ours__head p{margin:0; font-size:var(--fs-body); line-height:1.75; color:var(--ink)}
 .hnames{
   display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.6vw,24px);
-  margin:clamp(28px,3.6vw,46px) 0 0; padding:0; list-style:none;
+  margin:clamp(20px,2.6vw,34px) 0 0; padding:0; list-style:none;
 }
-.hname{text-align:center}
+.hname{
+  text-align:center; background:var(--cream);
+  border:2px solid var(--ink); padding:clamp(10px,1.2vw,16px) clamp(8px,1vw,14px) clamp(14px,1.6vw,20px);
+}
 .hname img{width:100%; height:auto; aspect-ratio:1/1; object-fit:contain; display:block}
 .hname__from{
-  display:block; margin-top:6px; font-size:var(--fs-cap); color:var(--ink-2);
-  text-decoration:line-through; text-decoration-thickness:2px;
+  display:block; margin-top:8px; font-family:var(--ff-plate);
+  font-size:var(--fs-cap); line-height:1.6; color:var(--ink-2);
+  text-decoration:line-through; text-decoration-thickness:2px; text-decoration-color:var(--red);
+}
+/* 아래 화살표 — 「바꿨다」를 기호로 못 박는다 */
+.hname__to::before{
+  content:""; display:block; width:0; height:0; margin:7px auto;
+  border-left:6px solid transparent; border-right:6px solid transparent;
+  border-top:8px solid var(--red);
 }
 .hname__to{
-  display:block; margin-top:4px; font-family:var(--ff-sign); font-weight:400;
-  font-size:clamp(17px,1.5vw,22px); line-height:1.3; color:var(--ink);
+  display:block; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(17px,1.6vw,24px); line-height:1.3; color:var(--ink);
 }
 @media (max-width:860px){
-  .clips{grid-template-columns:1fr}
+  .sig{grid-template-columns:1fr; gap:clamp(14px,3vw,20px)}
+  .ours__head{grid-template-columns:1fr; gap:clamp(12px,2.6vw,18px)}
   .hnames{grid-template-columns:repeat(2,1fr)}
 }
 
-.hangul{
-  margin-top:clamp(34px,4.2vw,60px); background:var(--cream);
-  border:0; box-shadow:none;
-  padding:clamp(26px,3.2vw,42px);
-}
-.sec--cream .hangul{background:var(--white)}
-.hangul__h{font-family:var(--ff-sign); font-weight:400; font-size:var(--fs-h3); line-height:1.32; color:var(--ink)}
-.hangul p{margin-top:14px; font-size:var(--fs-body); line-height:1.75; color:var(--ink); max-width:var(--measure-narrow)}
 
 /* ══ 09 업종 변경 — 전환 체크리스트 ══ */
 /* v4.31 — 「바뀌는 것 / 안 바뀌는 것」이 이 섹션의 핵심 대비인데 두 카드가 같은 톤이라
@@ -1194,7 +1245,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .fee__price{grid-column:1; font-size:var(--fs-cap)}
   .stamp{grid-row:1/3; grid-column:2; align-self:center}
   .fee__row--head{display:none}
-  .hangul{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   /* 320px 에서 nowrap 한 줄이 컨테이너에 0.6px 차이로 겨우 들어간다.
@@ -1261,8 +1311,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 }
 .sec--dark .menu li:first-child .menu__name{border-radius:2px}
 .sec--dark .menu img{background:var(--dark-2)}
-/* 한글명판 패널은 다크 안의 크림 섬 — 칩 배경을 흰색으로 되살림 */
-.sec--dark .hangul{background:var(--cream)}
 
 /* ── 교차 에디토리얼 (브랜드) ── */
 /* v4.32 밀도 패스 — 이 섹션은 3,183px 로 문서에서 가장 긴데 잉크 레이어가 1.18 로
@@ -2104,57 +2152,81 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   <section class="sec sec--cream" id="menu-side" aria-labelledby="ms-h">
     <div class="wrap">
       <p class="eyebrow">메뉴 이름</p>
-      <h2 class="h2" id="ms-h">촌스러운 게 아니라, 지금 글로벌 트렌드입니다</h2>
-      <p class="lead">한글 이름이 촌스럽지 않을까 — 그렇게 보실 수 있습니다.
-        그런데 지금 한국식 이름을 간판에 올리는 쪽은 글로벌 브랜드입니다.</p>
+      <!-- v4.33 — 개정 전 헤드는 「촌스러운 게 아니라, 지금 글로벌 트렌드입니다」였다.
+           ⚠️ 우리가 「촌스러운」을 먼저 꺼내면 읽는 분이 그 생각을 안 했어도 심어 준다.
+              게다가 「~가 아니라」로 열면 문장이 수세가 된다 — 기획안 원안의
+              「누구나 알아보는 한글 간판」은 공세인데 변명이 돼 있었다(G13 부정 프레임 선행).
+           대표 결정(2026-08-29): 트렌드 축은 유지하고 근거만 보강한다.
+           ⚠️ mark 하이라이트는 페이지 3곳 한도(없습니다·넓습니다·그대로)라 여기엔 쓰지 않는다. -->
+      <h2 class="h2" id="ms-h">지금 간판에 한국어를 올리는 쪽은 글로벌 브랜드입니다</h2>
+      <p class="lead">티티버거는 처음부터 한국어로 지었습니다.
+        최근 몇 달 사이, 글로벌 버거·치킨 브랜드가 <span class="hl">같은 선택</span>을 하기 시작했습니다.</p>
 
-      <!-- 시장 신호 — 실제 보도 클리핑 2건. 범위는 매체명·제목·리드·날짜까지. -->
-      <ul class="clips" aria-label="한국식 이름을 앞세운 글로벌 버거 브랜드 보도">
-        <li class="clip">
-          <img src="_assets/news/clip_sedaily_burgerking.jpg"
-               alt="서울경제 기사 헤드 — 패스트푸드 넘어 미식으로, 버거킹 와퍼 코스·플래그십으로 1조 시대 연다. 리드에 성수 세계 최초 플래그십, 시그니처 버거 전용 콘텐츠 강화가 적혀 있다"
-               loading="lazy" width="1200" height="311">
-          <p class="clip__src"><b>서울경제</b> · 2026.08.27 — 성수 플래그십 전용 시그니처 3종 중 하나가 「K-큐브 갈비 버거」</p>
+      <!-- 시장 신호 2건. 좌측의 한국어 이름이 곧 증거이고, 우측 지면이 그 뒷받침이다.
+           ⚠️ 지면 캡션에는 그 지면에 실제로 실린 헤드라인만 옮긴다. 지면에 없는 사실
+              (버거킹 시그니처 메뉴명)은 자기 출처를 따로 달았다. -->
+      <ul class="signal" aria-label="한국어 이름을 앞세운 글로벌 브랜드 사례 2건">
+        <li class="sig">
+          <div class="sig__side">
+            <p class="sig__brand">BURGER KING</p>
+            <p class="sig__name">K큐브 갈비 버거</p>
+            <p class="sig__desc">성수에 연 세계 최초 플래그십 「플레임그라운드」에서만 파는
+              시그니처 버거 3종 가운데 하나입니다.</p>
+            <p class="sig__src">메뉴명·구성 — 비즈니스포스트 2026.08.26<br>아래 지면 — 서울경제 2026.08.27</p>
+          </div>
+          <figure class="sig__clip">
+            <img src="_assets/news/clip_sedaily_burgerking.jpg"
+                 alt="서울경제 기사 헤드 — 패스트푸드 넘어 미식으로, 버거킹 와퍼 코스·플래그십으로 1조 시대 연다. 부제에 성수에 직화 콘셉트 적용한 세계 최초 플래그십, 예약제 코스 다이닝 공간 더 개스트로 첫선이 적혀 있다"
+                 loading="lazy" decoding="async" width="1200" height="255">
+            <figcaption>서울경제 지면 — 「패스트푸드 넘어 미식으로…버거킹, 와퍼 코스·플래그십으로 ‘1조 시대’ 연다」</figcaption>
+          </figure>
         </li>
-        <li class="clip">
-          <img src="_assets/news/clip_seoulfn_kfc.jpg"
-               alt="서울파이낸스 기사 헤드 — 르포, 북촌 달군 바삭한 집들이, KFC의 색다른 브랜드 실험"
-               loading="lazy" width="1200" height="227">
-          <p class="clip__src"><b>서울파이낸스</b> · 2026.06.05 — KFC 북촌 한옥마을 팝업 「켄터키 할아버지의 바삭한 집들이」</p>
+        <li class="sig">
+          <div class="sig__side">
+            <p class="sig__brand">KFC</p>
+            <p class="sig__name">바삭한 집들이</p>
+            <p class="sig__desc">북촌 한옥마을에 연 팝업의 이름입니다.
+              전통과 브랜드 경험을 묶은 기획으로, 소스·시즈닝 11종을 함께 공개했습니다.</p>
+            <p class="sig__src">지면 — 서울파이낸스 2026.06.05</p>
+          </div>
+          <figure class="sig__clip">
+            <img src="_assets/news/clip_seoulfn_kfc.jpg"
+                 alt="서울파이낸스 기사 헤드 — 르포, 북촌 달군 바삭한 집들이, KFC의 색다른 브랜드 실험. 부제에 전통과 브랜드 경험 결합 이색 팝업, 11종 소스·시즈닝 공개가 적혀 있다"
+                 loading="lazy" decoding="async" width="1200" height="174">
+            <figcaption>서울파이낸스 지면 — 「[르포] 북촌 달군 ‘바삭한 집들이’…KFC의 색다른 브랜드 실험」</figcaption>
+          </figure>
         </li>
       </ul>
 
-      <!-- 한글 메뉴명 — 이름이 곧 그림이 되는 것들. 리네임 목록을 글자에서 그림으로 올렸다. -->
-      <ul class="hnames" aria-label="흔히 쓰는 외래어 메뉴명을 한글 이름으로 바꾼 예">
-        <li class="hname">
-          <img src="_assets/illust/illust_nemogamja.png" alt="네모난 해시브라운 감자 두 조각 일러스트" loading="lazy" width="640" height="640">
-          <span class="hname__from">해쉬브라운</span><span class="hname__to">네모감자</span>
-        </li>
-        <li class="hname">
-          <img src="_assets/illust/illust_yangparing.png" alt="튀긴 양파링 세 개 일러스트" loading="lazy" width="640" height="640">
-          <span class="hname__from">어니언링</span><span class="hname__to">양파링</span>
-        </li>
-        <li class="hname">
-          <img src="_assets/illust/illust_dubae.png" alt="패티 두 장이 쌓인 버거 일러스트" loading="lazy" width="640" height="640">
-          <span class="hname__from">더블불고기</span><span class="hname__to">두배불고기버거</span>
-        </li>
-        <li class="hname">
-          <img src="_assets/illust/illust_gyeran.png" alt="불고기 패티 위에 계란프라이가 얹힌 일러스트" loading="lazy" width="640" height="640">
-          <span class="hname__from">에그불고기</span><span class="hname__to">계란불고기버거</span>
-        </li>
-      </ul>
-
-      <div class="hangul">
-        <div>
-          <h3 class="hangul__h">간판도 메뉴도, 한글입니다</h3>
+      <div class="ours">
+        <div class="ours__head">
+          <h3 class="ours__h">티티버거는 간판도 메뉴도 한글입니다</h3>
           <p>수제버거라고 해서 외국식 간판과 외국어 메뉴명을 따라가지 않았습니다.
             누구나 한 번에 읽고, 한 번에 말할 수 있는 이름을 골랐습니다.
-            버거집에서 만나는 한글 이름은 한 번 피식 하게 만들고, 그래서 기억에 남습니다.
             발걸음을 멈추게 하는 간판, 그리고 손님이 다시 말하게 되는 이름입니다.</p>
         </div>
+        <ul class="hnames" aria-label="흔히 쓰는 외래어 메뉴명을 한글 이름으로 바꾼 예">
+          <li class="hname">
+            <img src="_assets/illust/illust_nemogamja.png" alt="네모난 해시브라운 감자 두 조각 일러스트" loading="lazy" width="640" height="640">
+            <span class="hname__from">해쉬브라운</span><span class="hname__to">네모감자</span>
+          </li>
+          <li class="hname">
+            <img src="_assets/illust/illust_yangparing.png" alt="튀긴 양파링 세 개 일러스트" loading="lazy" width="640" height="640">
+            <span class="hname__from">어니언링</span><span class="hname__to">양파링</span>
+          </li>
+          <li class="hname">
+            <img src="_assets/illust/illust_dubae.png" alt="패티 두 장이 쌓인 버거 일러스트" loading="lazy" width="640" height="640">
+            <span class="hname__from">더블불고기</span><span class="hname__to">두배불고기버거</span>
+          </li>
+          <li class="hname">
+            <img src="_assets/illust/illust_gyeran.png" alt="불고기 패티 위에 계란프라이가 얹힌 일러스트" loading="lazy" width="640" height="640">
+            <span class="hname__from">에그불고기</span><span class="hname__to">계란불고기버거</span>
+          </li>
+        </ul>
       </div>
-      <p class="note">위 보도 인용은 각 매체의 공개 기사이며 저작권은 해당 언론사에 있습니다(2026년 8월 27일 확인).
-        티티버거와 제휴·연관이 없는 타사 사례이며, 시장 흐름을 보여 드리기 위한 참고입니다.</p>
+
+      <p class="note">위 보도 인용은 각 매체의 공개 기사이며 저작권은 해당 언론사에 있습니다(2026년 8월 29일 확인).
+        버거킹·KFC는 티티버거와 제휴·연관이 없는 타사이며, 시장 흐름을 보여 드리기 위한 참고입니다.</p>
     </div>
   </section>
 
@@ -3045,7 +3117,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       { sel: '.ed__row--rev .ed__fig', x: -110 },
       { sel: '.creedsplit b' }, { sel: '.creed p' }, { sel: '.vchip', x: 70 },
       { sel: '#support .limit' },   /* .fee__row 는 5d 순차, .perk 는 5b 팝이 맡는다 */
-      { sel: '.hangul' }, { sel: '.clip', x: 90 }, { sel: '.hname' },
+      { sel: '.ours__head' }, { sel: '.sig', x: 90 }, { sel: '.hname' },
       { sel: '#why .swap .card:nth-child(1)', x: -110 },
       { sel: '#why .swap .card:nth-child(2)', x: 110 },
       /* .fit__list li 는 5d 순차로 이관 */
