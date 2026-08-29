@@ -586,18 +586,6 @@ h3.h3{
   text-anchor:middle;
 }
 
-/* 제품 뒤 브랜드 마크 (v4.48) — 버거가 가운데를 덮고 가장자리만 배경으로 남는다. */
-/* ⚠️ 제품 영상은 **흰 배경 사각형**이라 그보다 작으면 통째로 가려진다
-   (첫 시도: 마크 547px < 영상 576px → 화면에 한 점도 안 보였다).
-   영상보다 확실히 넓게 잡아 좌우로 삐져나오게 한다. */
-.domemark{
-  position:absolute; left:50%; bottom:clamp(96px,12vw,180px); transform:translateX(-50%);
-  /* ⚠️ 돔 폭(68vw)을 넘기면 양끝 글자가 잘려 「티티버거」가 안 읽힌다(84vw 실측).
-     돔 안쪽에 들어오면서 영상(40vw)보다는 확실히 넓은 62vw 로 잡는다. */
-  z-index:1; margin:0; width:clamp(380px,62vw,880px); pointer-events:none; user-select:none;
-  mix-blend-mode:multiply;
-}
-.domemark img{width:100%; height:auto; display:block; opacity:.16}
 
 /* 돔 하단 띠 (v4.47) — 상단 곡선과 같은 아웃라인 어휘로 액자를 닫는다. */
 .domefoot{
@@ -2267,17 +2255,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
           <source src="_assets/video/stack_titi.mp4" type="video/mp4"></video>
       </figure>
 
-      <!-- v4.48 — 대표 지시로 제품 뒤에 브랜드 마크를 깐다.
-           v4.49 — 심볼이 아니라 **워드마크(티티버거)** 로. 섹션 머리의 흰 워드마크와 겹치지만,
-           그쪽은 헤드라인이고 이쪽은 제품에 깔리는 워터마크라 역할이 다르다.
-           ⚠️ 영상은 **흰 배경 사각형**이라 마크를 뒤에 깔면 두 가지가 다 어긋난다 —
-              작으면 통째로 가려지고(첫 시도 547px<576px), 크게 하면 흰 상자가 마크를 가로질러
-              사각형이 보인다(둘 다 실측). 그래서 영상 **위**에 두고 multiply 로 섞는다.
-              흰 배경 위에서는 주변 돔과 같은 연분홍이 되고, 버거 위에서는 거의 티가 안 난다.
-           ⚠️ .creedfig 와 z-index 가 같으므로 **DOM 순서**로 위에 얹는다. 순서를 바꾸면 다시 가려진다. -->
-      <p class="domemark" aria-hidden="true">
-        <img src="_assets/wordmark-red.png" alt="" width="640" height="143" loading="lazy" decoding="async">
-      </p>
 
 
       <div class="creedsplit">
