@@ -899,6 +899,63 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
   line-height:1.6; color:var(--ink); max-width:38em;
 }
 
+/* ── 동반자 초대 (v4.34) — 이 섹션의 절정 ────────────────────────────
+   대표 제안(2026-08-29): 「K버거 브랜드를 같이 만들어 갈 동반자를 구한다」.
+   페이지 h2 14개가 전부 정보 전달형(「~입니다」)이라 **읽는 분에게 역할을 주는 대목이
+   한 군데도 없었다**. 관객으로 두면 가맹 모집 페이지가 성립하지 않는다.
+   앞의 시장 신호(버거킹 K큐브 갈비·KFC 바삭한 집들이)와 우리 한글 이름이
+   여기서 초대로 닫힌다 — 근거 → 우리 → 같이.
+
+   ⚠️ 대표 표현은 「신화」였으나 그대로 쓰지 않았다. 선착순 10호점을 모집하면서
+      신화를 말하면 크기가 안 맞고, 자기 돈을 넣는 분에게는 낭만이 '꿈 팔기'로 읽힌다
+      (G13 반발 5유형 중 「우리 이득 선행」 — 본사 비전에 점주가 동원되는 그림).
+      그래서 규모를 숨기지 않는 쪽을 택했다: 「아직 큰 브랜드는 아닙니다」.
+      작다고 먼저 말하는 편이 신뢰를 만들고, 「먼저 여는 열 곳」에 의미를 준다.
+   ⚠️ 「K버거」는 살렸다 — 바로 위에 버거킹의 「K큐브 갈비 버거」 근거가 있어 자연스럽다.
+      단 「K버거의 대표·1등」 같은 지위 주장은 쓰지 않는다(근거 없음 + 가맹사업법).
+   ⚠️ 세 항목은 전부 이 페이지에 이미 실린 것이다(한글 이름 · 12無/1,000만원 · 한 상권 한 매장).
+      초대는 약속이 아니라 이미 한 말의 재배치여야 한다 — 새 약속을 지어내면 4WAY 사고가 된다.
+   ⚠️ 레드 바탕에서 --ink 는 3.72:1 미달이라 흰 글자(4.80:1)만 쓴다. */
+.invite{
+  margin-top:clamp(28px,3.6vw,46px);
+  background-color:var(--red); color:var(--white);
+  border:3px solid var(--ink); box-shadow:var(--sh-sign);
+  padding:clamp(22px,2.8vw,38px);
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(22px,3vw,44px); align-items:start;
+}
+/* ⚠️ 선택자를 .invite 로 한 단계 감쌌다. `.invite__lead p` 가 (0,1,1) 이라
+   `.invite__kicker` (0,1,0) 를 이겨 글자가 흰 바탕에 흰색으로 깔렸다 —
+   화면엔 빈 흰 상자로만 보인다. (v4.22 의 `h2.h2` vs `.rvh` 와 같은 유형) */
+.invite .invite__kicker{
+  margin:0; width:max-content; max-width:100%;
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(17px,1.7vw,24px);
+  line-height:1.4; letter-spacing:.02em; color:var(--red);
+  background:var(--white); padding:3px 14px 5px;
+}
+.invite__h{
+  margin:clamp(12px,1.5vw,18px) 0 0; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(25px,3.1vw,44px); line-height:1.22; letter-spacing:-.015em; color:var(--white);
+}
+.invite__lead p{
+  margin:clamp(12px,1.5vw,18px) 0 0;
+  font-size:var(--fs-body); line-height:1.75; color:var(--white);
+}
+.invite__lead .btn{margin-top:clamp(16px,2vw,24px)}
+.invite__list{list-style:none; margin:0; padding:0; display:grid; gap:clamp(10px,1.3vw,16px)}
+.invite__list li{
+  border:2px solid var(--white); padding:clamp(12px,1.4vw,18px);
+  background:rgba(0,0,0,.10);
+}
+.invite__list b{
+  display:block; font-family:var(--ff-sign); font-weight:400;
+  font-size:clamp(18px,1.8vw,25px); line-height:1.32; color:var(--white);
+}
+.invite__list span{
+  display:block; margin-top:7px; font-size:var(--fs-cap);
+  line-height:1.65; color:var(--white);
+}
+
 /* ── 우리 이름 (v4.33) — 「그들도 한다」 다음에 오는 「우리는 처음부터」 ──────
    v4.19 구조에서 두 가지가 안 됐다.
    ① 일러스트 4개가 크림 위에 프레임 없이 떠 있어, 굵은 외곽선 만화체가 이 페이지의
@@ -951,6 +1008,7 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
   .sig{grid-template-columns:1fr; gap:clamp(14px,3vw,20px)}
   .ours__head{grid-template-columns:1fr; gap:clamp(12px,2.6vw,18px)}
   .hnames{grid-template-columns:repeat(2,1fr)}
+  .invite{grid-template-columns:1fr; gap:clamp(18px,4vw,26px)}
 }
 
 
@@ -2225,6 +2283,36 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
         </ul>
       </div>
 
+      <!-- 동반자 초대 (v4.34) — 근거 → 우리 이름 → 같이. 이 섹션의 절정이자
+           페이지에서 유일하게 읽는 분에게 역할을 주는 대목이다.
+           세 항목은 전부 이 페이지에 이미 실린 것이다(한글 이름 · 12無/1,000만원 ·
+           한 상권 한 매장). 초대는 새 약속이 아니라 이미 한 말의 재배치다. -->
+      <aside class="invite" aria-labelledby="invite-h">
+        <div class="invite__lead">
+          <p class="invite__kicker">K버거</p>
+          <h3 class="invite__h" id="invite-h">이 이름을 같이 걸 분을 찾습니다</h3>
+          <p>버거킹이 「K큐브 갈비 버거」를 내고 KFC가 「바삭한 집들이」를 여는 동안,
+            티티버거는 처음부터 한글로 간판을 걸었습니다.
+            아직 큰 브랜드는 아닙니다 — 지금은 10호점을 모집하는 자리입니다.
+            먼저 여는 열 곳이 이 이름의 첫인상을 만듭니다.</p>
+          <a class="btn btn--ghost" href="#contact">창업 상담 신청</a>
+        </div>
+        <ul class="invite__list">
+          <li>
+            <b>이름을 함께 씁니다</b>
+            <span>간판도 메뉴도 한글입니다. 같은 문법을 쓰는 매장이 늘수록 이름이 굳습니다.</span>
+          </li>
+          <li>
+            <b>조건은 지금 여는 매장의 몫입니다</b>
+            <span>12無와 창업비용 최대 1,000만원 지원은 선착순 10호점까지 적용됩니다.</span>
+          </li>
+          <li>
+            <b>서로 나눠 먹지 않습니다</b>
+            <span>한 상권에 한 매장. 본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.</span>
+          </li>
+        </ul>
+      </aside>
+
       <p class="note">위 보도 인용은 각 매체의 공개 기사이며 저작권은 해당 언론사에 있습니다(2026년 8월 29일 확인).
         버거킹·KFC는 티티버거와 제휴·연관이 없는 타사이며, 시장 흐름을 보여 드리기 위한 참고입니다.</p>
     </div>
@@ -3118,6 +3206,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       { sel: '.creedsplit b' }, { sel: '.creed p' }, { sel: '.vchip', x: 70 },
       { sel: '#support .limit' },   /* .fee__row 는 5d 순차, .perk 는 5b 팝이 맡는다 */
       { sel: '.ours__head' }, { sel: '.sig', x: 90 }, { sel: '.hname' },
+      { sel: '.invite__lead' }, { sel: '.invite__list li' },
       { sel: '#why .swap .card:nth-child(1)', x: -110 },
       { sel: '#why .swap .card:nth-child(2)', x: 110 },
       /* .fit__list li 는 5d 순차로 이관 */
