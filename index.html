@@ -486,6 +486,10 @@ h3.h3{
 
 .band{width:100%; overflow:hidden; background:var(--ink); line-height:0}
 .band img{width:100%; height:clamp(200px,24vw,400px); object-fit:cover; object-position:center}
+/* v4.38 — 광고 밴드는 16:9 그대로 쓴다. 24vw 로 눌러 자르면 엔드카드의 문구가 잘린다.
+   ⚠️ height:auto 필수 — <video width/height> 속성이 프레젠테이션 힌트로 먼저 박혀
+      aspect-ratio 를 통째로 무시한다(v4.18 조리 밴드에서 실제로 났다). */
+.band--ad video{width:100%; height:auto; aspect-ratio:16/9; display:block}
 
 /* ══ 04 브랜드 ══ */
 .brand__grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:start; margin-top:clamp(30px,4vw,54px)}
@@ -1965,12 +1969,17 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
             <p class="card__no">번</p>
             <h3 class="h3">티티버거가 자체 개발한 브리오슈 번</h3>
             <p>촉촉하고 쫀득한 결을 내려고 번부터 직접 만들었습니다. 시판 번을 그대로 쓰면 나오지 않는 식감입니다.</p>
-            <!-- v4.32 — 미사용으로 남아 있던 주방 실촬컷을 증거로 세운다. 새 주장은 없다:
-                 캡션은 이 섹션 머리 오벌 배지의 문구를 그대로 쓴다. -->
+            <!-- v4.32 — 이 자리를 채우려고 넣었고, v4.37 에서 성격을 바로잡았다.
+                 ⚠️ `_assets/craft/*` 는 **전부 AI 생성 이미지**다(v4.12 대표 지시로 생성,
+                    v4.15 위생 문제로 전면 재생성). v4.32 주석에 「주방 실촬컷」이라 적고
+                    「증거」로 세웠던 것은 사실과 다르다 — 실촬은 `_assets/shot`·`menu` 쪽이다.
+                    #supply 에서 같은 AI 공정컷을 공정 '삽화'로 쓰는 것은 대표 승인 사항이지만,
+                    「직접 만들었습니다」 바로 아래에 증거로 붙이면 실제 주방 사진으로 읽힌다.
+                    그래서 캡션에서 증거 프레이밍을 걷고 삽화로 되돌린다. -->
             <figure class="ed__ev">
-              <img src="_assets/craft/01_bun.jpg" alt="검은 위생장갑을 낀 손이 스테인리스 트레이 위에서 브리오슈 번을 다루는 모습"
+              <img src="_assets/craft/01_bun.jpg" alt="브리오슈 번을 트레이 위에서 다루는 과정을 나타낸 예시 이미지"
                    loading="lazy" decoding="async" width="896" height="1200">
-              <figcaption class="ed__evcap">번 — 자체 개발 브리오슈</figcaption>
+              <figcaption class="ed__evcap">번을 다루는 과정 — 이미지 예시</figcaption>
             </figure>
           </div>
           <figure class="ed__fig">
@@ -2393,9 +2402,19 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
     </div>
   </div>
 
-  <!-- 풀블리드 밴드 B — 메뉴 그리드 35종을 닫는다 (L2) -->
-  <div class="band">
-    <img src="_assets/shot/band.jpg" alt="티티버거 세트 라인업 — 버거·사이드·음료" loading="lazy" width="1920" height="1072">
+  <!-- 풀블리드 밴드 B (v4.38) — 정지 사진에서 광고 영상으로 교체.
+       2025~2026 버거 광고 11편을 실측한 컷 구조를 따랐다(_레퍼런스/버거광고/README.md):
+       제품 소구형 평균 1.27초 · 15초물 12~15컷 · 오프닝 길게·본론 짧게·엔드카드 길게
+       · 최신군에만 있는 0.2~0.3초 플래시컷 묶음.
+       결과 12컷 / 11.6초 / 평균 0.97초 — 맥도날드 진주고추(1.00초)와 같은 대역.
+       ⚠️ 공정 컷의 원본은 AI 생성 이미지다(_assets/craft/*). 실촬은 제품·세트 쪽이다.
+          그래서 자막으로 생산 주체·설비를 단정하지 않고, 엔드카드도 브랜드 한 문장과
+          이미 공표된 오퍼만 싣는다. -->
+  <div class="band band--ad">
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
+           aria-label="티티버거 광고 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
+      <source src="_assets/video/ad_titi.mp4" type="video/mp4"></video>
   </div>
 
   <!-- ══ 09 업종 변경 — 여기서부터 타겟을 좁힌다 (2026-08-20 구조: 넓게→좁게, 메뉴 뒤 배치) ══ -->
