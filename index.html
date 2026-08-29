@@ -578,8 +578,32 @@ h3.h3{
 .domearc text{
 /* v4.46 — 대표 지시로 안쪽으로 당기고(반지름 490→428) 키웠다(52→70px).
    테두리에 붙어 있을 때보다 흰 바탕을 실제로 채워 배경 밀도가 올라간다. */
-  font-family:'Anton', var(--ff-body); font-size:70px; letter-spacing:.08em;
-  fill:none; stroke:var(--red); stroke-width:1.9; opacity:.5;
+/* ⚠️ text-anchor:middle + startOffset 25%(=원의 꼭대기) 로 고정한다.
+   startOffset 만 쓰면 문자열 길이가 바뀔 때마다 좌우가 어긋나고, 길면 뷰박스 밖으로
+   나가 잘린다(v4.46 실측: 텍스트 bbox 881x1022 vs 뷰박스 1000x310 — 우·하 잘림). */
+  font-family:'Anton', var(--ff-body); font-size:61px; letter-spacing:.06em;
+  fill:none; stroke:var(--red); stroke-width:1.8; opacity:.5;
+  text-anchor:middle;
+}
+
+/* 제품 뒤 브랜드 마크 (v4.48) — 버거가 가운데를 덮고 가장자리만 배경으로 남는다. */
+/* ⚠️ 제품 영상은 **흰 배경 사각형**이라 그보다 작으면 통째로 가려진다
+   (첫 시도: 마크 547px < 영상 576px → 화면에 한 점도 안 보였다).
+   영상보다 확실히 넓게 잡아 좌우로 삐져나오게 한다. */
+.domemark{
+  position:absolute; left:50%; bottom:clamp(2px,.6vw,10px); transform:translateX(-50%);
+  z-index:1; margin:0; width:clamp(430px,82vw,1160px); pointer-events:none; user-select:none;
+  mix-blend-mode:multiply;
+}
+.domemark img{width:100%; height:auto; display:block; opacity:.17}
+
+/* 돔 하단 띠 (v4.47) — 상단 곡선과 같은 아웃라인 어휘로 액자를 닫는다. */
+.domefoot{
+  position:absolute; left:0; right:0; bottom:clamp(14px,1.8vw,26px); z-index:0; margin:0;
+  font-family:'Anton', var(--ff-body); text-transform:uppercase; white-space:nowrap;
+  font-size:clamp(30px,3.6vw,54px); line-height:1; letter-spacing:.06em; text-align:center;
+  color:transparent; -webkit-text-stroke:1.8px var(--red); opacity:.5;
+  pointer-events:none; user-select:none; overflow:hidden;
 }
 
 /* ④ 회전 링 — 돔 어깨에 얹는다 */
@@ -1898,7 +1922,11 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .mrow__clip::-webkit-scrollbar{display:none}
 .mrow--auto .mrow__clip{overflow:hidden}
 .mline{display:flex; gap:clamp(14px,1.8vw,24px); width:max-content; will-change:transform; padding-right:clamp(14px,1.8vw,24px)}
-.mline li{flex:0 0 clamp(180px,15vw,230px); position:relative}
+/* v4.47 — 대표 지시로 확대. 개정 전 15vw(1440에서 216px)는 원본 760x506 을 28% 로만 쓰는
+   크기였다. 21vw(302px)로 올린다.
+   ⚠️ 롤링 속도는 JS 가 `트랙폭/2 ÷ 60px/s` 로 계산하므로 칸이 넓어지면 한 바퀴가 길어질 뿐
+      속도는 그대로다 — 버거·사이드 두 줄의 동기(v4.27 에서 잡은 것)가 깨지지 않는다. */
+.mline li{flex:0 0 clamp(230px,21vw,320px); position:relative}
 .mline li img{transition:transform .25s ease}
 .mline li:hover img{transform:scale(1.05)}
 
@@ -1933,7 +1961,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .wq{margin-bottom:-14px}
   .mhero{width:clamp(180px,44vw,240px); top:-6px; right:-10px}
   .mhero .hand--menu{font-size:19px}
-  .mline li{flex-basis:clamp(150px,42vw,190px)}
+  .mline li{flex-basis:clamp(185px,52vw,240px)}
 }
 </style>
 </head>
@@ -2194,9 +2222,9 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
               같은 구성(원 + large=1 sweep=1 + 좌측 시작)을 쓰면 글자가 서고 좌→우로 읽힌다.
               원(r 490)과 돔(타원 rx 489·ry 302)은 옆으로 갈수록 벌어지는데,
               그 어긋남이 오히려 테두리에 얹힌 스티커처럼 읽혀 살려 둔다. -->
-      <svg class="domearc" viewBox="0 0 1000 310" aria-hidden="true" focusable="false">
-        <defs><path id="domearcpath" d="M 500,498 m -428,0 a 428,428 0 1,1 856,0 a 428,428 0 1,1 -856,0"/></defs>
-        <text><textPath href="#domearcpath" startOffset="12%">REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER</textPath></text>
+      <svg class="domearc" viewBox="0 0 1000 430" aria-hidden="true" focusable="false">
+        <defs><path id="domearcpath" d="M 500,520 m -436,0 a 436,436 0 1,1 872,0 a 436,436 0 1,1 -872,0"/></defs>
+        <text><textPath href="#domearcpath" startOffset="25%">REAL CRAFT BURGER&#160;·&#160;REAL CRAFT BURGER</textPath></text>
       </svg>
 
       <div class="ring" aria-hidden="true">
@@ -2224,12 +2252,31 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
               같은 그림을 크기 바꿔 재인코딩하니 통과했다.
            ⚠️ 배경이 흰색인 이유 — 돔이 var(--white) 라 이음매가 없다. 알파를 살리려면
               webm/apng 이 필요한데 용량·호환이 나빠 배경색을 맞추는 쪽을 택했다. -->
+      <!-- v4.47 — 대표 지시「테두리를 감싸는 느낌, 하단도」. 상단 곡선과 같은 어휘를
+           돔 하단에 가로로 둘러 액자를 닫는다.
+           ⚠️ z-index 0 — 제품 영상(z-index 1)보다 뒤에 둬야 버거가 띠를 밟고 선다.
+              앞에 두면 글자가 버거를 가로지른다. -->
+      <p class="domefoot" aria-hidden="true">REAL CRAFT BURGER · REAL CRAFT BURGER · REAL CRAFT BURGER · REAL CRAFT BURGER</p>
+
       <figure class="creedfig">
         <video class="creedcut" autoplay muted loop playsinline preload="metadata"
                poster="_assets/video/stack_titi_poster.jpg" width="1280" height="922" tabindex="-1"
                aria-label="최고티버거의 양상추·양파·패티·치즈·베이컨·피클·번이 차례로 내려와 쌓이는 장면">
           <source src="_assets/video/stack_titi.mp4" type="video/mp4"></video>
       </figure>
+
+      <!-- v4.48 — 대표 지시로 제품 뒤에 브랜드 마크를 깐다.
+           ⚠️ 워드마크(티티버거)는 안 쓴다 — 섹션 머리에 이미 흰 워드마크가 커서 같은 말이 두 번이다.
+              심볼은 링 안의 것과 스케일이 달라 중복으로 안 읽힌다.
+           ⚠️ 영상은 **흰 배경 사각형**이라 마크를 뒤에 깔면 두 가지가 다 어긋난다 —
+              작으면 통째로 가려지고(첫 시도 547px<576px), 크게 하면 흰 상자가 마크를 가로질러
+              사각형이 보인다(둘 다 실측). 그래서 영상 **위**에 두고 multiply 로 섞는다.
+              흰 배경 위에서는 주변 돔과 같은 연분홍이 되고, 버거 위에서는 거의 티가 안 난다.
+           ⚠️ .creedfig 와 z-index 가 같으므로 **DOM 순서**로 위에 얹는다. 순서를 바꾸면 다시 가려진다. -->
+      <p class="domemark" aria-hidden="true">
+        <img src="_assets/symbol-red.png" alt="" width="354" height="260" loading="lazy" decoding="async">
+      </p>
+
 
       <div class="creedsplit">
         <b>결국,<br>본질은</b>
