@@ -54,6 +54,10 @@
   --line:#E0D8CA;
   --white:#fff;
 
+  /* 배경 결 (v4.32) — 세로 헤어라인 격자. 90~150px 간격으로 1px. */
+  --grain-ink:repeating-linear-gradient(90deg, rgba(26,22,20,.055) 0 1px, transparent 1px clamp(90px,9vw,150px));
+  --grain-light:repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px clamp(90px,9vw,150px));
+
   --ff-sign:'Jua', 'Pretendard', sans-serif;  /* 간판 헤드 — 주아체(배민 계열, 400 단일 웨이트) */
   --ff-plate:'Do Hyeon', 'Pretendard', sans-serif;       /* 이름표·배지 */
   --ff-body:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -74,9 +78,14 @@
   --measure-narrow:34em;
 
   /* 섹션 여백 3단 — 균등 여백은 덩어리를 못 만든다. 배치는 아래 '섹션 리듬' 참조 */
-  --pad-tight:clamp(38px, 4.6vw, 68px);
-  --pad-base:clamp(56px, 7vw, 108px);
-  --pad-open:clamp(80px, 10vw, 152px);
+  /* v4.32 밀도 패스 — 세 값을 같은 비율(0.82x)로 함께 줄인다.
+     v4.8b 가 만든 간격 고유값 4종(리듬)은 비율이 유지되므로 그대로 살아 있고,
+     줄어드는 건 절대 여백뿐이다. 실측 근거: 빈 줄 비율이 우리 23.2% 인데
+     버거리 19.4% · 프레디 17.0% 로, 페이지가 긴 게 아니라 사이가 비어 있었다.
+     ⚠️ 균등하게 되돌리지 말 것 — 균등 202px 한 값이 v4.8b 이전의 '통짜' 원인이었다. */
+  --pad-tight:clamp(32px, 3.8vw, 56px);
+  --pad-base:clamp(46px, 5.7vw, 88px);
+  --pad-open:clamp(66px, 8.2vw, 124px);
 
   /* 「간판」 물성은 희소 자원 — 히어로 사인보드 · 12無 오퍼 · 최종 CTA 3곳에만.
      나머지는 여백·타이포·배경차로 구분한다. (루브릭 H2·C2·C3·L1) */
@@ -117,9 +126,16 @@ button,input,select,textarea{font:inherit; color:inherit}
 input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
 
 .wrap{max-width:var(--w-full); margin:0 auto; padding-inline:var(--gutter)}
-.sec{padding-block:var(--pad-base)}
-.sec--cream{background:var(--cream)}
-.sec--red{background:var(--red); color:var(--white)}
+/* v4.32 — 배경 결. 개정 전 섹션 바탕은 전부 단색 한 장이라, 요소 사이가 비면
+   그 자리가 그대로 '빈 색면'이 됐다. #creed 가 레드 위에서 쓰던 세로 헤어라인
+   격자를 흰·크림·다크로 넓혀 바탕 자체에 결을 준다(레드는 creed 가 이미 갖고 있어 제외).
+   ⚠️ 가상요소(::before)가 아니라 background-image 로 넣는다 — 이 시안은 풀블리드
+      블리드 요소(.ed__fig·.craft 스트립)가 많아 새 스태킹 문맥을 만들면 그것들이
+      바탕 아래로 깔릴 위험이 있다. 배경 이미지는 쌓임 순서를 건드리지 않는다.
+   ⚠️ background 단축을 쓰면 이미지가 지워진다 — 아래 셋은 전부 background-color 로 쓴다. */
+.sec{padding-block:var(--pad-base); background-color:var(--white); background-image:var(--grain-ink)}
+.sec--cream{background-color:var(--cream); background-image:var(--grain-ink)}
+.sec--red{background-color:var(--red); color:var(--white); background-image:none}
 
 /* ── 섹션 리듬 (v4.8b) ──────────────────────────────────────────────
    개정 전에는 13개 섹션이 전부 101px 균등이라 섹션 간격이 202px 한 값뿐이었다.
@@ -172,10 +188,20 @@ input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
 
    미지정 = full: hero · brand · supply · menu-burger · process · faq · footer */
 #support .wrap, #menu-side .wrap,
-#fourway .wrap, #company .wrap   {max-width:var(--w-wide)}   /* 3~4열 그리드 */
-#why .wrap, #types .wrap,
-.ctastrip__in                    {max-width:var(--w-mid)}    /* 2열 구성 */
-#creed .wrap, #contact .wrap     {max-width:var(--w-tight)}  /* 단문·인용·폼 */
+#fourway .wrap, #company .wrap,
+#contact .wrap                   {max-width:var(--w-wide)}   /* 3~4열 그리드 */
+#types .wrap, .ctastrip__in      {max-width:var(--w-mid)}    /* 2열 구성 */
+/* v4.32 — #why 는 스왑 2열 + 적합 목록 + VS 2열이 들어가는데 열이 945px 뿐이라
+   좌우로 248px 씩 빈 채 잉크폭이 뷰포트의 81% 에 그쳤다(실측 avg 0.336 · 레이어 1.13).
+   1165 로 올린다. 945 단은 #types 가 계속 지탱하므로 폭 변주 4단은 유지된다. */
+#why .wrap                       {max-width:var(--w-wide)}
+#creed .wrap                     {max-width:var(--w-tight)}  /* 단문·인용 */
+/* v4.32 — --w-tight(880) 는 원래 「단문·인용·폼」 몫인데, v4.30 에서 #creed 를
+   거대 돔으로 다시 짜면서 이 섹션의 .wrap 이 통째로 사라졌다. 그때부터 880 단을
+   #contact 혼자 지탱했고(실측 4단 [765,945,1165,1325] · 기준 4단 = 여유 0),
+   폼을 2단으로 넓히면 단이 3개로 줄어 폭 변주 게이트가 깨지는 상태였다.
+   creed 본문에 .wrap 을 되돌려 준다 — 원래 이 자리 몫이었고, 이미 --measure 로
+   그만큼 좁게 조판돼 있어 보이는 그림은 바뀌지 않는다(회귀 복구지 게이트 우회가 아니다). */
 
 /* 섹션 이름표 — 간판 하부의 작은 아크릴 명패 */
 .eyebrow{
@@ -547,7 +573,14 @@ h3.h3{
 }
 .creedsplit b{
   font-family:var(--ff-sign); font-weight:400; letter-spacing:-.015em;
-  font-size:clamp(26px,4.4vw,64px); line-height:1.16; color:var(--ink);
+  /* v4.32 — 대표 후킹이라 h1(80px) 다음가는 크기까지 올린다. 다만 78px 로 올렸다가
+     좌우 칸(각 ~190px)을 넘겨 「본질/은」「맛/입니/다」로 음절이 깨졌다(실측).
+     ⚠️ body 가 overflow-wrap:anywhere 라 keep-all 이 있어도 칸을 넘으면 음절 단위로 쪼갠다.
+        그래서 ① 줄바꿈은 마크업 <br> 로 확정하고 ② 여기서 anywhere 를 끈다 —
+        이제 안 맞으면 깨지는 대신 삐져나오므로 게이트(가로 오버플로)가 잡는다.
+     한 줄 최대 3자(본질은·입니다) × 약 0.95em = 2.85em ≤ 칸폭 이어야 한다. */
+  font-size:clamp(28px,4.7vw,70px); line-height:1.14; color:var(--ink);
+  word-break:keep-all; overflow-wrap:normal;
 }
 .creedsplit b:first-of-type{text-align:right}
 .creedsplit b:last-of-type{text-align:left}
@@ -556,7 +589,7 @@ h3.h3{
    기존 cutout_titi.png 는 실제 버거가 575px 뿐이라 키우면 뭉갰다(실측). 이건 1280px 라
    540px 로 띄워도 2.4배 여유가 있다. webp 인 이유는 무게다 — 같은 크기 PNG 1,480KB / webp 170KB.
    아래 접지 그림자는 누끼가 흰 돔 위에 '떠 있는' 게 아니라 '놓여 있게' 만든다. */
-.creedcut{width:clamp(190px,34vw,520px); height:auto; display:block; margin:0; position:relative; z-index:1}
+.creedcut{width:clamp(190px,29vw,430px); height:auto; display:block; margin:0; position:relative; z-index:1}
 .creedfig{position:relative; margin:0; display:flex; justify-content:center}
 .creedfig::after{
   content:""; position:absolute; z-index:0; left:12%; right:12%; bottom:2%;
@@ -583,18 +616,23 @@ h3.h3{
   border:2px solid var(--white); background:var(--red);
   padding:clamp(9px,1.1vw,15px) clamp(11px,1.3vw,18px);
 }
-.vchip:nth-child(1){left:clamp(8px,1.8vw,34px);  top:clamp(150px,17vw,268px)}
-.vchip:nth-child(3){left:clamp(8px,1.8vw,34px);  top:clamp(268px,30vw,470px)}
-.vchip:nth-child(2){right:clamp(8px,1.8vw,34px); top:clamp(150px,17vw,268px)}
-.vchip:nth-child(4){right:clamp(8px,1.8vw,34px); top:clamp(268px,30vw,470px)}
-.vchip:nth-child(5){right:clamp(8px,1.8vw,34px); top:clamp(386px,43vw,672px)}
+/* v4.32 — 5개 → 8개, 좌우 4단씩. 돔 양옆의 레드 여백이 이 섹션에서 가장 비어 있던
+   자리였다(실측 avg 0.319 · 레이어 1.89 — 대표 후킹인데 문서에서 가장 성겼다). */
+.vchip:nth-child(2n+1){left:clamp(8px,1.8vw,34px)}
+.vchip:nth-child(2n)  {right:clamp(8px,1.8vw,34px)}
+.vchip:nth-child(1),.vchip:nth-child(2){top:clamp(120px,13.5vw,214px)}
+.vchip:nth-child(3),.vchip:nth-child(4){top:clamp(236px,26.5vw,420px)}
+.vchip:nth-child(5),.vchip:nth-child(6){top:clamp(352px,39.5vw,626px)}
+.vchip:nth-child(7),.vchip:nth-child(8){top:clamp(468px,52.5vw,832px)}
 .vchip b{
   display:block; font-family:var(--ff-sign); font-weight:400;
   font-size:clamp(15px,1.5vw,22px); line-height:1.3; color:var(--white);
 }
+/* ⚠️ 13.5px / 행간 1.5 는 v4.31 까지 살아 있던 값이다(크기 하한 15px · 본문 행간 하한 1.6 위반).
+   칩이 5개일 때는 타이포 게이트 표본에 안 걸려 통과했을 뿐, 규칙 위반은 그때도 있었다. */
 .vchip span{
-  display:block; margin-top:5px; font-size:clamp(13.5px,1.05vw,15px);
-  line-height:1.5; color:var(--white);
+  display:block; margin-top:5px; font-size:clamp(15px,1.05vw,15.5px);
+  line-height:1.6; color:var(--white);
 }
 .vsrc{
   position:relative; z-index:2; margin:clamp(20px,2.6vw,34px) auto 0;
@@ -618,7 +656,7 @@ h3.h3{
     display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,2.4vw,16px);
   }
   .vchip{position:static; width:auto}
-  .vchip:last-child{grid-column:1 / -1}
+  /* v4.32 — 칩이 8개(짝수)라 2열로 딱 떨어진다. 5개 시절의 '마지막 칩 전폭' 규칙은 제거. */
 }
 
 /* ══ 05 창업 지원 — 면제표 ══ */
@@ -875,19 +913,23 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
 .swap .card:last-child{background:var(--cream)}
 .swap__big{margin-top:10px; font-family:var(--ff-sign); font-weight:400; font-size:clamp(19px,1.9vw,26px); line-height:1.45; color:inherit}
 .fit{margin-top:clamp(24px,3vw,40px)}
-.fit__list{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:0}
+/* v4.32 — 세 항목을 세로로 쌓고 폭을 measure(약 800px)로 끊어 두니, 1165px 열에서
+   오른쪽 365px 가 통째로 비고 한 가로선을 덮는 상자가 늘 1개뿐이었다
+   (실측 #why 레이어 1.14 — 문서에서 가장 평평했다). 3열로 눕혀 셋이 나란히 서게 한다.
+   마커(브랜드 심볼)는 좌측이 아니라 각 칸 머리로 올라가 세 번 반복된다. */
+.fit__list{list-style:none; padding:0; margin:18px 0 0;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.8vw,28px)}
 .fit__list li{
-  padding:16px 0 17px 40px; position:relative; background:none;
-  border:0; border-bottom:1px solid var(--line); font-size:var(--fs-body); line-height:1.65; color:var(--ink);
+  padding:clamp(42px,4.4vw,58px) 0 clamp(4px,.6vw,8px); position:relative; background:none;
+  border:0; border-top:3px solid var(--ink); font-size:var(--fs-body); line-height:1.65; color:var(--ink);
 }
-/* 확폭(--maxw 1520) 뒤 한 줄이 71자까지 늘어났다. 구분선까지 함께 measure 로 끊는다 —
-   40px 은 좌측 체크 마커 폭. */
-.fit__list{max-width:calc(var(--measure) + 40px)}
-.fit__list li:first-child{border-top:1px solid var(--line)}
+/* v4.32 — 3열이 되면서 measure 상한은 필요 없어졌다(칸마다 이미 380px 안쪽이라
+   한 줄이 길어질 수 없다). 상한을 두면 3열이 좌측으로 몰려 다시 오른쪽이 빈다. */
+.fit__list{max-width:none}
 /* v4.31 — 체크 기호를 브랜드 심볼로. 목록 세 줄마다 마크가 반복돼 브랜드가 스며든다. */
 .fit__list li::before{
-  content:""; position:absolute; left:4px; top:15px;
-  width:26px; height:20px;
+  content:""; position:absolute; left:0; top:clamp(14px,1.6vw,20px);
+  width:clamp(30px,3vw,40px); height:clamp(23px,2.3vw,31px);
   background:url(_assets/symbol-red.png) left center/contain no-repeat;
 }
 /* ══ 09-b 판매 채널 4WAY ══ */
@@ -987,6 +1029,65 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
 .faq__a::before{content:"A"; font-family:var(--ff-sign); color:var(--ink); flex:none; line-height:1.6}
 
 /* ══ 13 폼 ══ */
+/* ── 창업 문의 2단 (v4.32 밀도 패스) ────────────────────────────────
+   개정 전 이 섹션은 폼 하나가 레드 위에 떠 있고 좌우로 338px 씩 빈 레드였다.
+   실측 가로 채움률 0.414 · 잉크폭 765px(뷰포트의 53.1%) — 문서에서 가장 성겼다.
+   왼쪽에 세우는 것은 **전부 이 페이지에 이미 실린 내용**이다:
+     오퍼 띠(히어로·#support .limit) · 면제 6항목(#support 12無 표·히어로 마퀴)
+     · 대표전화(푸터·폼 각주) · 운영사(#company·푸터).
+   새 사실을 만들지 않고 자리만 채운다 — 4WAY·평수에서 지어내 사고 난 전례가 있다.
+   ⚠️ 레드 바탕에서 --ink 는 3.72:1 로 미달이다. 왼쪽 패널은 흰 글자(4.80:1)만 쓰고,
+      본문급 글자는 흰 테두리 블록 안에 넣어 덩어리로 읽히게 한다. */
+.ctgrid{
+  display:grid; grid-template-columns:1fr 1.05fr;
+  gap:clamp(24px,3.2vw,52px); align-items:start;
+  margin-top:clamp(28px,3.6vw,48px);
+}
+.ctside{display:flex; flex-direction:column; gap:clamp(16px,2vw,26px)}
+.ctoffer{
+  border:3px solid var(--white); padding:clamp(16px,2vw,24px);
+  background:rgba(0,0,0,.10);
+}
+.ctoffer b{
+  display:block; font-family:var(--ff-sign); font-weight:400; letter-spacing:-.015em;
+  font-size:clamp(22px,2.5vw,34px); line-height:1.34; color:var(--white);
+}
+.ctoffer span{
+  display:block; margin-top:8px; font-family:var(--ff-plate);
+  font-size:var(--fs-cap); line-height:1.6; color:var(--white);
+}
+.cttel{
+  display:block; border-top:3px solid var(--white); padding-top:clamp(12px,1.5vw,18px);
+  font-family:var(--ff-sign); font-weight:400; letter-spacing:-.01em;
+  font-size:clamp(30px,3.6vw,52px); line-height:1.14; color:var(--white); text-decoration:none;
+}
+.cttel small{
+  display:block; margin-bottom:6px; font-family:var(--ff-plate); letter-spacing:.04em;
+  font-size:var(--fs-cap); line-height:1.5; color:var(--white);
+}
+.ctno{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:1fr 1fr; gap:8px;
+}
+.ctno li{
+  border:2px solid rgba(255,255,255,.85); padding:9px 11px;
+  font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.4; color:var(--white);
+}
+.ctno li i{font-style:normal; display:block; margin-top:3px; letter-spacing:.05em; opacity:.92}
+.ctmore{margin:0; font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.6; color:var(--white)}
+.ctshot{margin:0; border:3px solid var(--white)}
+.ctshot img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block}
+.ctco{
+  margin:0; border-top:2px solid rgba(255,255,255,.55); padding-top:12px;
+  font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.65; color:var(--white);
+}
+/* 2단이 되면 폼은 자기 열을 꽉 채운다 — 760px 상한을 풀어야 오른쪽에 빈 띠가 안 남는다. */
+.ctgrid .form{max-width:none; margin-top:0}
+@media (max-width:860px){
+  .ctgrid{grid-template-columns:1fr; gap:clamp(20px,4vw,28px)}
+  .ctside{order:2}
+}
+
 .form{max-width:760px; margin:clamp(28px,3.6vw,48px) auto 0; background:var(--white); color:var(--ink); border:4px solid var(--ink); box-shadow:var(--sh-sign); padding:clamp(24px,3vw,44px)}
 .field{margin-bottom:18px}
 .field label{display:block; font-family:var(--ff-plate); font-size:var(--fs-body); margin-bottom:7px; line-height:1.5}
@@ -1013,9 +1114,15 @@ h2.rvh{font-size:clamp(54px, 6.9vw, 104px); line-height:1.16; letter-spacing:.00
 .ft__top{display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; justify-content:space-between}
 .ft__logo img{height:58px; width:auto}
 .ft__tel{font-family:var(--ff-sign); font-weight:400; font-size:clamp(24px,2.4vw,34px); line-height:1.25; color:var(--white); letter-spacing:-.012em; text-decoration:none; display:inline-flex; align-items:center; min-height:44px}
-.ft dl{display:grid; grid-template-columns:auto 1fr; gap:2px 12px; margin-top:20px; max-width:640px}
+/* v4.32 — 640px 상한 + 2열이라 푸터 오른쪽 절반이 늘 비어 있었다(실측 avg 0.253).
+   한 줄에 항목 2쌍씩 4열로 눕혀 폭을 쓴다. 좁아지면 2열로 되돌린다. */
+.ft dl{display:grid; grid-template-columns:auto 1fr auto 1fr; gap:3px clamp(12px,1.4vw,20px);
+  margin-top:20px; max-width:none}
+@media (max-width:860px){ .ft dl{grid-template-columns:auto 1fr} }
 .ft dt{color:rgba(255,255,255,.72)}
 .ft dd{margin:0}
+/* ⚠️ max-width 를 풀면 한 줄이 88자가 된다(v4.32 실측 · 게이트 상한 45자).
+   폭을 쓰는 일은 위 dl 4열이 맡고, 읽는 문단은 measure 로 끊는다. */
 .ft__copy{margin-top:26px; padding-top:20px; border-top:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.72); max-width:var(--measure)}
 
 /* ══ 개인정보 처리방침 모달 ══ */
@@ -1140,7 +1247,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 }
 
 /* ── 다크 섹션 공통 ── */
-.sec--dark{background:var(--dark); color:var(--on-dark)}
+.sec--dark{background-color:var(--dark); color:var(--on-dark); background-image:var(--grain-light)}
 .sec--dark .h2{color:var(--on-dark)}
 .sec--dark .eyebrow{color:var(--on-dark); background:none}
 .sec--dark .lead{color:var(--on-dark-2)}
@@ -1158,13 +1265,53 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .sec--dark .hangul{background:var(--cream)}
 
 /* ── 교차 에디토리얼 (브랜드) ── */
+/* v4.32 밀도 패스 — 이 섹션은 3,183px 로 문서에서 가장 긴데 잉크 레이어가 1.18 로
+   가장 평평했다. 원인은 미해결 결함이었다: `.ed__fig img` 에 aspect-ratio:5/4 를
+   선언해 놓고도 실측이 740x1177(0.629)·740x1280(0.578) 이었다.
+   ⚠️ `width`/`height` **속성**은 presentational hint 로 들어와 used height 로 남는다.
+      폭만 CSS(width:100%)로 덮으면 높이는 속성값 그대로라 두 축이 다 확정되고,
+      aspect-ratio 는 계산에 낄 자리가 없어 조용히 무시된다 — 콘솔 경고도 없다.
+      height:auto 로 높이 축을 풀어 줘야 비로소 5/4 가 산다. (layout_gate 의 arBroken 이 감시)
+   결과: 사진 1177+1280 → 592+592, 섹션이 1,273px 짧아진다.
+   ⚠️ 짧아지는 것만으로는 밀도가 안 오른다. 텍스트 카드가 152px 라 592px 사진 옆에
+      220px 씩 빈 띠가 위아래로 남기 때문이다. 그래서 align-items 를 center → stretch 로
+      바꿔 텍스트 열을 사진 높이까지 세우고, 그 열을 위(본문)·아래(증거)로 갈라 채운다.
+      카드의 좌측 레드 괘가 열 전체 높이로 서면서 세로 레이어가 하나 생긴다. */
 .ed{display:grid; gap:clamp(40px,5.5vw,84px); margin-top:clamp(34px,4.4vw,60px)}
-.ed__row{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(24px,3.4vw,60px); align-items:center}
+.ed__row{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(24px,3.4vw,60px); align-items:stretch}
 .ed__row--rev{grid-template-columns:1.15fr 1fr}
 .ed__row--rev .ed__txt{order:2}
 .ed__row--rev .ed__fig{order:1}
 .ed__fig{margin:0; overflow:hidden}
-.ed__fig img{width:100%; aspect-ratio:5/4; object-fit:cover}
+.ed__fig img{width:100%; height:auto; aspect-ratio:5/4; object-fit:cover; display:block}
+
+/* 텍스트 열 — 위는 본문, 아래는 증거. 사진 높이까지 늘어난다.
+   ⚠️ justify-content:space-between 로 하면 **자식 사이가 전부** 벌어져
+      번호↔제목↔본문에까지 빈 틈이 생긴다(v4.32 첫 시도에서 실제로 그렇게 났다).
+      바닥으로 밀 것은 마지막 하나뿐이므로 margin-top:auto 를 그 하나에만 준다. */
+.ed__txt{display:flex; flex-direction:column; justify-content:flex-start; gap:clamp(10px,1.2vw,16px)}
+.ed__txt > :last-child{margin-top:auto; padding-top:clamp(18px,2.2vw,30px)}
+.ed__ev{margin:0}
+/* 번 행 — 실제 주방에서 번을 다루는 컷. 「직접 만들었습니다」의 증거라 본문 아래 세운다. */
+.ed__ev img{width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block;
+  border:3px solid var(--ink); box-shadow:var(--sh-clip)}
+.ed__evcap{margin:9px 0 0; font-family:var(--ff-plate); font-size:var(--fs-cap);
+  line-height:1.5; color:var(--ink-2)}
+/* 패티 행 — 사진을 더 얹으면 같은 말이 두 번이라, 상단 오벌 배지의 어휘를 크게 반복한다.
+   새 주장이 아니라 이 섹션 머리에 이미 실린 배지를 키워 되울리는 것이다. */
+.ed__badge{
+  display:flex; align-items:center; gap:clamp(12px,1.4vw,18px);
+  border-top:3px solid var(--ink); padding-top:clamp(16px,1.8vw,22px);
+}
+.ed__badge img{width:clamp(46px,4.6vw,66px); height:auto; flex:none}
+.ed__badge b{
+  display:block; font-family:var(--ff-sign); font-weight:400; letter-spacing:-.015em;
+  font-size:clamp(20px,2.1vw,30px); line-height:1.24; color:var(--ink);
+}
+.ed__badge span{
+  display:block; margin-top:4px; font-family:var(--ff-plate);
+  font-size:var(--fs-cap); line-height:1.5; color:var(--red-deep); letter-spacing:.06em;
+}
 
 /* ── 조리 공정 4컷 스트립 (v4.12) ──────────────────────────────────
    구 `.cine` 단면 오버레이를 대체한다. 그 자리 주석이 8/11부터 「조리 공정 영상
@@ -1658,6 +1805,13 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
             <p class="card__no">번</p>
             <h3 class="h3">티티버거가 자체 개발한 브리오슈 번</h3>
             <p>촉촉하고 쫀득한 결을 내려고 번부터 직접 만들었습니다. 시판 번을 그대로 쓰면 나오지 않는 식감입니다.</p>
+            <!-- v4.32 — 미사용으로 남아 있던 주방 실촬컷을 증거로 세운다. 새 주장은 없다:
+                 캡션은 이 섹션 머리 오벌 배지의 문구를 그대로 쓴다. -->
+            <figure class="ed__ev">
+              <img src="_assets/craft/01_bun.jpg" alt="검은 위생장갑을 낀 손이 스테인리스 트레이 위에서 브리오슈 번을 다루는 모습"
+                   loading="lazy" decoding="async" width="896" height="1200">
+              <figcaption class="ed__evcap">번 — 자체 개발 브리오슈</figcaption>
+            </figure>
           </div>
           <figure class="ed__fig">
             <img src="_assets/shot/styled1.jpg" alt="브리오슈 번 사이로 패티와 치즈가 흐르는 티티버거를 두 손으로 든 모습" loading="lazy" width="1280" height="1177">
@@ -1669,6 +1823,12 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
             <p class="card__no">패티</p>
             <h3 class="h3">티티버거가 자체 개발한 100% 소고기 패티</h3>
             <p>끼워 팔기용 저가 패티가 아니라, 한 끼로 성립하는 두께와 굽기를 기준으로 맞췄습니다.</p>
+            <!-- v4.32 — 사진을 한 장 더 얹으면 위 행과 같은 말이 두 번 된다.
+                 대신 이 섹션 머리에 이미 실린 오벌 배지를 키워 되울린다(새 주장 0). -->
+            <p class="ed__badge">
+              <img src="_assets/symbol-red.png" alt="" aria-hidden="true" width="354" height="260">
+              <span><b>100% 소고기 패티</b><span>100% BEEF</span></span>
+            </p>
           </div>
           <figure class="ed__fig">
             <img src="_assets/shot/detail.jpg" alt="브리오슈 번과 소고기 패티의 단면이 드러난 티티버거 클로즈업" loading="lazy" width="1280" height="1280">
@@ -1794,6 +1954,11 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       <li class="vchip"><b>매일 생각나요</b><span>맛있어서 어제 오늘 연속으로 시킵니다</span></li>
       <li class="vchip"><b>빵이 다릅니다</b><span>빵이 완전 부드러운게 신기해요</span></li>
       <li class="vchip"><b>매장까지 갔어요</b><span>오늘은 매장가서 포장까지 해온건 안비밀</span></li>
+      <!-- v4.32 — 칩 3개 추가. 지어낸 문구가 아니라 아래 「입소문」에 원문이 그대로
+           실린 배달의민족 리뷰에서 옮긴 것이다(각각 야채·아이·퍽퍽함 리뷰). -->
+      <li class="vchip"><b>야채도 신선해요</b><span>야채도 신선하고 패티가 육즙이 느껴지고 맛있어요</span></li>
+      <li class="vchip"><b>애들도 좋아해요</b><span>햄버거 싫어하는 애들도 완전 좋아해요</span></li>
+      <li class="vchip"><b>퍽퍽하지 않아요</b><span>막상 먹어보니 퍽퍽하다는 느낌은 거의 못 받았어요</span></li>
     </ul>
 
     <div class="dome">
@@ -1813,15 +1978,20 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
           <img class="creedcut" src="_assets/menu/cutout_titi_hero.webp" alt="" aria-hidden="true"
                width="1280" height="921" loading="lazy" decoding="async">
         </figure>
-        <b id="creed-h"><em>맛</em>입니다</b>
+        <b id="creed-h"><em>맛</em><br>입니다</b>
       </div>
 
-      <div class="creed">
-        <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.
-          장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.
-          한 번 찾아준 고객이 만족하지 않는다면, 어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
-        <p>그래서 티티버거의 기준은 <strong>오늘 먹고 내일 또 생각나는가</strong>입니다.
-          번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
+      <!-- v4.32 — .creed 에 .wrap 을 '합치면' max-width 가 --measure(760) 에서
+           --w-tight(880) 로 덮여 조판이 바뀐다. 감싸기만 해서 그림은 그대로 두고
+           좁은 단만 되돌려 받는다(wrap 880 − 거터 120 = 760 = 지금 폭 그대로). -->
+      <div class="wrap">
+        <div class="creed">
+          <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.
+            장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.
+            한 번 찾아준 고객이 만족하지 않는다면, 어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
+          <p>그래서 티티버거의 기준은 <strong>오늘 먹고 내일 또 생각나는가</strong>입니다.
+            번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
+        </div>
       </div>
     </div>
 
@@ -2558,6 +2728,35 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
       <h2 class="h2" id="ct-h">조건부터 확인해 보십시오</h2>
       <p class="lead">지역과 점포 상황을 알려 주시면, 어떤 형태가 맞는지부터 정리해 드립니다.</p>
 
+      <div class="ctgrid">
+      <!-- 좌측 패널 (v4.32) — 새 사실 없음. 오퍼 띠·면제 6항목·대표전화·운영사는
+           각각 히어로 / #support 12無 표 / 푸터 / #company 에 이미 실린 문구 그대로다. -->
+      <aside class="ctside" aria-label="상담 전 확인 정보">
+        <p class="ctoffer">
+          <b>선착순 10호점까지<br>창업비용 최대 1,000만원 지원</b>
+          <span>12無와 함께, 지금 여는 매장에만 적용되는 조건입니다.</span>
+        </p>
+
+        <a class="cttel" href="tel:16882629"><small>바로 통화</small>1688-2629</a>
+
+        <ul class="ctno" aria-label="면제 항목 6가지">
+          <li>가맹비<i>면제</i></li>
+          <li>보증금<i>면제</i></li>
+          <li>로열티<i>24개월 면제</i></li>
+          <li>재가맹비<i>면제</i></li>
+          <li>감리비<i>면제</i></li>
+          <li>광고분담비<i>면제</i></li>
+        </ul>
+        <p class="ctmore">지원 · 할부 6가지가 더 있습니다 — 「12無」 표에 전부 적어 두었습니다.</p>
+
+        <figure class="ctshot">
+          <img src="_assets/shot/set.jpg" alt="티티버거 포장 봉투와 버거 · 감자튀김 · 음료로 구성한 포장 세트"
+               loading="lazy" decoding="async" width="1280" height="1280">
+        </figure>
+
+        <p class="ctco">운영사 ㈜지에이엠 · 대표 이재훈<br>2023년부터 수제버거 프랜차이즈를 운영해 왔습니다.</p>
+      </aside>
+
       <form class="form" data-lead="full" novalidate>
         <div class="field">
           <label for="f-name">성함 <span class="req" aria-hidden="true">*</span></label>
@@ -2591,6 +2790,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
         <button class="btn btn--wide" type="submit">창업 상담 신청하기</button>
         <p class="formnote">접수 후 담당자가 순차적으로 연락드립니다. 급하시면 1688-2629로 전화 주십시오.</p>
       </form>
+      </div>
     </div>
   </section>
 </main>
