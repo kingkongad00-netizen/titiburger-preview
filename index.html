@@ -497,6 +497,15 @@ h3.h3{
    ⚠️ height:auto 필수 — <video width/height> 속성이 프레젠테이션 힌트로 먼저 박혀
       aspect-ratio 를 통째로 무시한다(v4.18 조리 밴드에서 실제로 났다). */
 .band--ad video{width:100%; height:auto; aspect-ratio:16/9; display:block}
+/* v4.57 — 광고 밴드 2단(좌 카피 2fr / 우 영상 3fr). .band 의 line-height:0 은 텍스트가 생겼으니 되돌린다. */
+.band--ad{line-height:1.4; padding-block:clamp(28px,4vw,56px)}
+.adband{display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); gap:clamp(18px,3vw,48px); align-items:center}
+.adband__txt{color:var(--white)}
+.adband .eyebrow{color:var(--on-dark)}
+.adband__h{margin:12px 0 0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(24px,2.6vw,38px); line-height:1.3; letter-spacing:-.015em; color:var(--white)}  /* 헤드 행간 하한 1.30 (typo_gate) */
+.adband__p{margin:12px 0 0; font-size:var(--fs-body); line-height:1.7; color:var(--on-dark-2); max-width:var(--measure)}
+.adband video{border:3px solid var(--white); box-shadow:6px 6px 0 var(--red)}
+@media (max-width:860px){ .adband{grid-template-columns:1fr} }
 
 /* ══ 04 브랜드 ══ */
 .brand__grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:start; margin-top:clamp(30px,4vw,54px)}
@@ -1863,9 +1872,13 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 
 /* 손글씨 콜아웃 (나눔펜) */
 .hand{font-family:'Nanum Pen Script', cursive; line-height:1.1; pointer-events:none}
+/* v4.57 (대표 지시) — 「12가지, 전부!」가 22px 레드 손글씨로 상자 테두리에 걸쳐 있어 안 읽혔다(9/7 캡처).
+   흐름 안 레드 칩(「대표 메뉴!」와 같은 어휘, 흰/레드 4.80:1)으로 바꿔 총계 줄 아래 가운데에 세운다.
+   absolute 로 상자 밖에 내걸면 아래 #support 레드 바탕과 칩이 같은 색이라 경계가 사라진다 — 크림 상자 안에 둔다. */
+.fee__hand{flex-basis:100%; text-align:center; line-height:1; margin-top:4px}
 .hand--fee{
-  position:absolute; right:clamp(8px,3vw,40px); top:-16px; transform:rotate(-5deg);
-  font-size:clamp(22px,2vw,29px); color:var(--red-deep);
+  display:inline-block; transform:rotate(-2deg); font-size:clamp(30px,2.6vw,38px); line-height:1.05;
+  color:var(--white); background:var(--red); padding:3px 16px 7px; border-radius:3px; box-shadow:3px 3px 0 var(--ink);
 }
 .fee__total{position:relative}
 .hand--menu{
@@ -2107,7 +2120,7 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 }
 .msizes__h{margin:0; display:flex; flex-direction:column; gap:4px; min-width:200px}
 .msizes__h b{font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2vw,28px); line-height:1.2; color:var(--white)}
-.msizes__h span{font-size:var(--fs-cap); color:var(--on-dark-2); line-height:1.5}
+.msizes__h span{font-size:var(--fs-cap); color:var(--on-dark-2); line-height:1.6}  /* v4.57 두 줄 설명이 되며 본문 행간 하한 1.6 적용 */
 .msizes__list{display:flex; gap:clamp(10px,1.4vw,18px); margin:0; padding:0; list-style:none; flex-wrap:wrap}
 .msize{display:flex; align-items:center; gap:12px; padding:8px 18px 8px 8px; border:2px solid var(--white); color:var(--white)}
 .msize b{
@@ -2117,11 +2130,29 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 .msize--l b{background:var(--red); color:var(--white)}
 .msize span{display:flex; flex-direction:column; font-family:var(--ff-sign); font-size:clamp(17px,1.5vw,22px); line-height:1.25; color:var(--white)}
 .msize small{font-family:'Bebas Neue', var(--ff-body); font-size:15px; letter-spacing:.2em; color:var(--on-dark-2); line-height:1.3}
+/* v4.57 — 세트 R/L 카드(이미지 + 원형 표식). .msizes 는 flex 라 그리드가 헤더 옆 남은 폭을 채우고, 좁으면 아래로 내려온다. */
+.msets{flex:1 1 440px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(10px,1.6vw,22px)}
+.mset{min-width:0}
+.mset img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; border:2px solid var(--white); background:#F2F2F4}
+.mset__name{display:flex; align-items:center; gap:10px; margin:10px 0 0; color:var(--white)}
+.mset__name b{
+  display:grid; place-items:center; flex:none; width:clamp(36px,3.4vw,52px); height:clamp(36px,3.4vw,52px); border-radius:50%;
+  background:var(--white); color:var(--ink); font-family:'Anton', var(--ff-body); font-weight:400; font-size:clamp(18px,1.8vw,26px); line-height:1;
+}
+.mset--l .mset__name b{background:var(--red); color:var(--white)}
+.mset__name span{display:flex; flex-direction:column; font-family:var(--ff-sign); font-size:clamp(16px,1.4vw,21px); line-height:1.25}
+.mset__name small{font-family:'Bebas Neue', var(--ff-body); font-size:15px; letter-spacing:.2em; color:var(--on-dark-2); line-height:1.3}
 .mdrinks{display:flex; flex-wrap:wrap; gap:10px; margin:0; padding:0; list-style:none}
 .mdrinks li{
   font-family:var(--ff-plate); font-size:clamp(15px,1.15vw,17px); line-height:1.4; color:var(--white);
   border:2px solid rgba(244,239,233,.45); padding:8px 14px; border-radius:999px;
 }
+/* v4.57 — 음료 군별 대표 컷 3장. 메뉴 컷과 같은 4:3 흰 바탕 규격, 이름은 .menu__name 재사용(다크 위 흰 글자). */
+.mdrinkcards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(10px,1.6vw,22px); margin:0 0 16px; padding:0; list-style:none; max-width:760px}
+.mdrinkcards li{min-width:0}
+.mdrinkcards img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; background:#F2F2F4}
+.mdrinkcards .menu__name{color:var(--white)}
+.mdrinkcards small{font-size:15px; color:var(--on-dark-2)}
 /* 한글 섹션 — 중앙 정렬 한 문장 */
 .ours__punch{
   margin:clamp(18px,2.2vw,30px) 0 0; text-align:center;
@@ -2496,9 +2527,10 @@ html.js-intro .hero__sign > *{visibility:hidden}
   <div class="cookband" role="img"
        aria-label="티티버거 매장 조리 공정 영상 — 굽기, 쌓기, 포장">
     <div class="cookband__cell">
+      <!-- v4.57 (대표 지시 9/7) — 01 굽기는 철판 앞턱이 없는 판으로 재생성(시작 스틸 편집 → Kling 2.5, tail=시작 스틸 완전 루프). 구 파일 cook1 보존. -->
       <video autoplay muted loop playsinline preload="metadata"
-             poster="_assets/craft/03_griddle.jpg" width="720" height="900" tabindex="-1">
-        <source src="_assets/video/cook1.mp4" type="video/mp4"></video>
+             poster="_assets/craft/03_griddle_v2.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook1_v2.mp4" type="video/mp4"></video>
       <div class="cookband__cap" aria-hidden="true">
         <b class="cookband__no">01</b><span class="cookband__t">굽기</span>
       </div>
@@ -2512,9 +2544,10 @@ html.js-intro .hero__sign > *{visibility:hidden}
       </div>
     </div>
     <div class="cookband__cell">
+      <!-- v4.57 (대표 지시 9/7) — 03 포장은 봉투 없이 랩핑지로 감싸 마무리하는 판으로 재생성(끝 0.5초 → 첫 프레임 xfade 루프). 구 파일 cook3_v2 보존. -->
       <video autoplay muted loop playsinline preload="metadata"
-             poster="_assets/craft/05_pack_v2.jpg" width="720" height="900" tabindex="-1">
-        <source src="_assets/video/cook3_v2.mp4" type="video/mp4"></video>
+             poster="_assets/craft/05_pack_v3.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook3_v3.mp4" type="video/mp4"></video>
       <div class="cookband__cap" aria-hidden="true">
         <b class="cookband__no">03</b><span class="cookband__t">포장</span>
       </div>
@@ -2549,7 +2582,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
         <div class="fee__row"><span class="fee__name"><i class="fee__ic fee__ic--plus" aria-hidden="true">＋</i>오픈 현장지원</span><span class="fee__price">본사 인력</span><span class="stamp stamp--free">지원</span></div>
         <div class="fee__row"><span class="fee__name"><i class="fee__ic fee__ic--plus" aria-hidden="true">＋</i>고객관리 마케팅 사용료</span><span class="fee__price">고객관리 프로그램</span><span class="stamp stamp--free">지원</span></div>
         <div class="fee__row"><span class="fee__name"><i class="fee__ic fee__ic--card" aria-hidden="true">÷</i>창업비용 카드 할부</span><span class="fee__price">무이자 최대 6개월 · 유이자 최대 12개월</span><span class="stamp stamp--free">할부</span></div>
-        <p class="fee__total">시작을 막는 비용 <b>12無</b><span class="hand hand--fee" aria-hidden="true">12가지, 전부!</span></p>
+        <p class="fee__total">시작을 막는 비용 <b>12無</b><span class="fee__hand" aria-hidden="true"><span class="hand hand--fee">12가지, 전부!</span></span></p>
       </div>
 
       <div class="limit">
@@ -2636,18 +2669,31 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </div>
       </div>
 
-      <!-- v4.54 (2차 미팅 지시) — 투 사이즈(레귤러/라지) 소구 + 음료·쉐이크 줄.
-           음료는 사진 자산이 없어 이름만 싣는다(구성은 승계 원본 §3-5·3-6 — 클라이언트 확인·사진 대기).
-           ⚠️ .mrow--static 은 오토 마퀴 JS 에서 제외된다. -->
-      <div class="msizes" aria-label="버거 사이즈 두 가지">
-        <p class="msizes__h"><b>투 사이즈</b><span>모든 버거는 두 가지 크기로 나갑니다</span></p>
-        <ul class="msizes__list">
-          <li class="msize msize--r"><b aria-hidden="true">R</b><span>레귤러<small>REGULAR</small></span></li>
-          <li class="msize msize--l"><b aria-hidden="true">L</b><span>라지<small>LARGE</small></span></li>
+      <!-- v4.54 (2차 미팅 지시) — 투 사이즈 소구 + 음료·쉐이크 줄. ⚠️ .mrow--static 은 오토 마퀴 JS 에서 제외된다.
+           v4.57 (대표 지시 9/7) — 「투 사이즈」는 버거 크기가 아니라 **세트 메뉴 크기**(기존 버거 업체의 R/L 세트)였다.
+           카피를 세트로 바로잡고 R/L 컷을 넣는다. 컷은 setfront(실사풍 AI)에서 파생 — 봉투 제거·컵 1개, L 은 감자 카톤·컵 업사이즈.
+           ⚠️ 세트 구성(감자 종류·음료·업사이즈 항목)은 클라이언트 확정값이 아직 없다 — 원장 q69v 확인 항목으로 승계. -->
+      <div class="msizes" aria-label="세트 메뉴 두 가지 크기">
+        <p class="msizes__h"><b>세트는 두 가지 크기</b><span>버거 + 감자튀김 + 음료<br>라지 세트는 감자튀김과 음료가 커집니다</span></p>
+        <ul class="msizes__list msets">
+          <li class="mset mset--r">
+            <img src="_assets/shot/set_r.jpg" alt="레귤러 세트 — 버거, 감자튀김, 음료" loading="lazy" decoding="async" width="1200" height="900">
+            <p class="mset__name"><b aria-hidden="true">R</b><span>레귤러 세트<small>REGULAR SET</small></span></p>
+          </li>
+          <li class="mset mset--l">
+            <img src="_assets/shot/set_l.jpg" alt="라지 세트 — 버거, 큰 감자튀김, 큰 음료" loading="lazy" decoding="async" width="1200" height="900">
+            <p class="mset__name"><b aria-hidden="true">L</b><span>라지 세트<small>LARGE SET</small></span></p>
+          </li>
         </ul>
       </div>
       <div class="mrow mrow--static">
         <p class="mrow__label"><b>음료 · 쉐이크</b><span>DRINK &amp; SHAKE</span></p>
+        <!-- v4.57 (대표 지시) — 이름만 있던 줄에 군별 대표 컷 3장(쉐이크·탄산·아메리카노). 컵·로고가 미확정이라 무지 컵으로 생성. -->
+        <ul class="mdrinkcards">
+          <li><img src="_assets/menu/drink_shake.jpg" alt="쉐이크" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">쉐이크 <small>9종</small></p></li>
+          <li><img src="_assets/menu/drink_cola.jpg" alt="탄산음료" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">탄산음료 <small>4종</small></p></li>
+          <li><img src="_assets/menu/drink_americano.jpg" alt="아메리카노" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">아메리카노</p></li>
+        </ul>
         <ul class="mdrinks">
           <li>밀크쉐이크</li><li>딸기쉐이크</li><li>초코쉐이크</li><li>리얼고구마쉐이크</li><li>오레오쉐이크</li>
           <li>딸기오레오쉐이크</li><li>초코오레오쉐이크</li><li>돼지바쉐이크</li><li>쉑츄 (쉐이크 + 츄러스)</li>
@@ -2804,11 +2850,20 @@ html.js-intro .hero__sign > *{visibility:hidden}
           「우리가 반죽한다」로 읽혀 생산 주체 주장이 된다. 자막은 감각어(불맛·육즙·녹는다)와
           브랜드 한 문장의 조각(빵과 패티·진짜)으로만 한정했다.
           엔드카드도 브랜드 한 문장과 이미 공표된 오퍼만 싣는다. -->
+  <!-- v4.57 (대표 지시 9/7) — 제목 없는 풀블리드 16:9 띠(모바일 211px, 자막이 작아 안 읽힘)를 컨테이너 2단으로:
+       좌 이름표·카피, 우 영상(PC 폭 60%). 밴드 높이 810 → 약 520px. 모바일은 카피 위·영상 아래. 카피는 영상에 실제로 나오는 장면만. -->
   <div class="band band--ad">
-    <video autoplay muted loop playsinline preload="metadata"
-           poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
-           aria-label="티티버거 광고 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
-      <source src="_assets/video/ad_titi.mp4" type="video/mp4"></video>
+    <div class="wrap adband">
+      <div class="adband__txt">
+        <p class="eyebrow">광고 영상</p>
+        <p class="adband__h">번 반죽부터<br>녹는 치즈까지</p>
+        <p class="adband__p">번 반죽 트레이, 그리들 위 패티, 녹아내리는 치즈, 세트 한 상 — 12초 광고 편집본입니다.</p>
+      </div>
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
+             aria-label="티티버거 광고 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
+        <source src="_assets/video/ad_titi.mp4" type="video/mp4"></video>
+    </div>
   </div>
 
   <!-- ══ 09 업종 변경 — 여기서부터 타겟을 좁힌다 (2026-08-20 구조: 넓게→좁게, 메뉴 뒤 배치) ══ -->
