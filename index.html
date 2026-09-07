@@ -2001,7 +2001,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .mline{display:flex; gap:clamp(14px,1.8vw,24px); width:max-content; will-change:transform; padding-right:clamp(14px,1.8vw,24px)}
 /* v4.47 — 대표 지시로 확대. 개정 전 15vw(1440에서 216px)는 원본 760x506 을 28% 로만 쓰는
    크기였다. 21vw(302px)로 올린다.
-   ⚠️ 롤링 속도는 JS 가 `트랙폭/2 ÷ 60px/s` 로 계산하므로 칸이 넓어지면 한 바퀴가 길어질 뿐
+   ⚠️ 롤링 속도는 JS 가 `트랙폭/2 ÷ px/s` 로 계산하므로 칸이 넓어지면 한 바퀴가 길어질 뿐
       속도는 그대로다 — 버거·사이드 두 줄의 동기(v4.27 에서 잡은 것)가 깨지지 않는다. */
 .mline li{flex:0 0 clamp(230px,21vw,320px); position:relative}
 .mline li img{transition:transform .25s ease}
@@ -3907,7 +3907,9 @@ html.js-intro .hero__sign > *{visibility:hidden}
           거리를 재서 속도로 나눈다 — 방향은 그대로 두고 속도만 맞춘다(대표 결정).
        ⚠️ 폭은 clamp(...vw) 라 리사이즈에서 바뀐다. 그때 duration 을 다시 잡지 않으면
           창 크기에 따라 속도가 또 갈린다. tw.duration() 은 진행률을 보존하며 갱신된다. */
-    var MENU_SPEED = 60;   /* px/s — 두 줄 공통. 체감이 빠르면 이 숫자 하나만 내리면 된다. */
+    var MENU_SPEED = 60;   /* px/s — 데스크톱, 두 줄 공통. */
+    var MENU_MOBILE_SPEED = 40;   /* 작은 화면에서는 메뉴명을 읽을 시간을 확보한다. */
+    var menuCompact = matchMedia('(max-width:768px)');
     var mrows = [];
     /* offsetWidth 는 레이아웃 폭이라 진행 중인 translate 에 안 흔들리고,
        li 가 flex-basis 고정이라 이미지 로드 전에도 값이 확정된다.
@@ -3920,7 +3922,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
     function menuDur(ul) {
       var half = ul.offsetWidth / 2;
       if (!(half > 200)) return 0;                      /* 못 쟀다 — 갱신 포기 */
-      return Math.min(400, Math.max(8, half / MENU_SPEED));
+      var speed = menuCompact.matches ? MENU_MOBILE_SPEED : MENU_SPEED;
+      return Math.min(400, Math.max(8, half / speed));
     }
     document.querySelectorAll('.mrow:not(.mrow--static)').forEach(function (row) {
       var ul = row.querySelector('.mline');
@@ -3932,8 +3935,14 @@ html.js-intro .hero__sign > *{visibility:hidden}
       var dur = menuDur(ul) || 44;
       var tw = gsap.to(ul, { xPercent: toRight ? 0 : -50, duration: dur, ease: 'none', repeat: -1 });
       mrows.push({ ul: ul, tw: tw });
-            row.addEventListener('mouseenter', function () { if (!drag) gsap.to(tw, { timeScale: 0, duration: .45 }); });
-      row.addEventListener('mouseleave', function () { if (!drag) gsap.to(tw, { timeScale: 1, duration: .45 }); });
+      /* 터치 뒤 합성 mouseenter는 mouseleave 없이 남을 수 있다.
+         사진 바깥 제목을 탭해도 줄이 멈추지 않도록 실제 마우스 호버만 처리한다. */
+      row.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'mouse' && !drag) gsap.to(tw, { timeScale: 0, duration: .45 });
+      });
+      row.addEventListener('pointerleave', function (e) {
+        if (e.pointerType === 'mouse' && !drag) gsap.to(tw, { timeScale: 1, duration: .45 });
+      });
       /* 3c) 손으로 넘기기 (v4.54, 2차 미팅 지시) — 터치·마우스 드래그로 트랙을 직접 민다.
          트윈의 progress 를 드래그 거리로 돌리므로 되감기 지점(무한 루프)이 그대로 유지되고,
          손을 떼면 잠시 뒤 자동 롤링이 이어진다. 방향: 왼쪽으로 도는 줄은 왼쪽 드래그가 진행. */
