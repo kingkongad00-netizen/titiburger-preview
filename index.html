@@ -497,11 +497,7 @@ h3.h3{
    ⚠️ height:auto 필수 — <video width/height> 속성이 프레젠테이션 힌트로 먼저 박혀
       aspect-ratio 를 통째로 무시한다(v4.18 조리 밴드에서 실제로 났다). */
 .band--ad video{width:100%; height:auto; aspect-ratio:16/9; display:block}
-/* v4.57 — 소개 밴드: 영상은 이전처럼 풀와이드 16:9(대표 「똑같이 풀와이드」), 그 위에 얇은 헤더(이름표 + 한 줄)만 얹는다.
-   .band 의 line-height:0 은 헤더 텍스트가 생겼으니 헤더 안에서만 되돌린다. */
-.adband__head{line-height:1.4; padding-block:clamp(22px,3vw,40px) clamp(14px,2vw,26px); color:var(--white)}
-.adband__head .eyebrow{color:var(--on-dark)}
-.adband__h{margin:10px 0 0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(22px,2.2vw,32px); line-height:1.3; letter-spacing:-.015em; color:var(--white)}  /* 헤드 행간 하한 1.30 (typo_gate) */
+/* v4.57 — 소개 밴드는 대표 지시로 **영상만 풀와이드 16:9**(2단 카드·헤더 카피 모두 철회). 위 .band--ad video 규칙 그대로. */
 
 /* ══ 04 브랜드 ══ */
 .brand__grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:start; margin-top:clamp(30px,4vw,54px)}
@@ -548,7 +544,9 @@ h3.h3{
 #creed{
   position:relative; overflow:hidden;
   background:var(--red); color:var(--white);
-  padding-block:clamp(56px,7vw,104px) 0;
+  /* v4.57 (대표 지시 9/7) — 하단 0 은 돔이 바닥에 닿던 시절 값. v4.39 에서 본문을 돔 밖으로 내린 뒤에도 남아
+     마지막 문장이 섹션 바닥에 5px 로 붙어 있었다(375/1440 실측). 다른 섹션 하단(32~55px)과 같은 급으로 맞춘다. */
+  padding-block:clamp(56px,7vw,104px) clamp(36px,4vw,60px);
 }
 /* ① 세로 헤어라인 — 프레디 바탕의 격자 결 */
 #creed::before{
@@ -1871,10 +1869,11 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 /* v4.57 (대표 지시) — 「12가지, 전부!」가 22px 레드 손글씨로 상자 테두리에 걸쳐 있어 안 읽혔다(9/7 캡처).
    흐름 안 레드 칩(「대표 메뉴!」와 같은 어휘, 흰/레드 4.80:1)으로 바꿔 총계 줄 아래 가운데에 세운다.
    absolute 로 상자 밖에 내걸면 아래 #support 레드 바탕과 칩이 같은 색이라 경계가 사라진다 — 크림 상자 안에 둔다. */
-.fee__hand{flex-basis:100%; text-align:center; line-height:1; margin-top:4px}
+/* 대표 2차 지시: 칩이 아니라 **직전 스탬프형(레드 손글씨·기울임)** 그대로, 크기만 크게. 흐름 안 가운데라 표·테두리와 안 겹친다. red-deep/크림 6.13:1. */
+.fee__hand{flex-basis:100%; text-align:center; line-height:1; margin-top:2px}
 .hand--fee{
-  display:inline-block; transform:rotate(-2deg); font-size:clamp(30px,2.6vw,38px); line-height:1.05;
-  color:var(--white); background:var(--red); padding:3px 16px 7px; border-radius:3px; box-shadow:3px 3px 0 var(--ink);
+  display:inline-block; transform:rotate(-5deg); font-size:clamp(40px,3.8vw,58px); line-height:1.05;
+  color:var(--red-deep); padding:0 10px;
 }
 .fee__total{position:relative}
 .hand--menu{
@@ -2523,10 +2522,11 @@ html.js-intro .hero__sign > *{visibility:hidden}
   <div class="cookband" role="img"
        aria-label="티티버거 매장 조리 공정 영상 — 굽기, 쌓기, 포장">
     <div class="cookband__cell">
-      <!-- v4.57 (대표 지시 9/7) — 01 굽기는 철판 앞턱이 없는 판으로 재생성(시작 스틸 편집 → Kling 2.5, tail=시작 스틸 완전 루프). 구 파일 cook1 보존. -->
+      <!-- v4.57 (대표 지시 9/7) — 01 굽기는 철판 앞턱이 없는 판으로 재생성(시작 스틸 편집 → Kling 2.5, tail=시작 스틸 완전 루프). 구 파일 cook1 보존.
+           대표 2차 지시: 스팀이 인위적 → 시작 스틸에서 스팀을 지우고 negative 에 steam/smoke 를 넣어 재생성(cook1_v3). v2 는 _gen_tmp_v457 raw 로 보존. -->
       <video autoplay muted loop playsinline preload="metadata"
-             poster="_assets/craft/03_griddle_v2.jpg" width="720" height="900" tabindex="-1">
-        <source src="_assets/video/cook1_v2.mp4" type="video/mp4"></video>
+             poster="_assets/craft/03_griddle_v3.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook1_v3.mp4" type="video/mp4"></video>
       <div class="cookband__cap" aria-hidden="true">
         <b class="cookband__no">01</b><span class="cookband__t">굽기</span>
       </div>
@@ -2540,10 +2540,12 @@ html.js-intro .hero__sign > *{visibility:hidden}
       </div>
     </div>
     <div class="cookband__cell">
-      <!-- v4.57 (대표 지시 9/7) — 03 포장은 봉투 없이 랩핑지로 감싸 마무리하는 판으로 재생성(끝 0.5초 → 첫 프레임 xfade 루프). 구 파일 cook3_v2 보존. -->
-      <video autoplay muted loop playsinline preload="metadata"
-             poster="_assets/craft/05_pack_v3.jpg" width="720" height="900" tabindex="-1">
-        <source src="_assets/video/cook3_v3.mp4" type="video/mp4"></video>
+      <!-- v4.57 (대표 지시 9/7) — 03 포장은 봉투 없이 랩핑지로 감싸 마무리하는 판으로 재생성. 구 파일 cook3_v2 보존.
+           대표 2차 지시: xfade 루프가 끝에서 첫 프레임(미포장)을 비춰 「포장 안 된 장면」으로 읽혔다 → 이음 처리 없이 인코드(cook3_v4)하고
+           **loop 를 뺀다** — 포장 완료 프레임에서 멈추고, 뷰포트에 다시 들어오면 cookIO 가 play() 로 처음부터 재생한다. -->
+      <video autoplay muted playsinline preload="metadata"
+             poster="_assets/craft/05_pack_v4.jpg" width="720" height="900" tabindex="-1">
+        <source src="_assets/video/cook3_v4.mp4" type="video/mp4"></video>
       <div class="cookband__cap" aria-hidden="true">
         <b class="cookband__no">03</b><span class="cookband__t">포장</span>
       </div>
@@ -2719,7 +2721,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
       <ul class="signal" aria-label="한국어 이름을 앞세운 글로벌 브랜드 사례 2건">
         <li class="sig">
           <div class="sig__side">
-            <p class="sig__brand">BURGER KING</p>
+            <p class="sig__brand">글로벌 브랜드 B사</p><!-- v4.57 대표 지시: KFC 와 같이 익명화 -->
+
             <p class="sig__name">K큐브 갈비 버거</p>
             <p class="sig__desc">성수에 연 세계 최초 플래그십 「플레임그라운드」에서만 파는
               시그니처 버거 3종 가운데 하나입니다.</p>
@@ -2727,9 +2730,9 @@ html.js-intro .hero__sign > *{visibility:hidden}
           </div>
           <figure class="sig__clip">
             <img src="_assets/news/clip_sedaily_burgerking.jpg"
-                 alt="서울경제 기사 헤드 — 패스트푸드 넘어 미식으로, 버거킹 와퍼 코스·플래그십으로 1조 시대 연다. 부제에 성수에 직화 콘셉트 적용한 세계 최초 플래그십, 예약제 코스 다이닝 공간 더 개스트로 첫선이 적혀 있다"
+                 alt="서울경제 기사 헤드 — 패스트푸드 넘어 미식으로, B사 와퍼 코스·플래그십으로 1조 시대 연다. 부제에 성수에 직화 콘셉트 적용한 세계 최초 플래그십, 예약제 코스 다이닝 공간 더 개스트로 첫선이 적혀 있다"
                  loading="lazy" decoding="async" width="1200" height="255">
-            <figcaption>서울경제 지면 — 「패스트푸드 넘어 미식으로…버거킹, 와퍼 코스·플래그십으로 ‘1조 시대’ 연다」</figcaption>
+            <figcaption>서울경제 지면 — 「패스트푸드 넘어 미식으로…B사, 와퍼 코스·플래그십으로 ‘1조 시대’ 연다」</figcaption>
           </figure>
         </li>
         <li class="sig">
@@ -2849,12 +2852,9 @@ html.js-intro .hero__sign > *{visibility:hidden}
   <!-- v4.57 (대표 지시 9/7) — 제목 없는 풀블리드 16:9 띠를 컨테이너 2단으로: 좌 이름표·카피, 우 영상(PC 폭 60%, 810 → 약 545px — 「줄이라」는 PC 기준).
        대표 2차 지시: 「광고 영상」 이름표가 아니라 **브랜드 소개** 문법으로 — 영상은 그대로, 틀만 소개. 카피는 영상에 실제로 나오는 장면만
        (반죽 컷에 「우리가 만든다」류 생산 주체 주장을 붙이지 않는다 — 위 주석과 같은 원칙). -->
-  <!-- 대표 3차 지시: 2단 카드 대신 **이전처럼 풀와이드**(화면 끝까지 16:9). 소개 틀은 영상 위 얇은 헤더(이름표 + 한 줄)로만. -->
+  <!-- 대표 3차·4차 지시: 2단 카드 대신 **이전처럼 풀와이드**(화면 끝까지 16:9), 헤더 카피(「브랜드 소개」·「12초로 소개합니다」)도 뺀다 — 영상만.
+       보이지 않는 aria-label 은 「소개 영상」으로 유지. -->
   <div class="band band--ad">
-    <div class="wrap adband__head">
-      <p class="eyebrow">브랜드 소개</p>
-      <p class="adband__h">티티버거를 12초로 소개합니다</p>
-    </div>
     <video autoplay muted loop playsinline preload="metadata"
            poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
            aria-label="티티버거 소개 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
