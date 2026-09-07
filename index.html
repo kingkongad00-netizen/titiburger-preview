@@ -497,15 +497,11 @@ h3.h3{
    ⚠️ height:auto 필수 — <video width/height> 속성이 프레젠테이션 힌트로 먼저 박혀
       aspect-ratio 를 통째로 무시한다(v4.18 조리 밴드에서 실제로 났다). */
 .band--ad video{width:100%; height:auto; aspect-ratio:16/9; display:block}
-/* v4.57 — 광고 밴드 2단(좌 카피 2fr / 우 영상 3fr). .band 의 line-height:0 은 텍스트가 생겼으니 되돌린다. */
-.band--ad{line-height:1.4; padding-block:clamp(28px,4vw,56px)}
-.adband{display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); gap:clamp(18px,3vw,48px); align-items:center}
-.adband__txt{color:var(--white)}
-.adband .eyebrow{color:var(--on-dark)}
-.adband__h{margin:12px 0 0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(24px,2.6vw,38px); line-height:1.3; letter-spacing:-.015em; color:var(--white)}  /* 헤드 행간 하한 1.30 (typo_gate) */
-.adband__p{margin:12px 0 0; font-size:var(--fs-body); line-height:1.7; color:var(--on-dark-2); max-width:var(--measure)}
-.adband video{border:3px solid var(--white); box-shadow:6px 6px 0 var(--red)}
-@media (max-width:860px){ .adband{grid-template-columns:1fr} }
+/* v4.57 — 소개 밴드: 영상은 이전처럼 풀와이드 16:9(대표 「똑같이 풀와이드」), 그 위에 얇은 헤더(이름표 + 한 줄)만 얹는다.
+   .band 의 line-height:0 은 헤더 텍스트가 생겼으니 헤더 안에서만 되돌린다. */
+.adband__head{line-height:1.4; padding-block:clamp(22px,3vw,40px) clamp(14px,2vw,26px); color:var(--white)}
+.adband__head .eyebrow{color:var(--on-dark)}
+.adband__h{margin:10px 0 0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(22px,2.2vw,32px); line-height:1.3; letter-spacing:-.015em; color:var(--white)}  /* 헤드 행간 하한 1.30 (typo_gate) */
 
 /* ══ 04 브랜드 ══ */
 .brand__grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px); align-items:start; margin-top:clamp(30px,4vw,54px)}
@@ -2850,20 +2846,19 @@ html.js-intro .hero__sign > *{visibility:hidden}
           「우리가 반죽한다」로 읽혀 생산 주체 주장이 된다. 자막은 감각어(불맛·육즙·녹는다)와
           브랜드 한 문장의 조각(빵과 패티·진짜)으로만 한정했다.
           엔드카드도 브랜드 한 문장과 이미 공표된 오퍼만 싣는다. -->
-  <!-- v4.57 (대표 지시 9/7) — 제목 없는 풀블리드 16:9 띠(모바일 211px, 자막이 작아 안 읽힘)를 컨테이너 2단으로:
-       좌 이름표·카피, 우 영상(PC 폭 60%). 밴드 높이 810 → 약 520px. 모바일은 카피 위·영상 아래. 카피는 영상에 실제로 나오는 장면만. -->
+  <!-- v4.57 (대표 지시 9/7) — 제목 없는 풀블리드 16:9 띠를 컨테이너 2단으로: 좌 이름표·카피, 우 영상(PC 폭 60%, 810 → 약 545px — 「줄이라」는 PC 기준).
+       대표 2차 지시: 「광고 영상」 이름표가 아니라 **브랜드 소개** 문법으로 — 영상은 그대로, 틀만 소개. 카피는 영상에 실제로 나오는 장면만
+       (반죽 컷에 「우리가 만든다」류 생산 주체 주장을 붙이지 않는다 — 위 주석과 같은 원칙). -->
+  <!-- 대표 3차 지시: 2단 카드 대신 **이전처럼 풀와이드**(화면 끝까지 16:9). 소개 틀은 영상 위 얇은 헤더(이름표 + 한 줄)로만. -->
   <div class="band band--ad">
-    <div class="wrap adband">
-      <div class="adband__txt">
-        <p class="eyebrow">광고 영상</p>
-        <p class="adband__h">번 반죽부터<br>녹는 치즈까지</p>
-        <p class="adband__p">번 반죽 트레이, 그리들 위 패티, 녹아내리는 치즈, 세트 한 상 — 12초 광고 편집본입니다.</p>
-      </div>
-      <video autoplay muted loop playsinline preload="metadata"
-             poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
-             aria-label="티티버거 광고 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
-        <source src="_assets/video/ad_titi.mp4" type="video/mp4"></video>
+    <div class="wrap adband__head">
+      <p class="eyebrow">브랜드 소개</p>
+      <p class="adband__h">티티버거를 12초로 소개합니다</p>
     </div>
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="_assets/video/ad_titi_poster.jpg" width="1440" height="810" tabindex="-1"
+           aria-label="티티버거 소개 영상 — 번 반죽부터 패티 그리들, 치즈, 완성된 버거까지">
+      <source src="_assets/video/ad_titi.mp4" type="video/mp4"></video>
   </div>
 
   <!-- ══ 09 업종 변경 — 여기서부터 타겟을 좁힌다 (2026-08-20 구조: 넓게→좁게, 메뉴 뒤 배치) ══ -->
