@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- v4.56 — 히어로 인트로용 표식. 페인트 전에 간판 내용을 감춰 두고 DOMContentLoaded 인트로가 푼다(하단 스크립트 1-0). JS 꺼지면 이 줄이 안 돌아 그대로 보인다. -->
-<script>document.documentElement.classList.add('js-intro');</script>
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-intro');}</script>
 <!-- 검색 축: 데이터랩 실측상 「수제버거창업」은 「소자본창업」의 1/59이라 브랜드·업종을 앞세우면 유입이 없다.
      소자본·소형 매장·업종 변경을 앞에 두고 버거는 차별점으로 뒤에 둔다. (GEO설계 §0) -->
 <!-- 2026-08-22: 12無 스펙(8/20 확정)에 맞춰 head 메타 동기화. 교육비 300만원은 부과 항목이라 면제 목록에서 제외,
@@ -2180,7 +2180,7 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 /* 상담바 링크 — 861~1024 터치 기기에서 44px 미만이었다(29/22px) */
 .bar__tel{padding-block:10px}
 .bar__msg{padding-block:11px}
-/* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·GSAP 실패 시 클래스가 안 붙거나 3초 뒤 풀려 보인다. */
+/* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·모션 감축이면 클래스가 안 붙고, GSAP 이 늦으면 1.8초 뒤 풀려 보인다. */
 html.js-intro .hero__sign > *{visibility:hidden}
 </style>
 </head>
