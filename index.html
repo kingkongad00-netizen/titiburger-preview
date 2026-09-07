@@ -2219,9 +2219,8 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 /* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·모션 감축이면 클래스가 안 붙고, GSAP 이 늦으면 1.8초 뒤 풀려 보인다. */
 html.js-intro .hero__sign > *{visibility:hidden}
 
-/* 내부 음료 통합 검토 — 수동 탐색, 기존 마퀴와 독립. */
+/* 음료 14종 수동 탐색 — 기존 마퀴와 독립. */
 .mdrink14{background:var(--dark); padding-block:12px 4px}
-.mdrink14__review{margin:0 0 20px; padding:12px 14px; border:1px solid var(--on-dark-2); color:var(--on-dark); font-size:var(--fs-cap); line-height:1.6}
 .mdrink14__group + .mdrink14__group{margin-top:32px; padding-top:26px; border-top:1px solid var(--on-dark-2)}
 .mdrink14__head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px}
 .mdrink14__title{margin:0; font-family:var(--ff-sign); font-size:19px; font-weight:400; line-height:1.4; color:var(--on-dark)}
@@ -2240,7 +2239,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
 .mdrink14__list figure{margin:0}
 .mdrink14__list img{display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:var(--white)}
 .mdrink14__list figcaption{padding-top:10px; font-size:16px; font-weight:600; line-height:1.6; color:var(--on-dark)}
-@media(min-width:601px){.mdrink14__list{gap:22px}.mdrink14__list li{flex-basis:210px}.mdrink14__title{font-size:22px}}
+@media(min-width:601px){.mdrink14__list{gap:22px}.mdrink14__list li{flex-basis:210px}}
+@media(min-width:1200px){.mdrink14__title{font-size:22px}}
 @media(min-width:1025px){.mdrink14__list li{flex-basis:240px}}
 @media(prefers-reduced-motion:reduce){.mdrink14__list{scroll-behavior:auto}}
 </style>
@@ -2729,7 +2729,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
           </li>
         </ul>
       </div>
-      <div class="mrow mrow--static mdrink14" id="drinks-review">
+      <div class="mrow mrow--static mdrink14" id="drinks">
         <p class="mrow__label"><b>음료 · 쉐이크</b><span>DRINK &amp; SHAKE</span></p>
         <div class="mdrink14__group" role="group" aria-labelledby="mdrink14-heading-0">
           <div class="mdrink14__head"><h3 class="mdrink14__title" id="mdrink14-heading-0">쉐이크<span class="mdrink14__count">SHAKES · 9</span></h3><div class="mdrink14__controls"><button class="mdrink14__button" type="button" data-dir="-1" aria-label="쉐이크 이전 메뉴" aria-controls="mdrink14-list-0" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button class="mdrink14__button" type="button" data-dir="1" aria-label="쉐이크 다음 메뉴" aria-controls="mdrink14-list-0"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
@@ -3481,7 +3481,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
   </section>
 
   <!-- ══ 12-b CTA 스트립 (신설 v4) ══ -->
-  <section class="ctastrip" aria-label="대표 1:1 직접 상담">
+  <section class="ctastrip" aria-label="창업 상담 바로가기">
     <div class="wrap ctastrip__in">
       <!-- v4.59 (대표 요청 9/7) — 마지막 상담 폼 앞에 「대표 1:1 직접 상담」을 세운다. 새 사실은 「상담은 대표가 직접 한다」 하나.
            나머지 두 문장은 기존 카피 그대로. 이름은 #ceo 의 서명과 같은 문구. -->
@@ -3882,7 +3882,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
       { sel: '.terrviz figure:nth-child(1)', x: -90 },
       { sel: '.terrviz figure:nth-child(2)', x: 90 },
       { sel: '.step' },
-      { sel: '.ctastrip__t', x: -90 }, { sel: '.ctastrip__btns', x: 90 },
+      { sel: '.ctastrip__txt', x: -90 }, { sel: '.ctastrip__btns', x: 90 },
       { sel: '.form' },
       { sel: '.ovals li', x: 90 }, { sel: '.ring' }
     ];
