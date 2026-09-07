@@ -1676,8 +1676,13 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   padding-block:clamp(34px,4.4vw,56px);
 }
 .ctastrip__t{
-  font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2.2vw,30px); line-height:1.34;
+  font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2.2vw,30px); line-height:1.34; margin:0;
 }
+.ctastrip__txt{display:grid; gap:10px; flex:1 1 520px; max-width:760px}
+.ctastrip__s{margin:0; font-family:var(--ff-body); font-size:clamp(16px,1.3vw,19px); line-height:1.6}
+.ctastrip__k{margin:0; display:flex; align-items:center; gap:10px; font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.5; letter-spacing:.02em}
+.ctastrip__k::before{content:""; width:28px; height:3px; background:currentColor; flex:none}
+.ctastrip__who{margin:0; font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.5}
 .ctastrip__btns{display:flex; gap:14px; flex-wrap:wrap}
 .btn--ink{background:var(--ink); color:var(--white)}
 .mbr{display:none}
@@ -1720,6 +1725,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .type:nth-child(2) .type__body{order:2}
   .sec--dark .facts{grid-template-columns:1fr}
   .ctastrip__in{justify-content:center; text-align:center}
+  .ctastrip__txt{flex-basis:auto; max-width:none; justify-items:center}
+  .ctastrip__k{justify-content:center}
   .mbr{display:inline}
 }
 
@@ -2211,6 +2218,31 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 .bar__msg{padding-block:11px}
 /* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·모션 감축이면 클래스가 안 붙고, GSAP 이 늦으면 1.8초 뒤 풀려 보인다. */
 html.js-intro .hero__sign > *{visibility:hidden}
+
+/* 내부 음료 통합 검토 — 수동 탐색, 기존 마퀴와 독립. */
+.mdrink14{background:var(--dark); padding-block:12px 4px}
+.mdrink14__review{margin:0 0 20px; padding:12px 14px; border:1px solid var(--on-dark-2); color:var(--on-dark); font-size:var(--fs-cap); line-height:1.6}
+.mdrink14__group + .mdrink14__group{margin-top:32px; padding-top:26px; border-top:1px solid var(--on-dark-2)}
+.mdrink14__head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px}
+.mdrink14__title{margin:0; font-family:var(--ff-sign); font-size:19px; font-weight:400; line-height:1.4; color:var(--on-dark)}
+.mdrink14__count{display:block; font-family:var(--ff-body); font-size:var(--fs-cap); font-weight:500; line-height:1.6; color:var(--on-dark-2)}
+.mdrink14__controls{display:flex; flex:none; gap:8px}
+.mdrink14__button{display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid var(--on-dark); border-radius:0; color:var(--on-dark); background:var(--dark); cursor:pointer; touch-action:manipulation}
+.mdrink14__button:hover:not(:disabled){color:var(--dark); background:var(--on-dark)}
+.mdrink14__button:disabled{color:var(--on-dark-2); border-color:var(--on-dark-2); cursor:default}
+.mdrink14__button svg{width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2}
+.mdrink14__button:focus-visible{outline:3px solid var(--white); outline-offset:3px}
+.mdrink14__hint{margin:0 0 16px; font-size:var(--fs-cap); line-height:1.6; color:var(--on-dark-2)}
+.mdrink14__group.is-static .mdrink14__hint,.mdrink14__group.is-static .mdrink14__controls{display:none}
+.mdrink14__list{display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:var(--on-dark-2) var(--dark); padding:4px 0 18px; margin:0; list-style:none}
+.mdrink14__list:focus-visible{outline:3px solid var(--white); outline-offset:3px}
+.mdrink14__list li{flex:0 0 52%; min-width:0; scroll-snap-align:start}
+.mdrink14__list figure{margin:0}
+.mdrink14__list img{display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:var(--white)}
+.mdrink14__list figcaption{padding-top:10px; font-size:16px; font-weight:600; line-height:1.6; color:var(--on-dark)}
+@media(min-width:601px){.mdrink14__list{gap:22px}.mdrink14__list li{flex-basis:210px}.mdrink14__title{font-size:22px}}
+@media(min-width:1025px){.mdrink14__list li{flex-basis:240px}}
+@media(prefers-reduced-motion:reduce){.mdrink14__list{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -2697,19 +2729,34 @@ html.js-intro .hero__sign > *{visibility:hidden}
           </li>
         </ul>
       </div>
-      <div class="mrow mrow--static">
+      <div class="mrow mrow--static mdrink14" id="drinks-review">
         <p class="mrow__label"><b>음료 · 쉐이크</b><span>DRINK &amp; SHAKE</span></p>
-        <!-- v4.57 (대표 지시) — 이름만 있던 줄에 군별 대표 컷 3장(쉐이크·탄산·아메리카노). 컵·로고가 미확정이라 무지 컵으로 생성. -->
-        <ul class="mdrinkcards">
-          <li><img src="_assets/menu/drink_shake.jpg" alt="쉐이크" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">쉐이크 <small>9종</small></p></li>
-          <li><img src="_assets/menu/drink_cola.jpg" alt="탄산음료" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">탄산음료 <small>4종</small></p></li>
-          <li><img src="_assets/menu/drink_americano.jpg" alt="아메리카노" loading="lazy" decoding="async" width="760" height="570"><p class="menu__name">아메리카노</p></li>
-        </ul>
-        <ul class="mdrinks">
-          <li>밀크쉐이크</li><li>딸기쉐이크</li><li>초코쉐이크</li><li>리얼고구마쉐이크</li><li>오레오쉐이크</li>
-          <li>딸기오레오쉐이크</li><li>초코오레오쉐이크</li><li>돼지바쉐이크</li><li>쉑츄 (쉐이크 + 츄러스)</li>
-          <li>콜라</li><li>제로콜라</li><li>사이다</li><li>탐스제로</li><li>아메리카노</li>
-        </ul>
+        <div class="mdrink14__group" role="group" aria-labelledby="mdrink14-heading-0">
+          <div class="mdrink14__head"><h3 class="mdrink14__title" id="mdrink14-heading-0">쉐이크<span class="mdrink14__count">SHAKES · 9</span></h3><div class="mdrink14__controls"><button class="mdrink14__button" type="button" data-dir="-1" aria-label="쉐이크 이전 메뉴" aria-controls="mdrink14-list-0" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button class="mdrink14__button" type="button" data-dir="1" aria-label="쉐이크 다음 메뉴" aria-controls="mdrink14-list-0"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
+          <p class="mdrink14__hint">옆으로 넘겨 모든 메뉴를 확인하세요.</p>
+          <ul class="mdrink14__list" id="mdrink14-list-0" tabindex="0" aria-label="쉐이크 메뉴 사진, 좌우 방향키로 이동">
+            <li><figure><img src="_assets/menu/drink14_01.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>밀크쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_02.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>딸기쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_03.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>초코쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_04.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>리얼고구마쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_05.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>오레오쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_06.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>딸기오레오쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_07.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>초코오레오쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_08.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>돼지바쉐이크</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_09.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>쉑츄 (쉐이크 + 츄러스)</figcaption></figure></li>
+          </ul>
+        </div>
+        <div class="mdrink14__group" role="group" aria-labelledby="mdrink14-heading-1">
+          <div class="mdrink14__head"><h3 class="mdrink14__title" id="mdrink14-heading-1">탄산음료 · 커피<span class="mdrink14__count">DRINKS &amp; COFFEE · 5</span></h3><div class="mdrink14__controls"><button class="mdrink14__button" type="button" data-dir="-1" aria-label="탄산음료 · 커피 이전 메뉴" aria-controls="mdrink14-list-1" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button class="mdrink14__button" type="button" data-dir="1" aria-label="탄산음료 · 커피 다음 메뉴" aria-controls="mdrink14-list-1"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
+          <p class="mdrink14__hint">옆으로 넘겨 모든 메뉴를 확인하세요.</p>
+          <ul class="mdrink14__list" id="mdrink14-list-1" tabindex="0" aria-label="탄산음료 · 커피 메뉴 사진, 좌우 방향키로 이동">
+            <li><figure><img src="_assets/menu/drink14_10.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>콜라</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_11.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>제로콜라</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_12.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>사이다</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_13.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>탐스제로</figcaption></figure></li>
+<li><figure><img src="_assets/menu/drink14_14.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>아메리카노</figcaption></figure></li>
+          </ul>
+        </div>
       </div>
 
     </div>
@@ -3418,7 +3465,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </details>
         <details>
           <summary>상담은 어떻게 신청하나요?</summary>
-          <p class="faq__a">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 담당자가 연락드립니다. 페이지 상단·하단의 「창업 상담 신청」 버튼을 누르면 폼으로 바로 이동합니다. 전화 1688-2629로도 상담하실 수 있습니다.</p>
+          <p class="faq__a">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 연락드립니다. 페이지 상단·하단의 「창업 상담 신청」 버튼을 누르면 폼으로 바로 이동합니다. 전화 1688-2629로도 상담하실 수 있습니다.</p>
         </details>
       </div>
 
@@ -3434,9 +3481,16 @@ html.js-intro .hero__sign > *{visibility:hidden}
   </section>
 
   <!-- ══ 12-b CTA 스트립 (신설 v4) ══ -->
-  <section class="ctastrip" aria-label="창업 상담 바로가기">
+  <section class="ctastrip" aria-label="대표 1:1 직접 상담">
     <div class="wrap ctastrip__in">
-      <p class="ctastrip__t">지역과 점포 상황만 알려 주십시오. <br class="mbr">어떤 형태가 맞는지부터 정리해 드립니다.</p>
+      <!-- v4.59 (대표 요청 9/7) — 마지막 상담 폼 앞에 「대표 1:1 직접 상담」을 세운다. 새 사실은 「상담은 대표가 직접 한다」 하나.
+           나머지 두 문장은 기존 카피 그대로. 이름은 #ceo 의 서명과 같은 문구. -->
+      <div class="ctastrip__txt">
+        <p class="ctastrip__k">대표 1:1 직접 상담</p>
+        <p class="ctastrip__t">가맹 상담은 대표가 직접 합니다.</p>
+        <p class="ctastrip__s">지역과 점포 상황만 알려 주십시오.<br>어떤 형태가 맞는지부터 정리해 드립니다.</p>
+        <p class="ctastrip__who">㈜지에이엠 대표 이재훈</p>
+      </div>
       <div class="ctastrip__btns">
         <a class="btn btn--ghost" href="tel:16882629">전화 1688-2629</a>
         <a class="btn btn--ink" href="#contact">창업 상담 신청</a>
@@ -3512,7 +3566,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
         <input type="hidden" name="adCode" value="">
         <input type="hidden" name="flow" value="">
         <button class="btn btn--wide" type="submit">창업 상담 신청하기</button>
-        <p class="formnote">접수 후 담당자가 순차적으로 연락드립니다. 급하시면 1688-2629로 전화 주십시오.</p>
+        <p class="formnote">접수 후 순차적으로 연락드립니다. 상담은 대표가 직접 합니다. 급하시면 1688-2629로 전화 주십시오.</p>
       </form>
       </div>
     </div>
@@ -3691,7 +3745,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
         {"@type":"Question","name":"배달만 하는 매장으로 시작해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"배달 전문 매장은 모집하지 않습니다. 홀은 작아도 두고, 포장과 배달을 함께 운영합니다. 샵인샵 형태도 받지 않습니다."}},
         {"@type":"Question","name":"선착순 10호점 혜택은 어떤 내용인가요?","acceptedAnswer":{"@type":"Answer","text":"선착순 10호점은 창업비용을 최대 2,000만원 지원하고 창업 혜택 12無가 적용됩니다. 가맹비·보증금·재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료 면제, 로열티 24개월 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료 지원, 카드 무이자 최대 6개월 할부입니다. 첫 달 오픈 광고비 30만원, 원자재·음료 초도물량, 오픈 첫 달 사이드 2종(치킨너겟·양파링) 전량 지원이 함께 제공됩니다."}},
         {"@type":"Question","name":"본사에서 반드시 사야 하는 물품이 있나요?","acceptedAnswer":{"@type":"Answer","text":"티티버거 메뉴의 맛과 품질을 좌우하는 번·패티·각종 소스류·패키지·식용유 등은 본사가 공급합니다. 기타 식자재는 대형 물류사와 계약되어 있어 발주 및 공급받으면 됩니다."}},
-        {"@type":"Question","name":"상담은 어떻게 신청하나요?","acceptedAnswer":{"@type":"Answer","text":"아래 창업 문의 폼에 성함, 연락처, 창업 희망 지역, 창업 형태를 남기면 담당자가 연락합니다. 전화 1688-2629로도 상담할 수 있습니다."}}
+        {"@type":"Question","name":"상담은 어떻게 신청하나요?","acceptedAnswer":{"@type":"Answer","text":"아래 창업 문의 폼에 성함, 연락처, 창업 희망 지역, 창업 형태를 남기면 연락드립니다. 전화 1688-2629로도 상담할 수 있습니다."}}
       ]
     }
   ]
@@ -4168,6 +4222,43 @@ html.js-intro .hero__sign > *{visibility:hidden}
     }, { rootMargin: '80px' });
     document.querySelectorAll('.mq, .wq, .ring, .rvroll, .hero__badge').forEach(function (el) { spinIO.observe(el); });
 
+  });
+})();
+</script>
+
+<script>
+/* 기능 전용: reduced-motion과 GSAP 로딩 여부에 관계없이 실행. */
+(function () {
+  document.querySelectorAll('.mdrink14__group').forEach(function (group) {
+    var list = group.querySelector('.mdrink14__list');
+    var previous = group.querySelector('[data-dir="-1"]');
+    var next = group.querySelector('[data-dir="1"]');
+    var preference = matchMedia('(prefers-reduced-motion:reduce)');
+    function sync() {
+      var max = Math.max(0, list.scrollWidth - list.clientWidth);
+      var active = document.activeElement;
+      group.classList.toggle('is-static', max < 3);
+      previous.disabled = list.scrollLeft < 2;
+      next.disabled = list.scrollLeft >= max - 2;
+      /* 끝에 닿아 포커스된 버튼이 비활성화되면 포커스가 body 로 떨어진다(적대 QA 실측) — 목록으로 옮겨 키보드 흐름을 잇는다. */
+      if ((active === previous || active === next) && active.disabled) list.focus({preventScroll: true});
+    }
+    function move(direction) {
+      list.scrollBy({left: direction * list.clientWidth * .82, behavior: preference.matches ? 'instant' : 'smooth'});
+    }
+    previous.addEventListener('click', function () { move(-1); });
+    next.addEventListener('click', function () { move(1); });
+    list.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+      } else if (event.key === 'Home' || event.key === 'End') {
+        event.preventDefault();
+        list.scrollTo({left: event.key === 'Home' ? 0 : list.scrollWidth, behavior: preference.matches ? 'instant' : 'smooth'});
+      }
+    });
+    list.addEventListener('scroll', sync, {passive: true});
+    new ResizeObserver(sync).observe(list);
+    sync();
   });
 })();
 </script>
