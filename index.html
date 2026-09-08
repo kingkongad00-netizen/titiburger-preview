@@ -149,7 +149,7 @@ input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
      A 제품·브랜드   brand → supply(공급) → 조리 루프 밴드 → creed
      B 오퍼·메뉴     support → menu-burger → menu-side
      C 전환·운영     why → fourway → types → company → process
-     D 전환(행동)    faq → ctastrip → contact
+     D 전환(행동)    process → faq → ceo → contact
    덩어리 경계에만 큰 여백을 쓰고 안쪽은 좁힌다. 큰 여백을 희소하게 만들어야
    그게 경계로 읽힌다(H2 '강조는 나머지를 죽이기'의 여백판).
    결과 간격 고유값 4종(68·108·136·260px) — 개정 전 1종(202px). */
@@ -306,25 +306,6 @@ h3.h3{
 }
 .hd__logo .hd__sym{height:34px; width:auto; margin-right:9px} /* 락업 상단 버거 심볼 크롭 — .hd__logo img 반응형 룰보다 특이도 높게 */
 
-/* 상담바 — 전 구간 고정 (데스크톱) */
-.bar{background:var(--red); border-top:2px solid var(--ink)}
-.bar__in{
-  max-width:var(--maxw); margin:0 auto; padding:11px var(--gutter);
-  display:flex; align-items:center; gap:10px;
-}
-.bar__label{
-  font-family:var(--ff-sign); font-weight:400; color:var(--white); font-size:19px;
-  line-height:1.3; letter-spacing:-.01em; white-space:nowrap;
-  padding-right:14px; margin-right:2px; border-right:2px solid rgba(255,255,255,.38);
-}
-.bar__in--jump{text-decoration:none; cursor:pointer}
-/* 2026-08-22: 입력칸 모사(성함·연락처·희망 지역) 제거 → 제안 문구.
-   눌러도 타이핑이 안 되고 화면만 하단으로 튀어 기만적이었다. 흰 글자/레드 바탕 = 4.80:1 (AA 본문) */
-.bar__msg{
-  flex:1 1 auto; min-width:0; color:var(--white); font-size:16px; line-height:1.4;
-  letter-spacing:-.005em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-.bar .btn{padding:11px 22px; border-color:var(--ink); background:var(--ink); color:var(--white); box-shadow:4px 4px 0 rgba(0,0,0,.35)}
 .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
 
 /* ══ 01 히어로 — 간판(위) / 쇼윈도(아래) ══ */
@@ -1468,8 +1449,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .steps{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:860px){
-  .hd__nav{display:none}      /* 여기서부터 .mcta 하단 고정바가 이어받는다 */
-  .bar{display:none}
+  .hd__nav{display:none}      /* 모바일 상담은 히어로 단일 버튼 → 스크롤 후 하단 바 */
   .swap{grid-template-columns:1fr}
   .ways{grid-template-columns:repeat(2,1fr)}
   .mcta{display:grid}
@@ -1509,7 +1489,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 /* ── 히어로: 풀스크린 시네마 (간판은 그대로) ── */
 .hero{
   position:relative; overflow:hidden; background:var(--dark);
-  min-height:calc(100svh - var(--hd-h, 74px) - 74px);
+  min-height:calc(100svh - var(--hd-h, 74px) - 201px);
   display:grid; align-items:center;
 }
 .hero__bg{position:absolute; inset:0}
@@ -1680,27 +1660,16 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .type:nth-child(2) .type__body{order:1}
 .type__body{padding:0}
 
-/* ── CTA 스트립 ── */
-.ctastrip{background:var(--red); color:var(--white); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
-.ctastrip__in{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;
-  padding-block:clamp(34px,4.4vw,56px);
-}
-.ctastrip__t{
-  font-family:var(--ff-sign); font-weight:400; font-size:clamp(20px,2.2vw,30px); line-height:1.34; margin:0;
-}
-.ctastrip__txt{display:grid; gap:10px; flex:1 1 520px; max-width:760px}
-/* v4.62 — 대표 서명 컷이 들어가는 섹션형 띠. 사진은 #ceo 초상과 같은 4px 잉크 테두리·클립 그림자로 묶는다. */
-.ctastrip--ceo .ctastrip__in{display:grid; grid-template-columns:minmax(300px,1fr) 1.25fr; grid-template-areas:"ph txt" "ph btns"; column-gap:clamp(24px,4vw,64px); row-gap:clamp(16px,2vw,24px); align-items:center; justify-content:start}
-.ctastrip--ceo .ctastrip__ph{grid-area:ph; margin:0; max-width:520px; align-self:center}
-.ctastrip--ceo .ctastrip__ph img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; border:4px solid var(--ink); box-shadow:var(--sh-clip); background:#EDEAE5}
-.ctastrip--ceo .ctastrip__txt{grid-area:txt; flex:none; max-width:none}
-.ctastrip--ceo .ctastrip__btns{grid-area:btns; align-self:start}
-.ctastrip__s{margin:0; font-family:var(--ff-body); font-size:clamp(16px,1.3vw,19px); line-height:1.6}
-.ctastrip__k{margin:0; display:flex; align-items:center; gap:10px; font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.5; letter-spacing:.02em}
-.ctastrip__k::before{content:""; width:28px; height:3px; background:currentColor; flex:none}
-.ctastrip__who{margin:0; font-family:var(--ff-plate); font-size:var(--fs-cap); line-height:1.5}
-.ctastrip__btns{display:flex; gap:14px; flex-wrap:wrap}
+/* ── 상단 대표 소개 — 인물과 상담 약속을 한 행에 묶는다 ── */
+.ctastrip{background:var(--cream); background-image:var(--grain-ink); color:var(--ink); border-bottom:1px solid var(--line)}
+.ctastrip__in{display:grid; grid-template-columns:208px minmax(0,1fr); gap:clamp(24px,3.4vw,48px); align-items:center; padding-block:22px}
+.ctastrip__ph{margin:0; width:100%}
+.ctastrip__ph img{display:block; width:100%; height:156px; object-fit:cover; object-position:50% 45%; border-bottom:3px solid var(--red-deep)}
+.ctastrip__txt{display:grid; gap:8px; min-width:0}
+.ctastrip__k{margin:0; color:var(--red-deep); font-family:var(--ff-plate); font-size:15px; line-height:1.4; letter-spacing:.02em}
+.ctastrip__t{margin:0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(25px,2.1vw,30px); line-height:1.3; word-break:keep-all}
+.ctastrip__s{margin:0; font-family:var(--ff-body); font-size:16px; line-height:1.6; word-break:keep-all}
+.ctastrip__who{margin:0; font-family:var(--ff-plate); font-size:15px; line-height:1.4}
 .btn--ink{background:var(--ink); color:var(--white)}
 .mbr{display:none}
 
@@ -1710,10 +1679,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   display:none; align-items:center; justify-content:center; gap:18px;
   background:var(--ink); color:var(--white); padding:12px var(--gutter);
   border-top:3px solid var(--red);
-  transform:translateY(110%);
 }
-@media (prefers-reduced-motion: no-preference){ .dock{transition:transform .35s ease} }
-.dock--on{transform:translateY(0)}
+.dock[hidden],.mcta[hidden]{display:none}
 .dock__tel{
   color:var(--white); text-decoration:none; font-size:16px; line-height:1.4;
   display:inline-flex; align-items:center; gap:10px; min-height:44px; padding-inline:8px;
@@ -1733,7 +1700,9 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 
 /* ── 모바일 v4 보정 ── */
 @media (max-width:860px){
-  .hero{min-height:calc(100svh - var(--hd-h, 64px))}
+  /* 대표 소개가 먼저 보이므로 히어로 위아래 여백을 줄여 첫 화면의 상담 버튼을 살린다. */
+  .hero{min-height:calc(100svh - var(--hd-h, 64px) - 230px)}
+  .hero__stage{padding-block:24px}
   .ed__row, .ed__row--rev{grid-template-columns:1fr}
   .ed__row--rev .ed__txt{order:1}
   .ed__row--rev .ed__fig{order:2}
@@ -1741,12 +1710,14 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .type:nth-child(2) img{order:1}
   .type:nth-child(2) .type__body{order:2}
   .sec--dark .facts{grid-template-columns:1fr}
-  .ctastrip__in{justify-content:center; text-align:center}
-  .ctastrip__txt{flex-basis:auto; max-width:none; justify-items:center}
-  .ctastrip__k{justify-content:center}
-  .ctastrip--ceo .ctastrip__in{grid-template-columns:1fr; grid-template-areas:"ph" "txt" "btns"; justify-items:center}
-  .ctastrip--ceo .ctastrip__ph{max-width:440px; width:100%}
-  .ctastrip--ceo .ctastrip__btns{justify-content:center}
+  .ctastrip__in{grid-template-columns:116px minmax(0,1fr); gap:18px; padding-block:20px}
+  .ctastrip__ph img{height:164px; object-position:55% 42%}
+  .ctastrip__txt{gap:7px}
+  .ctastrip__k,.ctastrip__who{font-size:15px}
+  .ctastrip__t{font-size:20px; line-height:1.3}
+  .ctastrip__t span{display:block}
+  .ctastrip__s{font-size:15px; line-height:1.6}
+
   .mbr{display:inline}
 }
 
@@ -2080,14 +2051,10 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .hd__nav--l{justify-content:flex-end}
 .hd__nav--r{justify-content:flex-start}
 @media (max-width:1180px){ .hd__nav{gap:6px} .hd__nav a{padding:6px 1px} }
-.bar__tel{text-decoration:none}
-.bar__tel b{font-weight:400; font-size:22px; margin-left:8px; letter-spacing:-.01em}
-.bar__msg.bar__in--jump{text-decoration:none}
 /* 히어로 버튼 — 기교 없이(2차 미팅): 하드 섀도우·볼트 없이 평면 */
 .hero__cta .btn{border-width:2px; border-radius:8px; box-shadow:none; padding:14px 30px}
 .hero__cta .btn:hover,.hero__cta .btn:active{transform:none; box-shadow:none; filter:brightness(.94)}
-.hero__cta .btn--ghost{background:var(--white); color:var(--ink); border-color:var(--white)}
-.hero__cta .btn:not(.btn--ghost){background:var(--ink); color:var(--white); border-color:var(--ink)}
+.hero__cta .btn{background:var(--ink); color:var(--white); border-color:var(--ink)}
 /* #brand — BI 락업(우측) · 오벌 4개(패티 카드 하단, 2×2) */
 .brandbi{
   margin:0; justify-self:end; width:min(100%, clamp(220px,25vw,350px));
@@ -2236,9 +2203,6 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 /* K2 — 흰 글자에 opacity 를 얹으면 레드 위 4.80 → 4.17(면제)·3.67(SELF-MADE)로 떨어진다(실측). 순색으로 */
 .ctno li i{opacity:1}
 .ovals li small{opacity:1}
-/* 상담바 링크 — 861~1024 터치 기기에서 44px 미만이었다(29/22px) */
-.bar__tel{padding-block:10px}
-.bar__msg{padding-block:11px}
 /* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·모션 감축이면 클래스가 안 붙고, GSAP 이 늦으면 1.8초 뒤 풀려 보인다. */
 html.js-intro .hero__sign > *{visibility:hidden}
 
@@ -2270,10 +2234,9 @@ html.js-intro .hero__sign > *{visibility:hidden}
 </head>
 <body>
 
-<!-- ══ 헤더 + sticky 상담바 (02) ══ -->
+<!-- ══ 헤더 — 브랜드 로고와 섹션 탐색 ══ -->
 <header class="hd" id="hd">
-  <!-- v4.54 (2차 미팅 지시) — 버거리 헤더 문법: 로고를 가운데 두고 탭을 좌 4 · 우 4 로 가른다.
-       전화번호는 버거리처럼 상담바 왼쪽으로 내려간다. 860px 이하는 기존대로 .mcta 가 이어받는다. -->
+  <!-- 로고를 가운데 두고 주요 섹션 링크를 좌 4 · 우 4로 나눈다. -->
   <div class="hd__row hd__row--split">
     <nav class="hd__nav hd__nav--l" aria-label="주요 메뉴 왼쪽">
       <a href="#creed">본질은 맛</a>
@@ -2290,37 +2253,22 @@ html.js-intro .hero__sign > *{visibility:hidden}
       <a href="#contact">창업 문의</a>
     </nav>
   </div>
-  <!-- 2026-08-20 클라이언트 지시: 헤더 바는 실입력이 아니라 클릭 시 하단 상세 폼으로 이동
-       2026-08-22: 어차피 하단으로 보낼 거면 입력칸을 흉내 낼 이유가 없다 — 같은 자리를 제안 문구로 전환 -->
-  <div class="bar">
-    <div class="bar__in">
-      <a class="bar__label bar__tel" href="tel:16882629">창업 문의 <b>1688-2629</b></a>
-      <a class="bar__msg bar__in--jump" href="#contact" aria-label="하단 창업 문의 폼으로 이동">쓰던 매장·설비 그대로 살려 전환 · 평수 조건 없음</a>
-      <a class="btn" href="#contact">상담 신청</a>
-    </div>
-  </div>
 </header>
 
 <main id="top">
 
-  <!-- ══ 12-b CTA 스트립 (신설 v4) ══ -->
-  <section class="ctastrip ctastrip--ceo" aria-label="창업 상담 바로가기">
+  <!-- ══ 대표 소개 — 상단 신뢰 영역 ══ -->
+  <section class="ctastrip ctastrip--ceo" aria-label="대표 직접 상담 안내">
     <div class="wrap ctastrip__in">
-      <!-- v4.59 (대표 요청 9/7) — 마지막 상담 폼 앞에 「대표 1:1 직접 상담」을 세운다. 새 사실은 「상담은 대표가 직접 한다」 하나.
-           나머지 두 문장은 기존 카피 그대로. 이름은 #ceo 의 서명과 같은 문구.
-           v4.62 (대표 요청 9/8) — 대표가 서류에 서명하는 장면(AI 생성, 본인 확인 전 시안)을 왼쪽에 세워 섹션으로 키운다. -->
+      <!-- 본인 확인을 마친 대표 서명 컷과 직접 상담 약속을 함께 보여준다. -->
       <figure class="ctastrip__ph">
-        <img src="_assets/shot/ceo_sign.jpg" alt="가맹 서류에 서명하는 ㈜지에이엠 대표 이재훈" width="1200" height="896" loading="lazy" decoding="async">
+        <img src="_assets/shot/ceo_sign.jpg" alt="가맹 서류에 서명하는 ㈜지에이엠 대표 이재훈" width="1200" height="896" loading="eager" decoding="async">
       </figure>
       <div class="ctastrip__txt">
         <p class="ctastrip__k">대표 1:1 직접 상담</p>
-        <p class="ctastrip__t">가맹 상담은 대표가 직접 합니다.</p>
+        <p class="ctastrip__t"><span>가맹 상담은</span> <span>대표가 직접 합니다.</span></p>
         <p class="ctastrip__s">지역과 점포 상황만 알려 주십시오.<br>어떤 형태가 맞는지부터 정리해 드립니다.</p>
         <p class="ctastrip__who">㈜지에이엠 대표 이재훈</p>
-      </div>
-      <div class="ctastrip__btns">
-        <a class="btn btn--ghost" href="tel:16882629">전화 1688-2629</a>
-        <a class="btn btn--ink" href="#contact">창업 상담 신청</a>
       </div>
     </div>
   </section>
@@ -2338,7 +2286,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
           <div class="hero__rule" aria-hidden="true"></div>
           <p class="hero__sub">평수는 묻지 않습니다. 공간이 없으면 바테이블만 두셔도 됩니다.<br>지금 쓰시는 매장 그대로 바꾸셔도 됩니다.</p>
           <div class="hero__cta">
-            <a class="btn btn--ghost" href="#support">창업 조건 먼저 보기</a>
             <a class="btn" href="#contact">창업 상담 신청</a>
           </div>
         </div>
@@ -3622,7 +3569,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
   </div>
 </footer>
 
-<nav class="mcta" aria-label="상담 바로가기">
+<nav class="mcta" aria-label="상담 바로가기" hidden>
   <a href="tel:16882629">전화 상담</a>
   <a href="#contact">창업 상담 신청</a>
 </nav>
@@ -3780,7 +3727,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
 }
 </script>
 <!-- ══ v4: PC 하단 고정 전환바 (프레디 contact_fixed 모티프 · 모바일은 기존 .mcta) ══ -->
-<div class="dock" id="dock" role="complementary" aria-label="창업 상담 바로가기">
+<div class="dock" id="dock" role="complementary" aria-label="창업 상담 바로가기" hidden>
   <a class="dock__tel" href="tel:16882629">창업 문의 <b>1688-2629</b></a>
   <a class="dock__cta" href="#contact">창업 상담 신청</a>
 </div>
@@ -3803,13 +3750,21 @@ html.js-intro .hero__sign > *{visibility:hidden}
   setTimeout(function () { if (!introDone) { introDone = true; root.classList.remove('js-intro'); } }, 1800);
 
 
-  /* 고정 전환바 — 모션 아님(기능): reduced에서도 동작 */
+  /* 고정 상담은 히어로를 다 읽은 뒤에만 노출한다. hidden은 숨김 중 키보드 접근도 막는다. */
   var dock = document.getElementById('dock');
+  var mobileCta = document.querySelector('.mcta');
+  var hero = document.querySelector('.hero');
+  var header = document.getElementById('hd');
   var onScrollDock = function () {
-    if (scrollY > 560) dock.classList.add('dock--on');
-    else dock.classList.remove('dock--on');
+    var show = hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom;
+    dock.hidden = !show;
+    mobileCta.hidden = !show;
   };
-  addEventListener('scroll', onScrollDock, { passive: true }); onScrollDock();
+  addEventListener('scroll', onScrollDock, { passive: true });
+  addEventListener('resize', onScrollDock);
+  addEventListener('load', onScrollDock);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(onScrollDock);
+  onScrollDock();
 
   /* 메뉴 카테고리 탭 슬라이더 — 기능이므로 reduced에서도 동작 */
   var tabs = [].slice.call(document.querySelectorAll('.mtab'));
