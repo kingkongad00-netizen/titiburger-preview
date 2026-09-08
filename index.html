@@ -211,7 +211,7 @@ input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
   /* v4.54 — 2차 미팅 「섹션 이름 텍스트 너무 작음」: 15px → 17~20px */
   font-family:var(--ff-plate); font-size:clamp(17px,1.35vw,20px);
   letter-spacing:.08em; line-height:1.5;
-  background:none; color:var(--red); padding:0; border-radius:0;
+  background:none; color:var(--red-deep); padding:0; border-radius:0;   /* v4.61 — 밝은 배경 섹션 이름은 red-deep 하나로 통일(대표 9/8) */
 }
 .eyebrow::before{content:""; width:28px; height:3px; background:currentColor; flex:none}
 .sec--red .eyebrow{background:none; color:var(--white)}
@@ -1601,7 +1601,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .craft .lead{color:var(--on-dark-2)}
 /* 공급 섹션은 같은 스트립을 크림 배경에서 쓴다 — 색만 갈아 끼운다 */
 .craft.sec--cream{--strip-ink:var(--ink); --strip-ink-2:var(--ink); --strip-cut:var(--cream)}
-.craft.sec--cream .h2, .craft.sec--cream .eyebrow{color:var(--ink)}
+.craft.sec--cream .h2{color:var(--ink)}
+.craft.sec--cream .eyebrow{color:var(--red-deep)}   /* v4.61 — 섹션 이름 색 통일 */
 .craft.sec--cream .lead{color:var(--ink)}
 .craft__strip{
   display:grid; grid-template-columns:repeat(4,1fr); gap:0;
@@ -1626,7 +1627,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .craft__no{
   display:block; font-family:'Bebas Neue', var(--ff-plate);
   font-size:clamp(34px,3.4vw,52px); line-height:.82; letter-spacing:.02em;
-  color:var(--red); margin-top:calc(-1 * clamp(14px,1.7vw,24px));
+  color:var(--red); margin-top:0;   /* v4.61 — 사진 아래 경계에 번호가 붙어 있었다(대표 9/8). 음수 마진을 걷어 캡션 패딩(16~26px)만큼 띄운다. */
 }
 .craft.sec--cream .craft__no{color:var(--red-deep)}
 .craft__h{margin-top:12px !important}
@@ -2027,6 +2028,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   /* 5컷은 모바일에서 2×2+1 로 접으면 마지막 칸이 뜬다 — 가로 스크롤도 뒤 컷이 숨는다.
      공급 서사는 순서가 곧 내용이라 1열로 쌓아 전부 보이게 한다. */
   .craft__strip--5{grid-template-columns:1fr}
+  .craft__cap{padding-bottom:clamp(18px,5vw,28px)}   /* v4.61 — 세로로 쌓이면 캡션 마지막 줄이 다음 사진 상단에 0px 로 닿았다(layout 게이트 신설 검사가 잡음) */
   .craft__strip--5 .craft__step + .craft__step .craft__fig{box-shadow:inset 0 3px 0 var(--strip-cut)}
   .craft__step:nth-child(n+3) .craft__fig{box-shadow:inset 0 3px 0 var(--dark)}
   .craft__step:nth-child(3) .craft__fig{box-shadow:inset 0 3px 0 var(--dark)}
@@ -3962,7 +3964,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
        ⚠️ 폭은 clamp(...vw) 라 리사이즈에서 바뀐다. 그때 duration 을 다시 잡지 않으면
           창 크기에 따라 속도가 또 갈린다. tw.duration() 은 진행률을 보존하며 갱신된다. */
     var MENU_SPEED = 60;   /* px/s — 데스크톱, 두 줄 공통. */
-    var MENU_MOBILE_SPEED = 40;   /* 작은 화면에서는 메뉴명을 읽을 시간을 확보한다. */
+    var MENU_MOBILE_SPEED = 24;   /* v4.61 — 화면 폭 대비 체감: PC 60px/s@1440 = 4.2%/s, 모바일 40px/s@375 = 10.7%/s 라 2.5배 빠르게 느껴졌다(대표 9/8 「수정이 안 됐다」). 24px/s = 6.4%/s. */
     var menuCompact = matchMedia('(max-width:768px)');
     var mrows = [];
     /* offsetWidth 는 레이아웃 폭이라 진행 중인 translate 에 안 흔들리고,
@@ -3973,8 +3975,25 @@ html.js-intro .hero__sign > *{visibility:hidden}
           0 에 수렴해 그 줄만 **미친 속도로 돈다.** 'd > 0' 만으로는 이걸 못 막는다
           (작은 양수는 통과한다). 못 잰 회차는 아예 갱신하지 않는 게 맞다.
        ⚠️ 상한/하한(8~400s)은 폭 측정이 엉뚱해도 화면이 튀지 않게 하는 마지막 방어선. */
+    /* ⚠️ v4.61 (2026-09-08) — WebKit(iOS Safari) 은 width:max-content 플렉스 컨테이너의 폭을
+       flex-basis 가 아니라 항목의 intrinsic 폭으로 합산한다 → .mline 이 Chromium 4,770px 인 자리에서
+       10,245px 로 잰다(실측, iPhone 13 에뮬레이션). offsetWidth 로 만든 duration 과 xPercent:-50 이
+       둘 다 틀어져 아이폰에서만 롤링이 5~10배 빨라지고 이음새에 빈 구간이 생긴다 — Chromium 에선 재현 안 됨.
+       트랙 절반 = 원본 항목 폭 합(+gap) 으로 직접 재고, 그 두 배를 폭으로 못 박는다. */
+    function menuHalf(ul) {
+      var lis = ul.children, n = lis.length >> 1;
+      if (!n) return 0;
+      var cs = getComputedStyle(ul), gap = parseFloat(cs.columnGap || cs.gap) || 0, w = 0;
+      for (var i = 0; i < n; i++) w += lis[i].getBoundingClientRect().width + gap;
+      return w;
+    }
+    function menuFit(ul) {
+      var half = menuHalf(ul);
+      if (half > 200) ul.style.width = (half * 2) + 'px';
+      return half;
+    }
     function menuDur(ul) {
-      var half = ul.offsetWidth / 2;
+      var half = menuFit(ul);
       if (!(half > 200)) return 0;                      /* 못 쟀다 — 갱신 포기 */
       var speed = menuCompact.matches ? MENU_MOBILE_SPEED : MENU_SPEED;
       return Math.min(400, Math.max(8, half / speed));
