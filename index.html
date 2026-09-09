@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- v4.56 — 히어로 인트로용 표식. 페인트 전에 간판 내용을 감춰 두고 DOMContentLoaded 인트로가 푼다(하단 스크립트 1-0). JS 꺼지면 이 줄이 안 돌아 그대로 보인다. -->
-<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-intro');}</script>
 <!-- 검색 축: 데이터랩 실측상 「수제버거창업」은 「소자본창업」의 1/59이라 브랜드·업종을 앞세우면 유입이 없다.
      소자본·소형 매장·업종 변경을 앞에 두고 버거는 차별점으로 뒤에 둔다. (GEO설계 §0) -->
 <!-- 2026-08-22: 12無 스펙(8/20 확정)에 맞춰 head 메타 동기화. 교육비 300만원은 부과 항목이라 면제 목록에서 제외,
@@ -192,7 +190,7 @@ input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
 #support .wrap, #menu-side .wrap,
 #fourway .wrap, #company .wrap,
 #contact .wrap                   {max-width:var(--w-wide)}   /* 3~4열 그리드 */
-#types .wrap, .ctastrip__in      {max-width:var(--w-mid)}    /* 2열 구성 */
+#types .wrap                   {max-width:var(--w-mid)}    /* 2열 구성 */
 /* v4.32 — #why 는 스왑 2열 + 적합 목록 + VS 2열이 들어가는데 열이 945px 뿐이라
    좌우로 248px 씩 빈 채 잉크폭이 뷰포트의 81% 에 그쳤다(실측 avg 0.336 · 레이어 1.13).
    1165 로 올린다. 945 단은 #types 가 계속 지탱하므로 폭 변주 4단은 유지된다. */
@@ -318,7 +316,7 @@ h3.h3{
   /* 간판이 첫 화면을 다 먹으면 음식(주인공)이 폴드 아래로 밀린다 — 세로 리듬을 조여 쇼윈도를 걸친다 */
   padding-block:clamp(26px,3.2vw,44px) clamp(22px,2.8vw,38px);
 }
-.hero__sign{max-width:900px; margin:0 auto; padding:clamp(22px,3vw,38px) clamp(20px,4vw,50px); text-align:center}
+.offer__sign{max-width:900px; margin:0 auto; padding:clamp(22px,3vw,38px) clamp(20px,4vw,50px); text-align:center}
 /* 오퍼 띠 — 간판에 덧대는 현수막/스티커. 창업 결정의 핵심 값은 「최대 2,000만원」인데
    개정 전에는 16.5px 한 줄이라 H1(80px)과 5배 차이로 묻혔다(루브릭 H4: 핵심 값을 정점에).
    문구는 8/20 확정 카피 그대로 두고 조판만 2단으로 갈라 금액을 간판 서체로 키운다. */
@@ -331,18 +329,18 @@ h3.h3{
      ② 광택(badgeShine)은 레드 칩 안쪽 ::after 라 transform 충돌이 없다 —
         GSAP 유무·순서와 무관하게 처음부터 돈다. 흰 바탕에선 안 보이니 칩에만 건다.
    화면 밖이면 spinIO 가 세운다(마퀴·링·롤링과 같은 정책). 모션 감축 선호 시 둘 다 정지. */
-.hero__badge{
+.offer__badge{
   position:relative;
   display:inline-flex; align-items:stretch; margin:0 auto 22px; padding:0;
   background:var(--white); border:3px solid var(--ink); border-radius:999px;
   overflow:hidden; box-shadow:6px 6px 0 rgba(0,0,0,.30); text-align:left;
 }
-.hero__badge.is-live{animation:badgeBob 2.8s ease-in-out infinite}
+.offer__badge.is-live{animation:badgeBob 2.8s ease-in-out infinite}
 @keyframes badgeBob{
   0%,100%{transform:translateY(0) rotate(0deg)}
   50%    {transform:translateY(-5px) rotate(-.9deg)}
 }
-.hero__badge b::after{
+.offer__badge b::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(105deg,
     transparent 40%, rgba(255,255,255,.62) 47%, rgba(255,255,255,.62) 53%, transparent 60%);
@@ -353,13 +351,13 @@ h3.h3{
   0%,64%  {transform:translateX(-140%)}
   86%,100%{transform:translateX(140%)}
 }
-.hero__badge.is-off,
-.hero__badge.is-off b::after{animation-play-state:paused}
+.offer__badge.is-off,
+.offer__badge.is-off b::after{animation-play-state:paused}
 @media (prefers-reduced-motion: reduce){
-  .hero__badge.is-live{animation:none}
-  .hero__badge b::after{animation:none; display:none}
+  .offer__badge.is-live{animation:none}
+  .offer__badge b::after{animation:none; display:none}
 }
-.hero__badge b{
+.offer__badge b{
   position:relative; overflow:hidden;
   display:flex; align-items:center; background:var(--red); color:var(--white);
   font-family:var(--ff-plate); font-weight:400; font-size:clamp(15px,1.05vw,16px);
@@ -367,33 +365,33 @@ h3.h3{
 }
 /* 여기는 flex 를 쓰면 안 된다 — 텍스트 노드가 각각 플렉스 항목이 되면서
    「최대 2,000만원 지원」의 앞뒤 공백이 잘려 글자가 붙어버린다. 글줄로 흘린다. */
-.hero__badge span{
+.offer__badge span{
   display:block; color:var(--ink);
   font-family:var(--ff-plate); font-size:clamp(15px,1.15vw,18px);
   line-height:1.9; padding:8px 20px 8px 16px; white-space:nowrap;
 }
-.hero__badge strong{
+.offer__badge strong{
   font-family:var(--ff-sign); font-weight:400; color:var(--red-deep);
   font-size:clamp(21px,1.9vw,29px); line-height:1; letter-spacing:-.012em;
 }
 /* 좁은 화면에선 한 줄로 못 버틴다 — 알약을 풀어 두 단으로 쌓는다 */
 @media (max-width:600px){
-  .hero__badge{flex-direction:column; border-radius:14px; text-align:center}
-  .hero__badge b,.hero__badge span{
+  .offer__badge{flex-direction:column; border-radius:14px; text-align:center}
+  .offer__badge b,.offer__badge span{
     justify-content:center; white-space:normal; padding:9px 14px;
   }
 }
-.hero h1{
+.offer-popup h2{
   font-family:var(--ff-sign); font-weight:400; color:var(--white);
   font-size:var(--fs-h1); line-height:1.1; letter-spacing:-.018em;
 }
-.hero h1 .br{display:block}
-.hero__rule{width:78px; height:5px; background:var(--white); margin:18px auto; border-radius:2px}
-.hero__sub{
+.offer-popup h2 .br{display:block}
+.offer__rule{width:78px; height:5px; background:var(--white); margin:18px auto; border-radius:2px}
+.offer__sub{
   font-family:var(--ff-plate); color:var(--white);
   font-size:clamp(15px,1.4vw,21px); line-height:1.6;
 }
-.hero__cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:clamp(20px,2.6vw,32px)}
+.offer__cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:clamp(20px,2.6vw,32px)}
 .hero__shot{
   height:clamp(230px,36vw,460px); overflow:hidden;
   border-top:6px solid var(--ink); border-bottom:6px solid var(--ink);
@@ -1423,19 +1421,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .pp__body th,.pp__body td{border:1px solid var(--line); padding:8px 10px; text-align:left; line-height:1.6}
 .pp__body th{background:var(--cream); font-weight:600; white-space:nowrap}
 
-/* ══ 모바일 하단 고정 CTA ══ */
-.mcta{
-  position:fixed; left:0; right:0; bottom:0; z-index:70; display:none;
-  grid-template-columns:1fr 1.25fr; gap:0; border-top:3px solid var(--ink);
-  padding-bottom:env(safe-area-inset-bottom);
-}
-.mcta a{
-  display:flex; align-items:center; justify-content:center; gap:7px; padding:16px 8px;
-  font-family:var(--ff-plate); font-size:16px; line-height:1.4; text-decoration:none;
-}
-.mcta a:first-child{background:var(--ink); color:var(--white)}
-.mcta a:last-child{background:var(--red); color:var(--white)}
-
 /* ══ 앵커 오프셋 ══ */
 :where(section[id]){scroll-margin-top:calc(var(--hd-h) + 8px)}
 
@@ -1449,10 +1434,9 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .steps{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:860px){
-  .hd__nav{display:none}      /* 모바일 상담은 히어로 단일 버튼 → 스크롤 후 하단 바 */
+  .hd__nav{display:none}      /* 모바일 상담 접점은 하단 고정 입력폼 */
   .swap{grid-template-columns:1fr}
   .ways{grid-template-columns:repeat(2,1fr)}
-  .mcta{display:grid}
   .brand__grid{grid-template-columns:1fr}
   .brand__fig{order:-1}
   .vs{grid-template-columns:1fr}
@@ -1472,7 +1456,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
     .menu,.menu--side{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
   .hd__logo img{height:36px}
-  .hero__cta .btn{width:100%}
+  .offer__cta .btn{width:100%}
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1505,10 +1489,10 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
     linear-gradient(180deg, rgba(20,17,16,.62) 0%, rgba(20,17,16,.30) 45%, rgba(20,17,16,.66) 100%);
 }
 .hero__stage{position:relative; z-index:1; width:100%; padding-block:clamp(40px,6vh,90px)}
-.hero__sign{max-width:880px; margin-inline:auto}
+.offer__sign{max-width:880px; margin-inline:auto}
 /* 네온 각인선 은은한 점멸 — 장식이므로 reduced에서 정지 */
 @media (prefers-reduced-motion: no-preference){
-  .hero__sign::after{animation:neon 3.2s ease-in-out infinite}
+  .offer__sign::after{animation:neon 3.2s ease-in-out infinite}
   @keyframes neon{0%,100%{border-color:rgba(255,255,255,.34)} 50%{border-color:rgba(255,255,255,.72)}}
 }
 @media (prefers-reduced-motion: reduce){
@@ -1660,41 +1644,8 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .type:nth-child(2) .type__body{order:1}
 .type__body{padding:0}
 
-/* ── 상단 대표 소개 — 인물과 상담 약속을 한 행에 묶는다 ── */
-.ctastrip{background:var(--cream); background-image:var(--grain-ink); color:var(--ink); border-bottom:1px solid var(--line)}
-.ctastrip__in{display:grid; grid-template-columns:300px minmax(0,1fr); gap:clamp(24px,3.4vw,48px); align-items:center; padding-block:22px}
-.ctastrip__ph{margin:0; width:100%}
-.ctastrip__ph img{display:block; width:100%; height:224px; object-fit:cover; object-position:50% 50%}
-.ctastrip__txt{display:grid; gap:8px; min-width:0}
-.ctastrip__k{margin:0; color:var(--red-deep); font-family:var(--ff-plate); font-size:15px; line-height:1.4; letter-spacing:.02em}
-.ctastrip__t{margin:0; font-family:var(--ff-sign); font-weight:400; font-size:clamp(25px,2.1vw,30px); line-height:1.3; word-break:keep-all}
-.ctastrip__s{margin:0; font-family:var(--ff-body); font-size:16px; line-height:1.6; word-break:keep-all}
-.ctastrip__who{margin:0; font-family:var(--ff-plate); font-size:15px; line-height:1.4}
 .btn--ink{background:var(--ink); color:var(--white)}
 .mbr{display:none}
-
-/* ── PC 하단 고정 전환바 ── */
-.dock{
-  position:fixed; left:0; right:0; bottom:0; z-index:70;
-  display:none; align-items:center; justify-content:center; gap:18px;
-  background:var(--ink); color:var(--white); padding:12px var(--gutter);
-  border-top:3px solid var(--red);
-}
-.dock[hidden],.mcta[hidden]{display:none}
-.dock__tel{
-  color:var(--white); text-decoration:none; font-size:16px; line-height:1.4;
-  display:inline-flex; align-items:center; gap:10px; min-height:44px; padding-inline:8px;
-}
-.dock__tel b{font-family:var(--ff-sign); font-weight:400; font-size:22px; letter-spacing:.01em}
-.dock__cta{
-  display:inline-flex; align-items:center; justify-content:center; min-height:44px;
-  background:var(--red); color:var(--white); text-decoration:none;
-  font-family:var(--ff-plate); font-size:16px; padding:0 26px; border-radius:2px;
-}
-@media (min-width:861px){
-  .dock{display:flex}
-  body{padding-bottom:74px}   /* 도크가 푸터 마지막 줄을 가리지 않게 */
-}
 
 /* ── 절차 — 라인 위계 강화(다크 아님, 유지) ── */
 
@@ -1710,13 +1661,6 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
   .type:nth-child(2) img{order:1}
   .type:nth-child(2) .type__body{order:2}
   .sec--dark .facts{grid-template-columns:1fr}
-  .ctastrip__in{grid-template-columns:132px minmax(0,1fr); gap:18px; padding-block:20px}
-  .ctastrip__ph img{height:144px; object-position:75% 50%}
-  .ctastrip__txt{gap:7px}
-  .ctastrip__k,.ctastrip__who{font-size:15px}
-  .ctastrip__t{font-size:20px; line-height:1.3}
-  .ctastrip__t span{display:block}
-  .ctastrip__s{font-size:15px; line-height:1.6}
 
   .mbr{display:inline}
 }
@@ -2052,9 +1996,9 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 .hd__nav--r{justify-content:flex-start}
 @media (max-width:1180px){ .hd__nav{gap:6px} .hd__nav a{padding:6px 1px} }
 /* 히어로 버튼 — 기교 없이(2차 미팅): 하드 섀도우·볼트 없이 평면 */
-.hero__cta .btn{border-width:2px; border-radius:8px; box-shadow:none; padding:14px 30px}
-.hero__cta .btn:hover,.hero__cta .btn:active{transform:none; box-shadow:none; filter:brightness(.94)}
-.hero__cta .btn{background:var(--ink); color:var(--white); border-color:var(--ink)}
+.offer__cta .btn{border-width:2px; border-radius:8px; box-shadow:none; padding:14px 30px}
+.offer__cta .btn:hover,.offer__cta .btn:active{transform:none; box-shadow:none; filter:brightness(.94)}
+.offer__cta .btn{background:var(--ink); color:var(--white); border-color:var(--ink)}
 /* #brand — BI 락업(우측) · 오벌 4개(패티 카드 하단, 2×2) */
 .brandbi{
   margin:0; justify-self:end; width:min(100%, clamp(220px,25vw,350px));
@@ -2203,8 +2147,6 @@ html.gsap-ready .creedsplit:not(.is-on) em::after{transform:skewX(-18deg) rotate
 /* K2 — 흰 글자에 opacity 를 얹으면 레드 위 4.80 → 4.17(면제)·3.67(SELF-MADE)로 떨어진다(실측). 순색으로 */
 .ctno li i{opacity:1}
 .ovals li small{opacity:1}
-/* 히어로 인트로 — 페인트 전 감춤(1-0 참조). JS 꺼짐·모션 감축이면 클래스가 안 붙고, GSAP 이 늦으면 1.8초 뒤 풀려 보인다. */
-html.js-intro .hero__sign > *{visibility:hidden}
 
 /* 음료 14종 수동 탐색 — 기존 마퀴와 독립. */
 .mdrink14{background:var(--dark); padding-block:12px 4px}
@@ -2230,6 +2172,85 @@ html.js-intro .hero__sign > *{visibility:hidden}
 @media(min-width:1200px){.mdrink14__title{font-size:22px}}
 @media(min-width:1025px){.mdrink14__list li{flex-basis:240px}}
 @media(prefers-reduced-motion:reduce){.mdrink14__list{scroll-behavior:auto}}
+
+/* ══ 2026-09-09 클라이언트 확정 피드백 ══ */
+body{padding-bottom:var(--dock-space,110px)}
+.hero{min-height:0;height:clamp(360px,56vw,850px);display:block}
+.hero__bg::after{display:none}
+.offer-popup{padding:0;border:0;width:min(640px,calc(100vw - 28px));max-height:calc(100dvh - 28px);background:var(--white);color:var(--ink);overflow:auto;box-shadow:0 18px 80px #0006}
+.offer-popup::backdrop{background:rgba(20,17,16,.6)}
+.offer-popup__top,.offer-popup__foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;font-family:var(--ff-plate);font-size:16px;line-height:1.6}
+.offer-popup button{min-height:44px;padding:8px 12px;background:var(--white);border:1px solid var(--ink);cursor:pointer;font-size:16px}
+.offer-popup__foot label{display:flex;align-items:center;gap:9px;min-height:44px}
+.offer-popup__foot input{width:20px;height:20px;accent-color:var(--red-deep)}
+.offer-popup .offer__sign{width:100%;max-width:none;padding:28px 24px;box-shadow:none;border:0}
+.offer-popup h2{font-size:clamp(30px,4.1vw,52px);line-height:1.3}
+.offer-popup .offer__badge{margin-bottom:22px}
+.offer-popup .offer__badge b,.offer-popup .offer__badge span{font-size:16px}
+.offer-popup .offer__badge strong{font-size:clamp(24px,3vw,34px)}
+.offer-popup .offer__sub{font-size:16px;line-height:1.65}
+.offer-popup .offer__cta{margin-top:22px}
+.offer-popup .offer__cta .btn{font-size:17px;min-height:48px}
+.dome{padding-bottom:0;display:flex;flex-direction:column;align-items:center}
+.dome .ring{flex:none}
+.creedsplit{display:block;width:100%;margin:8px auto 18px;gap:0}
+.creedsplit h2{font-family:var(--ff-sign);font-size:clamp(30px,4.3vw,62px);font-weight:400;line-height:1.3;color:var(--ink);word-break:keep-all}
+.creedfig{position:relative;left:auto;bottom:auto;transform:none;width:min(100%,600px);margin:0 auto;flex:none}
+.creedcut{width:100%;height:auto;margin:0}
+.creed .creed-highlight{display:inline;padding:3px 8px;background:var(--white);color:var(--red-deep);box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.85}
+.brandbi{width:100%;padding:24px;box-shadow:none}
+.brandbi>figcaption{font-family:var(--ff-plate);font-size:24px;line-height:1.4;color:var(--red-deep);margin-bottom:20px;text-align:center}
+.brandbi__types{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.brandbi__types img:first-child{grid-row:span 2}
+.brandbi__types img{width:100%;height:auto;max-height:180px;object-fit:contain}
+#brand .card__no{font-size:clamp(26px,2.8vw,40px);line-height:1.4;color:var(--red-deep);margin-bottom:10px}
+.market-compare{margin-top:28px;max-width:440px;width:100%;background:var(--cream);padding:14px}
+.market-compare--buns>div{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.market-compare img{width:100%;height:150px;object-fit:contain;background:var(--white)}
+.market-compare--patty{max-width:320px}
+.market-compare--patty img{height:180px}
+.market-compare figcaption,#brand .ed__fig figcaption{font-family:var(--ff-plate);font-size:16px;line-height:1.6;text-align:center;margin-top:12px;color:var(--ink)}
+#brand .ed__fig figcaption{padding:0 12px 12px}
+.craft__cap p{font-size:clamp(17px,1.3vw,19px);line-height:1.75}
+.ours__head{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px}
+.ours__head p{max-width:52em}
+.invite__list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.invite__list b{font-size:clamp(17px,1.32vw,20px);line-height:1.4;word-break:keep-all}
+.dock{position:fixed;inset:auto 0 0;z-index:70;background:var(--red);color:var(--white);border-top:3px solid var(--ink);padding:12px clamp(18px,2.5vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px}
+.dock__head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.dock__tel{display:flex;flex-direction:column;text-decoration:none;white-space:nowrap;line-height:1.3}
+.dock__tel span{font-size:17px;font-family:var(--ff-plate)}
+.dock__tel b{font-family:var(--ff-sign);font-size:clamp(30px,3vw,46px);font-weight:400;letter-spacing:.01em}
+.dock__toggle{display:none}
+.dock__form{display:grid;grid-template-columns:1fr 1.2fr 1.1fr auto auto;align-items:end;gap:10px}
+.dock__field{min-width:0;display:grid;gap:4px}
+.dock__field label{font-size:15px;line-height:1.4;font-family:var(--ff-plate)}
+.dock__field input{width:100%;min-width:0;min-height:44px;border:1px solid var(--white);border-radius:0;background:var(--white);color:var(--ink);padding:9px 10px;font-size:16px;line-height:1.5}
+.dock__field input::placeholder{color:var(--ink-2)}
+.dock__consent{display:flex;align-items:center;gap:8px;min-height:44px;font-size:15px;line-height:1.6;flex-wrap:nowrap;white-space:nowrap;max-width:none}
+.dock__consent label{display:flex;align-items:center;gap:7px;min-height:44px;cursor:pointer}
+.dock__consent input{width:19px;height:19px;flex:none;accent-color:var(--ink)}
+.dock__consent a{display:inline-flex;align-items:center;min-height:44px}
+.dock__submit,.dock__toggle{min-height:44px;border:2px solid var(--white);padding:9px 18px;font-family:var(--ff-plate);font-size:17px;line-height:1.4;background:var(--white);color:var(--red-deep);cursor:pointer;white-space:nowrap}
+.dock .lead-status{grid-column:1/-1;font-size:15px;line-height:1.6;color:var(--white);margin:0}
+.lead-status[data-error=true]{font-weight:700}
+.dock [aria-invalid=true],.form [aria-invalid=true]{outline:3px solid var(--ink);outline-offset:2px}
+@media(min-width:861px) and (max-width:1200px){.dock{grid-template-columns:1fr;gap:10px}.dock__tel{flex-direction:row;align-items:center;gap:12px}.dock__tel b{font-size:32px}.dock__form{grid-template-columns:1fr 1.2fr 1fr auto auto}}
+@media(max-width:860px){
+  .hero{height:clamp(360px,90vw,650px);min-height:0}
+  .dome{padding-bottom:0}.creedsplit h2{font-size:clamp(27px,5.7vw,42px)}.creedfig{width:min(100%,440px)}
+  .brandbi{max-width:520px;justify-self:center}.market-compare{max-width:none}.market-compare--patty{max-width:320px}
+  .invite__list{grid-template-columns:1fr}.invite__list b{font-size:21px}
+  .dock{display:block;padding:10px 18px calc(10px + env(safe-area-inset-bottom));bottom:var(--keyboard-inset,0px);max-height:calc(var(--visual-height,100dvh) - 12px);overflow-y:auto;overscroll-behavior:contain}
+  .dock__tel{flex-direction:row;align-items:center;gap:8px}.dock__tel span{font-size:15px}.dock__tel b{font-size:26px}
+  .dock__toggle{display:block;font-size:16px;padding:8px 12px}
+  .dock__form{display:none;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .dock[data-open=true] .dock__form{display:grid}.dock__field--area{grid-column:1/-1}
+  .dock__consent{grid-column:1/-1;max-width:none;gap:12px}.dock__consent label,.dock__consent a{min-height:44px}
+  .dock__submit{grid-column:1/-1}.dock .lead-status{font-size:15px}
+  .offer-popup .offer__sign{padding:24px 20px}.offer-popup__top,.offer-popup__foot{padding:8px 12px}
+}
+
 </style>
 </head>
 <body>
@@ -2257,39 +2278,11 @@ html.js-intro .hero__sign > *{visibility:hidden}
 
 <main id="top">
 
-  <!-- ══ 대표 소개 — 상단 신뢰 영역 ══ -->
-  <section class="ctastrip ctastrip--ceo" aria-label="대표 직접 상담 안내">
-    <div class="wrap ctastrip__in">
-      <!-- 본인 확인을 마친 대표 서명 컷과 직접 상담 약속을 함께 보여준다. -->
-      <figure class="ctastrip__ph">
-        <img src="_assets/shot/ceo_sign.jpg" alt="가맹 서류에 서명하는 ㈜지에이엠 대표 이재훈" width="1200" height="896" loading="eager" decoding="async">
-      </figure>
-      <div class="ctastrip__txt">
-        <p class="ctastrip__k">대표 1:1 직접 상담</p>
-        <p class="ctastrip__t"><span>가맹 상담은</span> <span>대표가 직접 합니다.</span></p>
-        <p class="ctastrip__s">지역과 점포 상황만 알려 주십시오.<br>어떤 형태가 맞는지부터 정리해 드립니다.</p>
-        <p class="ctastrip__who">㈜지에이엠 대표 이재훈</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ══ 01 히어로 — 시네마틱 다크 배경 + 간판 (v4) ══ -->
   <section class="hero" aria-labelledby="hero-h">
-    <div class="hero__bg" aria-hidden="true">
-      <img src="_assets/shot/hero.jpg" alt="" width="1920" height="1071" fetchpriority="high">
-    </div>
-    <div class="hero__stage">
-      <div class="wrap">
-        <div class="sign hero__sign">
-          <p class="hero__badge"><b>선착순 10호점</b><span>창업비용 최대 <strong>2,000만원</strong> 지원</span></p>
-          <h1 id="hero-h"><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h1>
-          <div class="hero__rule" aria-hidden="true"></div>
-          <p class="hero__sub">평수는 묻지 않습니다. 공간이 없으면 바테이블만 두셔도 됩니다.<br>지금 쓰시는 매장 그대로 바꾸셔도 됩니다.</p>
-          <div class="hero__cta">
-            <a class="btn" href="#contact">창업 상담 신청</a>
-          </div>
-        </div>
-      </div>
+    <h1 class="sr" id="hero-h">빵과 패티가 맛있는 진짜 수제버거</h1>
+    <div class="hero__bg">
+      <img src="_assets/shot/hero.jpg" alt="티티버거 수제버거와 감자튀김" width="1920" height="1071" fetchpriority="high">
     </div>
   </section>
 
@@ -2350,9 +2343,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
 
       <p class="creedhook">오늘 먹고 내일 또 생각나는가</p>
 
-      <!-- ⚠️ 제품컷은 .creedsplit 안이 아니라 .dome 직계여야 한다. 안에 두면 absolute 의
-           기준이 .creedsplit(position:relative)이 되어 bottom:0 이 돔 하단이 아닌
-           카피 줄 하단에 붙고, 버거가 카피를 덮어 버린다(v4.39 첫 시도에서 실제로 났다). -->
+      <!-- 중앙 카피 아래에 제품 영상을 정상 흐름으로 배치해 글자와 겹치지 않게 한다. -->
       <!-- v4.45 — 적층 애니메이션. 대표 지시로 대표 제품을 **최고티버거**로 바꾸고
            모션을 광고급으로 올렸다(치즈·소스가 층 사이로 늘어나며 분리, 카메라 푸시인).
            ⚠️ 「쌓인다」를 그대로 시키지 않았다. i2v 는 준 이미지에서 **시작**하므로
@@ -2367,19 +2358,19 @@ html.js-intro .hero__sign > *{visibility:hidden}
               webm/apng 이 필요한데 용량·호환이 나빠 배경색을 맞추는 쪽을 택했다. -->
       <!-- v4.54 — 돔 하단 띠(.domefoot)는 2차 미팅 지시로 제거(영상 아래 배경 텍스트). -->
 
+
+
+
+
+      <div class="creedsplit">
+        <h2 id="creed-h">결국, 본질은 <em>맛</em>입니다</h2>
+      </div>
       <figure class="creedfig">
         <video class="creedcut" autoplay muted loop playsinline preload="metadata"
                poster="_assets/video/stack_titi_poster.jpg" width="1280" height="922" tabindex="-1"
                aria-label="최고티버거의 양상추·양파·패티·치즈·베이컨·피클·번이 차례로 내려와 쌓이는 장면">
           <source src="_assets/video/stack_titi.mp4" type="video/mp4"></video>
       </figure>
-
-
-
-      <div class="creedsplit">
-        <b>결국,<br>본질은</b>
-        <b id="creed-h"><em>맛</em><br>입니다</b>
-      </div>
 
       <!-- v4.32 — .creed 에 .wrap 을 '합치면' max-width 가 --measure(760) 에서
            --w-tight(880) 로 덮여 조판이 바뀐다. 감싸기만 해서 그림은 그대로 두고
@@ -2393,7 +2384,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
     <div class="wrap">
       <div class="creed">
         <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.<br>장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.<br>한 번 찾아준 고객이 만족하지 않는다면, <br class="pbr">어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
-        <p>그래서 티티버거의 기준은 <strong>오늘 먹고 내일 또 생각나는가</strong>입니다.<br>번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
+        <p>그래서 티티버거의 기준은 <strong class="creed-highlight">오늘 먹고 내일 또 생각나는가</strong>입니다.<br>번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
       </div>
     </div>
 
@@ -2406,13 +2397,15 @@ html.js-intro .hero__sign > *{visibility:hidden}
         <div>
           <p class="eyebrow">브랜드</p>
           <h2 class="h2" id="brand-h">수제버거는 빵과 패티에서 갈립니다</h2>
-          <p class="lead">토핑은 따라 할 수 있습니다.<br>번과 패티는 따라 하기 어렵습니다.<br>티티버거가 <span class="hl">빵과 패티</span> 두 가지를 브랜드 이름 아래 그대로 써 둔 이유입니다.</p>
+          <p class="lead">토핑은 따라할 수 있으나, 번과 패티는 따라 하기 어렵습니다.<br>티티버거가 <span class="hl">빵과 패티</span> 두 가지를 브랜드 이름 아래 그대로 써 둔 이유입니다.</p>
         </div>
-        <!-- v4.54 (2차 미팅 지시) — 이 자리의 오벌 배지 4개는 패티 카드 하단으로 내리고,
-             리드가 말하는 「브랜드 이름 아래 써 둔 빵과 패티」를 BI 락업 그 자체로 보여 준다. -->
         <figure class="brandbi">
-          <img src="_assets/logo-red.png" alt="티티버거 브랜드 로고 — CRAFT BURGER · 빵과 패티가 맛있는 진짜 수제버거 · TT Burger"
-               width="900" height="830" loading="lazy" decoding="async">
+          <figcaption>BI</figcaption>
+          <div class="brandbi__types">
+            <img src="_assets/feedback_20260909/bi-stacked.svg" alt="티티버거 BI 세로형 전체 락업" width="343" height="318" loading="lazy">
+            <img src="_assets/feedback_20260909/bi-centered.svg" alt="티티버거 BI 심볼 가운데형" width="415" height="223" loading="lazy">
+            <img src="_assets/feedback_20260909/bi-horizontal.svg" alt="티티버거 BI 심볼 왼쪽 가로형" width="422" height="116" loading="lazy">
+          </div>
         </figure>
       </div>
       <div class="ed">
@@ -2420,10 +2413,15 @@ html.js-intro .hero__sign > *{visibility:hidden}
           <div class="ed__txt card">
             <p class="card__no">번</p>
             <h3 class="h3">티티버거가 자체 개발한 브리오슈 번</h3>
-            <p class="ed__copy">브리오슈 번이라고 다 같은 브리오슈 번이 아닙니다<br>버터 풍미가 강하며 촉촉하고 쫀득한 번을 직접 만들었습니다<br>시판 번에서 절대 느껴볼 수 없는 식감과 맛입니다</p>
+            <p class="ed__copy">버거용 번이라고 다 같은 번이 아닙니다.<br>버터 풍미가 강하며 촉촉하고 쫀득한 번을 직접 만들었습니다.<br>시판 번에서 절대 느껴볼 수 없는 식감과 맛입니다.</p>
+            <figure class="market-compare market-compare--buns">
+              <div><img src="_assets/feedback_20260909/market_bun_whole.jpg" alt="비교 예시: 시판 버거 번의 겉면" loading="lazy"><img src="_assets/feedback_20260909/market_bun_split.jpg" alt="비교 예시: 시판 버거 번의 단면" loading="lazy"></div>
+              <figcaption>시판 번 · 비교 예시</figcaption>
+            </figure>
           </div>
           <figure class="ed__fig">
-            <img src="_assets/shot/bun_hero.jpg" alt="반으로 가른 브리오슈 번 — 버터 결이 보이는 촉촉한 속과 윤기 나는 겉면" loading="lazy" width="1280" height="1024">
+            <img src="_assets/shot/bun_hero.jpg" alt="반으로 가른 티티버거 브리오슈 번 — 버터 결이 보이는 촉촉한 속과 윤기 나는 겉면" loading="lazy" width="1280" height="1024">
+            <figcaption>티티버거 자체 개발 브리오슈 번</figcaption>
           </figure>
         </article>
         <p class="giant" aria-hidden="true"><span class="giant__a">BUN &amp;</span><span class="giant__b">PATTY</span></p>
@@ -2431,18 +2429,15 @@ html.js-intro .hero__sign > *{visibility:hidden}
           <div class="ed__txt card">
             <p class="card__no">패티</p>
             <h3 class="h3">티티버거가 자체 개발한 100% 소고기 패티</h3>
-            <p class="ed__copy">돼지고기가 섞인 저가 패티가 아닌, 100% 소고기로 직접 만들어낸 소고기 패티입니다<br>패티를 굽는 과정에서 육즙을 가두는 기술이 티티버거의 키포인트 중 하나입니다</p>
-            <!-- v4.54 (2차 미팅 지시) — 섹션 머리에 있던 오벌 배지 4개를 여기(구 「100% 소고기 패티」 배지 자리)로.
-                 사진 하단과 수평이 맞도록 카드 바닥에 붙인다(.ed__foot). -->
-            <ul class="ovals ovals--foot ed__foot" aria-label="티티버거 브랜드 특징">
-              <li>100% 소고기 패티<small>100% BEEF</small></li>
-              <li>자체 브리오슈 번<small>BRIOCHE BUN</small></li>
-              <li class="ovals__fill">번·패티 직접 개발<small>SELF-MADE</small></li>
-              <li>한글 간판<small>HANGUL SIGN</small></li>
-            </ul>
+            <p class="ed__copy">돼지고기가 섞인 저가 패티가 아닌, 직접 개발한 100% 소고기패티 입니다.<br>패티를 굽는 과정에서 육즙을 가두는 기술이 티티버거의 키포인트 중 하나입니다.</p>
+            <figure class="market-compare market-compare--patty">
+              <img src="_assets/feedback_20260909/pork_patty_example.jpg" alt="비교 예시: 돼지고기 패티" loading="lazy">
+              <figcaption>돼지고기 패티 · 비교 예시</figcaption>
+            </figure>
           </div>
           <figure class="ed__fig">
-            <img src="_assets/shot/patty_griddle.jpg" alt="철판 위에서 굽고 있는 100% 소고기 패티 두 장 — 조리 영상의 한 장면" loading="lazy" width="896" height="716">
+            <img src="_assets/shot/patty_griddle.jpg" alt="철판 위에서 굽고 있는 티티버거 100% 소고기 패티 두 장 — 조리 영상의 한 장면" loading="lazy" width="896" height="716">
+            <figcaption>티티버거 자체 개발 100% 소고기 패티</figcaption>
           </figure>
         </article>
       </div>
@@ -2450,21 +2445,12 @@ html.js-intro .hero__sign > *{visibility:hidden}
     </div>
   </section>
 
-  <!-- ══ 04-a 생산·공급 3컷 (v4.13, 대표 지시) — 프레디 con7 문법 차용, 사실은 우리 것만.
-       ⚠️ 프레디 헤드는 「패티 **직접 생산**의 강점」이고 배지가 4개다
-          (100% 소고기·위생적인 생산 환경·직접 유통·맛의 통일성).
-          티티버거는 **OEM 위탁생산**이라 '직접 생산'을 쓸 수 없고,
-          '위생적인 생산 환경'·'직접 유통'·HACCP 은 **확인요청 3차 6·7번이 회신 전**이라
-          한 글자도 쓰지 않았다(기획서 원칙: OEM 스펙은 사실 확인 전 수치·단정 미기재).
-          그래서 배지 클러스터를 통째로 뺐다 — 쓸 수 있는 배지가 3개뿐인데
-          3개는 아래 넘버링과 같은 말이라 신호가 겹친다(루브릭 L1).
-       ⚠️ 아래 03 「같은 규격으로 만들어집니다」는 전용 생산의 자명한 귀결로 썼지만,
-          성형 완료 납품 여부 자체는 확인 항목에 없다 — 회신 시 문구 재검 필요. ══ -->
+  <!-- ══ 생산·공급 5단계 — 2026-09-09 17:40/17:47 클라이언트 확정 문구. 생산·납품 설명을 최신 회신으로 반영. ══ -->
   <section class="sec sec--cream craft" id="supply" aria-labelledby="supply2-h">
     <div class="wrap">
       <p class="eyebrow">공급</p>
-      <h2 class="h2" id="supply2-h">번과 패티는, 만들어져서 옵니다</h2>
-      <p class="lead">티티버거 전용으로 생산해 본사가 공급합니다.<br>매장에서 번을 굽거나 패티를 만들 일이 없습니다.<br>작은 매장에서도 시작할 수 있는 이유이고, 매장이 달라도 같은 맛이 나오는 이유입니다.</p>
+      <h2 class="h2" id="supply2-h">번과 패티는 본사가 만들어서 전달 드립니다</h2>
+      <p class="lead">티티버거만의 노하우가 있는 레시피로 생산하여 공급합니다.<br>매장에서 귀찮고 힘들게 번을 굽거나 패티를 만들 일이 없습니다.<br>티티버거가 작은 매장에서도 시작할 수 있는 이유이고, 매장이 달라도 같은 맛이 나오는 이유입니다.</p>
     </div>
     <ol class="craft__strip craft__strip--5">
       <li class="craft__step">
@@ -2473,8 +2459,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </figure>
         <div class="craft__cap">
           <b class="craft__no">01</b>
-          <h3 class="craft__h"><span class="craft__tag">원물</span>고기부터 정합니다</h3>
-          <p>100% 소고기입니다. 한 끼로 성립하는 두께를 기준으로 맞췄습니다.</p>
+          <h3 class="craft__h">원물부터 정합니다</h3>
+          <p>돼지고기가 함유되지 않은 100% 소고기로 신선하고 합리적인 부위로 결정합니다.</p>
         </div>
       </li>
       <li class="craft__step">
@@ -2483,8 +2469,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </figure>
         <div class="craft__cap">
           <b class="craft__no">02</b>
-          <h3 class="craft__h">전용으로 갈아 냅니다</h3>
-          <p>시판 패티를 가져다 쓰지 않습니다. 티티버거가 자체 개발해 전용으로 생산합니다.</p>
+          <h3 class="craft__h">기계를 사용하여 갈아냅니다</h3>
+          <p>맛있는 패티가 될 수 있게 일정한 두께로 갈아냅니다.</p>
         </div>
       </li>
       <li class="craft__step">
@@ -2493,8 +2479,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </figure>
         <div class="craft__cap">
           <b class="craft__no">03</b>
-          <h3 class="craft__h">같은 규격으로 나옵니다</h3>
-          <p>매장이 달라도, 굽는 사람이 달라도 같은 결과가 나옵니다.</p>
+          <h3 class="craft__h">일정한 규격으로 만들어냅니다</h3>
+          <p>매장에서 가장 귀찮고 신경써야 될 부분을 본사가 대신합니다.<br>업무 난이도를 낮추고 효율은 높입니다.</p>
         </div>
       </li>
       <li class="craft__step">
@@ -2503,8 +2489,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </figure>
         <div class="craft__cap">
           <b class="craft__no">04</b>
-          <h3 class="craft__h">번도 전용입니다</h3>
-          <p>티티버거가 자체 개발한 브리오슈입니다. 시판 번으로는 이 식감이 나오지 않습니다.</p>
+          <h3 class="craft__h">반죽과 숙성 과정을 거칩니다</h3>
+          <p>티티버거만의 레시피로 자체 개발한 우리만의 브리오슈 번을 만들어냅니다.</p>
         </div>
       </li>
       <li class="craft__step">
@@ -2513,8 +2499,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </figure>
         <div class="craft__cap">
           <b class="craft__no">05</b>
-          <h3 class="craft__h">구워서 보냅니다</h3>
-          <p>구워진 상태로 매장에 옵니다. 반죽도 발효도 매장 일이 아닙니다.</p>
+          <h3 class="craft__h">구워서 납품합니다</h3>
+          <p>맛있게 구운 번들은 컷팅까지 하여 각 지점으로 납품됩니다.<br>반죽부터 숙성, 사소하지만 컷팅까지도 매장 일이 아닙니다.</p>
         </div>
       </li>
     </ol>
@@ -2558,7 +2544,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
   <!-- ══ 08 한글 메뉴명 (브랜드 컨셉 — 메뉴명·간판만 한글 고정) ══ -->
   <section class="sec sec--cream" id="menu-side" aria-labelledby="ms-h">
     <div class="wrap">
-      <p class="eyebrow">메뉴 이름</p>
+      <p class="eyebrow">컨셉</p>
       <!-- v4.33 — 개정 전 헤드는 「촌스러운 게 아니라, 지금 글로벌 트렌드입니다」였다.
            ⚠️ 우리가 「촌스러운」을 먼저 꺼내면 읽는 분이 그 생각을 안 했어도 심어 준다.
               게다가 「~가 아니라」로 열면 문장이 수세가 된다 — 기획안 원안의
@@ -2608,7 +2594,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
       <div class="ours">
         <div class="ours__head">
           <h3 class="ours__h">티티버거는 간판도 메뉴도 한글입니다</h3>
-          <p>수제버거라고 해서 외국식 간판과 외국어 메뉴명을 따라가지 않았습니다.<br>누구나 한 번에 읽고, 한 번에 말할 수 있는 이름을 골랐습니다.</p>
+          <p>수제버거라고 해서 외국식 간판과 외국어 메뉴명을 따라가지 않았습니다.<br>누구나 한 번에 읽고, 한 번에 말할 수 있는 이름을 채택하였습니다.</p>
         </div>
         <p class="ours__punch">손님이 피식하고 웃을 수 있는 요소, <br class="mbr">기억하고 다시 말하게 되는 이름입니다.</p>
         <ul class="hnames" aria-label="흔히 쓰는 외래어 메뉴명을 한글 이름으로 바꾼 예">
@@ -2652,18 +2638,17 @@ html.js-intro .hero__sign > *{visibility:hidden}
             <source src="_assets/video/choigo.mp4" type="video/mp4"></video>
         </figure>
         <div class="invite__lead">
-          <p class="invite__kicker">초기 가맹점</p>
+          <p class="invite__kicker">자신있게 말씀 드립니다!</p>
           <h3 class="invite__h" id="invite-h">맛은 드셔 보시면 압니다</h3>
           <p>이름은 기억되게 할 뿐입니다. 다시 오게 만드는 건 맛입니다.
             저희가 맛있다고 말씀드리는 것보다, 드신 분들이 남긴 말이 빠릅니다 —
             아래 「입소문」에 원문 그대로 실어 두었습니다.
-            그리고 지금은 초기 가맹점을 모집하는 자리입니다. <strong>초기는 불리한 자리가 아닙니다.</strong></p>
-          <a class="btn btn--ghost" href="#contact">창업 상담 신청</a>
+</p>
         </div>
         <ul class="invite__list">
           <li>
             <b>드셔 보고 판단하십시오</b>
-            <span>맛은 설명으로 전해지지 않습니다. 드신 분들이 남긴 말은 아래 「입소문」에 원문 그대로 있습니다.</span>
+            <span>맛은 설명으로 전해질 수 없습니다. 드셔본 고객들의 한마디로 증명합니다.</span>
           </li>
           <li>
             <b>조건은 지금 여는 매장의 몫입니다</b>
@@ -2671,7 +2656,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
           </li>
           <li>
             <b>상권은 먼저 여는 분이 고릅니다</b>
-            <span>한 상권에 한 매장. 본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.</span>
+            <span>한 상권에 한 매장, 본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.</span>
           </li>
         </ul>
       </aside>
@@ -3540,8 +3525,8 @@ html.js-intro .hero__sign > *{visibility:hidden}
         </label>
         <input type="hidden" name="adCode" value="">
         <input type="hidden" name="flow" value="">
-        <button class="btn btn--wide" type="submit">창업 상담 신청하기</button>
-        <p class="formnote">접수 후 순차적으로 연락드립니다. 상담은 대표가 직접 합니다. 급하시면 1688-2629로 전화 주십시오.</p>
+        <button class="btn btn--wide" type="submit" disabled>창업 상담 신청하기</button>
+        <p class="formnote lead-status" role="status" aria-live="polite">현재 온라인 접수는 준비 중입니다. 상담은 대표가 직접 합니다. 1688-2629로 전화해 주세요.</p>
       </form>
       </div>
     </div>
@@ -3569,10 +3554,35 @@ html.js-intro .hero__sign > *{visibility:hidden}
   </div>
 </footer>
 
-<nav class="mcta" aria-label="상담 바로가기" hidden>
-  <a href="tel:16882629">전화 상담</a>
-  <a href="#contact">창업 상담 신청</a>
-</nav>
+<!-- 고정 상담 입력: 모바일은 펼침 상태에서도 같은 form을 유지하여 입력을 보존한다. -->
+<aside class="dock" id="dock" aria-label="창업 상담 입력">
+  <div class="dock__head"><a class="dock__tel" href="tel:16882629"><span>창업 문의</span><b>1688-2629</b></a><button class="dock__toggle" id="dock-toggle" type="button" aria-expanded="false" aria-controls="quick-lead">상담 입력</button></div>
+  <form class="dock__form" id="quick-lead" data-lead="quick" novalidate>
+    <div class="dock__field"><label for="q-name">성함</label><input id="q-name" name="name" type="text" required autocomplete="name"></div>
+    <div class="dock__field"><label for="q-tel">연락처</label><input id="q-tel" name="phone" type="tel" inputmode="numeric" maxlength="13" required autocomplete="tel" placeholder="010-0000-0000"></div>
+    <div class="dock__field dock__field--area"><label for="q-area">희망 지역</label><input id="q-area" name="area" type="text" required placeholder="시 · 군 · 구"></div>
+    <div class="dock__consent"><label><input type="checkbox" name="agree" required>개인정보 수집 · 이용 동의</label><a href="#privacy">보기</a></div>
+    <input type="hidden" name="adCode" value=""><input type="hidden" name="flow" value="">
+    <button class="dock__submit" type="submit" disabled>상담 신청</button>
+    <p class="lead-status" role="status" aria-live="polite">현재 온라인 접수는 준비 중입니다. 전화로 문의해 주세요.</p>
+  </form>
+</aside>
+
+
+<!-- 9/9 확정된 기존 히어로 혜택만 팝업으로 이동. 추가 팝업은 내용 확정 후 별도 반영. -->
+<dialog class="offer-popup" id="offer-popup" aria-labelledby="offer-title">
+  <div class="offer-popup__top"><span>티티버거 창업 안내</span><button type="button" data-offer-close aria-label="창업 안내 팝업 닫기">닫기 ×</button></div>
+  <div class="sign offer__sign">
+          <p class="offer__badge"><b>선착순 10호점</b><span>창업비용 최대 <strong>2,000만원</strong> 지원</span></p>
+          <h2 id="offer-title"><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h2>
+          <div class="offer__rule" aria-hidden="true"></div>
+          <p class="offer__sub">평수는 묻지 않습니다. 공간이 없으면 바테이블만 두셔도 됩니다.<br>지금 쓰시는 매장 그대로 바꾸셔도 됩니다.</p>
+          <div class="offer__cta">
+            <a class="btn" href="#contact" data-offer-contact>창업 상담 신청</a>
+          </div>
+  </div>
+  <div class="offer-popup__foot"><label><input type="checkbox" id="offer-today">오늘 하루 보지 않기</label><button type="button" data-offer-close>닫기</button></div>
+</dialog>
 
 <!-- 개인정보 처리방침 — 개인정보보호법 §30 기재사항. 리드폼이 개인정보를 수집하므로 공개는 법정 의무다 -->
 <dialog class="pp" id="privacy" aria-labelledby="pp-title">
@@ -3619,64 +3629,61 @@ html.js-intro .hero__sign > *{visibility:hidden}
 <script>
 (function(){
   'use strict';
-
-  /* 헤더 실측 높이 → 앵커 스크롤 오프셋 */
-  var hd = document.getElementById('hd');
-  function syncHeader(){
-    document.documentElement.style.setProperty('--hd-h', hd.offsetHeight + 'px');
+  var root=document.documentElement, hd=document.getElementById('hd'), dock=document.getElementById('dock'), toggle=document.getElementById('dock-toggle');
+  var pp=document.getElementById('privacy'), offer=document.getElementById('offer-popup'), ppOpener=null, offerOpener=null;
+  var mobile=matchMedia('(max-width:860px)');
+  function syncLayout(){
+    root.style.setProperty('--hd-h',hd.offsetHeight+'px');
+    root.style.setProperty('--dock-space',dock.offsetHeight+'px');
+    if(window.visualViewport){
+      root.style.setProperty('--visual-height',visualViewport.height+'px');
+      root.style.setProperty('--keyboard-inset',Math.max(0,innerHeight-visualViewport.height-visualViewport.offsetTop)+'px');
+    }
   }
-  syncHeader();
-  window.addEventListener('resize', syncHeader);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncHeader);
-
-  /* 연락처 자동 하이픈 */
-  document.querySelectorAll('input[type=tel]').forEach(function(el){
-    el.addEventListener('input', function(){
-      var d = el.value.replace(/\D/g,'').slice(0,11);
-      el.value = d.length < 4 ? d
-        : d.length < 8 ? d.slice(0,3)+'-'+d.slice(3)
-        : d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);
+  function setDock(open){dock.dataset.open=String(open);toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'입력 닫기':'상담 입력';syncLayout();}
+  toggle.addEventListener('click',function(){setDock(dock.dataset.open!=='true');if(dock.dataset.open==='true')document.getElementById('q-name').focus();});
+  addEventListener('resize',syncLayout);addEventListener('load',syncLayout);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(syncLayout);
+  if(window.ResizeObserver)new ResizeObserver(syncLayout).observe(dock);
+  if(window.visualViewport){visualViewport.addEventListener('resize',syncLayout);visualViewport.addEventListener('scroll',syncLayout);}
+  syncLayout();
+  var qs=new URLSearchParams(location.search), adCode=qs.get('adCode')||qs.get('utm_campaign')||'', flow='직접유입';
+  try{if(document.referrer)flow=new URL(document.referrer).hostname;}catch(e){}
+  document.querySelectorAll('input[name=adCode]').forEach(function(el){el.value=adCode;});
+  document.querySelectorAll('input[name=flow]').forEach(function(el){el.value=flow;});
+  document.querySelectorAll('form[data-lead] input').forEach(function(el){
+    el.addEventListener('input',function(){
+      if(el.type==='tel'){var d=el.value.replace(/\D/g,'').slice(0,11);el.value=d.length<4?d:d.length<8?d.slice(0,3)+'-'+d.slice(3):d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);}
+      if(['name','phone','area','agree'].indexOf(el.name)<0)return;
+      document.querySelectorAll('form[data-lead] input[name="'+el.name+'"]').forEach(function(other){if(other!==el){if(el.type==='checkbox')other.checked=el.checked;else other.value=el.value;}other.removeAttribute('aria-invalid');});
     });
   });
-
-  /* 유입 추적 — 광고코드·유입경로를 히든 필드에 실어 어드민에서 소스별 집계 */
-  var qs = new URLSearchParams(location.search);
-  var adCode = qs.get('adCode') || qs.get('utm_campaign') || '';
-  var flow = document.referrer ? new URL(document.referrer).hostname : '직접유입';
-  document.querySelectorAll('input[name=adCode]').forEach(function(el){ el.value = adCode; });
-  document.querySelectorAll('input[name=flow]').forEach(function(el){ el.value = flow; });
-
-  /* 개인정보 처리방침 모달 — 폼의 '전문 보기'가 여는 대상 */
-  var pp = document.getElementById('privacy');
-  document.querySelectorAll('a[href="#privacy"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      if (pp.showModal) pp.showModal(); else pp.setAttribute('open', '');
-    });
-  });
-  pp.querySelectorAll('[data-pp-close]').forEach(function(b){
-    b.addEventListener('click', function(){ pp.close(); });
-  });
-  /* 배경 클릭으로 닫기 — dialog는 backdrop 클릭도 자기 자신이 타깃이 된다 */
-  pp.addEventListener('click', function(e){ if (e.target === pp) pp.close(); });
-
-  /* 폼 — 시안 단계에서는 전송하지 않고 검증만 수행 */
+  document.querySelectorAll('a[href="#privacy"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();ppOpener=a;pp.showModal();});});
+  pp.querySelectorAll('[data-pp-close]').forEach(function(b){b.addEventListener('click',function(){pp.close();});});
+  pp.addEventListener('close',function(){if(ppOpener&&ppOpener.isConnected)ppOpener.focus({preventScroll:true});});
+  pp.addEventListener('click',function(e){var r=pp.getBoundingClientRect();if(e.target===pp&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))pp.close();});
   document.querySelectorAll('form[data-lead]').forEach(function(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var bad = null;
+    form.querySelector('button[type=submit]').disabled=false;
+    form.addEventListener('submit',function(e){
+      e.preventDefault();var bad=null,message='';
       form.querySelectorAll('[required]').forEach(function(el){
-        var empty = el.type === 'checkbox' ? !el.checked : !el.value.trim();
-        if (empty && !bad) bad = el;
+        var empty=el.type==='checkbox'?!el.checked:!el.value.trim();
+        var invalidPhone=el.name==='phone'&&!/^0\d{8,10}$/.test(el.value.replace(/\D/g,''));
+        if(empty||invalidPhone){el.setAttribute('aria-invalid','true');if(!bad){bad=el;message=empty?(el.type==='checkbox'?'개인정보 수집 · 이용 동의가 필요합니다.':'성함, 연락처와 희망 지역을 입력해 주세요.'):'연락처를 정확히 입력해 주세요.';}}else el.removeAttribute('aria-invalid');
       });
-      if (bad){
-        bad.focus();
-        alert('필수 항목을 입력해 주세요.');
-        return;
-      }
-      alert('시안 단계입니다. 실제 접수는 어드민 연동 후 동작합니다.\n\n유입경로: ' + flow + (adCode ? ' / 광고코드: ' + adCode : ''));
+      var status=form.querySelector('.lead-status');status.dataset.error=String(!!bad);
+      status.textContent=bad?message:'아직 접수되지 않았습니다. 현재 온라인 접수는 준비 중이므로 1688-2629로 전화해 주세요.';
+      if(bad){if(form.id==='quick-lead'&&mobile.matches)setDock(true);bad.focus();}syncLayout();
     });
   });
+  function today(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+  function closeOffer(){if(document.getElementById('offer-today').checked){try{localStorage.setItem('tt-offer-hidden-day',today());}catch(e){}}offer.close();}
+  offer.querySelectorAll('[data-offer-close]').forEach(function(b){b.addEventListener('click',closeOffer);});
+  offer.addEventListener('cancel',function(e){e.preventDefault();closeOffer();});
+  offer.addEventListener('close',function(){if(offerOpener&&offerOpener.isConnected)offerOpener.focus({preventScroll:true});});
+  offer.querySelector('[data-offer-contact]').addEventListener('click',function(e){e.preventDefault();offerOpener=document.getElementById('f-name');closeOffer();document.getElementById('contact').scrollIntoView();offerOpener.focus({preventScroll:true});});
+  function openOffer(){var hidden=false;try{hidden=localStorage.getItem('tt-offer-hidden-day')===today();}catch(e){}if(!hidden){offerOpener=document.activeElement&&document.activeElement!==document.body?document.activeElement:document.querySelector('.hd__logo');offer.showModal();}}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openOffer);else openOffer();
 })();
 </script>
 
@@ -3726,11 +3733,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
   ]
 }
 </script>
-<!-- ══ v4: PC 하단 고정 전환바 (프레디 contact_fixed 모티프 · 모바일은 기존 .mcta) ══ -->
-<div class="dock" id="dock" role="complementary" aria-label="창업 상담 바로가기" hidden>
-  <a class="dock__tel" href="tel:16882629">창업 문의 <b>1688-2629</b></a>
-  <a class="dock__cta" href="#contact">창업 상담 신청</a>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
@@ -3744,27 +3746,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
 (function () {
     var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
-  /* 보임 우선 — GSAP(defer) 다운로드가 늦어 DCL 이 밀리면 1.8초 뒤 그냥 푼다(정지 노출, 플래시 없음).
-     그 뒤 도착한 GSAP 은 인트로를 건너뛴다 — 이미 보이는 걸 다시 숨겼다 띄우면 원래 결함으로 돌아간다. */
-  var introDone = false;
-  setTimeout(function () { if (!introDone) { introDone = true; root.classList.remove('js-intro'); } }, 1800);
-
-
-  /* 고정 상담은 히어로를 다 읽은 뒤에만 노출한다. hidden은 숨김 중 키보드 접근도 막는다. */
-  var dock = document.getElementById('dock');
-  var mobileCta = document.querySelector('.mcta');
-  var hero = document.querySelector('.hero');
-  var header = document.getElementById('hd');
-  var onScrollDock = function () {
-    var show = hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom;
-    dock.hidden = !show;
-    mobileCta.hidden = !show;
-  };
-  addEventListener('scroll', onScrollDock, { passive: true });
-  addEventListener('resize', onScrollDock);
-  addEventListener('load', onScrollDock);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(onScrollDock);
-  onScrollDock();
 
   /* 메뉴 카테고리 탭 슬라이더 — 기능이므로 reduced에서도 동작 */
   var tabs = [].slice.call(document.querySelectorAll('.mtab'));
@@ -3795,7 +3776,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
   });
 
     if (reduced) {
-    root.classList.remove('js-intro');
     /* v4.56 (독립QA P3) — 조리 영상 정지 코드가 load 핸들러 안에 있어 여기 return 에 막혀 도달 불가였다.
        감축 모드에선 자동재생 영상 전부를 여기서 세운다(포스터 노출). */
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
@@ -3804,35 +3784,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
     });
     return;                                /* ← 이 아래는 전부 장식 모션 */
   }
-
-  /* 1-0) 히어로 인트로 — load 가 아니라 DOMContentLoaded (v4.56, 독립QA P1)
-     load 는 eager 이미지·영상 6편 메타·폰트 4종·GSAP CDN 을 다 기다린다. 그래서 첫 페인트에 이미 그려진
-     간판을 load 시점에 숨겼다가 다시 띄우는 「노출 → 소실 → 페이드」가 났다(실측 375: 1.1초 뒤 소실).
-     head 의 html.js-intro 가 페인트 전에 간판 내용을 감춰 두고, GSAP(defer 라 DCL 에 가용)이
-     초기값을 인라인으로 잡은 **뒤** 클래스를 풀어 트윈이 이어받는다. GSAP 이 없으면 그냥 푼다. */
-  function heroIntro() {
-    if (introDone) return;
-    introDone = true;
-    if (window.gsap) {
-      gsap.from(['.hero__sign h1', '.hero__rule', '.hero__sub', '.hero__cta'], {
-        autoAlpha: 0, y: 30, duration: .7, ease: 'power2.out', stagger: .12, delay: .15
-      });
-      /* 오퍼 띠 — 간판이 선 뒤에 쾅 찍힌다. clearProps 로 인라인 transform 이 걷힌 **뒤에**
-         상시 흔들림(.is-live)을 넘긴다 — tween 중에 CSS 애니메이션이 돌면 매 프레임 덮어써 튄다. */
-      gsap.from('.hero__badge', {
-        scale: .72, rotation: -3, autoAlpha: 0, transformOrigin: '50% 50%',
-        duration: .55, ease: 'back.out(2.1)', delay: .78, clearProps: 'scale,rotate',
-        onComplete: function () {
-          var el = document.querySelector('.hero__badge');
-          if (el) el.classList.add('is-live');
-        }
-      });
-    }
-    root.classList.remove('js-intro');
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', heroIntro);
-  else heroIntro();
-
 
   addEventListener('load', function () {
     if (!window.gsap || !window.ScrollTrigger) return;   /* CDN 실패 = 정적 폴백(전부 보임) */
@@ -3865,10 +3816,10 @@ html.js-intro .hero__sign > *{visibility:hidden}
       { sel: '.terrviz figure:nth-child(1)', x: -90 },
       { sel: '.terrviz figure:nth-child(2)', x: 90 },
       { sel: '.step' },
-      /* 상단 대표 상담은 첫 화면에서 바로 읽도록 지연 리빌에서 제외한다. */
-      { sel: '.form' },
+      /* 상담 입력폼은 팝업 CTA와 앵커에서 즉시 포커스할 수 있도록 항상 표시한다. */
       { sel: '.ovals li', x: 90 }, { sel: '.ring' }
     ];
+    var pendingRightReveals = [];
     groups.forEach(function (g) {
       var els = gsap.utils.toArray(g.sel);
       if (!els.length) return;
@@ -3902,6 +3853,9 @@ html.js-intro .hero__sign > *{visibility:hidden}
            넓어져 첫 진입에 13px 가로 오버플로가 난다(2026-09-07 layout_gate 실측). 레이아웃 뷰포트로 잰다. */
         return Math.min(fx, Math.max(0, document.documentElement.clientWidth - t.getBoundingClientRect().right - 2));
       });
+      if (fx > 0) els.forEach(function (el) {
+        pendingRightReveals.push({ el: el, clipped: clipped });
+      });
       gsap.set(els, {
         autoAlpha: 0,
         x: function (i) { return xs[i]; },
@@ -3919,15 +3873,28 @@ html.js-intro .hero__sign > *{visibility:hidden}
         }
       });
     });
+    /* 초기 폭에서 계산한 오른쪽 이동값은 좁아진 화면에서 문서를 넓힐 수 있다.
+       폭 변경 때 아직 숨겨진 비클립 요소만 세로 리빌로 전환한다. 진행 중인 모션은 유지한다. */
+    var revealViewportWidth = document.documentElement.clientWidth;
+    addEventListener('resize', function () {
+      var width = document.documentElement.clientWidth;
+      if (width === revealViewportWidth) return;
+      revealViewportWidth = width;
+      pendingRightReveals.forEach(function (item) {
+        if (getComputedStyle(item.el).visibility === 'hidden' &&
+            Number(gsap.getProperty(item.el, 'x')) > 0 && !item.clipped(item.el)) {
+          gsap.set(item.el, { x: 0, y: 26 });
+        }
+      });
+    }, { passive: true });
     /* 이미 뷰포트 안(첫 화면)인 것 즉시 표시 */
     ScrollTrigger.refresh();
 
-    /* 2) 히어로 — 켄번스 스크럽(줌) + 간판 계단 리빌 */
+    /* 2) 히어로 — 켄번스 스크럽(줌) */
     gsap.fromTo('.hero__bg img', { scale: 1.14 }, {
       scale: 1, ease: 'none',
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
     });
-        /* 간판 계단 리빌·오퍼 띠 팝은 v4.56 에서 1-0) heroIntro(DOMContentLoaded)로 옮겼다. */
 
     /* 3) 메뉴 로우 진입 스크럽 */
     gsap.from('.mrow', {
@@ -4157,23 +4124,13 @@ html.js-intro .hero__sign > *{visibility:hidden}
     /* 5e) 섹션 머리말 계단 — 이름표 → H2 → 리드가 한 박자씩 (그린스케이프 문법).
        셋을 각각 별도 그룹으로 두면 서로 150px 쯤 떨어져 있어 각자 자기 위치에서 발화하고
        계단이 안 생긴다. 머리말의 첫 요소를 트리거로 삼아 셋을 한 시퀀스로 연다. */
-        /* 6) 「결국, 본질은 맛입니다」 (v4.54, 2차 미팅 지시 — 애니메이션으로 가독성)
-       좌·우 카피가 한 박자씩 떠오르고, 「맛」이 도장처럼 찍힌 뒤 브러시 밑줄이 왼쪽에서 그어진다.
-       밑줄은 ::after 라 GSAP 이 못 잡는다 — html.gsap-ready 에서만 scaleX(0) 으로 시작하고
-       .is-on 을 붙여 CSS transition 으로 긋는다(GSAP 실패 시 처음부터 그려져 있다 = 보임 우선). */
+        /* 중앙 조판은 한 덩어리로 등장한다. 제품 영상은 별도 흐름으로 유지한다. */
     document.documentElement.classList.add('gsap-ready');
     var cs = document.querySelector('.creedsplit');
     if (cs) {
-      var csL = cs.querySelector('b:first-of-type'), csR = cs.querySelector('b:last-of-type'), csEm = cs.querySelector('em');
-            gsap.set([csL, csR], { autoAlpha: 0, y: 34 });
-      /* em 은 미리 세팅하지 않는다 — 부모(csR)가 숨겨 두므로 발화 전엔 어차피 안 보이고,
-         from() 으로 팝을 주면 캡처 도구(인라인 transform 원복 목록 밖)에 2.1배로 찍히지 않는다. */
+      gsap.set(cs, {autoAlpha:0, y:24});
       whenInView(cs, function () {
-        gsap.timeline()
-          .to(csL, { autoAlpha: 1, y: 0, duration: .7, ease: 'power3.out' })
-          .to(csR, { autoAlpha: 1, y: 0, duration: .7, ease: 'power3.out' }, '-=0.42')
-          .from(csEm, { scale: 2.1, autoAlpha: 0, transformOrigin: '50% 72%', duration: .6, ease: 'back.out(2.4)', clearProps: 'scale,opacity,visibility' }, '-=0.2')
-          .add(function () { cs.classList.add('is-on'); }, '-=0.15');
+        gsap.to(cs, {autoAlpha:1, y:0, duration:.7, ease:'power3.out', onComplete:function(){cs.classList.add('is-on');}});
       });
     }
 
@@ -4189,7 +4146,6 @@ html.js-intro .hero__sign > *{visibility:hidden}
       });
     });
 
-        /* 5c) 히어로 오퍼 띠 팝 → 1-0) heroIntro 로 이동(v4.56). */
 
     /* (단면 미디어 스크럽은 모션 예산 3 상한으로 제외 — 스크림·리빌만) */
 
@@ -4220,7 +4176,7 @@ html.js-intro .hero__sign > *{visibility:hidden}
     var spinIO = new IntersectionObserver(function (es) {
       es.forEach(function (e) { e.target.classList.toggle('is-off', !e.isIntersecting); });
     }, { rootMargin: '80px' });
-    document.querySelectorAll('.mq, .wq, .ring, .rvroll, .hero__badge').forEach(function (el) { spinIO.observe(el); });
+    document.querySelectorAll('.mq, .wq, .ring, .rvroll, .offer__badge').forEach(function (el) { spinIO.observe(el); });
 
   });
 })();
