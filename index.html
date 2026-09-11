@@ -2269,7 +2269,7 @@ body{padding-bottom:var(--dock-space,110px)}
 }
 
 </style>
-<link rel="stylesheet" href="_assets/feedback_20260910/feedback2.css?v=20260911-7">
+<link rel="stylesheet" href="_assets/feedback_20260910/feedback2.css?v=20260911-8">
 </head>
 <body>
 
@@ -3155,11 +3155,10 @@ body{padding-bottom:var(--dock-space,110px)}
           <li><i class="terrleg__ot"></i>타 브랜드</li>
         </ul>
         <div class="terrviz">
-          <!-- 직접 작성한 도식: 실제 지도 타일을 사용하지 않음. -->
-          <figure role="img" aria-label="일반적인 출점 — 한 동네에 같은 브랜드가 겹쳐 들어와 상권이 겹치는 구조">
+          <!-- 실제 Google 일반 지도 캡처 위에 상권 비교 도식을 표시. 출처와 전체 이미지 보존. -->
+          <figure aria-label="일반적인 출점 — 한 동네에 같은 브랜드가 겹쳐 들어와 상권이 겹치는 구조">
             <svg viewBox="0 0 440 300" aria-hidden="true">
-              <rect width="440" height="300" fill="#e8e7df"/><path d="M-20 75H460M-20 225H460M92-20V320M335-20V320" stroke="#fff" stroke-width="25"/><path d="M-20 155L460 90M200-20L265 320" stroke="#fafaf7" stroke-width="12"/><path d="M0 274Q110 250 185 302" fill="none" stroke="#c8ddca" stroke-width="38"/>
-              <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
+              <image class="territory-map-image" href="_assets/feedback_20260911/territory-google-suwon.png" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid meet"/>
               <circle cx="150" cy="128" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
               <circle cx="252" cy="182" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
               <circle cx="286" cy="98"  r="64" fill="rgba(26,22,20,.10)" stroke="#8A8178" stroke-width="2.5" stroke-dasharray="7 6"/>
@@ -3169,12 +3168,12 @@ body{padding-bottom:var(--dock-space,110px)}
                 <circle cx="286" cy="98"  r="15" fill="#8A8178"/><text x="286" y="103" fill="#fff">B</text>
               </g>
             </svg>
+            <p class="territory-map-credit"><a href="https://maps.google.com/maps?ll=37.2636,127.0325&amp;z=15&amp;t=m&amp;hl=ko" target="_blank" rel="noopener noreferrer">Google 지도</a><span>지도 데이터 ©2026 TMap Mobility</span></p>
             <figcaption class="terrcap terrcap--them"><strong>일반적인 출점</strong><span>한 동네에 겹쳐 들어옵니다</span></figcaption>
           </figure>
-          <figure class="territory-card--titi" role="img" aria-label="티티버거 — 보호 반경 안에 한 매장만, 타 출점은 반경 밖">
+          <figure class="territory-card--titi" aria-label="티티버거 — 보호 반경 안에 한 매장만, 타 출점은 반경 밖">
             <svg viewBox="0 0 440 300" aria-hidden="true">
-              <rect width="440" height="300" fill="#e8e7df"/><path d="M-20 75H460M-20 225H460M92-20V320M335-20V320" stroke="#fff" stroke-width="25"/><path d="M-20 155L460 90M200-20L265 320" stroke="#fafaf7" stroke-width="12"/><path d="M0 274Q110 250 185 302" fill="none" stroke="#c8ddca" stroke-width="38"/>
-              <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
+              <image class="territory-map-image" href="_assets/feedback_20260911/territory-google-suwon.png" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid meet"/>
               <circle class="territory-radius" cx="220" cy="150" r="112" fill="rgba(230,0,18,.15)" stroke="#E60012" stroke-width="3.5"/>
               <circle cx="220" cy="150" r="112" fill="none" stroke="#E60012" stroke-width="1" stroke-dasharray="3 7" opacity=".7">
               </circle>
@@ -3185,9 +3184,11 @@ body{padding-bottom:var(--dock-space,110px)}
                 <circle cx="396" cy="252" r="9" fill="none" stroke="#8A8178" stroke-width="2" stroke-dasharray="4 4"/>
               </g>
             </svg>
+            <p class="territory-map-credit"><a href="https://maps.google.com/maps?ll=37.2636,127.0325&amp;z=15&amp;t=m&amp;hl=ko" target="_blank" rel="noopener noreferrer">Google 지도</a><span>지도 데이터 ©2026 TMap Mobility</span></p>
             <figcaption class="terrcap terrcap--us"><strong>티티버거</strong><span>한 상권, 한 매장</span></figcaption>
           </figure>
         </div>
+        <p class="territory-map-note"><span class="copy-block">상권 보호를 설명하기 위한 예시 지도입니다.</span><span class="copy-block">표시된 매장 위치와 반경은 실제 출점·보호 구역을 뜻하지 않습니다.</span></p>
 
       </div>
     </div>
