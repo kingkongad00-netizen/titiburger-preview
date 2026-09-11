@@ -7,13 +7,13 @@
 <!-- 검색 축: 데이터랩 실측상 「수제버거창업」은 「소자본창업」의 1/59이라 브랜드·업종을 앞세우면 유입이 없다.
      소자본·소형 매장·업종 변경을 앞에 두고 버거는 차별점으로 뒤에 둔다. (GEO설계 §0) -->
 <!-- 2026-08-22: 12無 스펙(8/20 확정)에 맞춰 head 메타 동기화. 교육비 300만원은 부과 항목이라 면제 목록에서 제외,
-     로열티는 24개월 면제, 선착순 10호점. 폐기 카피「개설 비용 0원」→「시공·집기 마진 0원」 -->
-<title>평수 무관 수제버거 창업 | 가맹비·보증금 면제, 로열티 24개월 면제 — 티티버거</title>
+     로열티는 면제, 선착순 10호점. 폐기 카피「개설 비용 0원」→「시공·집기 마진 0원」 -->
+<title>평수 무관 수제버거 창업 | 가맹비·보증금 면제, 로열티 면제 — 티티버거</title>
 <!-- v4 시네마틱 — 기획: 설계기획안/개편기획_시네마틱v4_20260825.md · v3(B안_간판.html) 보존 -->
-<meta name="description" content="평수 조건 없이 시작하는 수제버거 창업. 공간이 없으면 바테이블만 두셔도 됩니다. 가맹비 500만원·보증금 100만원 면제, 월 로열티 20만원 24개월 면제. 인테리어·간판 자율 시공 가능, 주방집기 직접 구매 가능. 업종 변경 상담 1688-2629.">
+<meta name="description" content="극소형 포장 매장부터 10평 이상 홀 매장까지, 티티버거 수제버거 창업. 가맹비·보증금·로열티 면제, 인테리어·간판·주방집기 자율 구매. 대표가 직접 상담합니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="평수 무관 수제버거 창업 | 시작을 막는 비용, 12가지가 없습니다 — 티티버거">
-<meta property="og:description" content="평수 조건 없이 시작합니다. 공간이 없으면 바테이블만 두셔도 됩니다. 창업 혜택 12無 — 가맹비·보증금 면제, 로열티 24개월 면제, 포스·키오스크 프로그램 사용료 면제. 선착순 10호점 창업비용 최대 2,000만원 지원.">
+<meta property="og:description" content="극소형 포장 매장과 10평 이상 홀 매장, 두 가지 타입으로 개설합니다. 창업 혜택 12無와 선착순 10호점 창업비용 최대 2,000만원 지원.">
 <meta property="og:image" content="_assets/shot/hero.jpg">
 <meta property="og:site_name" content="티티버거">
 <meta property="og:locale" content="ko_KR">
@@ -21,14 +21,12 @@
 <meta name="theme-color" content="#E60012">
 <!-- canonical · og:url 은 배포 빌드에서 주입한다. 값 확정: https://ttburger.kr/ (2026-08-12)
      시안에 박지 않는 이유 — 여기는 디자인 산출물이고 실제 값은 빌드 한 곳에서만 관리한다. GEO설계 §5-6 -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23E60012'/><text x='50' y='72' font-size='56' font-family='sans-serif' font-weight='900' fill='%23fff' text-anchor='middle'>TT</text></svg>">
+<link rel="icon" type="image/svg+xml" sizes="any" href="_assets/feedback_20260910/titi-symbol-favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- 2026-08-20 클라이언트 지시: 둥근 배민체 계열 — 헤드는 주아(Jua), 이름표 도현(Do Hyeon)은 원래 배민 폰트라 유지 -->
-<!-- 디스플레이 타이포(장식 전용): Anton=자이언트/마퀴 · Bebas=레일/링/캡션 · 나눔펜=손글씨 콜아웃. 메뉴명·간판(한글)과 역할 분리 -->
+<!-- 2026-09-11: 기존 본문 서체는 Gmarket Sans로 통일. 브랜드 주아·도현·손글씨는 유지. -->
 <link href="https://fonts.googleapis.com/css2?family=Jua&family=Do+Hyeon&family=Anton&family=Bebas+Neue&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -58,9 +56,9 @@
   --grain-ink:repeating-linear-gradient(90deg, rgba(26,22,20,.055) 0 1px, transparent 1px clamp(90px,9vw,150px));
   --grain-light:repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px clamp(90px,9vw,150px));
 
-  --ff-sign:'Jua', 'Pretendard', sans-serif;  /* 간판 헤드 — 주아체(배민 계열, 400 단일 웨이트) */
-  --ff-plate:'Do Hyeon', 'Pretendard', sans-serif;       /* 이름표·배지 */
-  --ff-body:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ff-sign:'Jua', 'Gmarket Sans', sans-serif;  /* 간판 헤드 — 주아체(배민 계열, 400 단일 웨이트) */
+  --ff-plate:'Do Hyeon', 'Gmarket Sans', sans-serif;       /* 이름표·배지 */
+  --ff-body:'Gmarket Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* 모듈러 스케일 (1440 기준) */
   --fs-h1:clamp(36px, 5.6vw, 80px);
@@ -1451,7 +1449,7 @@ dialog.pp::backdrop{background:rgba(26,22,20,.62)}
 }
 @media (max-width:560px){
   /* 320px 에서 nowrap 한 줄이 컨테이너에 0.6px 차이로 겨우 들어간다.
-     Do Hyeon 미로드 시 폴백(Pretendard)이 12.5% 넓어 first paint 에 넘친다(font-display:swap).
+     이전 본문 폴백 로딩 중 첫 화면에서 넘침이 있어 여유 폭을 확보했다(font-display:swap).
      크기를 낮추고 wrap 을 허용해 폰트 로드 여부와 무관하게 성립시킨다. */
     .menu,.menu--side{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
@@ -2271,6 +2269,7 @@ body{padding-bottom:var(--dock-space,110px)}
 }
 
 </style>
+<link rel="stylesheet" href="_assets/feedback_20260910/feedback2.css?v=20260911-6">
 </head>
 <body>
 
@@ -2279,9 +2278,9 @@ body{padding-bottom:var(--dock-space,110px)}
   <!-- 로고를 가운데 두고 주요 섹션 링크를 좌 4 · 우 4로 나눈다. -->
   <div class="hd__row hd__row--split">
     <nav class="hd__nav hd__nav--l" aria-label="주요 메뉴 왼쪽">
-      <a href="#creed">본질은 맛</a>
+      <a href="#brand">브랜드 소개</a>
       <a href="#support">창업 혜택</a>
-      <a href="#perks">지원 상세</a>
+      <a href="#types">창업 형태</a>
       <a href="#menu-burger">메뉴</a>
     </nav>
     <!-- 헤더는 워드마크만 — 전체 락업은 44px에서 태그라인이 뭉갠다 (푸터에서 전체 락업 사용) -->
@@ -2290,7 +2289,7 @@ body{padding-bottom:var(--dock-space,110px)}
       <a href="#why">업종 변경</a>
       <a href="#process">창업 절차</a>
       <a href="#faq">자주 묻는 질문</a>
-      <a href="#contact">창업 문의</a>
+      <a href="#contact">대표 상담</a>
     </nav>
   </div>
 </header>
@@ -2308,8 +2307,8 @@ body{padding-bottom:var(--dock-space,110px)}
   <!-- ══ 03 마퀴 ══ -->
   <div class="mq" aria-hidden="true">
     <div class="mq__track">
-      <span>가맹비 500 면제</span><span>보증금 100 면제</span><span>로열티 24개월 면제</span><span>간판 교체비 지원</span><span>쇼케이스 냉장고 지원</span><span>감리비·광고분담비 면제</span><span>카드 무이자 할부 최대 6개월</span><span>평수 조건 없음</span><span>선착순 10호점</span>
-      <span data-clone>가맹비 500 면제</span><span data-clone>보증금 100 면제</span><span data-clone>로열티 24개월 면제</span><span data-clone>간판 교체비 지원</span><span data-clone>쇼케이스 냉장고 지원</span><span data-clone>감리비·광고분담비 면제</span><span data-clone>카드 무이자 할부 최대 6개월</span><span data-clone>평수 조건 없음</span><span data-clone>선착순 10호점</span>
+      <span>가맹비 500 면제</span><span>보증금 100 면제</span><span>로열티 면제</span><span>간판 교체비 지원</span><span>쇼케이스 냉장고 지원</span><span>감리비·광고분담비 면제</span><span>카드 무이자 할부 최대 6개월</span><span>평수 조건 없음</span><span>선착순 10호점</span>
+      <span data-clone>가맹비 500 면제</span><span data-clone>보증금 100 면제</span><span data-clone>로열티 면제</span><span data-clone>간판 교체비 지원</span><span data-clone>쇼케이스 냉장고 지원</span><span data-clone>감리비·광고분담비 면제</span><span data-clone>카드 무이자 할부 최대 6개월</span><span data-clone>평수 조건 없음</span><span data-clone>선착순 10호점</span>
     </div>
   </div>
 
@@ -2402,7 +2401,7 @@ body{padding-bottom:var(--dock-space,110px)}
             765px 단(폭 변주 게이트가 세는 최소 단)을 그대로 유지한다. -->
     <div class="wrap">
       <div class="creed">
-        <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.<br>장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.<br>한 번 찾아준 고객이 만족하지 않는다면, <br class="pbr">어떤 마케팅을 해도 다시 찾게 만들기는 쉽지 않습니다.</p>
+        <p>마케팅은 한 번 찾아오게 만드는 것까지입니다.<br>장사는 한 사람 한 사람이 여러 번 먹어야 돈이 됩니다.<br>한 번 찾아준 고객이 만족하지 않는다면, <br class="pbr">어떤 마케팅을 해도 다시 찾게 <span class="copy-keep">만들기는 쉽지 않습니다.</span></p>
         <p>그래서 티티버거의 기준은 <strong class="creed-highlight">오늘 먹고 내일 또 생각나는가</strong>입니다.<br>번과 패티를 직접 만든 이유가 여기에 있습니다.</p>
       </div>
     </div>
@@ -2416,7 +2415,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div>
           <p class="eyebrow">브랜드</p>
           <h2 class="h2" id="brand-h">수제버거는 빵과 패티에서 갈립니다</h2>
-          <p class="lead">토핑은 따라할 수 있으나, 번과 패티는 따라 하기 어렵습니다.<br>티티버거가 <span class="hl">빵과 패티</span> 두 가지를 브랜드 이름 아래 그대로 써 둔 이유입니다.</p>
+          <p class="lead">토핑은 따라 할 수 있으나, 번과 패티는 따라 하기 어렵습니다.<br>티티버거가 <span class="hl">빵과 패티</span> 두 가지를 브랜드 이름 아래 <span class="copy-keep">그대로 써 둔 이유입니다.</span></p>
         </div>
         <figure class="brandbi">
           <figcaption>BI</figcaption>
@@ -2449,7 +2448,7 @@ body{padding-bottom:var(--dock-space,110px)}
           <div class="ed__txt card">
             <p class="card__no">패티</p>
             <h3 class="h3">티티버거가 자체 개발한 100% 소고기 패티</h3>
-            <p class="ed__copy">돼지고기가 섞인 저가 패티가 아닌, 직접 개발한 100% 소고기패티 입니다.<br>패티를 굽는 과정에서 육즙을 가두는 기술이 티티버거의 키포인트 중 하나입니다.</p>
+            <p class="ed__copy">돼지고기가 섞인 저가 패티가 아닌, 직접 개발한 100% 소고기 패티입니다.<br>패티를 굽는 과정에서 육즙을 가두는 기술이 티티버거의 <span class="copy-keep">키포인트 중 하나입니다.</span></p>
           </div>
           <figure class="market-compare market-compare--patty">
               <img src="_assets/feedback_20260909/pork_patty_example.jpg" alt="비교 예시: 돼지고기 패티" loading="lazy">
@@ -2470,8 +2469,8 @@ body{padding-bottom:var(--dock-space,110px)}
   <section class="sec sec--cream craft" id="supply" aria-labelledby="supply2-h">
     <div class="wrap">
       <p class="eyebrow">공급</p>
-      <h2 class="h2" id="supply2-h">번과 패티는 본사가 만들어서 전달 드립니다</h2>
-      <p class="lead">티티버거만의 노하우가 있는 레시피로 생산하여 공급합니다.<br>매장에서 귀찮고 힘들게 번을 굽거나 패티를 만들 일이 없습니다.<br>티티버거가 작은 매장에서도 시작할 수 있는 이유이고, 매장이 달라도 같은 맛이 나오는 이유입니다.</p>
+      <h2 class="h2" id="supply2-h">번과 패티는 본사가 만들어서 전달드립니다</h2>
+      <p class="lead">티티버거만의 노하우가 있는 레시피로 생산하여 공급합니다.<br>매장에서 귀찮고 힘들게 번을 굽거나 패티를 만들 일이 없습니다.<br>티티버거가 작은 매장에서도 시작할 수 있는 이유이고, <span class="copy-block">매장이 달라도 같은 맛이 나오는 이유입니다.</span></p>
     </div>
     <ol class="craft__strip craft__strip--5">
       <li class="craft__step">
@@ -2491,7 +2490,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div class="craft__cap">
           <b class="craft__no">02</b>
           <h3 class="craft__h">기계를 사용하여 갈아냅니다</h3>
-          <p>맛있는 패티가 될 수 있게 일정한 두께로 갈아냅니다.</p>
+          <p>맛있는 패티가 될 수 있게 일정한 <span class="copy-keep">두께로 갈아냅니다.</span></p>
         </div>
       </li>
       <li class="craft__step">
@@ -2501,7 +2500,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div class="craft__cap">
           <b class="craft__no">03</b>
           <h3 class="craft__h">일정한 규격으로 만들어냅니다</h3>
-          <p>매장에서 가장 귀찮고 신경써야 될 부분을 본사가 대신합니다.<br>업무 난이도를 낮추고 효율은 높입니다.</p>
+          <p>매장에서 가장 귀찮고 신경 써야 될 부분을 본사가 대신합니다.<br>업무 난이도를 낮추고 효율은 높입니다.</p>
         </div>
       </li>
       <li class="craft__step">
@@ -2511,7 +2510,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div class="craft__cap">
           <b class="craft__no">04</b>
           <h3 class="craft__h">반죽과 숙성 과정을 거칩니다</h3>
-          <p>티티버거만의 레시피로 자체 개발한 우리만의 브리오슈 번을 만들어냅니다.</p>
+          <p>티티버거만의 레시피로 자체 개발한 우리만의 브리오슈 <span class="copy-keep">번을 만들어냅니다.</span></p>
         </div>
       </li>
       <li class="craft__step">
@@ -2521,7 +2520,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div class="craft__cap">
           <b class="craft__no">05</b>
           <h3 class="craft__h">구워서 납품합니다</h3>
-          <p>맛있게 구운 번들은 컷팅까지 하여 각 지점으로 납품됩니다.<br>반죽부터 숙성, 사소하지만 컷팅까지도 매장 일이 아닙니다.</p>
+          <p>맛있게 구운 번들은 커팅까지 하여 각 지점으로 납품됩니다.<br>반죽부터 숙성, 사소하지만 커팅까지도 <span class="copy-keep">매장 일이 아닙니다.</span></p>
         </div>
       </li>
     </ol>
@@ -2565,7 +2564,7 @@ body{padding-bottom:var(--dock-space,110px)}
   <!-- ══ 08 한글 메뉴명 (브랜드 컨셉 — 메뉴명·간판만 한글 고정) ══ -->
   <section class="sec sec--cream" id="menu-side" aria-labelledby="ms-h">
     <div class="wrap">
-      <p class="eyebrow">컨셉</p>
+      <p class="eyebrow">콘셉트</p>
       <!-- v4.33 — 개정 전 헤드는 「촌스러운 게 아니라, 지금 글로벌 트렌드입니다」였다.
            ⚠️ 우리가 「촌스러운」을 먼저 꺼내면 읽는 분이 그 생각을 안 했어도 심어 준다.
               게다가 「~가 아니라」로 열면 문장이 수세가 된다 — 기획안 원안의
@@ -2621,7 +2620,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <ul class="hnames" aria-label="흔히 쓰는 외래어 메뉴명을 한글 이름으로 바꾼 예">
           <li class="hname">
             <img src="_assets/illust/illust_nemogamja_v2.png" alt="바삭한 네모 해시브라운 두 장 일러스트" loading="lazy" width="640" height="640">
-            <span class="hname__from">해쉬브라운</span><span class="hname__to">네모감자</span>
+            <span class="hname__from">해시브라운</span><span class="hname__to">네모감자</span>
           </li>
           <li class="hname">
             <img src="_assets/illust/illust_yangparing.png" alt="튀긴 양파링 세 개 일러스트" loading="lazy" width="640" height="640">
@@ -2659,17 +2658,17 @@ body{padding-bottom:var(--dock-space,110px)}
             <source src="_assets/video/choigo.mp4" type="video/mp4"></video>
         </figure>
         <div class="invite__lead">
-          <p class="invite__kicker">자신있게 말씀 드립니다!</p>
+          <p class="invite__kicker">자신 있게 말씀드립니다!</p>
           <h3 class="invite__h" id="invite-h">맛은 드셔 보시면 압니다</h3>
-          <p>이름은 기억되게 할 뿐입니다. 다시 오게 만드는 건 맛입니다.
-            저희가 맛있다고 말씀드리는 것보다, 드신 분들이 남긴 말이 빠릅니다 —
-            아래 「입소문」에 원문 그대로 실어 두었습니다.
+          <p><span class="copy-block">이름은 기억되게 할 뿐입니다. 다시 오게 만드는 건 맛입니다.</span>
+            <span class="copy-block">저희가 맛있다고 말씀드리는 것보다, 드신 분들이 남긴 말이 빠릅니다 —
+            아래 「입소문」에 원문 그대로 실어 두었습니다.</span>
 </p>
         </div>
         <ul class="invite__list">
           <li>
             <b>드셔 보고 판단하십시오</b>
-            <span>맛은 설명으로 전해질 수 없습니다. 드셔본 고객들의 한마디로 증명합니다.</span>
+            <span>맛은 설명으로 전해질 수 없습니다.<br> 드셔 본 고객들의 한마디로 증명합니다.</span>
           </li>
           <li>
             <b>조건은 지금 여는 매장의 몫입니다</b>
@@ -2981,7 +2980,7 @@ body{padding-bottom:var(--dock-space,110px)}
           <div class="way__body">
             <b class="way__ch">단체</b>
             <p class="way__q">단체 주문도 받을 수 있나요?</p>
-            <p class="way__a">대표적으로 병원 · 학원 · 학교 · 오피스 단체주문과 촬영장 등 행사가 있으며, 통상 1인 1개로 떨어져 배분이 간단합니다.</p>
+            <p class="way__a">대표적으로 병원 · 학원 · 학교 · 오피스 단체 주문과 촬영장 등 행사가 있으며, <span class="copy-block">통상 1인 1개로 떨어져 배분이 간단합니다.</span></p>
           </div>
         </article>
       </div>
@@ -3052,7 +3051,7 @@ body{padding-bottom:var(--dock-space,110px)}
 
       <div class="mrow" data-mdir="l">
         <p class="mrow__label"><b>버거</b><span>BURGER · 11</span></p>
-        <div class="mrow__clip">
+        <div class="mrow__clip" tabindex="0" aria-label="메뉴 목록, 좌우 방향키로 넘기기">
           <ul class="menu mline">
             <li><img src="_assets/menu/titi.jpg" alt="티티버거" loading="lazy"><p class="menu__name">티티버거</p></li>
             <li><img src="_assets/menu/choigo.jpg" alt="최고티버거" loading="lazy"><p class="menu__name">최고티버거</p></li>
@@ -3070,7 +3069,7 @@ body{padding-bottom:var(--dock-space,110px)}
       </div>
       <div class="mrow" data-mdir="r">
         <p class="mrow__label"><b>사이드 · 치킨</b><span>SIDE &amp; CHICKEN · 13</span></p>
-        <div class="mrow__clip">
+        <div class="mrow__clip" tabindex="0" aria-label="메뉴 목록, 좌우 방향키로 넘기기">
           <ul class="menu mline">
             <li><img src="_assets/menu/fried.jpg" alt="후라이드 치킨" loading="lazy"><p class="menu__name">후라이드 치킨</p></li>
             <li><img src="_assets/menu/pooring.jpg" alt="뿌우링 치킨" loading="lazy"><p class="menu__name">뿌우링 치킨</p></li>
@@ -3089,51 +3088,19 @@ body{padding-bottom:var(--dock-space,110px)}
         </div>
       </div>
 
-      <!-- v4.54 (2차 미팅 지시) — 투 사이즈 소구 + 음료·쉐이크 줄. ⚠️ .mrow--static 은 오토 마퀴 JS 에서 제외된다.
-           v4.57 (대표 지시 9/7) — 「투 사이즈」는 버거 크기가 아니라 **세트 메뉴 크기**(기존 버거 업체의 R/L 세트)였다.
-           카피를 세트로 바로잡고 R/L 컷을 넣는다. 컷은 setfront(실사풍 AI)에서 파생 — 봉투 제거·컵 1개, L 은 감자 카톤·컵 업사이즈.
-           ⚠️ 세트 구성(감자 종류·음료·업사이즈 항목)은 클라이언트 확정값이 아직 없다 — 원장 q69v 확인 항목으로 승계. -->
-      <div class="msizes" aria-label="세트 메뉴 두 가지 크기">
-        <p class="msizes__h"><b>세트는 두 가지 크기</b><span>버거 + 감자튀김 + 음료<br>라지 세트는 감자튀김과 음료가 커집니다</span></p>
-        <ul class="msizes__list msets">
-          <li class="mset mset--r">
-            <img src="_assets/shot/set_r.jpg" alt="레귤러 세트 — 버거, 감자튀김, 음료" loading="lazy" decoding="async" width="1200" height="900">
-            <p class="mset__name"><b aria-hidden="true">R</b><span>레귤러 세트<small>REGULAR SET</small></span></p>
-          </li>
-          <li class="mset mset--l">
-            <img src="_assets/shot/set_l.jpg" alt="라지 세트 — 버거, 큰 감자튀김, 큰 음료" loading="lazy" decoding="async" width="1200" height="900">
-            <p class="mset__name"><b aria-hidden="true">L</b><span>라지 세트<small>LARGE SET</small></span></p>
-          </li>
-        </ul>
+      <!-- 2026-09-11: 에이드/아이스티5종+탄산4종을 같은 음료 롤링에 통합. -->
+      <div class="mrow" id="drinks" data-mdir="l">
+        <p class="mrow__label"><b>음료</b><span>DRINKS · 9</span></p>
+        <div class="mrow__clip" tabindex="0" aria-label="메뉴 목록, 좌우 방향키로 넘기기"><ul class="menu mline"><li><div class="menu__drink-photo"><img src="_assets/feedback_20260910/drink_01.jpg" alt="청포도에이드" loading="lazy" decoding="async"></div><p class="menu__name">청포도에이드</p></li><li><div class="menu__drink-photo"><img src="_assets/feedback_20260910/drink_02.jpg" alt="레몬에이드" loading="lazy" decoding="async"></div><p class="menu__name">레몬에이드</p></li><li><div class="menu__drink-photo"><img src="_assets/feedback_20260910/drink_03.jpg" alt="자몽에이드" loading="lazy" decoding="async"></div><p class="menu__name">자몽에이드</p></li><li><div class="menu__drink-photo"><img src="_assets/feedback_20260910/drink_04.jpg" alt="자두에이드" loading="lazy" decoding="async"></div><p class="menu__name">자두에이드</p></li><li><div class="menu__drink-photo"><img src="_assets/feedback_20260910/drink_05.jpg" alt="복숭아아이스티" loading="lazy" decoding="async"></div><p class="menu__name">복숭아아이스티</p></li><li class="menu__soda"><img src="_assets/feedback_20260911/soda-cola.jpg" alt="콜라" loading="lazy" decoding="async"><p class="menu__name">콜라</p></li><li class="menu__soda"><img src="_assets/feedback_20260911/soda-zero.png" alt="제로콜라" loading="lazy" decoding="async"><p class="menu__name">제로콜라</p></li><li class="menu__soda"><img src="_assets/feedback_20260911/soda-fanta-pine.png" alt="환타파인" loading="lazy" decoding="async"><p class="menu__name">환타파인</p></li><li class="menu__soda"><img src="_assets/feedback_20260911/soda-sprite.png" alt="스프라이트" loading="lazy" decoding="async"><p class="menu__name">스프라이트</p></li></ul></div>
       </div>
-      <div class="mrow mrow--static mdrink14" id="drinks">
-        <p class="mrow__label"><b>음료 · 쉐이크</b><span>DRINK &amp; SHAKE</span></p>
-        <div class="mdrink14__group" role="group" aria-labelledby="mdrink14-heading-0">
-          <div class="mdrink14__head"><h3 class="mdrink14__title" id="mdrink14-heading-0">쉐이크<span class="mdrink14__count">SHAKES · 9</span></h3><div class="mdrink14__controls"><button class="mdrink14__button" type="button" data-dir="-1" aria-label="쉐이크 이전 메뉴" aria-controls="mdrink14-list-0" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button class="mdrink14__button" type="button" data-dir="1" aria-label="쉐이크 다음 메뉴" aria-controls="mdrink14-list-0"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
-          <p class="mdrink14__hint">옆으로 넘겨 모든 메뉴를 확인하세요.</p>
-          <ul class="mdrink14__list" id="mdrink14-list-0" tabindex="0" aria-label="쉐이크 메뉴 사진, 좌우 방향키로 이동">
-            <li><figure><img src="_assets/menu/drink14_01.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>밀크쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_02.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>딸기쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_03.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>초코쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_04.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>리얼고구마쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_05.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>오레오쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_06.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>딸기오레오쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_07.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>초코오레오쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_08.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>돼지바쉐이크</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_09.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>쉑츄 (쉐이크 + 츄러스)</figcaption></figure></li>
-          </ul>
-        </div>
-        <div class="mdrink14__group" role="group" aria-labelledby="mdrink14-heading-1">
-          <div class="mdrink14__head"><h3 class="mdrink14__title" id="mdrink14-heading-1">탄산음료 · 커피<span class="mdrink14__count">DRINKS &amp; COFFEE · 5</span></h3><div class="mdrink14__controls"><button class="mdrink14__button" type="button" data-dir="-1" aria-label="탄산음료 · 커피 이전 메뉴" aria-controls="mdrink14-list-1" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></svg></button><button class="mdrink14__button" type="button" data-dir="1" aria-label="탄산음료 · 커피 다음 메뉴" aria-controls="mdrink14-list-1"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></svg></button></div></div>
-          <p class="mdrink14__hint">옆으로 넘겨 모든 메뉴를 확인하세요.</p>
-          <ul class="mdrink14__list" id="mdrink14-list-1" tabindex="0" aria-label="탄산음료 · 커피 메뉴 사진, 좌우 방향키로 이동">
-            <li><figure><img src="_assets/menu/drink14_10.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>콜라</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_11.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>제로콜라</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_12.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>사이다</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_13.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>탐스제로</figcaption></figure></li>
-<li><figure><img src="_assets/menu/drink14_14.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"><figcaption>아메리카노</figcaption></figure></li>
-          </ul>
-        </div>
+      <div class="set-summary">
+        <h3>세트는 두 가지 크기</h3>
+        <ul class="set-sizes" aria-label="세트 크기">
+          <li><span class="set-sizes__letter" aria-hidden="true">R</span><strong>레귤러</strong><span class="set-sizes__english" lang="en">REGULAR</span></li>
+          <li><span class="set-sizes__letter" aria-hidden="true">L</span><strong>라지</strong><span class="set-sizes__english" lang="en">LARGE</span></li>
+        </ul>
+        <p class="set-summary__choice">버거 + 사이드 선택 + 음료 선택</p>
+        <p>원가 방어와 객단가 상승에 효과가 큰 전략입니다.</p>
       </div>
 
     </div>
@@ -3163,20 +3130,35 @@ body{padding-bottom:var(--dock-space,110px)}
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- 독립 후킹: 점주 상권 보호 -->
+  <section class="sec sec--cream territory-hook" id="territory" aria-labelledby="territory-h">
+    <div class="wrap">
       <!-- 상권보호 — 구체 기준(반경/행정동)은 클라이언트 확인 후 기입 (정보공개서와 일치 필수) -->
       <div class="terr">
-        <h3 class="terr__h">한 상권, 한 매장</h3>
-        <p>가맹점 사이 거리를 기준으로 신규 출점을 제한합니다.<br>본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.<br>구체 기준은 가맹 계약서와 정보공개서에 명시됩니다.</p>
+        <div class="territory-hook__intro">
+          <div>
+            <p class="eyebrow">점주님들을 위한 상권 보호</p>
+            <h2 id="territory-h">한 상권,<br><em>한 매장.</em></h2>
+          </div>
+          <div class="territory-hook__copy">
+            <p>가맹점 사이 거리를 기준으로 신규 출점을 제한합니다.</p>
+            <p>본사가 옆에 또 열어서 나눠 먹는 구조를 만들지 않습니다.</p>
+            <p>가맹점 수를 늘리는 것보다 높은 매출을 올릴 수 있는 상권 보호를 우선시합니다.</p>
+          </div>
+        </div>
         <ul class="terrleg" aria-label="지도 범례">
           <li><i class="terrleg__r"></i>보호 반경</li>
-          <li><i class="terrleg__tt"></i>티티버거 매장</li>
-          <li><i class="terrleg__ot"></i>타 매장 출점</li>
+          <li><img class="terrleg__tt" src="_assets/feedback_20260910/titi-symbol-favicon.svg" alt="" width="24" height="24" aria-hidden="true">티티버거 매장</li>
+          <li><i class="terrleg__ot"></i>타 브랜드</li>
         </ul>
         <div class="terrviz">
-          <!-- 지도: OSM 타일 캡처(_assets/shot/map.jpg, 채도 다운) — ODbL: 하단 출처 표기. 두 패널 같은 동네 = 같은 지역에 대한 두 정책 비교 -->
+          <!-- 직접 작성한 도식: 실제 지도 타일을 사용하지 않음. -->
           <figure role="img" aria-label="일반적인 출점 — 한 동네에 같은 브랜드가 겹쳐 들어와 상권이 겹치는 구조">
             <svg viewBox="0 0 440 300" aria-hidden="true">
-              <image href="_assets/shot/map.jpg" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid slice"/>
+              <rect width="440" height="300" fill="#e8e7df"/><path d="M-20 75H460M-20 225H460M92-20V320M335-20V320" stroke="#fff" stroke-width="25"/><path d="M-20 155L460 90M200-20L265 320" stroke="#fafaf7" stroke-width="12"/><path d="M0 274Q110 250 185 302" fill="none" stroke="#c8ddca" stroke-width="38"/>
               <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
               <circle cx="150" cy="128" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
               <circle cx="252" cy="182" r="82" fill="rgba(26,22,20,.14)" stroke="#8A8178" stroke-width="2.5"/>
@@ -3187,30 +3169,26 @@ body{padding-bottom:var(--dock-space,110px)}
                 <circle cx="286" cy="98"  r="15" fill="#8A8178"/><text x="286" y="103" fill="#fff">B</text>
               </g>
             </svg>
-            <figcaption class="terrcap terrcap--them">일반적인 출점 — 한 동네에 겹쳐 들어옵니다</figcaption>
+            <figcaption class="terrcap terrcap--them"><strong>일반적인 출점</strong><span>한 동네에 겹쳐 들어옵니다</span></figcaption>
           </figure>
-          <figure role="img" aria-label="티티버거 — 보호 반경 안에 한 매장만, 타 출점은 반경 밖">
+          <figure class="territory-card--titi" role="img" aria-label="티티버거 — 보호 반경 안에 한 매장만, 타 출점은 반경 밖">
             <svg viewBox="0 0 440 300" aria-hidden="true">
-              <image href="_assets/shot/map.jpg" x="0" y="0" width="440" height="300" preserveAspectRatio="xMidYMid slice"/>
+              <rect width="440" height="300" fill="#e8e7df"/><path d="M-20 75H460M-20 225H460M92-20V320M335-20V320" stroke="#fff" stroke-width="25"/><path d="M-20 155L460 90M200-20L265 320" stroke="#fafaf7" stroke-width="12"/><path d="M0 274Q110 250 185 302" fill="none" stroke="#c8ddca" stroke-width="38"/>
               <rect width="440" height="300" fill="rgba(255,255,255,.30)"/>
-              <circle cx="220" cy="150" r="112" fill="rgba(230,0,18,.15)" stroke="#E60012" stroke-width="3.5"/>
+              <circle class="territory-radius" cx="220" cy="150" r="112" fill="rgba(230,0,18,.15)" stroke="#E60012" stroke-width="3.5"/>
               <circle cx="220" cy="150" r="112" fill="none" stroke="#E60012" stroke-width="1" stroke-dasharray="3 7" opacity=".7">
               </circle>
-              <g font-family="sans-serif" text-anchor="middle">
-                <circle cx="220" cy="150" r="19" fill="#E60012"/>
-                <circle cx="220" cy="150" r="19" fill="none" stroke="#fff" stroke-width="2.5"/>
-                <text x="220" y="156" fill="#fff" font-size="15" font-weight="800">TT</text>
-              </g>
+              <circle class="territory-pulse" cx="220" cy="150" r="112" fill="none" stroke="#E60012" stroke-width="3" opacity="0"/>
+              <g class="territory-store"><circle cx="220" cy="150" r="25" fill="#fff" stroke="#E60012" stroke-width="2"/><image href="_assets/feedback_20260910/titi-symbol-favicon.svg" x="201" y="131" width="38" height="38"/></g>
               <g opacity=".55">
                 <circle cx="52"  cy="52"  r="9" fill="none" stroke="#8A8178" stroke-width="2" stroke-dasharray="4 4"/>
                 <circle cx="396" cy="252" r="9" fill="none" stroke="#8A8178" stroke-width="2" stroke-dasharray="4 4"/>
               </g>
             </svg>
-            <figcaption class="terrcap terrcap--us">티티버거 — 한 상권, 한 매장</figcaption>
+            <figcaption class="terrcap terrcap--us"><strong>티티버거</strong><span>한 상권, 한 매장</span></figcaption>
           </figure>
         </div>
-        <!-- OSM 타일은 ODbL 이라 저작자 표시가 라이선스 의무다. 문장이 아니라 표기로만 남긴다. -->
-        <p class="terrsrc">© OpenStreetMap · 반경은 예시</p>
+
       </div>
     </div>
   </section>
@@ -3223,9 +3201,9 @@ body{padding-bottom:var(--dock-space,110px)}
     <div class="wrap">
       <p class="eyebrow">창업 혜택</p>
       <h2 class="h2" id="support-h">시작을 막는 비용, 12가지가 <mark>없습니다</mark></h2>
-      <p class="lead">선착순 10호점, 시작을 막는 비용 12가지를 <span class="hl">받지 않거나 대신 부담</span>합니다.<br>지원 항목의 자세한 내용은 바로 아래 「지원 상세」에 따로 적어 두었습니다.</p>
+      <p class="lead">선착순 10호점, 시작을 막는 비용 12가지를 <span class="hl">받지 않거나 대신 부담합니다.</span><br>지원 항목의 자세한 내용은 바로 아래 「지원 상세」에 따로 적어 두었습니다.</p>
 
-      <!-- 2026-08-20 클라이언트 확정 「12無」 — 로열티는 24개월 면제(25개월차부터 부과), 교육비 300만원은 부과 항목이라 표 밖 고지 -->
+      <!-- 2026-08-20 클라이언트 확정 「12無」 — 로열티는 면제, 교육비 300만원은 부과 항목이라 표 밖 고지 -->
       <!-- v4.54 (2차 미팅 지시) — 12無 재구성: 월세·공과금 행 삭제, 포스·키오스크 사용료 면제 신설(광고분담비 아래),
            고객관리 마케팅 사용료 지원 신설, 할부 2행 → 「카드 무이자 최대 6개월 · 유이자 최대 12개월」 1행. 합계 그대로 12.
            면제(無) 행만 크게(후킹) — 지원 행은 아래 「지원 상세」가 풀어 쓴다. 행마다 표식(無 · ＋ · ÷)을 달아 12가지가 한눈에 세어진다. -->
@@ -3233,7 +3211,7 @@ body{padding-bottom:var(--dock-space,110px)}
         <div class="fee__row fee__row--head"><span>항목</span><span>내용</span><span></span></div>
         <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>가맹비</span><span class="fee__price"><s>500만원</s></span><span class="stamp">면제</span></div>
         <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>보증금</span><span class="fee__price"><s>100만원</s></span><span class="stamp">면제</span></div>
-        <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>로열티</span><span class="fee__price"><s>월 20만원 × 24개월</s></span><span class="stamp">24개월 면제</span></div>
+        <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>로열티</span><span class="fee__price"><s>월 20만원</s></span><span class="stamp">면제</span></div>
         <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>재가맹비</span><span class="fee__price">계약 갱신 시</span><span class="stamp">면제</span></div>
         <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>감리비</span><span class="fee__price">시공 감리</span><span class="stamp">면제</span></div>
         <div class="fee__row fee__row--no"><span class="fee__name"><i class="fee__ic" aria-hidden="true">無</i>광고분담비</span><span class="fee__price">본사 광고 분담</span><span class="stamp">면제</span></div>
@@ -3253,26 +3231,35 @@ body{padding-bottom:var(--dock-space,110px)}
       <!-- v4.51 오픈 부스터 카드 3장은 v4.54 에서 아래 「지원 상세」 섹션(#perks)으로 옮겼다(2차 미팅 지시). -->
       <!-- v4.41 — 대표 지시로 섹션 하단 잔글씨를 걷어냈다. 이 한 줄만 남긴다:
            「12無」에서 빠지는 항목을 안 적으면 표시가 기만적이 된다(표시광고법). 최소 길이로 줄였다. -->
-      <p class="note">※ 교육비 300만원은 VAT 별도로 부과됩니다. 로열티는 25개월차부터 부과됩니다.<br>인테리어·간판은 자율 시공, 주방집기는 직접 구매 가능합니다.<br>필요시 본사 협력업체를 소개해 드립니다.</p>
+      <p class="note"><span class="copy-block">* 교육비 300만원(VAT 별도)은 별도 부과됩니다.</span> <span class="copy-block">* 인테리어, 간판, 주방집기는 자율 구매 가능합니다. 필요 시 본사 협력업체를 연결해 드립니다.</span></p>
     </div>
   </section>
 
   <!-- ══ 05-b 지원 상세 (v4.54 신설, 2차 미팅 지시) — 12無 표의 「지원」 항목과 구 오픈 부스터를 한 곳에 풀어 쓴다.
        금액·항목은 2026-09-03 2차 미팅 대표 지시값. 서면 확인 전까지 값을 임의로 바꾸지 않는다. ══ -->
   <section class="sec sec--cream perks" id="perks" aria-labelledby="perks-h">
-    <div class="wrap">
+    <div class="wrap perks__story">
+      <div class="perks__rail">
+      <div class="perks__intro">
       <p class="eyebrow">지원 상세</p>
-      <h2 class="h2" id="perks-h">비용을 줄이는 데서 끝나지 않습니다</h2>
-      <p class="lead">문 여는 첫 달, 손님을 부르는 일까지 함께합니다.<br>12無 표의 「지원」 항목을 한 줄씩 풀어 적었습니다.</p>
+      <h2 class="h2" id="perks-h">비용을 줄이는 데서 <span class="perks__accent">끝나지 않습니다</span></h2>
+      <p class="lead">문 여는 첫 달, 손님을 부르는 일까지 함께합니다.</p>
+      </div>
+      <div class="perks__progress" aria-hidden="true">
+        <p class="perks__progress-label">함께하는 창업 지원</p>
+        <p class="perks__count"><b class="perks__count-current">08</b><span>/ 08</span></p>
+        <div class="perks__steps"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      </div>
       <ul class="perks__grid">
-        <li class="perk"><b class="perk__t">간판 교체비 지원</b><span class="perk__d">A급 상권 기준으로 간판 교체 비용을 지원합니다.</span></li>
-        <li class="perk"><b class="perk__t">쇼케이스 냉장고 지원</b><span class="perk__d">오픈 세팅에 필요한 쇼케이스 냉장고를 지원합니다.</span></li>
-        <li class="perk"><b class="perk__t">원자재 · 음료 초도물량 지원</b><span class="perk__d">첫 발주 부담을 덜고 엽니다.</span></li>
-        <li class="perk"><b class="perk__t">오픈 현장지원</b><span class="perk__d">오픈 당일 본사 인력이 현장에서 함께합니다.</span></li>
-        <li class="perk"><b class="perk__t">고객관리 마케팅 사용료 지원</b><span class="perk__d">고객관리 · 마케팅 프로그램 사용료를 본사가 부담합니다.</span></li>
-        <li class="perk"><b class="perk__t">첫 달 오픈 광고비 <em>30만원</em> 지원</b><span class="perk__d">가게 반경 안 이웃부터 알립니다.</span></li>
-        <li class="perk"><b class="perk__t">오픈 첫 달 사이드 2종 전량 지원</b><span class="perk__d">치킨너겟 · 양파링 — 오픈 이벤트에 쓰는 사이드 두 종을 첫 달 전량 지원합니다.</span></li>
-        <li class="perk"><b class="perk__t">카드 무이자 최대 6개월</b><span class="perk__d">유이자는 최대 12개월까지 — 창업비용을 카드 할부로 나눌 수 있습니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">01</span><b class="perk__t">간판 교체비 지원</b><span class="perk__d">A급 상권 기준으로 간판 교체 비용을 지원합니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">02</span><b class="perk__t">쇼케이스 냉장고 지원</b><span class="perk__d">오픈 세팅에 필요한 쇼케이스 냉장고를 지원합니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">03</span><b class="perk__t">음료 초도물량 지원</b><span class="perk__d">첫 발주 부담을 덜고 엽니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">04</span><b class="perk__t">오픈 현장지원</b><span class="perk__d">오픈 당일 본사 인력이 <span class="copy-keep">현장에서 함께합니다.</span></span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">05</span><b class="perk__t">고객관리 마케팅 <span class="copy-keep">사용료 지원</span></b><span class="perk__d">고객관리 · 마케팅 프로그램 사용료를 본사가 부담합니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">06</span><b class="perk__t">첫 달 오픈 광고비 <span class="copy-keep"><em>30만원</em> 지원</span></b><span class="perk__d">가게 반경 안 이웃부터 알립니다.</span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">07</span><b class="perk__t">오픈 첫 달 사이드 2종 <span class="copy-keep">전량 지원</span></b><span class="perk__d">행사에 쓰는 사이드 두 종, 치킨너겟 · 양파링을 첫 달 <span class="copy-keep">전량 지원합니다.</span></span></li>
+        <li class="perk"><span class="perk__number" aria-hidden="true">08</span><b class="perk__t">카드 무이자 최대 6개월</b><span class="perk__d"><span class="copy-block">유이자는 최대 12개월까지 가능합니다.</span> <span class="copy-block">모든 창업비용을 카드 할부로 <span class="copy-keep">나눌 수 있습니다.</span></span></span></li>
       </ul>
     </div>
   </section>
@@ -3281,27 +3268,12 @@ body{padding-bottom:var(--dock-space,110px)}
   <section class="sec" id="types" aria-labelledby="types-h">
     <div class="wrap">
       <p class="eyebrow">창업 형태</p>
-      <h2 class="h2" id="types-h">평수는 묻지 않습니다</h2>
-      <p class="lead">최소 평수 조건을 두지 않습니다.<br><span class="hl">공간이 없으면 바테이블만</span> 두셔도 됩니다.<br>지금 쓰시는 매장을 그대로 바꾸는 경우가 많습니다.</p>
-      <!-- v4.29: 「소형 홀 / 극소형 포장전문」 2타입 구성을 단일 형태로 되돌렸다.
-           2타입은 확인요청 2차(2026-08-11) 1·2번 문항이 미회신인 채로 임의 확정된 것이고,
-           대표 확인 결과 사실은 ①평수 무관 ②홀은 무조건 소수라도 가져간다 이다.
-           즉 '홀 없는 타입'은 애초에 존재하지 않는다. -->
-      <div class="types">
-        <article class="type">
-          <img src="_assets/shot/group.jpg" alt="여러 종류의 버거와 사이드가 함께 차려진 모습" loading="lazy">
-          <div class="type__body">
-            <span class="type__ch">홀 · 포장 · 배달</span>
-            <h3 class="h3">한 가지 형태로 모집합니다</h3>
-            <ul>
-              <li>홀은 작아도 됩니다 — 공간이 없으면 바테이블만 두셔도 됩니다</li>
-              <li>홀 손님을 받아 배달 수수료가 없는 매출이 함께 생깁니다</li>
-              <li>포장과 배달은 같은 주방에서 함께 나갑니다</li>
-              <li>간판을 걸고 상권 안에서 브랜드를 알립니다</li>
-            </ul>
-          </div>
-        </article>
+      <h2 class="h2" id="types-h">두 가지 타입으로 개설합니다</h2>
+      <div class="opening-types">
+        <article class="opening-type"><div class="opening-type__circle"><img src="_assets/feedback_20260910/opening-type-a-v1.png" alt="A타입 극소형 포장 매장 구성 예시" width="1254" height="1254" loading="lazy" decoding="async"></div><p class="opening-type__label">A타입</p><h3>극소형 포장 매장</h3></article>
+        <article class="opening-type"><div class="opening-type__circle"><img src="_assets/feedback_20260910/opening-type-b-v1.png" alt="B타입 10평 이상 홀 매장 구성 예시" width="1254" height="1254" loading="lazy" decoding="async"></div><p class="opening-type__label">B타입</p><h3>10평 이상 홀 매장</h3></article>
       </div>
+      <p class="opening-types__note">매장 구성 예시</p>
     </div>
   </section>
 
@@ -3316,11 +3288,11 @@ body{padding-bottom:var(--dock-space,110px)}
       <div class="swap">
         <article class="card">
           <p class="card__no">바뀌는 것</p>
-          <p class="swap__big">간판, 메뉴판,<br>그리고 저녁 매출</p>
+          <p class="swap__big">간판, 메뉴판, 매출</p>
         </article>
         <article class="card">
           <p class="card__no">안 바뀌는 것</p>
-          <p class="swap__big">평수, 주방 동선,<br>포장 창구</p>
+          <p class="swap__big">평수, 주방 동선, 포장 창구</p>
         </article>
       </div>
 
@@ -3333,12 +3305,12 @@ body{padding-bottom:var(--dock-space,110px)}
           <article class="seg">
             <p class="seg__no">01</p>
             <h4 class="seg__h">외식업 전반</h4>
-            <p class="seg__d">분식 · 카페 · 치킨 · 피자 · 한식 등 조리 공간이 있는 매장이면 됩니다.<br>평수는 따지지 않습니다. 공간이 없으면 바테이블만 두셔도 됩니다.</p>
+            <p class="seg__d">분식 · 카페 · 치킨 · 피자 · 한식 등 조리 공간이 있는 매장이면 됩니다.<br>평수는 따지지 않습니다.</p>
           </article>
           <article class="seg seg--hot">
             <p class="seg__no">02</p>
-            <h4 class="seg__h">토스트 · 샌드위치 · 버거류</h4>
-            <p class="seg__d">철판이 이미 있는 매장은 전환이 가장 빠릅니다.<br>포장 · 배달 위주로 운영해 온 매장이면 그 인프라가 그대로 자산이 됩니다.</p>
+            <h4 class="seg__h">토스트 · 샌드위치 · 버거류 · 핫도그</h4>
+            <p class="seg__d">철판이 이미 있는 매장은 전환이 가장 빠릅니다.<br>포장 · 배달 위주로 운영해 온 매장이면 그 인프라가 <span class="copy-keep">그대로 자산이 됩니다.</span></p>
           </article>
         </div>
         <p class="fit__case"><b>실제 사례</b><span>A매장, 업종 변경 <em>1,000만원</em>으로 완료</span></p>
@@ -3363,7 +3335,7 @@ body{padding-bottom:var(--dock-space,110px)}
             <li>인테리어 · 간판 자율 시공 가능</li>
             <li>주방집기 직접 구매 가능</li>
             <li>가맹비 · 보증금 면제</li>
-            <li>로열티 24개월 면제</li>
+            <li>로열티 면제</li>
             <li>쓰던 시설을 살려 전환 가능</li>
           </ul>
         </div>
@@ -3401,48 +3373,48 @@ body{padding-bottom:var(--dock-space,110px)}
 
       <div class="faq">
         <details open>
-          <summary>몇 평부터 창업할 수 있나요?</summary>
-          <p class="faq__a">최소 평수 조건을 두지 않습니다. 지금 쓰시는 매장 크기에 맞춰 홀 규모를 잡습니다. 공간이 없으면 바테이블만 두셔도 됩니다.</p>
+          <summary><span class="faq__question">몇 평부터 창업할 수 있나요?</span></summary>
+          <p class="faq__a"><span class="faq__text">최소 평수 조건을 두지 않습니다. 극소형 포장 매장과 10평 이상 홀 매장, 두 가지 타입으로 개설합니다.</span></p>
         </details>
         <details>
-          <summary>가맹비 · 보증금 · 로열티가 정말 면제인가요?</summary>
-          <p class="faq__a">가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티 월 20만원은 24개월간 면제되고 25개월차부터 부과됩니다. 교육비 300만원은 VAT 별도로 부과됩니다. 여기에 재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료 지원, 카드 무이자 최대 6개월(유이자 최대 12개월) 할부까지 — 시작을 막는 비용 12가지를 덜어냅니다.</p>
+          <summary><span class="faq__question">가맹비 · 보증금 · 로열티가 정말 면제인가요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티는 면제됩니다. 교육비 300만원은 VAT 별도로 부과됩니다.</span> <span class="copy-block">재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료도 면제됩니다.</span> <span class="copy-block">간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료를 지원합니다.</span> <span class="copy-block">카드 무이자 최대 6개월(유이자 최대 12개월) 할부도 가능합니다.</span> <span class="copy-block">시작을 막는 비용 12가지를 덜어냅니다.</span></span></p>
         </details>
         <details>
-          <summary>소자본으로도 시작할 수 있나요?</summary>
-          <p class="faq__a">평수 조건이 없어 지금 쓰시는 매장을 그대로 살릴 수 있습니다. 가맹비·보증금이 면제되고 로열티도 24개월간 면제되며, 인테리어와 주방집기는 직접 시공·구매 가능합니다. 창업비용은 카드 무이자 최대 6개월, 유이자 최대 12개월 할부로 나눌 수 있습니다.</p>
+          <summary><span class="faq__question">소자본으로도 시작할 수 있나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">평수 조건이 없어 지금 쓰시는 매장을 그대로 살릴 수 있습니다.</span> <span class="copy-block">가맹비·보증금이 면제되고 로열티도 면제되며, 인테리어와 주방집기는 직접 시공·구매 가능합니다.</span> <span class="copy-block">창업비용은 카드 무이자 최대 6개월, 유이자 최대 12개월 할부로 <span class="copy-keep">나눌 수 있습니다.</span></span></span></p>
         </details>
         <details>
-          <summary>지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?</summary>
-          <p class="faq__a">가능합니다. 지금 쓰시는 시설을 살려 전환하실 수 있습니다. 어느 정도까지 살릴 수 있는지는 상권 분석과 현장 미팅에서 함께 확인합니다.</p>
+          <summary><span class="faq__question">지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?</span></summary>
+          <p class="faq__a"><span class="faq__text">가능합니다. 지금 쓰시는 시설을 살려 전환하실 수 있습니다. 어느 정도까지 살릴 수 있는지는 상권 분석과 현장 미팅에서 함께 확인합니다.</span></p>
         </details>
         <details>
-          <summary>지금 쓰는 주방 설비를 그대로 쓸 수 있나요?</summary>
-          <p class="faq__a">대부분 그대로 사용합니다. 소형 주방이어도 버거 조리에 필요한 추가 장비가 많지 않습니다. 필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 맞춰 안내드립니다.</p>
+          <summary><span class="faq__question">지금 쓰는 주방 설비를 그대로 쓸 수 있나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">대부분 그대로 사용합니다.</span> <span class="copy-block">소형 주방이어도 버거 조리에 필요한 추가 장비가 많지 않습니다.</span> <span class="copy-block">필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 <span class="copy-keep">맞춰 안내드립니다.</span></span></span></p>
         </details>
         <details>
-          <summary>아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?</summary>
-          <p class="faq__a">버거는 아침 · 점심 · 저녁 어느 때나 팔리는 메뉴라 하루 종일 판매가 가능해집니다. 홀 · 포장 · 배달 · 단체 네 갈래로 판매합니다.</p>
+          <summary><span class="faq__question">아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?</span></summary>
+          <p class="faq__a"><span class="faq__text">버거는 아침 · 점심 · 저녁 어느 때나 팔리는 메뉴라 하루 종일 판매가 가능해집니다. 홀 · 포장 · 배달 · 단체 네 갈래로 판매합니다.</span></p>
         </details>
         <details>
-          <summary>인테리어와 주방집기는 본사가 시공 · 공급하나요?</summary>
-          <p class="faq__a">인테리어와 간판은 자율 시공 가능, 주방집기는 직접 구매 가능합니다. 본사가 시공·공급 마진을 가져가지 않습니다. 필요시 본사 협력업체를 소개해 드립니다.</p>
+          <summary><span class="faq__question">인테리어와 주방집기는 본사가 시공 · 공급하나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">인테리어와 간판은 자율 시공 가능, 주방집기는 직접 구매 가능합니다.</span> <span class="copy-block">본사가 시공·공급 마진을 가져가지 않습니다.</span> <span class="copy-block">필요 시 본사 협력업체를 소개해 드립니다.</span></span></p>
         </details>
         <details>
-          <summary>배달만 하는 매장으로 시작해도 되나요?</summary>
-          <p class="faq__a">배달 전문 매장은 모집하지 않습니다. 홀은 작아도 두고(공간이 없으면 바테이블만 두셔도 됩니다), 포장과 배달을 함께 운영합니다. 샵인샵 형태도 받지 않습니다.</p>
+          <summary><span class="faq__question">배달만 하는 매장으로 시작해도 되나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">배달 전문 매장은 뒷골목에 많이 위치하고 있습니다.</span> <span class="copy-block">요즘 배달 시장은 배달만 해서는 점주님께 도움이 되지 않습니다.</span> <span class="copy-block">따라서, 배달 전문 매장과 <span class="copy-keep">샵인샵은 불가능합니다.</span></span></span></p>
         </details>
         <details>
-          <summary>선착순 10호점 혜택은 어떤 내용인가요?</summary>
-          <p class="faq__a">선착순 10호점은 창업비용을 최대 2,000만원 지원하고, 창업 혜택 12無가 적용됩니다 — 가맹비·보증금·재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료 면제, 로열티 24개월 면제, 간판 교체비(A급 상권 기준)·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료 지원, 카드 무이자 최대 6개월 할부까지. 여기에 첫 달 오픈 광고비 30만원, 원자재·음료 초도물량, 오픈 첫 달 사이드 2종(치킨너겟·양파링) 전량 지원이 함께 제공됩니다.</p>
+          <summary><span class="faq__question">선착순 10호점 혜택은 어떤 내용인가요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">선착순 10호점은 창업비용을 최대 2,000만원 지원하고, 창업 혜택 12無가 적용됩니다.</span> <span class="copy-block">가맹비·보증금·재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료와 로열티가 면제됩니다.</span> <span class="copy-block">간판 교체비(A급 상권 기준)·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료를 지원합니다.</span> <span class="copy-block">카드 무이자 최대 6개월 할부도 가능합니다.</span> <span class="copy-block">첫 달 오픈 광고비 30만원과 오픈 첫 달 사이드 2종(치킨너겟·양파링) 전량 지원도 함께 제공됩니다.</span></span></p>
         </details>
         <details>
-          <summary>본사에서 반드시 사야 하는 물품이 있나요?</summary>
-          <p class="faq__a">티티버거 메뉴의 맛과 품질을 좌우하는 번 · 패티 · 각종 소스류 · 패키지 · 식용유 등은 본사가 공급합니다. 기타 식자재는 대형 물류사와 계약되어 있어 발주 및 공급받으시면 됩니다.</p>
+          <summary><span class="faq__question">본사에서 반드시 사야 하는 물품이 있나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">티티버거 메뉴의 맛과 품질을 좌우하는 번 · 패티 · 각종 소스류 · 패키지 · 식용유 등은 본사가 공급합니다.</span> <span class="copy-block">기타 식자재는 대형 물류사와 계약되어 있어 발주하고 공급받으시면 됩니다.</span></span></p>
         </details>
         <details>
-          <summary>상담은 어떻게 신청하나요?</summary>
-          <p class="faq__a">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 연락드립니다. 페이지 상단·하단의 「창업 상담 신청」 버튼을 누르면 폼으로 바로 이동합니다. 전화 1688-2629로도 상담하실 수 있습니다.</p>
+          <summary><span class="faq__question">상담은 어떻게 신청하나요?</span></summary>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 순차적으로 연락드립니다.</span> <span class="copy-block">가맹 상담은 대표가 1:1로 직접 진행합니다.</span></span></p>
         </details>
       </div>
 
@@ -3487,34 +3459,7 @@ body{padding-bottom:var(--dock-space,110px)}
            같은 말이라 두 번 읽힌다(「지역과 점포 상황…어떤 형태가 맞는지부터 정리해 드립니다」). -->
 
       <div class="ctgrid">
-      <!-- 좌측 패널 (v4.32) — 새 사실 없음. 오퍼 띠·면제 6항목·대표전화·운영사는
-           각각 히어로 / #support 12無 표 / 푸터 / #company 에 이미 실린 문구 그대로다. -->
-      <aside class="ctside" aria-label="상담 전 확인 정보">
-        <p class="ctoffer">
-          <b>선착순 10호점<br>창업비용 최대 2,000만원 지원</b>
-          <span>12無와 함께, 지금 여는 매장에만 적용되는 조건입니다.</span>
-        </p>
 
-        <a class="cttel" href="tel:16882629"><small>바로 통화</small>1688-2629</a>
-
-        <ul class="ctno" aria-label="면제 항목 7가지">
-          <li>가맹비<i>면제</i></li>
-          <li>보증금<i>면제</i></li>
-          <li>로열티<i>24개월 면제</i></li>
-          <li>재가맹비<i>면제</i></li>
-          <li>감리비<i>면제</i></li>
-          <li>광고분담비<i>면제</i></li>
-          <li>포스 · 키오스크 프로그램 사용료<i>면제</i></li>
-        </ul>
-        <p class="ctmore">지원 · 할부 5가지가 더 있습니다 — 「12無」 표와 「지원 상세」에 전부 적어 두었습니다.</p>
-
-        <figure class="ctshot">
-          <img src="_assets/shot/set.jpg" alt="티티버거 포장 봉투와 버거 · 감자튀김 · 음료로 구성한 포장 세트"
-               loading="lazy" decoding="async" width="1280" height="1280">
-        </figure>
-
-        
-      </aside>
 
       <form class="form" data-lead="full" novalidate>
         <div class="field">
@@ -3541,13 +3486,13 @@ body{padding-bottom:var(--dock-space,110px)}
           <textarea id="f-msg" name="message" placeholder="점포 평수, 현재 업종, 오픈 희망 시기 등을 적어 주시면 상담이 빨라집니다."></textarea>
         </div>
         <label class="agree">
-          <input type="checkbox" name="agree" required>
-          <span>개인정보 수집 · 이용에 동의합니다. 수집 항목은 성함 · 연락처 · 창업 희망 지역 · 창업 형태 · 문의 내용이며(접속 정보는 자동 수집), 창업 상담 목적으로만 이용하고 상담 종료일로부터 1년 후 파기합니다. <a href="#privacy">전문 보기</a></span>
+          <input type="checkbox" name="agree" required checked>
+          <span>개인정보 수집 · 이용에 동의합니다. <span class="copy-block">수집 항목은 성함 · 연락처 · 창업 희망 지역 · 창업 형태 · 문의 내용이며(접속 정보는 자동 수집), 창업 상담 목적으로만 이용하고 상담 종료일로부터 1년 후 파기합니다.</span> <a href="#privacy">전문 보기</a></span>
         </label>
         <input type="hidden" name="adCode" value="">
         <input type="hidden" name="flow" value="">
         <button class="btn btn--wide" type="submit" disabled>창업 상담 신청하기</button>
-        <p class="formnote lead-status" role="status" aria-live="polite">현재 온라인 접수는 준비 중입니다. 상담은 대표가 직접 합니다. 1688-2629로 전화해 주세요.</p>
+        <p class="formnote lead-status" role="status" aria-live="polite">조금만 기다려 주시면 접수된 <span class="copy-keep">순서대로 연락드립니다.</span></p>
       </form>
       </div>
     </div>
@@ -3560,7 +3505,7 @@ body{padding-bottom:var(--dock-space,110px)}
       <div>
         <p class="ft__logo"><img src="_assets/logo-white.png" alt="티티버거" width="900" height="830" loading="lazy"></p>
       </div>
-      <a class="ft__tel" href="tel:16882629">창업 문의 1688-2629</a>
+
     </div>
     <dl>
       <dt>법인명</dt><dd>주식회사 지에이엠</dd>
@@ -3577,27 +3522,27 @@ body{padding-bottom:var(--dock-space,110px)}
 
 <!-- 고정 상담 입력: 모바일은 펼침 상태에서도 같은 form을 유지하여 입력을 보존한다. -->
 <aside class="dock" id="dock" aria-label="창업 상담 입력">
-  <div class="dock__head"><a class="dock__tel" href="tel:16882629"><span>창업 문의</span><b>1688-2629</b></a><button class="dock__toggle" id="dock-toggle" type="button" aria-expanded="false" aria-controls="quick-lead">상담 입력</button></div>
+  <div class="dock__head"><a class="dock__tel" href="tel:16882629"><span>대표 직접 상담</span><b>1688-2629</b></a><button class="dock__toggle" id="dock-toggle" type="button" aria-expanded="false" aria-controls="quick-lead">상담 입력</button></div>
   <form class="dock__form" id="quick-lead" data-lead="quick" novalidate>
     <div class="dock__field"><label for="q-name">성함</label><input id="q-name" name="name" type="text" required autocomplete="name"></div>
     <div class="dock__field"><label for="q-tel">연락처</label><input id="q-tel" name="phone" type="tel" inputmode="numeric" maxlength="13" required autocomplete="tel" placeholder="010-0000-0000"></div>
     <div class="dock__field dock__field--area"><label for="q-area">희망 지역</label><input id="q-area" name="area" type="text" required placeholder="시 · 군 · 구"></div>
-    <div class="dock__consent"><label><input type="checkbox" name="agree" required>개인정보 수집 · 이용 동의</label><a href="#privacy">보기</a></div>
+    <div class="dock__consent"><label><input type="checkbox" name="agree" required checked>개인정보 수집 · 이용 동의</label><a href="#privacy">보기</a></div>
     <input type="hidden" name="adCode" value=""><input type="hidden" name="flow" value="">
     <button class="dock__submit" type="submit" disabled>상담 신청</button>
-    <p class="lead-status" role="status" aria-live="polite">현재 온라인 접수는 준비 중입니다. 전화로 문의해 주세요.</p>
+    <p class="lead-status" role="status" aria-live="polite"></p>
   </form>
 </aside>
 
 
 <!-- 9/9 확정된 기존 히어로 혜택만 팝업으로 이동. 추가 팝업은 내용 확정 후 별도 반영. -->
 <dialog class="offer-popup" id="offer-popup" aria-labelledby="offer-title">
-  <div class="offer-popup__top"><span>티티버거 창업 안내</span><button type="button" data-offer-close aria-label="창업 안내 팝업 닫기">닫기 ×</button></div>
+
   <div class="sign offer__sign">
           <p class="offer__badge"><b>선착순 10호점</b><span>창업비용 최대 <strong>2,000만원</strong> 지원</span></p>
-          <h2 id="offer-title"><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h2>
+          <h2 id="offer-title" tabindex="-1" autofocus><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h2>
           <div class="offer__rule" aria-hidden="true"></div>
-          <p class="offer__sub">평수는 묻지 않습니다. 공간이 없으면 바테이블만 두셔도 됩니다.<br>지금 쓰시는 매장 그대로 바꾸셔도 됩니다.</p>
+          <p class="offer__sub"><span class="copy-block">평수는 묻지 않습니다. 공간이 없으면 바테이블만 <span class="copy-keep">두셔도 됩니다.</span></span> <span class="copy-block">지금 쓰시는 매장 그대로 <span class="copy-keep">바꾸셔도 됩니다.</span></span></p>
           <div class="offer__cta">
             <a class="btn" href="#contact" data-offer-contact>창업 상담 신청</a>
           </div>
@@ -3653,6 +3598,10 @@ body{padding-bottom:var(--dock-space,110px)}
   var root=document.documentElement, hd=document.getElementById('hd'), dock=document.getElementById('dock'), toggle=document.getElementById('dock-toggle');
   var pp=document.getElementById('privacy'), offer=document.getElementById('offer-popup'), ppOpener=null, offerOpener=null;
   var mobile=matchMedia('(max-width:860px)');
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  function home(){window.scrollTo({top:0,left:0,behavior:'instant'});}
+  document.querySelector('.hd__logo').addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'',location.pathname+location.search);home();});
+  addEventListener('pageshow',function(){if(!location.hash||location.hash==='#top')home();});
   function syncLayout(){
     root.style.setProperty('--hd-h',hd.offsetHeight+'px');
     root.style.setProperty('--dock-space',dock.offsetHeight+'px');
@@ -3692,8 +3641,8 @@ body{padding-bottom:var(--dock-space,110px)}
         var invalidPhone=el.name==='phone'&&!/^0\d{8,10}$/.test(el.value.replace(/\D/g,''));
         if(empty||invalidPhone){el.setAttribute('aria-invalid','true');if(!bad){bad=el;message=empty?(el.type==='checkbox'?'개인정보 수집 · 이용 동의가 필요합니다.':'성함, 연락처와 희망 지역을 입력해 주세요.'):'연락처를 정확히 입력해 주세요.';}}else el.removeAttribute('aria-invalid');
       });
-      var status=form.querySelector('.lead-status');status.dataset.error=String(!!bad);
-      status.textContent=bad?message:'아직 접수되지 않았습니다. 현재 온라인 접수는 준비 중이므로 1688-2629로 전화해 주세요.';
+      var status=form.querySelector('.lead-status');status.dataset.error='true';
+      status.textContent=bad?message:'문의가 전송되지 않았습니다. 1688-2629로 전화해 주세요.';
       if(bad){if(form.id==='quick-lead'&&mobile.matches)setDock(true);bad.focus();}syncLayout();
     });
   });
@@ -3703,52 +3652,129 @@ body{padding-bottom:var(--dock-space,110px)}
   offer.addEventListener('cancel',function(e){e.preventDefault();closeOffer();});
   offer.addEventListener('close',function(){if(offerOpener&&offerOpener.isConnected)offerOpener.focus({preventScroll:true});});
   offer.querySelector('[data-offer-contact]').addEventListener('click',function(e){e.preventDefault();offerOpener=document.getElementById('f-name');closeOffer();document.getElementById('contact').scrollIntoView();offerOpener.focus({preventScroll:true});});
-  function openOffer(){var hidden=false;try{hidden=localStorage.getItem('tt-offer-hidden-day')===today();}catch(e){}if(!hidden){offerOpener=document.activeElement&&document.activeElement!==document.body?document.activeElement:document.querySelector('.hd__logo');offer.showModal();}}
+  function openOffer(){var hidden=false;try{hidden=localStorage.getItem('tt-offer-hidden-day')===today();}catch(e){}if(!hidden){offerOpener=document.activeElement&&document.activeElement!==document.body?document.activeElement:document.querySelector('.hd__logo');var savedX=scrollX,savedY=scrollY;offer.showModal();window.scrollTo({left:savedX,top:savedY,behavior:'instant'});}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openOffer);else openOffer();
 })();
 </script>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"Organization",
-      "@id":"#org",
-      "name":"티티버거",
-      "legalName":"주식회사 지에이엠",
-      "telephone":"1688-2629",
-      "email":"gggam4@gmail.com",
-      "description":"빵과 패티가 맛있는 진짜 수제버거. 수제버거 프랜차이즈 창업 점주 모집.",
-      "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"동탄대로 635 SH타임스퀘어 1차 1109호",
-        "addressLocality":"화성시",
-        "addressRegion":"경기도",
-        "addressCountry":"KR"
+      "@type": "Organization",
+      "@id": "#org",
+      "name": "티티버거",
+      "legalName": "주식회사 지에이엠",
+      "telephone": "1688-2629",
+      "email": "gggam4@gmail.com",
+      "description": "빵과 패티가 맛있는 진짜 수제버거. 수제버거 프랜차이즈 창업 점주 모집.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "동탄대로 635 SH타임스퀘어 1차 1109호",
+        "addressLocality": "화성시",
+        "addressRegion": "경기도",
+        "addressCountry": "KR"
       },
-      "contactPoint":{
-        "@type":"ContactPoint",
-        "telephone":"+82-1688-2629",
-        "contactType":"창업 상담",
-        "areaServed":"KR",
-        "availableLanguage":"Korean"
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+82-1688-2629",
+        "contactType": "창업 상담",
+        "areaServed": "KR",
+        "availableLanguage": "Korean"
       }
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"몇 평부터 창업할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"최소 평수 조건을 두지 않습니다. 지금 쓰시는 매장 크기에 맞춰 홀 규모를 잡습니다. 공간이 없으면 바테이블만 두셔도 됩니다."}},
-        {"@type":"Question","name":"가맹비 · 보증금 · 로열티가 정말 면제인가요?","acceptedAnswer":{"@type":"Answer","text":"가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티 월 20만원은 24개월간 면제되고 25개월차부터 부과됩니다. 교육비 300만원은 VAT 별도로 부과됩니다. 재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료 지원, 카드 무이자 최대 6개월 할부까지 12가지를 덜어냅니다."}},
-        {"@type":"Question","name":"소자본으로도 시작할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"평수 조건이 없어 지금 쓰시는 매장을 그대로 살릴 수 있습니다. 가맹비·보증금이 면제되고 로열티도 24개월간 면제되며, 창업비용은 카드 무이자 최대 6개월, 유이자 최대 12개월 할부로 나눌 수 있습니다."}},
-        {"@type":"Question","name":"지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 지금 쓰는 시설을 살려 전환할 수 있습니다. 어느 정도까지 살릴 수 있는지는 상권 분석과 현장 미팅에서 함께 확인합니다."}},
-        {"@type":"Question","name":"지금 쓰는 주방 설비를 그대로 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"대부분 그대로 사용합니다. 소형 주방이어도 버거 조리에 필요한 추가 장비가 많지 않습니다. 필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 맞춰 안내합니다."}},
-        {"@type":"Question","name":"아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?","acceptedAnswer":{"@type":"Answer","text":"버거는 아침·점심·저녁 어느 때나 팔리는 메뉴라 하루 종일 판매가 가능해집니다. 홀·포장·배달·단체 네 갈래로 판매합니다."}},
-        {"@type":"Question","name":"인테리어와 주방집기는 본사가 시공 · 공급하나요?","acceptedAnswer":{"@type":"Answer","text":"인테리어와 간판은 자율 시공 가능, 주방집기는 직접 구매 가능합니다. 본사가 시공·공급 마진을 가져가지 않습니다. 필요시 본사 협력업체를 소개합니다."}},
-        {"@type":"Question","name":"배달만 하는 매장으로 시작해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"배달 전문 매장은 모집하지 않습니다. 홀은 작아도 두고, 포장과 배달을 함께 운영합니다. 샵인샵 형태도 받지 않습니다."}},
-        {"@type":"Question","name":"선착순 10호점 혜택은 어떤 내용인가요?","acceptedAnswer":{"@type":"Answer","text":"선착순 10호점은 창업비용을 최대 2,000만원 지원하고 창업 혜택 12無가 적용됩니다. 가맹비·보증금·재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료 면제, 로열티 24개월 면제, 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료 지원, 카드 무이자 최대 6개월 할부입니다. 첫 달 오픈 광고비 30만원, 원자재·음료 초도물량, 오픈 첫 달 사이드 2종(치킨너겟·양파링) 전량 지원이 함께 제공됩니다."}},
-        {"@type":"Question","name":"본사에서 반드시 사야 하는 물품이 있나요?","acceptedAnswer":{"@type":"Answer","text":"티티버거 메뉴의 맛과 품질을 좌우하는 번·패티·각종 소스류·패키지·식용유 등은 본사가 공급합니다. 기타 식자재는 대형 물류사와 계약되어 있어 발주 및 공급받으면 됩니다."}},
-        {"@type":"Question","name":"상담은 어떻게 신청하나요?","acceptedAnswer":{"@type":"Answer","text":"아래 창업 문의 폼에 성함, 연락처, 창업 희망 지역, 창업 형태를 남기면 연락드립니다. 전화 1688-2629로도 상담할 수 있습니다."}}
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "몇 평부터 창업할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최소 평수 조건을 두지 않습니다. 극소형 포장 매장과 10평 이상 홀 매장, 두 가지 타입으로 개설합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "가맹비 · 보증금 · 로열티가 정말 면제인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가맹비 500만원과 보증금 100만원은 전액 면제입니다. 로열티는 면제됩니다. 교육비 300만원은 VAT 별도로 부과됩니다. 재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료도 면제됩니다. 간판 교체비·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료를 지원합니다. 카드 무이자 최대 6개월(유이자 최대 12개월) 할부도 가능합니다. 시작을 막는 비용 12가지를 덜어냅니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "소자본으로도 시작할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "평수 조건이 없어 지금 쓰시는 매장을 그대로 살릴 수 있습니다. 가맹비·보증금이 면제되고 로열티도 면제되며, 인테리어와 주방집기는 직접 시공·구매 가능합니다. 창업비용은 카드 무이자 최대 6개월, 유이자 최대 12개월 할부로 나눌 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "지금 다른 업종으로 매장을 하고 있는데, 전환이 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가능합니다. 지금 쓰시는 시설을 살려 전환하실 수 있습니다. 어느 정도까지 살릴 수 있는지는 상권 분석과 현장 미팅에서 함께 확인합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "지금 쓰는 주방 설비를 그대로 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "대부분 그대로 사용합니다. 소형 주방이어도 버거 조리에 필요한 추가 장비가 많지 않습니다. 필요한 추가 장비는 상권 분석과 현장 미팅에서 매장 조건에 맞춰 안내드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "아침 · 점심 위주 매장인데, 전환하면 무엇이 달라지나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "버거는 아침 · 점심 · 저녁 어느 때나 팔리는 메뉴라 하루 종일 판매가 가능해집니다. 홀 · 포장 · 배달 · 단체 네 갈래로 판매합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "인테리어와 주방집기는 본사가 시공 · 공급하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "인테리어와 간판은 자율 시공 가능, 주방집기는 직접 구매 가능합니다. 본사가 시공·공급 마진을 가져가지 않습니다. 필요 시 본사 협력업체를 소개해 드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "배달만 하는 매장으로 시작해도 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "배달 전문 매장은 뒷골목에 많이 위치하고 있습니다. 요즘 배달 시장은 배달만 해서는 점주님께 도움이 되지 않습니다. 따라서, 배달 전문 매장과 샵인샵은 불가능합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "선착순 10호점 혜택은 어떤 내용인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "선착순 10호점은 창업비용을 최대 2,000만원 지원하고, 창업 혜택 12無가 적용됩니다. 가맹비·보증금·재가맹비·감리비·광고분담비·포스·키오스크 프로그램 사용료와 로열티가 면제됩니다. 간판 교체비(A급 상권 기준)·쇼케이스 냉장고·음료 초도물량·오픈 현장지원·고객관리 마케팅 사용료를 지원합니다. 카드 무이자 최대 6개월 할부도 가능합니다. 첫 달 오픈 광고비 30만원과 오픈 첫 달 사이드 2종(치킨너겟·양파링) 전량 지원도 함께 제공됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "본사에서 반드시 사야 하는 물품이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "티티버거 메뉴의 맛과 품질을 좌우하는 번 · 패티 · 각종 소스류 · 패키지 · 식용유 등은 본사가 공급합니다. 기타 식자재는 대형 물류사와 계약되어 있어 발주하고 공급받으시면 됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "상담은 어떻게 신청하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨 주시면 순차적으로 연락드립니다. 가맹 상담은 대표가 1:1로 직접 진행합니다."
+          }
+        }
       ]
     }
   ]
@@ -3757,6 +3783,7 @@ body{padding-bottom:var(--dock-space,110px)}
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="_assets/feedback_20260911/feedback-motion.js?v=20260911-6" defer></script>
 <script>
 /* ══ v4 모션 시스템 ══
    원칙(개편기획 §4): reduced-motion 전면 무효 · 기본은 opacity+translate
@@ -3991,6 +4018,15 @@ body{padding-bottom:var(--dock-space,110px)}
       var clip = row.querySelector('.mrow__clip');
       var drag = null;
       clip.style.touchAction = 'pan-y';
+      clip.addEventListener('keydown', function(e){
+        if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+        e.preventDefault();
+        var half=ul.offsetWidth/2;if(!(half>0))return;
+        var dx=(e.key==='ArrowRight'?1:-1)*clip.clientWidth*.7;
+        tw.pause();tw.progress(((tw.progress()+(toRight?-dx:dx)/half)%1+1)%1);
+      });
+      clip.addEventListener('focus',function(){tw.pause();});
+      clip.addEventListener('blur',function(){tw.play();});
       clip.addEventListener('pointerdown', function (e) {
         if (e.pointerType === 'mouse' && e.button !== 0) return;
         drag = { x: e.clientX, p: tw.progress(), moved: false };
@@ -4084,6 +4120,7 @@ body{padding-bottom:var(--dock-space,110px)}
        그래서 대상을 **물성 있는 오브젝트(버거 컷아웃)와 혜택 표식**으로 한정하고
        목록을 여기에 못 박는다 — 늘릴 때는 이 주석도 함께 고칠 것.
          · 부유 컷아웃 버거 2 (#why, #process)   · 메뉴 헤더 대형 버거   · 오픈 부스터 카드 3
+         · 2026-09-11 사용자 요청: 창업 A/B 사진 · 상권 BI (feedback-motion.js가 담당)
          (12無 표의 면제·지원 표식은 5)의 표 시퀀스가 맡는다 — 행 안에 있어 순서를 같이 가야 한다)
        회전은 상대값('-=N')이라 각 요소의 CSS 기울기를 그대로 목적지로 삼는다.
        ⚠️ 1)의 리빌 그룹과 같은 요소를 겹쳐 등록하면 안 된다. gsap.from 은 '현재값'을
@@ -4120,7 +4157,7 @@ body{padding-bottom:var(--dock-space,110px)}
 
        이징은 원본 cubic-bezier(0.16,1,0.3,1)/0.8s 에 대응하는 expo.out/0.8s. */
     [
-            { box: '.perks__grid', child: '.perk', stagger: .08, y: 30 },
+      /* #perks는 feedback-motion.js의 전용 헤더·카드 시퀀스가 담당한다. */
       /* 공정 4컷 — 좌→우로 한 칸씩. 컷이 '순서'를 뜻하므로 동시에 뜨면 순서가 안 읽힌다.
          .craft__step 은 5a 방향 리빌·5b 팝 어디에도 등록하지 않는다(이중 등록 = 영영 안 보임 사고). */
       { box: '.craft__strip', child: '.craft__step', stagger: .12, y: 34 }
@@ -4156,6 +4193,7 @@ body{padding-bottom:var(--dock-space,110px)}
     }
 
     gsap.utils.toArray('section.sec').forEach(function (sec) {
+      if (sec.id === 'perks') return; /* 전용 시퀀스와 중복 숨김 방지 */
       var head = ['.eyebrow', '.h2', '.rvsub', '.lead']
         .map(function (s) { return sec.querySelector(s); })
         .filter(Boolean);
@@ -4203,41 +4241,6 @@ body{padding-bottom:var(--dock-space,110px)}
 })();
 </script>
 
-<script>
-/* 기능 전용: reduced-motion과 GSAP 로딩 여부에 관계없이 실행. */
-(function () {
-  document.querySelectorAll('.mdrink14__group').forEach(function (group) {
-    var list = group.querySelector('.mdrink14__list');
-    var previous = group.querySelector('[data-dir="-1"]');
-    var next = group.querySelector('[data-dir="1"]');
-    var preference = matchMedia('(prefers-reduced-motion:reduce)');
-    function sync() {
-      var max = Math.max(0, list.scrollWidth - list.clientWidth);
-      var active = document.activeElement;
-      group.classList.toggle('is-static', max < 3);
-      previous.disabled = list.scrollLeft < 2;
-      next.disabled = list.scrollLeft >= max - 2;
-      /* 끝에 닿아 포커스된 버튼이 비활성화되면 포커스가 body 로 떨어진다(적대 QA 실측) — 목록으로 옮겨 키보드 흐름을 잇는다. */
-      if ((active === previous || active === next) && active.disabled) list.focus({preventScroll: true});
-    }
-    function move(direction) {
-      list.scrollBy({left: direction * list.clientWidth * .82, behavior: preference.matches ? 'instant' : 'smooth'});
-    }
-    previous.addEventListener('click', function () { move(-1); });
-    next.addEventListener('click', function () { move(1); });
-    list.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
-      } else if (event.key === 'Home' || event.key === 'End') {
-        event.preventDefault();
-        list.scrollTo({left: event.key === 'Home' ? 0 : list.scrollWidth, behavior: preference.matches ? 'instant' : 'smooth'});
-      }
-    });
-    list.addEventListener('scroll', sync, {passive: true});
-    new ResizeObserver(sync).observe(list);
-    sync();
-  });
-})();
-</script>
+
 </body>
 </html>

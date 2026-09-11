@@ -1,0 +1,200 @@
+/* Official font source: https://corp.gmarket.com/fonts/ (Medium 500 / Bold 700). */
+@font-face{font-family:'Gmarket Sans';font-style:normal;font-weight:500;font-display:swap;src:url('https://script.gmarket.com/fonts/GmarketSansMedium.woff2') format('woff2')}
+@font-face{font-family:'Gmarket Sans';font-style:normal;font-weight:700;font-display:swap;src:url('https://script.gmarket.com/fonts/GmarketSansBold.woff2') format('woff2')}
+:root{--ff-feedback:var(--ff-body)}
+/* 2026-09-11: Gmarket Sans replaces the former body font site-wide.
+   Preserve Jua / Do Hyeon / Nanum Pen Script and the previously scoped controls. */
+.offer-popup,.form,.dock{--ff-sign:var(--ff-feedback);--ff-plate:var(--ff-feedback);font-family:var(--ff-feedback);font-weight:500}
+.hd__row{min-height:92px}
+.hd__nav{gap:clamp(12px,1.35vw,24px)}
+.hd__nav a{font-family:var(--ff-feedback);font-size:clamp(17px,1.4vw,22px);font-weight:700;white-space:nowrap;letter-spacing:-.045em;min-height:44px;display:inline-flex;align-items:center}
+.hd__logo{flex-shrink:0}
+.offer-popup::backdrop{background:transparent;backdrop-filter:none}
+.offer-popup{box-shadow:0 12px 36px #0003;border:1px solid var(--line)}
+.offer-popup h2{font-weight:700;letter-spacing:-.045em}
+.offer-popup .offer__badge b,.offer-popup .offer__badge span{font-size:19px;font-weight:700}
+.offer-popup .offer__badge strong{font-weight:700}
+.offer-popup .offer__sub{font-size:19px;line-height:1.7}
+.offer-popup .offer__cta .btn{font-size:20px;font-weight:700}
+.offer-popup__foot{font-size:17px;font-weight:700}
+.offer-popup button{font-family:inherit;font-size:17px}
+/* Initial dialog focus names the content; keyboard controls keep visible focus. */
+#offer-title:focus{outline:none}
+.offer-popup :focus-visible{outline-color:var(--white)}
+.offer-popup__foot :focus-visible{outline-color:var(--ink)}
+.brandbi{align-self:center;text-align:center;padding:0;border:0;background:transparent}
+.brandbi>figcaption{text-align:center;margin:0 0 16px;font-size:24px}
+.brandbi__types{align-items:center;justify-items:center;padding:24px;border:3px solid var(--ink);background:var(--white)}
+.brandbi__types img{object-position:center}
+#brand .ed__txt{max-width:none}
+#brand .ed__copy{max-width:none;font-size:clamp(18px,1.45vw,22px);line-height:1.7}
+#brand .market-compare figcaption,#brand .ed__fig figcaption{font-family:var(--ff-feedback);font-size:clamp(17px,1.4vw,21px);line-height:1.5;font-weight:700;text-align:center}
+.keep-phrase{white-space:nowrap}
+#drinks .menu img{object-fit:contain;background:#eeeeee;aspect-ratio:1/1;user-select:none;-webkit-user-drag:none}
+.set-summary h3,.opening-type h3{font-family:var(--ff-sign);font-weight:400;line-height:1.3}
+.set-summary{text-align:center;padding:48px 12px 0}
+.set-summary h3{font-size:clamp(25px,2.6vw,38px);color:var(--white);margin-bottom:18px}
+.set-summary p{max-width:none;color:var(--white);font-size:clamp(17px,1.4vw,21px);line-height:1.65}
+/* Present the two confirmed set sizes without inventing portion or price data. */
+.set-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;list-style:none;padding:28px 0;margin:28px auto 30px;border-block:2px solid var(--white);color:var(--white)}
+.set-sizes li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:8px 16px}
+.set-sizes li+li{border-left:1px solid var(--white)}
+.set-sizes__letter{font-family:'Anton',sans-serif;font-size:clamp(76px,8vw,116px);line-height:1.1}
+.set-sizes strong{font-family:var(--ff-sign);font-size:clamp(27px,3vw,40px);font-weight:400;line-height:1.3}
+.set-sizes__english{font-family:var(--ff-body);font-size:clamp(14px,1.25vw,18px);font-weight:700;letter-spacing:.16em;line-height:1.5}
+.set-summary .set-summary__choice{font-size:clamp(21px,2.1vw,30px);font-weight:700;margin-bottom:10px}
+.terr>p{font-size:var(--fs-body);line-height:1.75}
+.terrleg{font-size:17px}
+/* Readability correction limited to the two territory comparison captions. */
+.terrcap{display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:100px;padding:14px 12px;font-family:var(--ff-feedback);font-size:clamp(17px,1.35vw,20px);font-weight:500;line-height:1.65;word-break:keep-all;overflow-wrap:break-word;letter-spacing:0}
+.terrcap strong{font-weight:700}
+#support .lead .hl{background:var(--white);color:var(--red-deep);padding:.1em .28em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.fee__row--head{font-size:20px}
+.fee__row{padding-top:20px;padding-bottom:20px}
+.fee__name,.fee__row--no .fee__name{font-size:clamp(19px,1.55vw,24px)}
+.fee__price{font-size:clamp(18px,1.5vw,22px);font-weight:600}
+#support .note{max-width:100%;font-size:clamp(17px,1.3vw,20px);line-height:1.8}
+.limit{text-align:center}
+.limit span{margin-inline:auto;font-size:var(--fs-body)}
+.perk__d{font-size:clamp(17px,1.3vw,20px);line-height:1.7}
+#types{text-align:center}
+.opening-types{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,110px);max-width:1000px;margin:54px auto 0}
+.opening-type__circle{width:clamp(160px,21vw,290px);aspect-ratio:1;border:2px solid var(--red);border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;background:var(--cream);box-shadow:0 0 0 12px #e6001208;transition:background .25s,transform .25s}
+.opening-type__circle span{font-family:var(--ff-body);font-size:clamp(68px,9vw,124px);font-weight:800;line-height:1;color:var(--red)}
+.opening-type:hover .opening-type__circle{background:#fbe5e4;transform:translateY(-4px)}
+.opening-type__label{font-family:var(--ff-plate);font-size:18px;font-weight:400;color:var(--red-deep);margin:0 0 10px;max-width:none}
+.opening-type h3{font-size:clamp(24px,2.7vw,38px)}
+.swap__big{font-size:clamp(24px,2.65vw,39px)}
+.fit__case{display:flex;width:fit-content;justify-content:center;text-align:center;margin-inline:auto;max-width:100%;animation:case-emphasis 2.4s ease-in-out infinite}
+.fit__case b{font-size:18px;animation:case-badge 2.4s step-end infinite}
+@keyframes case-emphasis{0%,100%{background:var(--white);box-shadow:0 0 0 0 #e6001200}50%{background:#fff0f1;box-shadow:0 0 0 5px #e6001220}}
+@keyframes case-badge{0%,100%{background:var(--red)}50%{background:var(--ink)}}
+.faq summary{font-size:clamp(19px,1.7vw,25px)}
+.faq__a{font-size:var(--fs-body);line-height:1.8}
+#contact .eyebrow,#contact .h2{text-align:center}
+.ctgrid{display:block;max-width:880px;margin:40px auto 0}
+.form{width:100%;padding:clamp(24px,4vw,54px)}
+.field>label,.field legend{font-family:var(--ff-feedback);font-size:21px;font-weight:700}
+.field input,.field textarea{font-family:var(--ff-feedback);font-size:20px;min-height:56px}
+.field textarea{min-height:120px}
+.pills label{font-family:var(--ff-feedback);font-size:19px;min-height:48px}
+.agree{font-size:16px;line-height:1.7;max-width:none}
+.agree input{min-width:20px;min-height:20px}
+.form .btn{font-size:23px;min-height:64px}
+.formnote{font-size:17px;line-height:1.7;max-width:none;text-align:center}
+.lead-status:empty{display:none}
+.dock__tel span{font-family:var(--ff-feedback);font-size:18px;font-weight:700}
+.dock__tel b{font-weight:700;font-size:clamp(28px,2.7vw,40px)}
+.dock__field label{font-family:var(--ff-feedback);font-size:18px;font-weight:700}
+.dock__field input{font-family:var(--ff-feedback);font-size:19px;min-height:48px}
+.dock__submit{font-family:var(--ff-feedback);font-size:19px;font-weight:700;min-height:48px}
+.dock__consent{font-size:16px}
+@media(min-width:861px) and (max-width:1250px){
+  .hd__nav{gap:10px}.hd__nav a{font-size:16px}.hd__row--split{gap:14px}
+  .dock__form{grid-template-columns:1fr 1.2fr 1fr auto auto;gap:8px}
+  .dock__consent{font-size:14px}.dock__submit{font-size:17px}
+}
+@media(max-width:860px){
+  .hd__row{min-height:72px}
+  .offer-popup .offer__sub{font-size:17px}
+  .offer-popup .offer__badge b,.offer-popup .offer__badge span{font-size:17px}
+  .offer-popup__foot{font-size:15px}
+  .brandbi{margin-top:12px}
+  .brandbi>figcaption{font-size:21px}
+  #brand .ed__copy{font-size:18px}
+  .opening-types{gap:36px 20px;margin-top:36px}
+  .opening-type__circle{width:min(32vw,210px);margin-bottom:22px}
+  .opening-type__circle span{font-size:60px}
+  .opening-type h3{font-size:21px}
+  .opening-type__label{font-size:16px}
+  .fee__name,.fee__row--no .fee__name{font-size:19px}
+  .field>label,.field legend{font-size:19px}
+  .field input,.field textarea{font-size:18px}
+  .form .btn{font-size:21px;min-height:56px}
+  .dock__tel span{font-size:15px}.dock__tel b{font-size:25px}
+  .dock__field label{font-size:17px}.dock__field input{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){.fit__case,.fit__case b{animation:none}.opening-type__circle{transition:none}}
+
+/* Independent territory hook; retain approved claims and brand type. */
+.territory-hook .terr{margin:0;padding:0;background:transparent}
+.territory-hook__intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,88px);align-items:center;margin-bottom:40px}
+.territory-hook h2{font-family:var(--ff-sign);font-size:clamp(52px,7vw,100px);font-weight:400;line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin:18px 0 0}
+.territory-hook h2 em{font-style:normal;color:var(--red-deep)}
+.territory-hook__copy p{font-size:clamp(18px,1.65vw,23px);line-height:1.75;max-width:34ch;color:var(--ink)}
+.territory-hook__copy p+p{margin-top:16px}
+.territory-hook .terrleg li{font-size:17px;color:var(--ink)}
+.territory-hook .terrviz figure:last-child{box-shadow:0 0 0 3px var(--red)}
+/* Generated store concepts replace A/B placeholders inside the circular frames. */
+.opening-type__circle{width:100%;max-width:400px;overflow:hidden}
+.opening-type__circle img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.opening-types__note{margin:28px auto 0;font-size:14px;line-height:1.5;color:var(--ink-2)}
+@media(max-width:860px){
+ .territory-hook__intro{grid-template-columns:minmax(0,1fr);gap:28px;text-align:center}
+ .territory-hook__copy p{max-width:38ch;margin-inline:auto}
+ .territory-hook .terrleg{justify-content:center}
+}
+@media(max-width:600px){
+ .opening-types{grid-template-columns:minmax(0,1fr);gap:44px}
+ .opening-type__circle{max-width:320px}
+}
+
+/* Manufacturer packshots join the existing drink track. */
+#drinks .menu__soda img{background:#fff}
+#drinks .menu__drink-photo{aspect-ratio:1/1;overflow:hidden;background:#eeeeee}
+#drinks .menu__drink-photo img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.65);transform-origin:50% 46%}
+.territory-hook .terrleg__tt{display:block;width:24px;height:24px;flex:none;object-fit:contain;border:0;border-radius:0;background:none}
+#perks .perks__accent{display:inline-block;background:linear-gradient(var(--red),var(--red)) left bottom/calc(var(--perks-underline,1)*100%) 4px no-repeat}
+
+/* Read one benefit at a time; keep the growing total beside the list. */
+.perks__story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.perks__rail{position:sticky;top:124px}
+#perks .perks__intro .h2{font-size:clamp(32px,3.6vw,52px);line-height:1.25}
+#perks .perks__intro .lead{font-size:clamp(18px,1.6vw,22px);line-height:1.7}
+.perks__progress{margin-top:36px;color:var(--ink);background:var(--cream)}
+.perks__progress-label{font-size:17px;line-height:1.4;margin:0 0 12px}
+.perks__count{display:flex;align-items:baseline;gap:12px;margin:0}
+.perks__count-current{font-family:'Anton',sans-serif;font-size:88px;line-height:1.1;font-weight:400;color:var(--red-deep);font-variant-numeric:tabular-nums}
+.perks__count>span{font-family:var(--ff-body);font-size:26px;font-weight:700}
+.perks__steps{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;max-width:340px;margin-top:18px}
+.perks__steps i{height:7px;background:var(--red)}
+.perks__steps i.is-pending{background:#D8CFC3}
+#perks .perks__grid{grid-template-columns:minmax(0,1fr);gap:28px;margin:0}
+#perks .perk{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px 20px;align-content:center;min-height:220px;padding:30px;border:0;border-left:5px solid var(--red);box-shadow:5px 5px 0 #D8CFC3}
+.perk__number{grid-column:1;grid-row:1/span 2;font-family:'Anton',sans-serif;font-size:44px;line-height:1;color:var(--red-deep)}
+#perks .perk__t,#perks .perk__d{grid-column:2}
+#perks .perk__t{font-size:clamp(23px,2vw,29px)}
+#perks .perk__d{font-size:clamp(17px,1.4vw,20px)}
+@media(max-height:759px) and (min-width:861px){.perks__rail{position:static}}
+@media(max-width:860px){
+ .perks__story{display:block}
+ .perks__rail{display:contents}
+ .perks__progress{position:sticky;top:74px;z-index:8;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;margin:26px 0 24px;padding:6px 0;border-bottom:1px solid #D8CFC3}
+ .perks__progress-label{font-size:15px;margin:0}
+ .perks__count{gap:8px}
+ .perks__count-current{font-size:24px}
+ .perks__count>span{font-size:18px}
+ .perks__steps{grid-column:1/-1;max-width:none;margin-top:2px}
+ .perks__steps i{height:4px}
+ #perks .perks__grid{gap:24px}
+ #perks .perk{grid-template-columns:38px minmax(0,1fr);gap:10px 14px;padding:24px 20px;min-height:200px}
+ .perk__number{font-size:34px}
+ #perks .perk__t{font-size:23px}
+}
+
+/* Korean prose: keep meaning groups together without forcing desktop breaks on phones. */
+main :is(.lead,.ed__copy,.way__a,.seg__d,.perk__d,.faq__a,.sig__desc,.step__d,.note),
+.creed>p,.craft__cap>p,.invite__lead>p,.ceo__msg>p,.territory-hook__copy>p,.askmore>p,
+.formnote,.agree>span,.offer__sub,.pp__body p,.set-summary>p{
+ word-break:keep-all;overflow-wrap:break-word;text-wrap:pretty;
+}
+main :is(.h2,.h3,.perk__t,.seg__h,.way__q,.craft__h,.step__h),.opening-type h3,.offer-popup h2{
+ word-break:keep-all;overflow-wrap:break-word;text-wrap:balance;
+}
+.copy-keep{display:inline-block;white-space:nowrap}
+.copy-block{display:block}
+.copy-block+.copy-block{margin-top:.6em}
+.faq__a .copy-block+.copy-block{margin-top:.8em}
+.faq__text{min-width:0;flex:1}
+.faq__question{min-width:0;flex:1;text-wrap:balance}
+#contact .agree .copy-block{margin-top:.5em}
