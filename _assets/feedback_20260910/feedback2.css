@@ -198,3 +198,7 @@ main :is(.h2,.h3,.perk__t,.seg__h,.way__q,.craft__h,.step__h),.opening-type h3,.
 .faq__text{min-width:0;flex:1}
 .faq__question{min-width:0;flex:1;text-wrap:balance}
 #contact .agree .copy-block{margin-top:.5em}
+
+/* Standard 355ml cans: preserve pack proportions, align photographed can heights. */
+#drinks .menu__soda-photo{aspect-ratio:1/1;overflow:hidden;background:#fff}
+#drinks .menu__soda-photo img{display:block;width:100%;height:100%;object-fit:contain;transform:scale(var(--can-scale,1));transform-origin:center}
