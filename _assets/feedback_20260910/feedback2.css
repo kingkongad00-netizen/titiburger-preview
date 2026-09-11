@@ -203,8 +203,6 @@ main :is(.h2,.h3,.perk__t,.seg__h,.way__q,.craft__h,.step__h),.opening-type h3,.
 #drinks .menu__soda-photo{aspect-ratio:1/1;overflow:hidden;background:#fff}
 #drinks .menu__soda-photo img{display:block;width:100%;height:100%;object-fit:contain;transform:scale(var(--can-scale,1));transform-origin:center}
 
-/* Real map capture remains uncropped; readable attribution sits beside each map. */
-.territory-hook .territory-map-credit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 12px;margin:0;max-width:none;padding:9px 12px;background:#fff;color:#4a433d;font-family:var(--ff-body);font-size:14px;line-height:1.6;word-break:keep-all}
-.territory-map-credit a{color:#333;text-decoration:underline;text-underline-offset:3px}
+/* Static map capture remains uncropped, including its original attribution. */
 .territory-hook .territory-map-note{margin:20px 0 0;max-width:none;color:#4a433d;font-size:14px;line-height:1.7;word-break:keep-all;text-wrap:pretty}
 .territory-map-note .copy-block+.copy-block{margin-top:4px}
