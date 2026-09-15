@@ -2276,13 +2276,13 @@ body{padding-bottom:var(--dock-space,110px)}
 .hd__row--split{gap:clamp(16px,2vw,32px)}
 .hd__nav a[aria-current="location"],.hd__mobile a[aria-current="location"]{color:var(--red-deep);border-bottom-color:var(--red-deep)}
 .hd__mobile{display:none}
-#why .swap .card:first-child{background:var(--ink);color:var(--white)}
+#why .swap .card:first-child{background:var(--red-deep);color:var(--white)}
 #why .swap .card:first-child :is(.card__no,.swap__big){color:var(--white)}
-#why .swap .card:last-child{background:var(--red-deep)}
+#why .swap .card:last-child,#why .seg--hot{background:var(--ink)}
 #why .seg{display:grid;grid-template-rows:auto minmax(70px,auto) 1fr;align-content:start}
 #why .seg__h{margin-top:10px;align-self:start}
 #why .seg__d{margin-top:14px}
-.offer-gallery{position:fixed;z-index:90;left:20px;top:calc(var(--hd-h,92px) + 12px);width:min(1020px,calc(100vw - 40px));color:var(--ink);font-family:var(--ff-body)}
+.offer-gallery{position:fixed;z-index:90;left:20px;top:calc(var(--hd-h,92px) + 12px);width:min(1340px,calc(100vw - 40px));color:var(--ink);font-family:var(--ff-body)}
 .offer-gallery[hidden],.offer-card[hidden]{display:none}
 .offer-gallery__track{display:flex;gap:12px;overflow-x:auto;align-items:stretch;scroll-snap-type:x mandatory;overscroll-behavior:contain;scrollbar-width:thin;padding:0 0 8px}
 .offer-card{flex:0 0 calc((100% - 24px)/3);min-width:0;scroll-snap-align:start;background:var(--white);box-shadow:0 6px 24px #0003;display:flex;flex-direction:column;border:1px solid var(--ink);max-height:calc(100dvh - var(--hd-h,92px) - var(--dock-space,80px) - 90px)}
@@ -2292,7 +2292,7 @@ body{padding-bottom:var(--dock-space,110px)}
 .offer-card__eyebrow{font-size:14px;line-height:1.6;font-weight:700;margin:0 0 20px;letter-spacing:.02em}
 .offer-card h2{font-family:var(--ff-body);font-size:30px;letter-spacing:-.06em;line-height:1.4;font-weight:700;margin:0 0 20px}
 .offer-card__amount{font-size:38px;line-height:1.4;color:var(--red-deep);font-weight:700;margin:0 0 18px;letter-spacing:-.05em}
-.offer-card p:not(.offer-card__eyebrow):not(.offer-card__amount){font-size:15px;line-height:1.8;margin:0 0 18px;word-break:keep-all}
+.offer-card:not(.offer-popup) p:not(.offer-card__eyebrow):not(.offer-card__amount){font-size:15px;line-height:1.8;margin:0 0 18px;word-break:keep-all}
 .offer-card__rule{height:3px;width:44px;background:currentColor;margin:0 0 24px}
 .offer-card__list{list-style:none;margin:0 0 24px;padding:0;font-size:15px;line-height:1.7}
 .offer-card__list li{padding:9px 0;border-bottom:1px solid currentColor}
@@ -2317,6 +2317,18 @@ body{padding-bottom:var(--dock-space,110px)}
  #why .seg{grid-template-rows:auto auto auto}
 }
 @media(prefers-reduced-motion:reduce){.offer-gallery__track{scroll-behavior:auto}}
+/* Keep the original first banner's sign, badge and centered typography. */
+.offer-card{flex-basis:330px}
+.offer-card.offer-popup{flex-basis:640px;flex-shrink:0;min-width:0;align-self:flex-start;border-color:var(--line)}
+.offer-card.offer-popup .offer__sign{min-height:0;overflow-y:auto;flex:1}
+.offer-card.offer-popup h2{font-family:var(--ff-sign);font-size:clamp(30px,4.1vw,52px);font-weight:700;letter-spacing:-.045em;line-height:1.3;margin:0}
+.offer-card.offer-popup .offer__badge{margin:0 0 22px}
+.offer-card.offer-popup .offer__sub{font-size:19px;line-height:1.7;margin:0}
+.offer-card.offer-popup button{font-size:17px;padding:8px 12px}
+.offer-card.offer-popup .offer-popup__foot{padding:10px 18px;gap:12px}
+.offer-card.offer-popup .offer-popup__foot label{font-size:17px}
+.offer-card.offer-popup .offer-popup__foot input{width:20px;height:20px}
+@media(max-width:860px){.offer-card,.offer-card.offer-popup{flex-basis:100%}.offer-card.offer-popup .offer__sub{font-size:17px}}
 </style>
 </head>
 <body>
@@ -3351,7 +3363,7 @@ body{padding-bottom:var(--dock-space,110px)}
           <article class="seg">
             <p class="seg__no">01</p>
             <h4 class="seg__h">외식업 전반</h4>
-            <p class="seg__d">분식 · 카페 · 치킨 · 피자 · 한식 등 조리 공간이 있는 매장이면 됩니다.<br>평수는 따지지 않습니다.</p>
+            <p class="seg__d">분식 · 카페 · 치킨 · 피자 · 한식 등<br>조리 공간이 있는 매장이면 됩니다.<br>평수는 따지지 않습니다.</p>
           </article>
           <article class="seg seg--hot">
             <p class="seg__no">02</p>
@@ -3584,16 +3596,15 @@ body{padding-bottom:var(--dock-space,110px)}
 <!-- 9/14 client-approved themes. Claims are reused from the existing landing. -->
 <aside class="offer-gallery" id="offer-gallery" aria-label="창업 안내 팝업" hidden>
   <div class="offer-gallery__track" tabindex="0" aria-label="창업 안내 3종, 좌우로 이동할 수 있습니다">
-    <article class="offer-card" data-offer-id="brand-v2" aria-labelledby="offer-title">
-      <div class="offer-card__body">
-        <p class="offer-card__eyebrow">TITI BURGER · 업종 전환</p>
-        <h2 id="offer-title">빵과 패티가 맛있는<br>진짜 수제버거</h2>
-        <div class="offer-card__rule" aria-hidden="true"></div>
-        <p>평수는 묻지 않으며,<br>공간이 없으면 바테이블만 두셔도 됩니다.</p>
-        <p>지금 쓰시는 매장 그대로<br>바꾸셔도 됩니다.</p>
-        <a class="offer-card__cta" href="#contact" data-offer-contact>창업 상담 신청</a>
+    <article class="offer-card offer-popup" data-offer-id="brand-v2" aria-labelledby="offer-title">
+      <div class="sign offer__sign">
+        <p class="offer__badge"><b>선착순 10호점</b><span>창업비용 최대 <strong>2,000만원</strong> 지원</span></p>
+        <h2 id="offer-title"><span class="br">빵과 패티가 맛있는</span><span class="br">진짜 수제버거</span></h2>
+        <div class="offer__rule" aria-hidden="true"></div>
+        <p class="offer__sub"><span class="copy-block">평수는 묻지 않으며, 공간이 없으면 바테이블만 <span class="copy-keep">두셔도 됩니다.</span></span> <span class="copy-block">지금 쓰시는 매장 그대로 <span class="copy-keep">바꾸셔도 됩니다.</span></span></p>
+        <div class="offer__cta"><a class="btn" href="#contact" data-offer-contact>창업 상담 신청</a></div>
       </div>
-      <div class="offer-card__foot"><label><input type="checkbox">오늘 하루 보지 않기</label><button type="button" data-offer-close>닫기</button></div>
+      <div class="offer-card__foot offer-popup__foot"><label><input type="checkbox">오늘 하루 보지 않기</label><button type="button" data-offer-close>닫기</button></div>
     </article>
     <article class="offer-card offer-card--support" data-offer-id="support-v1" aria-labelledby="offer-support-title">
       <div class="offer-card__body">
