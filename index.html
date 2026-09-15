@@ -2274,6 +2274,7 @@ body{padding-bottom:var(--dock-space,110px)}
 /* 2026-09-15 client feedback: six categories, left portrait offers. */
 .hd__logo .hd__sym{margin-right:20px}
 .hd__row--split{gap:clamp(16px,2vw,32px)}
+.hd__nav{gap:clamp(32px,3vw,44px)}
 .hd__nav a[aria-current="location"],.hd__mobile a[aria-current="location"]{color:var(--red-deep);border-bottom-color:var(--red-deep)}
 .hd__mobile{display:none}
 #why .swap .card:first-child{background:var(--red-deep);color:var(--white)}
@@ -2304,12 +2305,12 @@ body{padding-bottom:var(--dock-space,110px)}
 .offer-gallery button{min-width:44px;min-height:44px;border:1px solid var(--ink);background:var(--white);color:var(--ink);font-family:inherit;font-size:14px;padding:6px 10px;cursor:pointer}
 .offer-gallery__controls{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:max-content;max-width:100%;padding:4px;background:var(--white);box-shadow:0 3px 12px #0002}
 .offer-gallery__position{min-width:52px;text-align:center;font-size:14px;color:var(--ink)}
-@media(max-width:1100px){.hd__nav{gap:12px}.hd__nav a{font-size:16px}.offer-card{flex-basis:calc((100% - 12px)/2)}}
+@media(max-width:1100px){.hd__nav{gap:20px}.hd__nav a{font-size:16px}.offer-card{flex-basis:calc((100% - 12px)/2)}}
 @media(max-width:860px){
  .hd__row--split{display:flex;justify-content:center;min-height:66px;padding:8px 20px}
  .hd__row .hd__nav{display:none}
  .hd__logo img{height:30px}.hd__logo .hd__sym{height:30px;margin-right:16px}
- .hd__mobile{display:flex;gap:18px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+ .hd__mobile{display:flex;gap:28px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
  .hd__mobile a{flex-shrink:0;display:flex;align-items:center;min-height:44px;border-bottom:3px solid transparent;font-size:14px;font-weight:700;white-space:nowrap;text-decoration:none}
  .offer-gallery{left:16px;width:calc(100vw - 32px);top:calc(var(--hd-h,112px) + 8px)}
  .offer-card{flex-basis:100%;max-height:calc(100dvh - var(--hd-h,112px) - var(--dock-space,76px) - 76px)}
