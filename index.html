@@ -14,10 +14,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="평수 무관 수제버거 창업 | 시작을 막는 비용, 12가지가 없습니다 — 티티버거">
 <meta property="og:description" content="극소형 포장 매장과 10평 이상 홀 매장, 두 가지 타입으로 개설합니다. 창업 혜택 12無와 선착순 10호점 창업비용 최대 2,000만원 지원.">
-<meta property="og:image" content="_assets/shot/hero.jpg">
+<meta property="og:image" content="https://kingkongad00-netizen.github.io/titiburger-preview/_assets/feedback_20260916/titi-share-logo.jpg">
+<meta property="og:image:width" content="2100">
+<meta property="og:image:height" content="2100">
+<meta property="og:image:alt" content="티티버거 — 빵과 패티가 맛있는 진짜 수제버거">
 <meta property="og:site_name" content="티티버거">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kingkongad00-netizen.github.io/titiburger-preview/_assets/feedback_20260916/titi-share-logo.jpg">
+<meta name="twitter:image:alt" content="티티버거 — 빵과 패티가 맛있는 진짜 수제버거">
 <meta name="theme-color" content="#E60012">
 <!-- canonical · og:url 은 배포 빌드에서 주입한다. 값 확정: https://ttburger.kr/ (2026-08-12)
      시안에 박지 않는 이유 — 여기는 디자인 산출물이고 실제 값은 빌드 한 곳에서만 관리한다. GEO설계 §5-6 -->
@@ -2229,10 +2234,10 @@ body{padding-bottom:var(--dock-space,110px)}
 .dock__tel span{font-size:17px;font-family:var(--ff-plate)}
 .dock__tel b{font-family:var(--ff-sign);font-size:clamp(30px,3vw,46px);font-weight:400;letter-spacing:.01em}
 .dock__toggle{display:none}
-.dock__form{display:grid;grid-template-columns:1fr 1.2fr 1.1fr auto auto;align-items:end;gap:10px}
+.dock__form{display:grid;grid-template-columns:1fr 1.2fr 1fr 1.1fr auto auto;align-items:end;gap:10px}
 .dock__field{min-width:0;display:grid;gap:4px}
 .dock__field label{font-size:15px;line-height:1.4;font-family:var(--ff-plate)}
-.dock__field input{width:100%;min-width:0;min-height:44px;border:1px solid var(--white);border-radius:0;background:var(--white);color:var(--ink);padding:9px 10px;font-size:16px;line-height:1.5}
+.dock__field input,.dock__field select{width:100%;min-width:0;min-height:44px;border:1px solid var(--white);border-radius:0;background:var(--white);color:var(--ink);padding:9px 10px;font-size:16px;line-height:1.5}
 .dock__field input::placeholder{color:var(--ink-2)}
 .dock__consent{display:flex;align-items:center;gap:8px;min-height:44px;font-size:15px;line-height:1.6;flex-wrap:nowrap;white-space:nowrap;max-width:none}
 .dock__consent label{display:flex;align-items:center;gap:7px;min-height:44px;cursor:pointer}
@@ -2242,7 +2247,7 @@ body{padding-bottom:var(--dock-space,110px)}
 .dock .lead-status{grid-column:1/-1;font-size:15px;line-height:1.6;color:var(--white);margin:0}
 .lead-status[data-error=true]{font-weight:700}
 .dock [aria-invalid=true],.form [aria-invalid=true]{outline:3px solid var(--ink);outline-offset:2px}
-@media(min-width:861px) and (max-width:1200px){.dock{grid-template-columns:1fr;gap:10px}.dock__tel{flex-direction:row;align-items:center;gap:12px}.dock__tel b{font-size:32px}.dock__form{grid-template-columns:1fr 1.2fr 1fr auto auto}}
+@media(min-width:861px) and (max-width:1200px){.dock{grid-template-columns:1fr;gap:10px}.dock__tel{flex-direction:row;align-items:center;gap:12px}.dock__tel b{font-size:32px}.dock__form{grid-template-columns:1fr 1.2fr 1fr 1.1fr auto auto}}
 @media(max-width:860px){
   .hero{height:clamp(360px,90vw,650px);min-height:0}
   .dome{padding-bottom:0}.creedsplit h2{font-size:clamp(27px,5.7vw,42px)}.creedfig{width:min(100%,440px)}
@@ -2262,7 +2267,7 @@ body{padding-bottom:var(--dock-space,110px)}
   .dock__tel{flex-direction:row;align-items:center;gap:8px}.dock__tel span{font-size:15px}.dock__tel b{font-size:26px}
   .dock__toggle{display:block;font-size:16px;padding:8px 12px}
   .dock__form{display:none;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-  .dock[data-open=true] .dock__form{display:grid}.dock__field--area{grid-column:1/-1}
+  .dock[data-open=true] .dock__form{display:grid}.dock__field--area,.dock__field--type{grid-column:auto}
   .dock__consent{grid-column:1/-1;max-width:none;gap:12px}.dock__consent label,.dock__consent a{min-height:44px}
   .dock__submit{grid-column:1/-1}.dock .lead-status{font-size:15px}
   .offer-popup .offer__sign{padding:24px 20px}.offer-popup__top,.offer-popup__foot{padding:8px 12px}
@@ -2273,13 +2278,16 @@ body{padding-bottom:var(--dock-space,110px)}
 <style>
 /* 2026-09-15 client feedback: six categories, left portrait offers. */
 .hd__logo .hd__sym{margin-right:20px}
-.hd__row--split{gap:clamp(16px,2vw,32px)}
-.hd__nav{gap:clamp(32px,3vw,44px)}
+.hd__row--split{gap:clamp(24px,4.4vw,64px)}
+.hd__nav{gap:clamp(36px,3.5vw,56px)}
 .hd__nav a[aria-current="location"],.hd__mobile a[aria-current="location"]{color:var(--red-deep);border-bottom-color:var(--red-deep)}
 .hd__mobile{display:none}
 #why .swap .card:first-child{background:var(--red-deep);color:var(--white)}
 #why .swap .card:first-child :is(.card__no,.swap__big){color:var(--white)}
-#why .swap .card:last-child,#why .seg--hot{background:var(--ink)}
+#why .swap .card:last-child{background:var(--ink)}
+#why .seg--hot{background:var(--cream);color:var(--ink)}
+#why .seg--hot :is(.seg__h,.seg__d){color:var(--ink)}
+#why .seg .seg__no{color:var(--red-deep)}
 #why .seg{display:grid;grid-template-rows:auto minmax(70px,auto) 1fr;align-content:start}
 #why .seg__h{margin-top:10px;align-self:start}
 #why .seg__d{margin-top:14px}
@@ -2299,18 +2307,17 @@ body{padding-bottom:var(--dock-space,110px)}
 .offer-card__list li{padding:9px 0;border-bottom:1px solid currentColor}
 .offer-card__cta{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 12px;margin-top:auto;background:var(--white);color:var(--ink);border:1px solid var(--ink);font-size:15px;font-weight:700;text-decoration:none}
 .offer-card--support .offer-card__cta{background:var(--red-deep);color:var(--white);border-color:var(--red-deep)}
-.offer-card__foot{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;background:var(--white);color:var(--ink);flex-shrink:0}
-.offer-card__foot label{display:flex;align-items:center;gap:7px;min-height:44px;font-size:14px;line-height:1.5;cursor:pointer}
+.offer-card__foot{font-family:var(--ff-body);font-weight:400;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;background:var(--white);color:var(--ink);flex-shrink:0}
+.offer-card__foot label{display:flex;align-items:center;gap:7px;min-height:44px;font-size:17px;line-height:1.5;cursor:pointer}
 .offer-card__foot input{width:18px;height:18px;accent-color:var(--red-deep);flex-shrink:0}
-.offer-gallery button{min-width:44px;min-height:44px;border:1px solid var(--ink);background:var(--white);color:var(--ink);font-family:inherit;font-size:14px;padding:6px 10px;cursor:pointer}
-.offer-gallery__controls{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:max-content;max-width:100%;padding:4px;background:var(--white);box-shadow:0 3px 12px #0002}
-.offer-gallery__position{min-width:52px;text-align:center;font-size:14px;color:var(--ink)}
-@media(max-width:1100px){.hd__nav{gap:20px}.hd__nav a{font-size:16px}.offer-card{flex-basis:calc((100% - 12px)/2)}}
+.offer-card__foot button{font-weight:400}
+.offer-gallery button{min-width:44px;min-height:44px;border:1px solid var(--ink);background:var(--white);color:var(--ink);font-family:inherit;font-size:17px;padding:6px 10px;cursor:pointer}
+@media(max-width:1100px){.hd__row--split{gap:24px}.hd__nav{gap:24px}.hd__nav a{font-size:16px}.offer-card{flex-basis:calc((100% - 12px)/2)}}
 @media(max-width:860px){
  .hd__row--split{display:flex;justify-content:center;min-height:66px;padding:8px 20px}
  .hd__row .hd__nav{display:none}
  .hd__logo img{height:30px}.hd__logo .hd__sym{height:30px;margin-right:16px}
- .hd__mobile{display:flex;gap:28px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+ .hd__mobile{display:flex;gap:32px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
  .hd__mobile a{flex-shrink:0;display:flex;align-items:center;min-height:44px;border-bottom:3px solid transparent;font-size:14px;font-weight:700;white-space:nowrap;text-decoration:none}
  .offer-gallery{left:16px;width:calc(100vw - 32px);top:calc(var(--hd-h,112px) + 8px)}
  .offer-card{flex-basis:100%;max-height:calc(100dvh - var(--hd-h,112px) - var(--dock-space,76px) - 76px)}
@@ -3290,7 +3297,7 @@ body{padding-bottom:var(--dock-space,110px)}
       <!-- v4.51 오픈 부스터 카드 3장은 v4.54 에서 아래 「지원 상세」 섹션(#perks)으로 옮겼다(2차 미팅 지시). -->
       <!-- v4.41 — 대표 지시로 섹션 하단 잔글씨를 걷어냈다. 이 한 줄만 남긴다:
            「12無」에서 빠지는 항목을 안 적으면 표시가 기만적이 된다(표시광고법). 최소 길이로 줄였다. -->
-      <p class="note"><span class="copy-block">*교육비 300만원(VAT별도)는 별도 부과됩니다.</span> <span class="copy-block">*인테리어, 간판, 주방집기는 자율 구매 가능하며, 필요시 본사 협력업체를 연결 시켜 드립니다.</span></p>
+      <p class="note"><span class="copy-block">*교육비 300만원(VAT별도)는 별도 부과됩니다.</span> <span class="copy-block">*인테리어 · 간판 · 주방집기는 자율 구매 가능하며, 필요시 본사 협력업체를 연결 시켜 드립니다.</span></p>
     </div>
   </section>
 
@@ -3368,7 +3375,7 @@ body{padding-bottom:var(--dock-space,110px)}
           </article>
           <article class="seg seg--hot">
             <p class="seg__no">02</p>
-            <h4 class="seg__h">토스트 · 샌드위치 · 버거류 · 핫도그</h4>
+            <h4 class="seg__h">토스트 · 샌드위치 · 버거류 · 핫도그 매장</h4>
             <p class="seg__d">철판이 이미 있는 매장은 전환이 가장 빠릅니다.<br>포장 · 배달 위주로 운영해 온 매장이면 그 인프라가 <span class="copy-keep">그대로 자산이 됩니다.</span></p>
           </article>
         </div>
@@ -3473,7 +3480,7 @@ body{padding-bottom:var(--dock-space,110px)}
         </details>
         <details>
           <summary><span class="faq__question">상담은 어떻게 신청하나요?</span></summary>
-          <p class="faq__a"><span class="faq__text"><span class="copy-block">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역을 남겨 주시면 순차적으로 연락드리며, 창업 형태는 선택 입력입니다.</span><span class="copy-block">가맹 상담은 대표가 1:1로 직접 진행합니다.</span></span></p>
+          <p class="faq__a"><span class="faq__text"><span class="copy-block">아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨주시면 순차적으로 연락드립니다.</span><span class="copy-block">가맹 상담은 대표가 1:1로 직접 진행합니다.</span></span></p>
         </details>
       </div>
 
@@ -3534,10 +3541,10 @@ body{padding-bottom:var(--dock-space,110px)}
           <input id="f-area" name="area" type="text" required placeholder="시 · 군 · 구까지 적어 주세요">
         </div>
         <fieldset class="field" style="border:0;padding:0;margin-inline:0">
-          <legend style="font-family:var(--ff-plate);margin-bottom:7px">창업 형태</legend>
+          <legend style="font-family:var(--ff-plate);margin-bottom:7px">창업 형태 <span class="req" aria-hidden="true">*</span></legend>
           <div class="pills">
-            <input id="t-new" type="radio" name="type" value="신규" checked><label for="t-new">신규 창업</label>
-            <input id="t-change" type="radio" name="type" value="업종변경"><label for="t-change">업종 변경</label>
+            <input id="t-new" type="radio" name="type" value="신규" required><label for="t-new">신규 창업</label>
+            <input id="t-change" type="radio" name="type" value="업종변경" required><label for="t-change">업종 변경</label>
           </div>
         </fieldset>
         <div class="field">
@@ -3546,7 +3553,7 @@ body{padding-bottom:var(--dock-space,110px)}
         </div>
         <label class="agree">
           <input type="checkbox" name="agree" required>
-          <span>개인정보 수집 · 이용에 동의합니다. <span class="copy-block">필수 항목은 성함 · 연락처 · 창업 희망 지역이며, 창업 형태 · 문의 내용은 선택 입력입니다(접속 정보는 자동 수집). 창업 상담 목적으로만 이용하고 상담 종료일로부터 1년 후 파기합니다.</span> <a href="#privacy">전문 보기</a></span>
+          <span>개인정보 수집 · 이용에 동의합니다. <span class="copy-block">필수 항목은 성함 · 연락처 · 창업 희망 지역 · 창업 형태이며, 문의 내용은 선택 입력입니다(접속 정보는 자동 수집). 창업 상담 목적으로만 이용하고 상담 종료일로부터 1년 후 파기합니다.</span> <a href="#privacy">전문 보기</a></span>
         </label>
         <input type="hidden" name="adCode" value="">
         <input type="hidden" name="flow" value="">
@@ -3586,6 +3593,7 @@ body{padding-bottom:var(--dock-space,110px)}
     <div class="dock__field"><label for="q-name">성함</label><input id="q-name" name="name" type="text" required autocomplete="name"></div>
     <div class="dock__field"><label for="q-tel">연락처</label><input id="q-tel" name="phone" type="tel" inputmode="numeric" maxlength="13" required autocomplete="tel" placeholder="010-0000-0000"></div>
     <div class="dock__field dock__field--area"><label for="q-area">희망 지역</label><input id="q-area" name="area" type="text" required placeholder="시 · 군 · 구"></div>
+    <div class="dock__field dock__field--type"><label for="q-type">창업 형태 <span aria-hidden="true">*</span></label><select id="q-type" name="type" required><option value="">선택해 주세요</option><option value="신규">신규 창업</option><option value="업종변경">업종 변경</option></select></div>
     <div class="dock__consent"><label><input type="checkbox" name="agree" required>개인정보 수집 · 이용 동의</label><a href="#privacy">보기</a></div>
     <input type="hidden" name="adCode" value=""><input type="hidden" name="flow" value="">
     <button class="dock__submit" type="submit" disabled>상담 신청</button>
@@ -3631,7 +3639,6 @@ body{padding-bottom:var(--dock-space,110px)}
       <div class="offer-card__foot"><label><input type="checkbox">오늘 하루 보지 않기</label><button type="button" data-offer-close>닫기</button></div>
     </article>
   </div>
-  <div class="offer-gallery__controls"><button type="button" data-offer-prev aria-label="이전 팝업">←</button><span class="offer-gallery__position" aria-live="polite">1 / 3</span><button type="button" data-offer-next aria-label="다음 팝업">→</button><button type="button" data-offer-close-all>모두 닫기</button></div>
 </aside>
 
 <!-- 개인정보 처리방침 — 개인정보보호법 §30 기재사항. 리드폼이 개인정보를 수집하므로 공개는 법정 의무다 -->
@@ -3643,8 +3650,8 @@ body{padding-bottom:var(--dock-space,110px)}
   <div class="pp__body">
     <h3>1. 수집하는 개인정보 항목</h3>
     <table>
-      <tr><th>필수</th><td>성함, 연락처, 창업 희망 지역</td></tr>
-      <tr><th>선택</th><td>창업 형태, 문의 내용</td></tr>
+      <tr><th>필수</th><td>성함 · 연락처 · 창업 희망 지역 · 창업 형태</td></tr>
+      <tr><th>선택</th><td>문의 내용</td></tr>
       <tr><th>자동 수집</th><td>접속 IP, 유입 경로, 광고 코드, 접수 일시</td></tr>
     </table>
     <h3>2. 수집 · 이용 목적</h3>
@@ -3706,11 +3713,11 @@ body{padding-bottom:var(--dock-space,110px)}
   try{if(document.referrer)flow=new URL(document.referrer).hostname;}catch(e){}
   document.querySelectorAll('input[name=adCode]').forEach(function(el){el.value=adCode;});
   document.querySelectorAll('input[name=flow]').forEach(function(el){el.value=flow;});
-  document.querySelectorAll('form[data-lead] input').forEach(function(el){
+  document.querySelectorAll('form[data-lead] input,form[data-lead] select').forEach(function(el){
     el.addEventListener('input',function(){
       if(el.type==='tel'){var d=el.value.replace(/\D/g,'').slice(0,11);el.value=d.length<4?d:d.length<8?d.slice(0,3)+'-'+d.slice(3):d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);}
-      if(['name','phone','area','agree'].indexOf(el.name)<0)return;
-      document.querySelectorAll('form[data-lead] input[name="'+el.name+'"]').forEach(function(other){if(other!==el){if(el.type==='checkbox')other.checked=el.checked;else other.value=el.value;}other.removeAttribute('aria-invalid');});
+      if(['name','phone','area','agree','type'].indexOf(el.name)<0)return;
+      document.querySelectorAll('form[data-lead] [name="'+el.name+'"]').forEach(function(other){if(other!==el){if(el.type==='checkbox')other.checked=el.checked;else if(other.type==='radio')other.checked=other.value===el.value;else other.value=el.value;}other.removeAttribute('aria-invalid');});
     });
   });
   document.querySelectorAll('a[href="#privacy"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();ppOpener=a;pp.showModal();});});
@@ -3722,9 +3729,9 @@ body{padding-bottom:var(--dock-space,110px)}
     form.addEventListener('submit',function(e){
       e.preventDefault();var bad=null,message='';
       form.querySelectorAll('[required]').forEach(function(el){
-        var empty=el.type==='checkbox'?!el.checked:!el.value.trim();
+        var empty=el.type==='radio'?!form.querySelector('input[name="'+el.name+'"]:checked'):el.type==='checkbox'?!el.checked:!el.value.trim();
         var invalidPhone=el.name==='phone'&&!/^0\d{8,10}$/.test(el.value.replace(/\D/g,''));
-        if(empty||invalidPhone){el.setAttribute('aria-invalid','true');if(!bad){bad=el;message=empty?(el.type==='checkbox'?'개인정보 수집 · 이용 동의가 필요합니다.':'성함, 연락처와 희망 지역을 입력해 주세요.'):'연락처를 정확히 입력해 주세요.';}}else el.removeAttribute('aria-invalid');
+        if(empty||invalidPhone){el.setAttribute('aria-invalid','true');if(!bad){bad=el;message=empty?(el.name==='type'?'창업 형태를 선택해 주세요.':el.type==='checkbox'?'개인정보 수집 · 이용 동의가 필요합니다.':'성함, 연락처와 희망 지역을 입력해 주세요.'):'연락처를 정확히 입력해 주세요.';}}else el.removeAttribute('aria-invalid');
       });
       if(!bad&&window.TitiLeadClient){window.TitiLeadClient.submit(form);return;}
       var status=form.querySelector('.lead-status');status.dataset.error='true';
@@ -3748,11 +3755,7 @@ body{padding-bottom:var(--dock-space,110px)}
   function visibleCards(){return cards.filter(function(card){return !card.hidden;});}
   function updateOffers(){
     var visible=visibleCards();if(!visible.length){offer.hidden=true;return;}
-    var left=track.getBoundingClientRect().left,index=0,nearest=Infinity;
-    visible.forEach(function(card,i){var distance=Math.abs(card.getBoundingClientRect().left-left);if(distance<nearest){nearest=distance;index=i;}});
-    offer.querySelector('.offer-gallery__position').textContent=(index+1)+' / '+visible.length;
-    offer.querySelector('[data-offer-prev]').disabled=index===0;
-    offer.querySelector('[data-offer-next]').disabled=index===visible.length-1||track.scrollWidth<=track.clientWidth+1;
+
   }
   function closeCard(card){
     if(card.querySelector('input').checked){try{localStorage.setItem('tt-offer-hidden:'+card.dataset.offerId,today());}catch(e){}}
@@ -3760,14 +3763,12 @@ body{padding-bottom:var(--dock-space,110px)}
   }
   function closeOffers(){cards.forEach(closeCard);if(offerOpener&&offerOpener.isConnected)offerOpener.focus({preventScroll:true});}
   cards.forEach(function(card){
-    card.querySelector('[data-offer-close]').addEventListener('click',function(){closeCard(card);var next=visibleCards()[0];if(next)next.querySelector('[data-offer-close]').focus({preventScroll:true});else if(offerOpener)offerOpener.focus({preventScroll:true});});
+    card.querySelector('[data-offer-close]').addEventListener('click',function(){closeCard(card);var next=visibleCards()[0];if(next){track.scrollTo({left:track.scrollLeft+next.getBoundingClientRect().left-track.getBoundingClientRect().left,behavior:'instant'});next.querySelector('[data-offer-close]').focus({preventScroll:true});}else if(offerOpener)offerOpener.focus({preventScroll:true});});
     card.querySelector('[data-offer-contact]').addEventListener('click',function(e){e.preventDefault();var target=document.querySelector(this.hash);closeOffers();target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});if(this.hash==='#contact')document.getElementById('f-name').focus({preventScroll:true});});
   });
-  offer.querySelector('[data-offer-close-all]').addEventListener('click',closeOffers);
   offer.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();closeOffers();}});
   function moveOffer(step){var visible=visibleCards(),left=track.getBoundingClientRect().left,index=visible.reduce(function(best,card,i){return Math.abs(card.getBoundingClientRect().left-left)<Math.abs(visible[best].getBoundingClientRect().left-left)?i:best;},0),target=visible[Math.max(0,Math.min(visible.length-1,index+step))];if(target)track.scrollTo({left:track.scrollLeft+target.getBoundingClientRect().left-left,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
-  offer.querySelector('[data-offer-prev]').addEventListener('click',function(){moveOffer(-1);});
-  offer.querySelector('[data-offer-next]').addEventListener('click',function(){moveOffer(1);});
+  track.addEventListener('keydown',function(e){if(e.target===track&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();moveOffer(e.key==='ArrowLeft'?-1:1);}});
   track.addEventListener('scroll',updateOffers,{passive:true});addEventListener('resize',updateOffers);
   function openOffer(){
     if(window.TITI_BACKEND)return;
@@ -3893,7 +3894,7 @@ body{padding-bottom:var(--dock-space,110px)}
           "name": "상담은 어떻게 신청하나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역을 남겨 주시면 순차적으로 연락드리며, 창업 형태는 선택 입력입니다. 가맹 상담은 대표가 1:1로 직접 진행합니다."
+            "text": "아래 창업 문의 폼에 성함 · 연락처 · 창업 희망 지역 · 창업 형태를 남겨주시면 순차적으로 연락드립니다. 가맹 상담은 대표가 1:1로 직접 진행합니다."
           }
         }
       ]
@@ -4363,6 +4364,6 @@ body{padding-bottom:var(--dock-space,110px)}
 </script>
 
 
-<script src="_assets/feedback_20260911/admin-integration.js?v=20260915-1" defer></script>
+<script src="_assets/feedback_20260911/admin-integration.js?v=20260916-1" defer></script>
 </body>
 </html>

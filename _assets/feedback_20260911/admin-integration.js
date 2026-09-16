@@ -21,6 +21,7 @@
         var err = new Error(result.error && result.error.message || '접수 서버에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요.');
         err.status = response.status; throw err;
       }
+      if (path === '/api/inquiries' && !(response.status === 201 && result.data && result.data.duplicate === false) && !(response.status === 200 && result.data && result.data.duplicate === true)) throw new Error('접수 결과를 확인하지 못했습니다. 다시 신청해 주세요.');
       return result.data;
     } catch (err) {
       if (err.name === 'AbortError') throw new Error('접수 확인이 지연되고 있습니다. 입력 내용은 유지됩니다. 다시 신청하면 중복 없이 확인합니다.');
@@ -48,16 +49,13 @@
     });
     if (!visible.length) return;
     var style = document.createElement('style');
-    style.textContent = '.managed-popup{position:fixed;inset:0;z-index:1000;pointer-events:none;color:#24282e;font:14px/1.5 system-ui,sans-serif}.managed-popup__track{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;pointer-events:none;scroll-behavior:smooth;overscroll-behavior-x:contain}.managed-popup__card{position:absolute;box-sizing:border-box;pointer-events:auto;background:#fff;border:1px solid #ddd;box-shadow:0 12px 45px #0003;overflow:auto}.managed-popup__top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;position:sticky;top:0;background:#fff;z-index:1}.managed-popup__top strong{font-size:16px;min-width:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.managed-popup button{font:inherit;min-width:44px;min-height:44px;flex:none;background:#fff;border:1px solid #bbb;color:#24282e;cursor:pointer}.managed-popup__foot{padding:10px 12px;background:#fff;position:sticky;bottom:0}.managed-popup__foot label{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px}.managed-popup__foot input{width:20px;height:20px;flex:none}.managed-popup picture,.managed-popup__image-link{display:block}.managed-popup img{display:block;width:100%;height:auto;object-fit:contain}.managed-popup button:focus-visible,.managed-popup a:focus-visible,.managed-popup input:focus-visible{outline:3px solid #225888;outline-offset:-3px}.managed-popup__controls{position:absolute;right:14px;bottom:calc(var(--dock-space,0px) + 14px);display:flex;gap:8px;align-items:center;pointer-events:auto;padding:8px;background:#fff;border:1px solid #bbb}.managed-popup__controls span{font-size:14px}.managed-popup [hidden]{display:none!important}@media(prefers-reduced-motion:reduce){.managed-popup__track{scroll-behavior:auto}}';
+    style.textContent = '.managed-popup{position:fixed;inset:0;z-index:1000;pointer-events:none;color:#24282e;font:14px/1.5 system-ui,sans-serif}.managed-popup__track{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;pointer-events:none;scroll-behavior:smooth;overscroll-behavior-x:contain}.managed-popup__card{position:absolute;box-sizing:border-box;pointer-events:auto;background:#fff;border:1px solid #ddd;box-shadow:0 12px 45px #0003;overflow:auto}.managed-popup__top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;position:sticky;top:0;background:#fff;z-index:1}.managed-popup__top strong{font-size:16px;min-width:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.managed-popup button{font:inherit;min-width:44px;min-height:44px;flex:none;background:#fff;border:1px solid #bbb;color:#24282e;cursor:pointer;font-weight:700}.managed-popup__foot{padding:10px 12px;background:#fff;position:sticky;bottom:0}.managed-popup__foot label{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;font-weight:700}.managed-popup__foot input{width:20px;height:20px;flex:none}.managed-popup picture,.managed-popup__image-link{display:block}.managed-popup img{display:block;width:100%;height:auto;object-fit:contain}.managed-popup__track:focus-visible,.managed-popup button:focus-visible,.managed-popup a:focus-visible,.managed-popup input:focus-visible{outline:3px solid #225888;outline-offset:-3px}.managed-popup [hidden]{display:none!important}@media(prefers-reduced-motion:reduce){.managed-popup__track{scroll-behavior:auto}}';
     document.head.appendChild(style);
     var gallery = document.createElement('aside'); gallery.className = 'managed-popup';
     gallery.setAttribute('aria-label', '티티버거 창업 안내');
     var track = document.createElement('div'); track.className = 'managed-popup__track';
-    var controls = document.createElement('div'); controls.className = 'managed-popup__controls';
-    var prev = document.createElement('button'), next = document.createElement('button'), close = document.createElement('button'), count = document.createElement('span');
-    prev.type = next.type = close.type = 'button'; prev.textContent = '이전'; next.textContent = '다음'; close.textContent = '모두 닫기';
-    prev.setAttribute('aria-label','이전 팝업'); next.setAttribute('aria-label','다음 팝업'); count.setAttribute('aria-live','polite');
-    controls.append(prev, count, next, close); gallery.append(track, controls); document.body.appendChild(gallery);
+    track.tabIndex = 0; track.setAttribute('role', 'region'); track.setAttribute('aria-label', '창업 안내 팝업, 좌우로 넘기거나 방향키로 이동');
+    gallery.appendChild(track); document.body.appendChild(gallery);
     var cards = [], current = 0;
     function number(value, fallback, min, max) { var n = Number(value); return Math.max(min, Math.min(max, Number.isFinite(n) ? n : fallback)); }
     function remember(item) {
@@ -77,7 +75,6 @@
     function move(index) {
       current = Math.max(0, Math.min(cards.length - 1, index));
       track.scrollTo({left:Math.max(0, cards[current].x - 14)});
-      count.textContent = (current + 1) + ' / ' + cards.length;
     }
     function closeCard(item) {
       remember(item); var index = cards.indexOf(item); cards.splice(index, 1); item.card.remove();
@@ -122,12 +119,17 @@
         placed.push({x:x,width:width});
       });
       var overflow = placed.some(function (item) { return item.x + item.width > vw; });
-      prev.hidden = next.hidden = count.hidden = !overflow;
-      current = Math.min(current, cards.length - 1); count.textContent = (current + 1) + ' / ' + cards.length;
+      current = Math.min(current, cards.length - 1);
       if (!overflow) track.scrollLeft = 0;
     }
-    prev.addEventListener('click', function () { move(current - 1); });
-    next.addEventListener('click', function () { move(current + 1); }); close.addEventListener('click', closeAll);
+    track.addEventListener('keydown', function (event) {
+      if (event.target !== track || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault(); move(event.key === 'Home' ? 0 : event.key === 'End' ? cards.length - 1 : current + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    track.addEventListener('focusin', function (event) {
+      var index = cards.findIndex(function (item) { return item.card.contains(event.target); });
+      if (index >= 0) move(index);
+    });
     document.addEventListener('keydown', escape); window.addEventListener('resize', size); size();
   }
   var botReady;
@@ -178,7 +180,11 @@
       var sent = false;
       try {
         await ready;
-        var data = Object.fromEntries(new FormData(form)), kind = data.type === '신규' ? 'new' : data.type === '업종변경' ? 'conversion' : 'unknown';
+        var data = Object.fromEntries(new FormData(form)), kind = ['신규', 'new'].includes(data.type) ? 'new' : ['업종변경', 'conversion'].includes(data.type) ? 'conversion' : '';
+        if (!kind) {
+          var typeField = form.querySelector('[name=type]'); if (typeField) typeField.focus();
+          throw new Error('창업 형태에서 신규 창업 또는 업종 변경을 선택해 주세요.');
+        }
         var payload = {name: data.name.trim(), phone: data.phone.replace(/\D/g, ''), area: data.area.trim(), type: kind,
           message: (data.message || '').trim(), agree: !!form.querySelector('[name=agree]').checked, website: data.website || ''};
         var fingerprint = JSON.stringify(payload);
